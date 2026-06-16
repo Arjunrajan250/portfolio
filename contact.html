@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Contact &amp; Connect | Arjun R</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&amp;family=Geist:wght@400;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .blueprint-grid {
+            background-image:
+                linear-gradient(to right, rgba(198, 198, 204, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(198, 198, 204, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(18, 33, 49, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 25px rgba(198, 198, 204, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(198, 198, 204, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .shimmer:hover::after {
+            left: 100%;
+            top: 100%;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#1a1c20",
+                        "outline-variant": "#45474b",
+                        "on-surface": "#d4e4fa",
+                        "on-secondary-container": "#aeb9d0",
+                        "primary": "#c6c6cc",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "primary-container": "#0a0c10",
+                        "on-tertiary-fixed": "#07006c",
+                        "error-container": "#93000a",
+                        "on-background": "#d4e4fa",
+                        "on-primary-fixed-variant": "#45474b",
+                        "inverse-on-surface": "#233143",
+                        "surface-container-lowest": "#010f1f",
+                        "on-secondary-fixed": "#111c2d",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#1c2b3c",
+                        "surface-container-highest": "#273647",
+                        "secondary": "#bcc7de",
+                        "primary-fixed": "#e2e2e8",
+                        "surface-container": "#122131",
+                        "surface-bright": "#2c3a4c",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#d4e4fa",
+                        "surface": "#051424",
+                        "on-tertiary-container": "#6669f4",
+                        "secondary-container": "#3e495d",
+                        "on-primary": "#2f3035",
+                        "on-primary-container": "#797a7f",
+                        "surface-dim": "#051424",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "tertiary-container": "#02003e",
+                        "secondary-fixed": "#d8e3fb",
+                        "outline": "#909095",
+                        "primary-fixed-dim": "#c6c6cc",
+                        "on-surface-variant": "#c6c6cb",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "background": "#051424",
+                        "surface-container-low": "#0d1c2d",
+                        "on-secondary": "#263143",
+                        "surface-variant": "#273647",
+                        "tertiary": "#c0c1ff",
+                        "surface-tint": "#c6c6cc",
+                        "on-tertiary": "#1000a9",
+                        "tertiary-fixed": "#e1e0ff",
+                        "inverse-primary": "#5d5e63"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "stack-md": "24px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Geist"],
+                        "code-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "code-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-surface blueprint-grid min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation Bar -->
+    <nav
+        class="bg-surface/60 backdrop-blur-xl docked full-width top-0 sticky border-b border-white/10 shadow-[0_0_20px_rgba(198,198,204,0.1)] flex justify-between items-center w-full px-margin-desktop py-4 z-50">
+        <div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">
+            Arjun R
+        </div>
+        <div class="hidden md:flex items-center gap-gutter">
+            <a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors"
+                href="index.html">Home</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors"
+                href="projects.html">Projects</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors"
+                href="experience.html">Experience</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors"
+                href="about.html">About</a>
+            <a class="font-label-caps text-label-caps text-primary dark:text-primary border-b-2 border-primary pb-1"
+                href="contact.html">Contact</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button
+                class="material-symbols-outlined text-primary hover:bg-white/5 p-2 rounded-full transition-all">terminal</button>
+            <div class="w-10 h-10 rounded-full overflow-hidden border border-white/20">
+                <img alt="Developer Profile Avatar" class="w-full h-full object-cover"
+                    src="assets/images/profile_avatar.jpg">
+            </div>
+        </div>
+    </nav>
+
+    <main
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex-grow flex items-center w-full relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter w-full items-center">
+            <!-- Text Column -->
+            <div class="lg:col-span-5 space-y-stack-md flex flex-col justify-center">
+                <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] block">CONNECTION PORT</span>
+                <h1 class="font-headline-xl text-headline-xl text-on-surface leading-none">
+                    Establish <br><span class="text-primary-fixed-dim">Link</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Submit an integration request. I am actively booking consulting engagements and technical contracts.
+                </p>
+
+                <div class="pt-6 space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 glass-panel rounded-lg flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                        <div>
+                            <div class="font-label-caps text-[10px] text-on-surface-variant">SECURE_EMAIL</div>
+                            <a href="mailto:arjun.r.dev@gmail.com"
+                                class="font-code-sm text-code-sm text-on-surface hover:text-primary transition-colors">arjunrajan3333@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 glass-panel rounded-lg flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <div>
+                            <div class="font-label-caps text-[10px] text-on-surface-variant">GEOLOCATION</div>
+                            <span class="font-code-sm text-code-sm text-on-surface">Alappuzha, Kerala, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Column -->
+            <div class="lg:col-span-7">
+                <div class="w-full glass-panel p-8 rounded-2xl space-y-6">
+                    <form class="space-y-6"
+                        onsubmit="event.preventDefault(); alert('Transmission payload ready for dispatch. (Demo only)');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label
+                                    class="block font-label-caps text-[11px] text-on-surface-variant mb-2">SENDER_NAME</label>
+                                <input type="text" required
+                                    class="w-full bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-colors font-body-md"
+                                    placeholder="e.g. Arjun R">
+                            </div>
+                            <div>
+                                <label
+                                    class="block font-label-caps text-[11px] text-on-surface-variant mb-2">EMAIL_ADDRESS</label>
+                                <input type="email" required
+                                    class="w-full bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-colors font-body-md"
+                                    placeholder="e.g. arjunrjan3333@gmail.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block font-label-caps text-[11px] text-on-surface-variant mb-2">PROJECT_TYPE</label>
+                            <select
+                                class="w-full bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors font-body-md">
+                                <option class="bg-surface-dim">Front-End Development (Angular)</option>
+                                <option class="bg-surface-dim">UI/UX Architecture & Design Ops</option>
+                                <option class="bg-surface-dim">Custom Technical Consultation</option>
+                                <option class="bg-surface-dim">Other Collaborative Integration</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block font-label-caps text-[11px] text-on-surface-variant mb-2">TRANSMISSION_PAYLOAD</label>
+                            <textarea rows="4" required
+                                class="w-full bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-colors font-body-md"
+                                placeholder="Provide description of payload (project details, requirements, etc.)..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="shimmer w-full bg-primary text-on-primary font-label-caps text-label-caps py-4 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-95 transition-transform duration-300 shadow-lg shadow-primary/10">
+                            INITIATE_TRANSMISSION
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+        class="bg-surface-container-lowest border-t border-white/5 flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-stack-lg gap-gutter relative z-10">
+        <div class="font-label-caps text-label-caps text-on-surface-variant">
+            © 2024 Arjun R. Precision Engineered UI.
+        </div>
+        <div class="flex gap-gutter">
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors cursor-pointer transform hover:translate-y-[-2px] transition-transform"
+                href="#">GitHub</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors cursor-pointer transform hover:translate-y-[-2px] transition-transform"
+                href="#">LinkedIn</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors cursor-pointer transform hover:translate-y-[-2px] transition-transform"
+                href="#">Source Code</a>
+        </div>
+        <div class="text-primary font-headline-md font-bold tracking-tighter opacity-20">
+            A.R
+        </div>
+    </footer>
+
+    <script>
+        // Floating cursor effect for background
+        const bgLayer = document.createElement('div');
+        bgLayer.className = 'fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-30';
+        bgLayer.innerHTML = '<div id="cursor-glow" class="w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] absolute -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 opacity-0"></div>';
+        document.body.prepend(bgLayer);
+
+        const glow = document.getElementById('cursor-glow');
+        window.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+            glow.style.opacity = '1';
+        });
+    </script>
+</body>
+
+</html>
