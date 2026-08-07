@@ -428,7 +428,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             output = `
 <div class="mt-1 font-bold text-accent">CAREER TIMELINE SUMMARY:</div>
 <div class="ml-2 mt-1 space-y-1">
-  <div>&bull; <span class="text-accent font-semibold">Front-End Developer</span> | June 20, 2025 &mdash; Present</div>
+  <div>&bull; <span class="text-accent font-semibold">Front-End Developer</span> | June 20, 2024 &mdash; Present</div>
   <div>&bull; <span class="text-accent font-semibold">MERN Stack Intern</span> | July 2023 &mdash; Jan 2024</div>
   <div>&bull; <span class="text-accent font-semibold">Diploma in Computer Engineering</span> | 2021 &mdash; 2023</div>
 </div>
