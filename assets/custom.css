@@ -509,3 +509,99 @@ h1, h2, .font-syne {
     background: rgba(6, 182, 212, 0.1);
     color: #fff;
 }
+
+/* ==========================================================================
+   Comprehensive Responsive & 4K Display Enhancements (320px -> 3840px)
+   ========================================================================== */
+
+/* Ultra-Wide Screen Optimizations (1920px+) */
+@media (min-width: 1920px) {
+    .max-w-\[1700px\] {
+        max-width: 1920px !important;
+    }
+}
+
+/* 4K Ultra-Wide Screen Optimizations (2560px+) */
+@media (min-width: 2560px) {
+    :root {
+        font-size: 18px; /* Elevate REM typography scale for 4K displays */
+    }
+
+    body {
+        font-size: 1.125rem;
+    }
+
+    .max-w-\[1700px\] {
+        max-width: 2400px !important;
+    }
+
+    .glass-panel-v2, .glass-card, .skill-card {
+        border-width: 1.5px;
+    }
+
+    .terminal-hud-window {
+        max-width: 1400px !important;
+        max-height: 900px !important;
+    }
+
+    .project-modal-content, .resume-modal-content {
+        max-width: 1600px !important;
+    }
+}
+
+/* 4K Native High Resolution (3840px+) */
+@media (min-width: 3840px) {
+    :root {
+        font-size: 22px; /* Scale up base typography for 4K monitors */
+    }
+
+    .max-w-\[1700px\] {
+        max-width: 3200px !important;
+    }
+
+    .terminal-hud-window {
+        max-width: 2000px !important;
+        max-height: 1200px !important;
+    }
+}
+
+/* Tablet & Mobile Breakpoint Adjustments (max-width: 768px) */
+@media (max-width: 768px) {
+    .terminal-hud-overlay {
+        padding: 10px;
+    }
+    .terminal-hud-window {
+        width: 98vw;
+        height: 92vh;
+    }
+}
+
+/* Extra-Small Mobile Devices (320px to 480px) */
+@media (max-width: 480px) {
+    .mobile-nav-drawer {
+        width: 88vw;
+        max-width: 320px;
+    }
+
+    .terminal-hud-window {
+        width: 96vw;
+        height: 88vh;
+        margin: 0 auto;
+    }
+
+    .project-modal-content, .resume-modal-content {
+        width: 95vw;
+        padding: 1.25rem !important;
+    }
+
+    /* Typography scaling for small mobile screens */
+    h1 {
+        font-size: 2.15rem !important;
+        line-height: 1.2 !important;
+    }
+
+    h2 {
+        font-size: 1.65rem !important;
+        line-height: 1.25 !important;
+    }
+}
