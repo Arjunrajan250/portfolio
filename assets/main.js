@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAudioToggle();
     initSkillRadar();
     initProjectFilters();
+    initScrollSpyAndNavbar();
 });
 
 // --- 0. Ambient Particle Network Canvas ---
@@ -151,11 +152,11 @@ function injectSharedComponents() {
                         <button id="mobile-drawer-close" class="material-symbols-outlined text-on-surface-variant hover:text-cyan-400 transition-colors">close</button>
                     </div>
                     <div class="flex flex-col gap-6 font-label-caps text-label-caps text-[14px]">
-                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="index.html"><span>Home</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
-                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="projects.html"><span>Projects</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
-                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="experience.html"><span>Experience</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
-                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="about.html"><span>About</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
-                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="contact.html"><span>Contact</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
+                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="#home"><span>Home</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
+                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="#projects"><span>Projects</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
+                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="#experience"><span>Experience</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
+                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="#about"><span>About</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
+                        <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="#contact"><span>Contact</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
                     </div>
                 </div>
                 <div class="font-code-sm text-[11px] text-on-surface-variant opacity-70 flex items-center justify-between">
@@ -292,6 +293,9 @@ function initMobileDrawer() {
     btn.addEventListener('click', () => toggle(true));
     overlay.addEventListener('click', () => toggle(false));
     if (closeBtn) closeBtn.addEventListener('click', () => toggle(false));
+    drawer.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => toggle(false));
+    });
 }
 
 // --- 4. Interactive HUD Terminal Modal ---
@@ -866,4 +870,61 @@ function filterProjectsList(category, searchQuery) {
             }
         }, 200);
     });
+}
+
+// --- 11. Animated ScrollSpy & Sticky Floating Glass Navbar ---
+function initScrollSpyAndNavbar() {
+    const navLinks = document.querySelectorAll('.nav-link[data-nav]');
+    const navElement = document.querySelector('nav');
+    const sections = document.querySelectorAll('section[id], div[id="about"]');
+
+    if (!navLinks.length) return;
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || !targetId.startsWith('#')) return;
+            const targetSec = document.querySelector(targetId);
+            if (targetSec) {
+                e.preventDefault();
+                targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Sticky Nav Glass backdrop on scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+            navElement?.classList.add('shadow-2xl', 'bg-slate-950/90', 'backdrop-blur-3xl');
+        } else {
+            navElement?.classList.remove('shadow-2xl', 'bg-slate-950/90');
+        }
+    });
+
+    // IntersectionObserver ScrollSpy
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    if (link.dataset.nav === currentId) {
+                        link.classList.remove('text-slate-400');
+                        link.classList.add('text-cyan-400', 'border-b-2', 'border-cyan-400', 'pb-1', 'font-semibold');
+                    } else {
+                        link.classList.remove('text-cyan-400', 'border-b-2', 'border-cyan-400', 'pb-1', 'font-semibold');
+                        link.classList.add('text-slate-400');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(sec => observer.observe(sec));
 }

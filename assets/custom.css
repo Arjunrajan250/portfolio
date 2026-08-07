@@ -24,6 +24,7 @@
 /* Base resets & styles */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
     color-scheme: dark;
 }
 
@@ -508,6 +509,11 @@ h1, h2, .font-syne {
     border-color: var(--color-cyan);
     background: rgba(6, 182, 212, 0.1);
     color: #fff;
+}
+
+/* Profile Avatar Alignment */
+.profile-avatar-img {
+    object-position: top !important;
 }
 
 /* ==========================================================================

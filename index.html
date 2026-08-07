@@ -38,17 +38,17 @@
 <span class="font-headline-md text-xl font-bold tracking-tight text-white font-syne">Arjun R</span>
 <span class="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-400 bg-cyan-950/40">UI ARCHITECT</span>
 </div>
-<div class="hidden md:flex gap-8 items-center font-mono text-xs tracking-wider">
-<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold" href="index.html">HOME</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="projects.html">PROJECTS</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="experience.html">EXPERIENCE</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="about.html">ABOUT</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="contact.html">CONTACT</a>
+<div class="hidden md:flex gap-8 items-center font-mono text-xs tracking-wider nav-links-container">
+<a class="nav-link text-cyan-400 font-semibold border-b-2 border-cyan-400 pb-1 transition-all" href="#home" data-nav="home">HOME</a>
+<a class="nav-link text-slate-400 hover:text-white transition-all" href="#projects" data-nav="projects">PROJECTS</a>
+<a class="nav-link text-slate-400 hover:text-white transition-all" href="#experience" data-nav="experience">EXPERIENCE</a>
+<a class="nav-link text-slate-400 hover:text-white transition-all" href="#about" data-nav="about">ABOUT</a>
+<a class="nav-link text-slate-400 hover:text-white transition-all" href="#contact" data-nav="contact">CONTACT</a>
 </div>
 <div class="flex items-center gap-4">
 <button class="navbar-terminal-btn material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors text-xl" title="Open Interactive CLI Terminal (Ctrl+\)">terminal</button>
 <div class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md" title="Click to view profile photo">
-<img alt="Arjun R Profile Avatar" class="w-full h-full object-cover profile-avatar-img" src="assets/images/profile_avatar.jpg">
+<img alt="Arjun R Profile Avatar" class="w-full h-full object-cover object-top profile-avatar-img" src="assets/images/profile_avatar.jpg">
 </div>
 <button id="mobile-menu-btn" class="md:hidden material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors">menu</button>
 </div>
@@ -65,7 +65,7 @@
 <div class="glass-panel-v2 p-6 rounded-2xl border-white/10 shadow-xl space-y-5">
 <div class="flex items-center gap-4">
 <div class="w-14 h-14 rounded-2xl overflow-hidden border border-cyan-500/40 relative bg-slate-900 profile-avatar-btn">
-<img src="assets/images/profile_avatar.jpg" alt="Arjun R Avatar" class="w-full h-full object-cover profile-avatar-img">
+<img src="assets/images/profile_avatar.jpg" alt="Arjun R Avatar" class="w-full h-full object-cover object-top profile-avatar-img">
 <div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-slate-950 animate-pulse"></div>
 </div>
 <div>
@@ -284,7 +284,7 @@ LAUNCH_CLI.EXE &rarr;
 </section>
 
 <!-- Professional Journey & Education Section -->
-<section class="px-4 md:px-12 py-24 max-w-[1700px] mx-auto" id="journey">
+<section class="px-4 md:px-12 py-24 max-w-[1700px] mx-auto" id="experience">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 <div class="space-y-6">
 <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 tracking-widest uppercase bg-indigo-950/50 px-3 py-1 rounded border border-indigo-500/30">
@@ -568,6 +568,78 @@ Core technical proficiencies across enterprise front-end frameworks, reactive st
 <div class="skill-progress-bar">
 <div class="skill-progress-fill" data-level="85%"></div>
 </div>
+</div>
+</div>
+<!-- About & Developer Ethos Section -->
+<section class="px-4 md:px-12 py-24 max-w-[1700px] mx-auto border-t border-white/10" id="about">
+<div class="mb-12">
+<span class="font-mono text-xs text-cyan-400 mb-2 block tracking-widest uppercase">BACKGROUND // ETHOS</span>
+<h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Engineering Philosophy &amp; Profile</h2>
+<p class="text-slate-300 text-base md:text-lg max-w-3xl font-sans">
+Specializing in high-performance front-end architecture, reactive stream processing, and complex data visualization for enterprise applications.
+</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 items-center">
+<div class="lg:col-span-8 space-y-6">
+<div class="glass-panel-v2 p-8 md:p-10 rounded-3xl border-white/10 shadow-2xl">
+<h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Building Precision Interfaces with Reactive Code &amp; AI Workflows</h3>
+<p class="text-slate-300 text-base leading-relaxed mb-6">
+I am a Senior Front-End Developer and UI Engineer based in Alappuzha, Kerala, India. My passion lies in driving high-productivity, rapid software development using modern AI workflows — while strictly enforcing enterprise data privacy, zero-leakage standards, and security integrity.
+</p>
+<p class="text-slate-300 text-base leading-relaxed mb-6">
+Over the past years, I have built production Angular platforms for Innspark's enterprise cybersecurity suite using signals, RxJS reactive pipelines, and NgRx state management, alongside custom visualization engines powered by Sigma.js and amCharts.
+</p>
+<div class="flex flex-wrap gap-6 pt-4 border-t border-white/10 font-mono text-xs">
+<div class="flex items-center gap-2 text-cyan-400">
+<span class="material-symbols-outlined text-base">location_on</span> Alappuzha, Kerala, IN
+</div>
+<div class="flex items-center gap-2 text-indigo-400">
+<span class="material-symbols-outlined text-base">work</span> Currently working at Innspark Solutions
+</div>
+</div>
+</div>
+</div>
+
+<div class="lg:col-span-4 flex justify-center">
+<div class="relative group w-full max-w-md">
+<div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+<div class="relative glass-panel-v2 p-4 rounded-3xl border-white/10 overflow-hidden shadow-2xl text-center">
+<img src="assets/images/profile_avatar.jpg" alt="Arjun R Profile Photo" class="w-full h-auto aspect-[3/4] max-h-[460px] object-cover object-top rounded-2xl mb-4 profile-avatar-img cursor-pointer hover:scale-[1.02] transition-transform">
+<div class="font-mono text-xs text-white font-bold mb-1">Arjun R</div>
+<div class="font-mono text-[11px] text-cyan-400">Senior UI Engineer</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-panel-v2 p-8 rounded-3xl border-indigo-500/30 hover:border-indigo-500/60 shadow-xl transition-all">
+<span class="material-symbols-outlined text-4xl text-indigo-400 mb-6">code</span>
+<h4 class="text-xl font-bold text-white mb-2">Angular &amp; Signals</h4>
+<p class="text-slate-300 text-sm leading-relaxed mb-4">Enterprise standalone component architectures, zone-less signal state updates, lazy-loaded submodules, and strict TypeScript types.</p>
+<span class="badge-pill bg-indigo-950/60 text-indigo-300 border-indigo-500/30">CORE DOMAIN</span>
+</div>
+
+<div class="glass-panel-v2 p-8 rounded-3xl border-cyan-500/30 hover:border-cyan-500/60 shadow-xl transition-all">
+<span class="material-symbols-outlined text-4xl text-cyan-400 mb-6">hub</span>
+<h4 class="text-xl font-bold text-white mb-2">Sigma.js &amp; amCharts</h4>
+<p class="text-slate-300 text-sm leading-relaxed mb-4">ForceAtlas2 layout algorithms, multi-cluster node inspection, real-time streaming telemetry charts, and high-frequency UI updates.</p>
+<span class="badge-pill bg-cyan-950/60 text-cyan-300 border-cyan-500/30">VISUALIZATION</span>
+</div>
+
+<div class="glass-panel-v2 p-8 rounded-3xl border-violet-500/30 hover:border-violet-500/60 shadow-xl transition-all">
+<span class="material-symbols-outlined text-4xl text-violet-400 mb-6">style</span>
+<h4 class="text-xl font-bold text-white mb-2">Cyber UI Systems</h4>
+<p class="text-slate-300 text-sm leading-relaxed mb-4">Vanilla CSS variables, Tailwind CSS design tokens, dark glassmorphic UI components, 3D card tilt micro-interactions, and accessibility standards.</p>
+<span class="badge-pill bg-violet-950/60 text-violet-300 border-violet-500/30">DESIGN TOKENS</span>
+</div>
+
+<div class="glass-panel-v2 p-8 rounded-3xl border-emerald-500/30 hover:border-emerald-500/60 shadow-xl transition-all">
+<span class="material-symbols-outlined text-4xl text-emerald-400 mb-6">view_in_ar</span>
+<h4 class="text-xl font-bold text-white mb-2">Three.js &amp; WebGL</h4>
+<p class="text-slate-300 text-sm leading-relaxed mb-4">Interactive 3D canvas viewports, custom GLSL lighting shaders, camera orbit animations, and GLTF 3D model loaders.</p>
+<span class="badge-pill bg-emerald-950/60 text-emerald-300 border-emerald-500/30">3D GRAPHICS</span>
 </div>
 </div>
 </section>
