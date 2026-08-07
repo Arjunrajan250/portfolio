@@ -4,267 +4,237 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Contact &amp; Connect | Arjun R</title>
+    <title>Contact Arjun R | Get in Touch &amp; Collaboration</title>
+    <meta name="description"
+        content="Reach out to Arjun R, Senior Front-End Developer & UI Engineer based in Alappuzha, Kerala, for software roles, contract engineering, or UI architecture consulting.">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&amp;family=Geist:wght@400;600;700;800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
         rel="stylesheet">
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        .blueprint-grid {
-            background-image:
-                linear-gradient(to right, rgba(198, 198, 204, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(198, 198, 204, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .glass-panel {
-            backdrop-filter: blur(12px);
-            background: rgba(18, 33, 49, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .glow-hover:hover {
-            box-shadow: 0 0 25px rgba(198, 198, 204, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .shimmer {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .shimmer::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(198, 198, 204, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: 0.5s;
-        }
-
-        .shimmer:hover::after {
-            left: 100%;
-            top: 100%;
-        }
-    </style>
+    <link href="assets/custom.css" rel="stylesheet">
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "on-primary-fixed": "#1a1c20",
-                        "outline-variant": "#45474b",
-                        "on-surface": "#d4e4fa",
-                        "on-secondary-container": "#aeb9d0",
-                        "primary": "#c6c6cc",
-                        "on-error": "#690005",
-                        "on-secondary-fixed-variant": "#3c475a",
-                        "primary-container": "#0a0c10",
-                        "on-tertiary-fixed": "#07006c",
-                        "error-container": "#93000a",
-                        "on-background": "#d4e4fa",
-                        "on-primary-fixed-variant": "#45474b",
-                        "inverse-on-surface": "#233143",
-                        "surface-container-lowest": "#010f1f",
-                        "on-secondary-fixed": "#111c2d",
-                        "secondary-fixed-dim": "#bcc7de",
-                        "on-error-container": "#ffdad6",
-                        "surface-container-high": "#1c2b3c",
-                        "surface-container-highest": "#273647",
-                        "secondary": "#bcc7de",
-                        "primary-fixed": "#e2e2e8",
-                        "surface-container": "#122131",
-                        "surface-bright": "#2c3a4c",
-                        "error": "#ffb4ab",
-                        "inverse-surface": "#d4e4fa",
-                        "surface": "#051424",
-                        "on-tertiary-container": "#6669f4",
-                        "secondary-container": "#3e495d",
-                        "on-primary": "#2f3035",
-                        "on-primary-container": "#797a7f",
-                        "surface-dim": "#051424",
-                        "tertiary-fixed-dim": "#c0c1ff",
-                        "tertiary-container": "#02003e",
-                        "secondary-fixed": "#d8e3fb",
-                        "outline": "#909095",
-                        "primary-fixed-dim": "#c6c6cc",
-                        "on-surface-variant": "#c6c6cb",
-                        "on-tertiary-fixed-variant": "#2f2ebe",
-                        "background": "#051424",
-                        "surface-container-low": "#0d1c2d",
-                        "on-secondary": "#263143",
-                        "surface-variant": "#273647",
-                        "tertiary": "#c0c1ff",
-                        "surface-tint": "#c6c6cc",
-                        "on-tertiary": "#1000a9",
-                        "tertiary-fixed": "#e1e0ff",
-                        "inverse-primary": "#5d5e63"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "unit": "4px",
-                        "margin-desktop": "64px",
-                        "stack-lg": "48px",
-                        "stack-sm": "12px",
-                        "section-gap": "120px",
-                        "gutter": "24px",
-                        "stack-md": "24px",
-                        "container-max": "1280px",
-                        "margin-mobile": "16px"
-                    },
-                    "fontFamily": {
-                        "headline-xl": ["Geist"],
-                        "code-sm": ["JetBrains Mono"],
-                        "label-caps": ["JetBrains Mono"],
-                        "body-md": ["Geist"],
-                        "headline-md": ["Geist"],
-                        "headline-lg-mobile": ["Geist"],
-                        "headline-lg": ["Geist"],
-                        "body-lg": ["Geist"]
-                    },
-                    "fontSize": {
-                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
-                        "code-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
-                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
-                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    colors: {
+                        primary: "#6366f1",
+                        cyan: "#06b6d4",
+                        violet: "#a855f7",
+                        surface: "#0d1527",
+                        background: "#090d16"
                     }
-                },
-            },
+                }
+            }
         }
     </script>
 </head>
 
-<body class="bg-background text-on-surface blueprint-grid min-h-screen flex flex-col justify-between">
+<body
+    class="bg-background text-slate-200 selection:bg-indigo-500/30 min-h-screen flex flex-col justify-between blueprint-grid relative">
+
+    <!-- Background Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
 
     <!-- Top Navigation Bar -->
     <nav
-        class="bg-surface/60 backdrop-blur-xl docked full-width top-0 sticky border-b border-white/10 shadow-[0_0_20px_rgba(198,198,204,0.1)] flex justify-between items-center w-full px-margin-desktop py-4 z-50">
-        <div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">
-            Arjun R
+        class="bg-slate-950/70 backdrop-blur-2xl border-b border-indigo-500/15 shadow-[0_4px_30px_rgba(0,0,0,0.5)] sticky top-0 flex justify-between items-center w-full px-4 md:px-12 py-3.5 z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_10px_#06b6d4]"></div>
+            <span class="font-headline-md text-xl font-bold tracking-tight text-white font-syne">Arjun R</span>
+            <span
+                class="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-400 bg-cyan-950/40">DISPATCH
+                CONSOLE</span>
         </div>
-        <div class="hidden md:flex items-center gap-gutter">
-            <a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors"
-                href="index.html">Home</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors"
-                href="projects.html">Projects</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors"
-                href="experience.html">Experience</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors"
-                href="about.html">About</a>
-            <a class="font-label-caps text-label-caps text-primary dark:text-primary border-b-2 border-primary pb-1"
-                href="contact.html">Contact</a>
+        <div class="hidden md:flex gap-8 items-center font-mono text-xs tracking-wider">
+            <a class="text-slate-400 hover:text-white transition-colors" href="index.html">HOME</a>
+            <a class="text-slate-400 hover:text-white transition-colors" href="projects.html">PROJECTS</a>
+            <a class="text-slate-400 hover:text-white transition-colors" href="experience.html">EXPERIENCE</a>
+            <a class="text-slate-400 hover:text-white transition-colors" href="about.html">ABOUT</a>
+            <a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold" href="contact.html">CONTACT</a>
         </div>
         <div class="flex items-center gap-4">
             <button
-                class="material-symbols-outlined text-primary hover:bg-white/5 p-2 rounded-full transition-all">terminal</button>
-            <div class="w-10 h-10 rounded-full overflow-hidden border border-white/20">
-                <img alt="Developer Profile Avatar" class="w-full h-full object-cover"
+                class="navbar-terminal-btn material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors text-xl"
+                title="Open Interactive CLI Terminal (Ctrl+\)">terminal</button>
+            <div class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md"
+                title="Click to view profile photo">
+                <img alt="Arjun R Profile Avatar" class="w-full h-full object-cover profile-avatar-img"
                     src="assets/images/profile_avatar.jpg">
             </div>
+            <button id="mobile-menu-btn"
+                class="md:hidden material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors">menu</button>
         </div>
     </nav>
 
-    <main
-        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex-grow flex items-center w-full relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter w-full items-center">
-            <!-- Text Column -->
-            <div class="lg:col-span-5 space-y-stack-md flex flex-col justify-center">
-                <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] block">CONNECTION PORT</span>
-                <h1 class="font-headline-xl text-headline-xl text-on-surface leading-none">
-                    Establish <br><span class="text-primary-fixed-dim">Link</span>
-                </h1>
-                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                    Submit an integration request. I am actively booking consulting engagements and technical contracts.
-                </p>
+    <main class="relative z-10 px-4 md:px-12 py-12 md:py-20 max-w-[1700px] mx-auto w-full flex-grow">
+        <!-- Page Header -->
+        <div class="mb-16">
+            <span class="font-mono text-xs text-cyan-400 mb-2 block tracking-widest uppercase">DISPATCH //
+                INITIATE_COMMUNICATION</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Let's Build Something Precision-Driven</h1>
+            <p class="text-slate-300 text-base md:text-lg max-w-3xl font-sans">
+                Whether you are looking for specialized Angular development, complex data visualization, or full-time UI
+                engineering, feel free to drop a message.
+            </p>
+        </div>
 
-                <div class="pt-6 space-y-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 glass-panel rounded-lg flex items-center justify-center text-primary">
-                            <span class="material-symbols-outlined">mail</span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Column: Direct Info & Social Handles (4 Cols) -->
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass-panel-v2 p-8 rounded-3xl border-white/10 shadow-xl space-y-6">
+                    <div>
+                        <span
+                            class="font-mono text-[11px] text-cyan-400 uppercase tracking-widest block mb-2">DIRECT_EMAIL</span>
+                        <div
+                            class="flex items-center justify-between bg-slate-900/90 p-4 rounded-xl border border-white/10">
+                            <span class="font-mono text-sm text-white select-all">ajuarjunr@gmail.com</span>
+                            <button id="copy-email-btn"
+                                class="w-9 h-9 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white flex items-center justify-center transition-all"
+                                title="Copy Email to Clipboard">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
+                            </button>
                         </div>
-                        <div>
-                            <div class="font-label-caps text-[10px] text-on-surface-variant">SECURE_EMAIL</div>
-                            <a href="mailto:arjun.r.dev@gmail.com"
-                                class="font-code-sm text-code-sm text-on-surface hover:text-primary transition-colors">arjunrajan3333@gmail.com</a>
+                        <div id="copy-toast" class="hidden font-mono text-[11px] text-emerald-400 mt-2">✓ Email address
+                            copied to clipboard!</div>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-6">
+                        <span
+                            class="font-mono text-[11px] text-cyan-400 uppercase tracking-widest block mb-2">PHONE_CONTACT</span>
+                        <div
+                            class="flex items-center justify-between bg-slate-900/90 p-4 rounded-xl border border-white/10">
+                            <a href="tel:+918921843248"
+                                class="font-mono text-sm text-white hover:text-cyan-400 transition-colors select-all flex items-center gap-2">
+                                <span class="material-symbols-outlined text-cyan-400 text-sm">call</span>
+                                +91 8921843248
+                            </a>
+                            <button id="copy-phone-btn"
+                                class="w-9 h-9 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white flex items-center justify-center transition-all"
+                                title="Copy Phone Number to Clipboard">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
+                            </button>
+                        </div>
+                        <div id="copy-phone-toast" class="hidden font-mono text-[11px] text-emerald-400 mt-2">✓ Phone
+                            number copied to clipboard!</div>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-6">
+                        <span
+                            class="font-mono text-[11px] text-cyan-400 uppercase tracking-widest block mb-2">LOCATION_BASE</span>
+                        <p class="text-white font-semibold flex items-center gap-2">
+                            <span class="material-symbols-outlined text-cyan-400 text-base">location_on</span>
+                            Alappuzha, Kerala, India
+                        </p>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-6">
+                        <span
+                            class="font-mono text-[11px] text-cyan-400 uppercase tracking-widest block mb-2">SOCIAL_HANDLES</span>
+                        <div class="flex flex-col gap-3">
+                            <a href="https://github.com/Arjunrajan250" target="_blank"
+                                class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-cyan-400/50 hover:text-cyan-400 transition-all font-mono text-xs">
+                                <span class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">code</span>
+                                    GitHub / Arjunrajan250
+                                </span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 glass-panel rounded-lg flex items-center justify-center text-primary">
-                            <span class="material-symbols-outlined">location_on</span>
-                        </div>
-                        <div>
-                            <div class="font-label-caps text-[10px] text-on-surface-variant">GEOLOCATION</div>
-                            <span class="font-code-sm text-code-sm text-on-surface">Alappuzha, Kerala, India</span>
-                        </div>
+
+                    <div class="border-t border-white/10 pt-6 flex justify-between items-center font-mono text-xs">
+                        <span class="text-slate-400">LOCAL TIME (IST):</span>
+                        <span id="live-utc-clock" class="text-cyan-400 font-bold">--:--:-- IST</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Form Column -->
-            <div class="lg:col-span-7">
-                <div class="w-full glass-panel p-8 rounded-2xl space-y-6">
-                    <form class="space-y-6"
-                        onsubmit="event.preventDefault(); alert('Transmission payload ready for dispatch. (Demo only)');">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label
-                                    class="block font-label-caps text-[11px] text-on-surface-variant mb-2">SENDER_NAME</label>
-                                <input type="text" required
-                                    class="w-full bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-colors font-body-md"
-                                    placeholder="e.g. Arjun R">
-                            </div>
-                            <div>
-                                <label
-                                    class="block font-label-caps text-[11px] text-on-surface-variant mb-2">EMAIL_ADDRESS</label>
-                                <input type="email" required
-                                    class="w-full bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-colors font-body-md"
-                                    placeholder="e.g. arjunrjan3333@gmail.com">
-                            </div>
-                        </div>
+            <!-- Center Column: Interactive Message Form (5 Cols) -->
+            <div class="lg:col-span-5">
+                <div class="glass-panel-v2 p-8 md:p-10 rounded-3xl border-white/10 shadow-2xl relative">
+                    <h3 class="text-2xl font-bold text-white mb-6">Send Direct Message</h3>
+
+                    <form id="contact-form" action="https://formsubmit.co/ajuarjunr@gmail.com" method="POST" class="space-y-6">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
                         <div>
-                            <label
-                                class="block font-label-caps text-[11px] text-on-surface-variant mb-2">PROJECT_TYPE</label>
-                            <select
-                                class="w-full bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors font-body-md">
-                                <option class="bg-surface-dim">Front-End Development (Angular)</option>
-                                <option class="bg-surface-dim">UI/UX Architecture & Design Ops</option>
-                                <option class="bg-surface-dim">Custom Technical Consultation</option>
-                                <option class="bg-surface-dim">Other Collaborative Integration</option>
-                            </select>
+                            <label class="block font-mono text-xs text-slate-300 mb-2" for="user_name">YOUR NAME
+                                *</label>
+                            <input id="user_name" name="name" required type="text" placeholder="e.g. Sarah Connor"
+                                class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
                         </div>
+
                         <div>
-                            <label
-                                class="block font-label-caps text-[11px] text-on-surface-variant mb-2">TRANSMISSION_PAYLOAD</label>
-                            <textarea rows="4" required
-                                class="w-full bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-colors font-body-md"
-                                placeholder="Provide description of payload (project details, requirements, etc.)..."></textarea>
+                            <label class="block font-mono text-xs text-slate-300 mb-2" for="user_email">EMAIL ADDRESS
+                                *</label>
+                            <input id="user_email" name="email" required type="email" placeholder="e.g. sarah@cyberdyne.com"
+                                class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
                         </div>
-                        <button type="submit"
-                            class="shimmer w-full bg-primary text-on-primary font-label-caps text-label-caps py-4 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-95 transition-transform duration-300 shadow-lg shadow-primary/10">
-                            INITIATE_TRANSMISSION
-                            <span class="material-symbols-outlined">send</span>
-                        </button>
+
+                        <div>
+                            <label class="block font-mono text-xs text-slate-300 mb-2"
+                                for="user_subject">SUBJECT</label>
+                            <input id="user_subject" name="_subject" type="text" placeholder="e.g. Front-End Project Collaboration"
+                                class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block font-mono text-xs text-slate-300 mb-2" for="user_message">PROJECT
+                                DETAILS / MESSAGE *</label>
+                            <textarea id="user_message" name="message" required rows="5"
+                                placeholder="Share scope, timelines, or role details..."
+                                class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <button type="submit" id="btn-email-dispatch"
+                                class="shimmer bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-mono text-xs font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:scale-[1.01] transition-all shadow-xl shadow-indigo-500/20">
+                                SEND VIA EMAIL
+                                <span class="material-symbols-outlined text-sm">mail</span>
+                            </button>
+                            <button type="button" id="btn-whatsapp-dispatch"
+                                class="bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-mono text-xs font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:scale-[1.01] transition-all shadow-xl shadow-emerald-500/20">
+                                SEND VIA WHATSAPP
+                                <span class="material-symbols-outlined text-sm">chat</span>
+                            </button>
+                        </div>
                     </form>
+
+                    <div id="form-success"
+                        class="hidden mt-6 p-4 rounded-xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-sm text-center font-mono">
+                        ✓ Message received successfully! Arjun will respond shortly.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Collaboration FAQs & Quick Telemetry (3 Cols) -->
+            <div class="lg:col-span-3 space-y-6">
+                <div class="glass-panel-v2 p-6 rounded-3xl border-white/10 shadow-xl space-y-4 font-sans">
+                    <h4 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider">COLLABORATION_FAQ
+                    </h4>
+
+                    <div class="space-y-3 font-mono text-xs">
+                        <div class="p-3 rounded-xl bg-slate-900/80 border border-white/10">
+                            <span class="text-white font-bold block mb-1">Q: Role Availability?</span>
+                            <p class="text-slate-400 text-[11px] font-sans">Open to do any UI works.</p>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-900/80 border border-white/10">
+                            <span class="text-white font-bold block mb-1">Q: Remote / Location?</span>
+                            <p class="text-slate-400 text-[11px] font-sans">Based in Alappuzha, Kerala (IST). Fully
+                                equipped for worldwide remote engineering roles.</p>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-900/80 border border-white/10">
+                            <span class="text-white font-bold block mb-1">Q: Response SLA?</span>
+                            <p class="text-slate-400 text-[11px] font-sans">Expect direct responses within 12–24
+                                business hours.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -272,37 +242,115 @@
 
     <!-- Footer -->
     <footer
-        class="bg-surface-container-lowest border-t border-white/5 flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-stack-lg gap-gutter relative z-10">
-        <div class="font-label-caps text-label-caps text-on-surface-variant">
-            © 2024 Arjun R. Precision Engineered UI.
+        class="bg-slate-950 border-t border-white/10 flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-12 py-8 gap-4 font-mono text-xs text-slate-400 relative z-10">
+        <div>
+            © 2025 Arjun R | Senior UI Engineer. Cyber-Precision Portfolio.
         </div>
-        <div class="flex gap-gutter">
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors cursor-pointer transform hover:translate-y-[-2px] transition-transform"
-                href="#">GitHub</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors cursor-pointer transform hover:translate-y-[-2px] transition-transform"
-                href="#">LinkedIn</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors cursor-pointer transform hover:translate-y-[-2px] transition-transform"
-                href="#">Source Code</a>
-        </div>
-        <div class="text-primary font-headline-md font-bold tracking-tighter opacity-20">
-            A.R
+        <div class="flex gap-6">
+            <a class="hover:text-cyan-400 transition-colors" href="https://github.com/Arjunrajan250" target="_blank"
+                rel="noopener noreferrer">GitHub</a>
+            <a class="hover:text-cyan-400 transition-colors" href="contact.html">Contact</a>
+            <a class="hover:text-cyan-400 transition-colors" href="assets/resume.pdf" target="_blank">CV (PDF)</a>
         </div>
     </footer>
 
     <script>
-        // Floating cursor effect for background
-        const bgLayer = document.createElement('div');
-        bgLayer.className = 'fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-30';
-        bgLayer.innerHTML = '<div id="cursor-glow" class="w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] absolute -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 opacity-0"></div>';
-        document.body.prepend(bgLayer);
+        document.addEventListener('DOMContentLoaded', () => {
+            // Live clock
+            function updateClock() {
+                const now = new Date();
+                const clockEl = document.getElementById('live-utc-clock');
+                if (clockEl) {
+                    clockEl.textContent = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
+                }
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
 
-        const glow = document.getElementById('cursor-glow');
-        window.addEventListener('mousemove', (e) => {
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-            glow.style.opacity = '1';
+            // Copy Email button
+            const copyBtn = document.getElementById('copy-email-btn');
+            const copyToast = document.getElementById('copy-toast');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', () => {
+                    navigator.clipboard.writeText('ajuarjunr@gmail.com').then(() => {
+                        if (copyToast) {
+                            copyToast.classList.remove('hidden');
+                            setTimeout(() => copyToast.classList.add('hidden'), 3000);
+                        }
+                    });
+                });
+            }
+
+            // Copy Phone button
+            const copyPhoneBtn = document.getElementById('copy-phone-btn');
+            const copyPhoneToast = document.getElementById('copy-phone-toast');
+            if (copyPhoneBtn) {
+                copyPhoneBtn.addEventListener('click', () => {
+                    navigator.clipboard.writeText('+91 8921843248').then(() => {
+                        if (copyPhoneToast) {
+                            copyPhoneToast.classList.remove('hidden');
+                            setTimeout(() => copyPhoneToast.classList.add('hidden'), 3000);
+                        }
+                    });
+                });
+            }
+
+            // Contact Form handling (Direct Email Mailto & WhatsApp Dispatch)
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success');
+            const waBtn = document.getElementById('btn-whatsapp-dispatch');
+
+            function getFormData() {
+                return {
+                    name: document.getElementById('user_name')?.value?.trim() || '',
+                    email: document.getElementById('user_email')?.value?.trim() || '',
+                    subject: document.getElementById('user_subject')?.value?.trim() || 'Portfolio Collaboration Inquiry',
+                    message: document.getElementById('user_message')?.value?.trim() || ''
+                };
+            }
+
+            if (form) {
+                // Email Dispatch
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const data = getFormData();
+                    if (!data.name || !data.email || !data.message) {
+                        alert('Please fill in your Name, Email, and Message.');
+                        return;
+                    }
+                    
+                    const mailtoUrl = `mailto:ajuarjunr@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent('From: ' + data.name + ' (' + data.email + ')\n\n' + data.message)}`;
+                    window.location.href = mailtoUrl;
+
+                    if (successMsg) {
+                        successMsg.classList.remove('hidden');
+                        setTimeout(() => successMsg.classList.add('hidden'), 6000);
+                    }
+                });
+            }
+
+            if (waBtn) {
+                // WhatsApp Dispatch
+                waBtn.addEventListener('click', () => {
+                    const data = getFormData();
+                    if (!data.name || !data.email || !data.message) {
+                        alert('Please fill in your Name, Email, and Message before sending via WhatsApp.');
+                        return;
+                    }
+
+                    const formattedMsg = `*Portfolio Message*\n*Name:* ${data.name}\n*Email:* ${data.email}\n*Subject:* ${data.subject}\n*Message:* ${data.message}`;
+                    const waUrl = `https://wa.me/918921843248?text=${encodeURIComponent(formattedMsg)}`;
+                    window.open(waUrl, '_blank');
+
+                    if (successMsg) {
+                        successMsg.classList.remove('hidden');
+                        setTimeout(() => successMsg.classList.add('hidden'), 6000);
+                    }
+                });
+            }
         });
     </script>
+    <script src="assets/main.js"></script>
 </body>
 
 </html>
