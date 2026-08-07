@@ -1,383 +1,509 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Projects Showcase &amp; Repositories | Arjun R</title>
-<meta name="description" content="Explore digital architecture, enterprise Angular dashboards, data visualizations, and full-stack projects by Arjun R.">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="assets/custom.css" rel="stylesheet">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#6366f1",
-              cyan: "#06b6d4",
-              violet: "#a855f7",
-              surface: "#0d1527",
-              background: "#090d16"
-            }
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Projects Showcase &amp; Repositories | Arjun R</title>
+  <meta name="description"
+    content="Explore digital architecture, enterprise Angular dashboards, data visualizations, and full-stack projects by Arjun R.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet">
+  <link href="assets/custom.css" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#6366f1",
+            cyan: "#06b6d4",
+            violet: "#a855f7",
+            surface: "#0d1527",
+            background: "#090d16"
           }
         }
       }
-</script>
+    }
+  </script>
 </head>
-<body class="bg-background text-slate-200 selection:bg-indigo-500/30 min-h-screen flex flex-col justify-between blueprint-grid relative">
 
-<!-- Background Particle Canvas -->
-<canvas id="particle-canvas"></canvas>
+<body
+  class="bg-background text-slate-200 selection:bg-indigo-500/30 min-h-screen flex flex-col justify-between blueprint-grid relative">
 
-<!-- Top Navigation Bar -->
-<nav class="bg-slate-950/70 backdrop-blur-2xl border-b border-indigo-500/15 shadow-[0_4px_30px_rgba(0,0,0,0.5)] sticky top-0 flex justify-between items-center w-full px-4 md:px-12 py-3.5 z-50">
-<div class="flex items-center gap-3">
-<div class="w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_10px_#06b6d4]"></div>
-<span class="font-headline-md text-xl font-bold tracking-tight text-white font-syne">Arjun R</span>
-<span class="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-400 bg-cyan-950/40">PROJECTS REPO</span>
-</div>
-<div class="hidden md:flex gap-8 items-center font-mono text-xs tracking-wider">
-<a class="text-slate-400 hover:text-white transition-colors" href="index.html#home">HOME</a>
-<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold" href="index.html#projects">PROJECTS</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="index.html#experience">EXPERIENCE</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="index.html#about">ABOUT</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="index.html#contact">CONTACT</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="navbar-terminal-btn material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors text-xl" title="Open Interactive CLI Terminal (Ctrl+\)">terminal</button>
-<div class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md" title="Click to view profile photo">
-<img alt="Arjun R Profile Avatar" class="w-full h-full object-cover object-top profile-avatar-img" src="assets/images/profile_avatar.jpg">
-</div>
-<button id="mobile-menu-btn" class="md:hidden material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors">menu</button>
-</div>
-</nav>
+  <!-- Background Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
 
-<main class="relative z-10 px-4 md:px-12 py-12 md:py-20 max-w-[1700px] mx-auto w-full flex-grow">
-<!-- Page Header -->
-<div class="mb-12">
-<span class="font-mono text-xs text-cyan-400 mb-2 block tracking-widest uppercase">DIGITAL_PORTFOLIO // DIRECTORY</span>
-<h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Engineering Outputs &amp; Repositories</h1>
-<p class="text-slate-300 text-base md:text-lg max-w-3xl font-sans">
-A showcase of enterprise data dashboards, visualization tools, multi-threaded plugins, and responsive web applications built with modern front-end tech.
-</p>
-</div>
+  <!-- Top Navigation Bar -->
+  <nav
+    class="bg-slate-950/70 backdrop-blur-2xl border-b border-indigo-500/15 shadow-[0_4px_30px_rgba(0,0,0,0.5)] sticky top-0 flex justify-between items-center w-full px-4 md:px-12 py-3.5 z-50">
+    <div class="flex items-center gap-3">
+      <div class="w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_10px_#06b6d4]"></div>
+      <span class="font-headline-md text-xl font-bold tracking-tight text-white font-syne">Arjun R</span>
+      <span
+        class="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-400 bg-cyan-950/40">PROJECTS
+        REPO</span>
+    </div>
+    <div class="hidden md:flex gap-8 items-center font-mono text-xs tracking-wider">
+      <a class="text-slate-400 hover:text-white transition-colors" href="index.html#home">HOME</a>
+      <a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold" href="index.html#projects">PROJECTS</a>
+      <a class="text-slate-400 hover:text-white transition-colors" href="index.html#experience">EXPERIENCE</a>
+      <a class="text-slate-400 hover:text-white transition-colors" href="index.html#about">ABOUT</a>
+      <a class="text-slate-400 hover:text-white transition-colors" href="index.html#contact">CONTACT</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button
+        class="navbar-terminal-btn material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors text-xl"
+        title="Open Interactive CLI Terminal (Ctrl+\)">terminal</button>
+      <div
+        class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md"
+        title="Click to view profile photo">
+        <img alt="Arjun R Profile Avatar" class="w-full h-full object-cover object-top profile-avatar-img"
+          src="assets/images/profile_avatar.jpg">
+      </div>
+      <button id="mobile-menu-btn"
+        class="md:hidden material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors">menu</button>
+    </div>
+  </nav>
 
-<!-- Search & Category Filters Toolbar -->
-<div class="glass-panel-v2 p-4 md:p-6 rounded-2xl mb-12 flex flex-col lg:flex-row justify-between items-center gap-6 border-white/10 shadow-xl">
-<div class="flex flex-wrap gap-2 w-full lg:w-auto">
-<button onclick="filterProjects('all')" class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs bg-indigo-600 text-white font-semibold shadow-md transition-all">ALL (11)</button>
-<button onclick="filterProjects('web')" class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs text-slate-400 hover:text-white transition-all">WEB APPS</button>
-<button onclick="filterProjects('data')" class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs text-slate-400 hover:text-white transition-all">DATA VIZ</button>
-<button onclick="filterProjects('ui')" class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs text-slate-400 hover:text-white transition-all">DASHBOARDS</button>
-<button onclick="filterProjects('plugins')" class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs text-slate-400 hover:text-white transition-all font-mono">PLUGINS</button>
-</div>
+  <main class="relative z-10 px-4 md:px-12 py-12 md:py-20 max-w-[1700px] mx-auto w-full flex-grow">
+    <!-- Page Header -->
+    <div class="mb-12">
+      <span class="font-mono text-xs text-cyan-400 mb-2 block tracking-widest uppercase">DIGITAL_PORTFOLIO //
+        DIRECTORY</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Engineering Outputs &amp; Repositories</h1>
+      <p class="text-slate-300 text-base md:text-lg max-w-3xl font-sans">
+        A showcase of enterprise data dashboards, visualization tools, multi-threaded plugins, and responsive web
+        applications built with modern front-end tech.
+      </p>
+    </div>
 
-<div class="relative w-full lg:w-96">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
-<input type="text" placeholder="Search by tech or keyword..." class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 pl-12 pr-4 text-xs font-mono text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all shadow-inner">
-</div>
-</div>
+    <!-- Search & Category Filters Toolbar -->
+    <div
+      class="glass-panel-v2 p-4 md:p-6 rounded-2xl mb-12 flex flex-col lg:flex-row justify-between items-center gap-6 border-white/10 shadow-xl">
+      <div class="flex flex-wrap gap-2 w-full lg:w-auto">
+        <button onclick="filterProjects('all')"
+          class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs bg-indigo-600 text-white font-semibold shadow-md transition-all">ALL
+          (11)</button>
+        <button onclick="filterProjects('web')"
+          class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs text-slate-400 hover:text-white transition-all">WEB
+          APPS</button>
+        <button onclick="filterProjects('data')"
+          class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs text-slate-400 hover:text-white transition-all">DATA
+          VIZ</button>
+        <button onclick="filterProjects('ui')"
+          class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs text-slate-400 hover:text-white transition-all">DASHBOARDS</button>
+        <button onclick="filterProjects('plugins')"
+          class="filter-btn px-5 py-2.5 rounded-xl font-mono text-xs text-slate-400 hover:text-white transition-all font-mono">PLUGINS</button>
+      </div>
 
-<!-- Projects Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="projects-container">
+      <div class="relative w-full lg:w-96">
+        <span
+          class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+        <input type="text" placeholder="Search by tech or keyword..."
+          class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 pl-12 pr-4 text-xs font-mono text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all shadow-inner">
+      </div>
+    </div>
 
-<!-- Flagship Project 1: Sadhnam Indo -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="web">
-<div>
-<a href="https://sadhnam-indo.vercel.app/" target="_blank" class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-<img src="assets/images/sadhnam_indo.png" alt="Sadhnam Indo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<div class="absolute top-3 right-3">
-<span class="badge-pill bg-emerald-950/80 text-emerald-300 border-emerald-500/40">LIVE VERCEL</span>
-</div>
-</a>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT 19</span>
-<span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">SUPABASE</span>
-<span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">LEAFLET</span>
-<span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">AES CRYPTO</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-<a href="https://sadhnam-indo.vercel.app/" target="_blank" class="hover:underline">Sadhnam Indo — P2P Mutual Aid</a>
-</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Real-time privacy-focused hyperlocal community platform featuring 2-step handshakes, client-side AES encrypted chat, Leaflet maps, PWA, and 5-language support.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-emerald-400 font-semibold">STATUS: LIVE VERCEL</span>
-<div class="flex items-center gap-3">
-<a href="https://sadhnam-indo.vercel.app/" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span class="material-symbols-outlined text-sm">code</span></a>
-</div>
-</div>
-</div>
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="projects-container">
 
-<!-- Flagship Project 2: ThreatLens -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="ui">
-<div>
-<div class="aspect-video w-full overflow-hidden relative bg-slate-900">
-<img src="assets/images/threatlens.png" alt="ThreatLens Cyber Intelligence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<div class="absolute top-3 right-3">
-<span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">LIVE VERCEL</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">D3.JS V7</span>
-<span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">LEAFLET</span>
-<span class="badge-pill bg-slate-900 text-slate-300 border-white/10">PASSIVE OSINT</span>
-<span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">SOC CLI</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">ThreatLens — Cyber Console</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Enterprise SOC command console for passive OSINT reconnaissance with 12 specialized modules, D3 force-directed network topology graph, and live risk remediation modeling.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-indigo-400 font-semibold">STATUS: LIVE VERCEL</span>
-<div class="flex items-center gap-3">
-<a href="https://threatlens-jade.vercel.app/" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-<a href="https://github.com/Arjunrajan250/ThreatLens" target="_blank" class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span class="material-symbols-outlined text-sm">code</span></a>
-</div>
-</div>
-</div>
+      <!-- Flagship Project 1: Sadhnam Indo -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="web">
+        <div>
+          <a href="https://sadhnam-indo.vercel.app/" target="_blank"
+            class="block aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/sadhnam_indo.png" alt="Sadhnam Indo"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-emerald-950/80 text-emerald-300 border-emerald-500/40">LIVE VERCEL</span>
+            </div>
+          </a>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT 19</span>
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">SUPABASE</span>
+              <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">LEAFLET</span>
+              <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">AES CRYPTO</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+              <a href="https://sadhnam-indo.vercel.app/" target="_blank" class="hover:underline">Sadhnam Indo — P2P
+                Mutual Aid</a>
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Real-time privacy-focused hyperlocal community
+              platform featuring 2-step handshakes, client-side AES encrypted chat, Leaflet maps, PWA, and 5-language
+              support.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-emerald-400 font-semibold">STATUS: LIVE VERCEL</span>
+          <div class="flex items-center gap-3">
+            <a href="https://sadhnam-indo.vercel.app/" target="_blank"
+              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span
+                class="material-symbols-outlined text-sm">open_in_new</span></a>
+            <a href="https://github.com/Arjunrajan250" target="_blank"
+              class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
+                class="material-symbols-outlined text-sm">code</span></a>
+          </div>
+        </div>
+      </div>
 
-<!-- Flagship Project 3: ARION -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="ui">
-<div>
-<a href="https://arion-aju.vercel.app/" target="_blank" class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-<img src="assets/images/arion.png" alt="ARION Tactical Surveillance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<div class="absolute top-3 right-3">
-<span class="badge-pill bg-violet-950/80 text-violet-300 border-violet-500/40">LIVE VERCEL</span>
-</div>
-</a>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">AMCHARTS 5</span>
-<span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">WEB SPEECH AI</span>
-<span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">CCTV MATRIX</span>
-<span class="badge-pill bg-slate-900 text-slate-300 border-white/10">WEB AUDIO API</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-<a href="https://arion-aju.vercel.app/" target="_blank" class="hover:underline">ARION — C4ISR Command Suite</a>
-</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Military-grade tactical intelligence SPA featuring 3D globe with trajectory arcs, hands-free Web Speech AI voice controls, suspect network graph, 4-camera CCTV matrix, and Cyber CLI.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-violet-400 font-semibold">STATUS: LIVE VERCEL</span>
-<div class="flex items-center gap-3">
-<a href="https://arion-aju.vercel.app/" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span class="material-symbols-outlined text-sm">code</span></a>
-</div>
-</div>
-</div>
+      <!-- Flagship Project 2: ThreatLens -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="ui">
+        <div>
+          <div class="aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/threatlens.png" alt="ThreatLens Cyber Intelligence"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">LIVE VERCEL</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">D3.JS V7</span>
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">LEAFLET</span>
+              <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">PASSIVE OSINT</span>
+              <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">SOC CLI</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">ThreatLens — Cyber
+              Console</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Enterprise SOC command console for passive OSINT
+              reconnaissance with 12 specialized modules, D3 force-directed network topology graph, and live risk
+              remediation modeling.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-indigo-400 font-semibold">STATUS: LIVE VERCEL</span>
+          <div class="flex items-center gap-3">
+            <a href="https://threatlens-jade.vercel.app/" target="_blank"
+              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span
+                class="material-symbols-outlined text-sm">open_in_new</span></a>
+            <a href="https://github.com/Arjunrajan250/ThreatLens" target="_blank"
+              class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
+                class="material-symbols-outlined text-sm">code</span></a>
+          </div>
+        </div>
+      </div>
 
-<!-- Project 4: VortexDL / Multi-Source Video Downloader -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="web">
-<div>
-<div class="aspect-video w-full overflow-hidden relative bg-slate-900">
-<img src="assets/images/vortexdl.png" alt="VortexDL Media Downloader" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<div class="absolute top-3 right-3">
-<span class="badge-pill bg-amber-950/80 text-amber-300 border-amber-500/40">GITHUB SOURCE</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">NODE.JS STREAMS</span>
-<span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">EXPRESS API</span>
-<span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">YT-DLP BINARY</span>
-<span class="badge-pill bg-slate-900 text-slate-300 border-white/10">FAILOVER</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">VortexDL — Media Downloader</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Zero-disk-space media extractor streaming videos directly via Node.js stdout pipes (`child.stdout.pipe(res)`), embedded `yt-dlp` CLI binary, and social failover mirrors.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-amber-400 font-semibold">STATUS: GITHUB ONLY</span>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-</div>
-</div>
-<!-- Project 1: Network Analysis Dashboard -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="data">
-<div>
-<div class="aspect-video w-full overflow-hidden relative bg-slate-900">
-<img src="assets/images/img_cbd9d91170.jpg" alt="Network Analysis Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<div class="absolute top-3 right-3">
-<span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">COMMERCIAL</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">ANGULAR</span>
-<span class="badge-pill bg-slate-900 text-slate-300 border-white/10">SIGMA.JS</span>
-<span class="badge-pill bg-slate-900 text-slate-300 border-white/10">RXJS</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Network Analysis Dashboard</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Enterprise cluster network visualization powered by Sigma.js ForceAtlas2 layouts, dynamic node inspection, and state preservation.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-slate-400">STATUS: PROD</span>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-</div>
-</div>
+      <!-- Flagship Project 3: ARION -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="ui">
+        <div>
+          <a href="https://arion-aju.vercel.app/" target="_blank"
+            class="block aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/arion.png" alt="ARION Tactical Surveillance"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-violet-950/80 text-violet-300 border-violet-500/40">LIVE VERCEL</span>
+            </div>
+          </a>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">AMCHARTS 5</span>
+              <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">WEB SPEECH AI</span>
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">CCTV MATRIX</span>
+              <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">WEB AUDIO API</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+              <a href="https://arion-aju.vercel.app/" target="_blank" class="hover:underline">ARION — C4ISR Command
+                Suite</a>
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Military-grade tactical intelligence SPA featuring 3D
+              globe with trajectory arcs, hands-free Web Speech AI voice controls, suspect network graph, 4-camera CCTV
+              matrix, and Cyber CLI.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-violet-400 font-semibold">STATUS: LIVE VERCEL</span>
+          <div class="flex items-center gap-3">
+            <a href="https://arion-aju.vercel.app/" target="_blank"
+              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span
+                class="material-symbols-outlined text-sm">open_in_new</span></a>
+            <a href="https://github.com/Arjunrajan250" target="_blank"
+              class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
+                class="material-symbols-outlined text-sm">code</span></a>
+          </div>
+        </div>
+      </div>
 
-<!-- Project 2: Traffic Analytics Hub -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="data">
-<div>
-<div class="aspect-video w-full overflow-hidden relative bg-slate-900">
-<img src="assets/images/img_5ea0394726.jpg" alt="Traffic Analytics Hub" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<div class="absolute top-3 right-3">
-<span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">COMMERCIAL</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">AMCHARTS</span>
-<span class="badge-pill bg-slate-900 text-slate-300 border-white/10">TYPESCRIPT</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Traffic Analytics Hub</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">High-throughput real-time telemetry monitoring system built with amCharts visualizations and live WebSockets.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-slate-400">STATUS: PROD</span>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-</div>
-</div>
+      <!-- Project 4: VortexDL / Multi-Source Video Downloader -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="web">
+        <div>
+          <div class="aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/vortexdl.png" alt="VortexDL Media Downloader"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-amber-950/80 text-amber-300 border-amber-500/40">GITHUB SOURCE</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">NODE.JS STREAMS</span>
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">EXPRESS API</span>
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">YT-DLP BINARY</span>
+              <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">FAILOVER</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">VortexDL — Media
+              Downloader</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Zero-disk-space media extractor streaming videos
+              directly via Node.js stdout pipes (`child.stdout.pipe(res)`), embedded `yt-dlp` CLI binary, and social
+              failover mirrors.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-amber-400 font-semibold">STATUS: GITHUB ONLY</span>
+          <a href="https://github.com/Arjunrajan250" target="_blank"
+            class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span
+              class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+      </div>
+      <!-- Project 1: Network Analysis Dashboard -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="data">
+        <div>
+          <div class="aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/img_cbd9d91170.jpg" alt="Network Analysis Dashboard"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">COMMERCIAL</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">ANGULAR</span>
+              <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">SIGMA.JS</span>
+              <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">RXJS</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Network Analysis
+              Dashboard</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Enterprise cluster network visualization powered by
+              Sigma.js ForceAtlas2 layouts, dynamic node inspection, and state preservation.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-slate-400">STATUS: PROD</span>
+          <a href="https://github.com/Arjunrajan250" target="_blank"
+            class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span
+              class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+      </div>
 
-<!-- Project 3: Luxe3D Quantum One Showcase -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="ui">
-<div>
-<a href="https://interactive-3d-showcase.vercel.app/" target="_blank" class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-<img src="assets/images/luxe3d.png" alt="Luxe3D Quantum One Showcase" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<div class="absolute top-3 right-3">
-<span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
-</div>
-</a>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">THREE.JS</span>
-<span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">GLSL</span>
-<span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">WEB AUDIO API</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-<a href="https://interactive-3d-showcase.vercel.app/" target="_blank" class="hover:underline">Luxe3D Quantum One — Interactive 3D Showcase</a>
-</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Interactive 3D product configurator featuring real-time parametric optics, WebGL shader lighting, camera orbit controls, synthesized Web Audio, and glassmorphic UI overlay.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-cyan-400 font-semibold">STATUS: LIVE VERCEL</span>
-<div class="flex items-center gap-3">
-<a href="https://interactive-3d-showcase.vercel.app/" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span class="material-symbols-outlined text-sm">code</span></a>
-</div>
-</div>
-</div>
+      <!-- Project 2: Traffic Analytics Hub -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="data">
+        <div>
+          <div class="aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/img_5ea0394726.jpg" alt="Traffic Analytics Hub"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">COMMERCIAL</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">AMCHARTS</span>
+              <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">TYPESCRIPT</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Traffic Analytics
+              Hub</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">High-throughput real-time telemetry monitoring system
+              built with amCharts visualizations and live WebSockets.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-slate-400">STATUS: PROD</span>
+          <a href="https://github.com/Arjunrajan250" target="_blank"
+            class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span
+              class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+      </div>
+
+      <!-- Project 3: Luxe3D Quantum One Showcase -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="ui">
+        <div>
+          <a href="https://interactive-3d-showcase.vercel.app/" target="_blank"
+            class="block aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/luxe3d.png" alt="Luxe3D Quantum One Showcase"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
+            </div>
+          </a>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">THREE.JS</span>
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">GLSL</span>
+              <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">WEB AUDIO API</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+              <a href="https://interactive-3d-showcase.vercel.app/" target="_blank" class="hover:underline">Luxe3D
+                Quantum One — Interactive 3D Showcase</a>
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Interactive 3D product configurator featuring
+              real-time parametric optics, WebGL shader lighting, camera orbit controls, synthesized Web Audio, and
+              glassmorphic UI overlay.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-cyan-400 font-semibold">STATUS: LIVE VERCEL</span>
+          <div class="flex items-center gap-3">
+            <a href="https://interactive-3d-showcase.vercel.app/" target="_blank"
+              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span
+                class="material-symbols-outlined text-sm">open_in_new</span></a>
+            <a href="https://github.com/Arjunrajan250" target="_blank"
+              class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
+                class="material-symbols-outlined text-sm">code</span></a>
+          </div>
+        </div>
+      </div>
 
 
 
-<!-- Project 5: SVG Convert Figma Plugin -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="plugins">
-<div>
-<div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-indigo-400 opacity-80 group-hover:scale-110 transition-transform">polyline</span>
-</div>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">FIGMA API</span>
-<span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">IMAGETRACERJS</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">SVG Convert — Figma Plugin</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Offline-first vectorization plugin with vendored ImageTracerJS engine, tabbed UI, and custom palette extraction.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-slate-400">STATUS: RELEASED</span>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-</div>
-</div>
+      <!-- Project 5: SVG Convert Figma Plugin -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="plugins">
+        <div>
+          <div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
+            <span
+              class="material-symbols-outlined text-6xl text-indigo-400 opacity-80 group-hover:scale-110 transition-transform">polyline</span>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">FIGMA API</span>
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">IMAGETRACERJS</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">SVG Convert —
+              Figma Plugin</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Offline-first vectorization plugin with vendored
+              ImageTracerJS engine, tabbed UI, and custom palette extraction.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-slate-400">STATUS: RELEASED</span>
+          <a href="https://github.com/Arjunrajan250" target="_blank"
+            class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span
+              class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+      </div>
 
-<!-- Project 6: Gym Activity Tracker -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="web">
-<div>
-<div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-cyan-400 opacity-80 group-hover:scale-110 transition-transform">fitness_center</span>
-</div>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT</span>
-<span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">TAILWIND</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Gym Activity Tracker</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Real-time biometrics, workout logging, and performance metrics app with local storage sync.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-slate-400">STATUS: DEPLOYED</span>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-</div>
-</div>
+      <!-- Project 6: Gym Activity Tracker -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="web">
+        <div>
+          <div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
+            <span
+              class="material-symbols-outlined text-6xl text-cyan-400 opacity-80 group-hover:scale-110 transition-transform">fitness_center</span>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT</span>
+              <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">TAILWIND</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Gym Activity
+              Tracker</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Real-time biometrics, workout logging, and
+              performance metrics app with local storage sync.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-slate-400">STATUS: DEPLOYED</span>
+          <a href="https://github.com/Arjunrajan250" target="_blank"
+            class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span
+              class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+      </div>
 
-<!-- Project 7: Diet Management App -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="web">
-<div>
-<div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-indigo-400 opacity-80 group-hover:scale-110 transition-transform">nutrition</span>
-</div>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">PWA</span>
-<span class="badge-pill bg-amber-950/50 text-amber-300 border-amber-500/30">FIREBASE</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Diet Management App</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Precision macro-tracking application featuring visual progress graphs and meal planner modules.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-slate-400">STATUS: DEPLOYED</span>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-</div>
-</div>
+      <!-- Project 7: Diet Management App -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="web">
+        <div>
+          <div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
+            <span
+              class="material-symbols-outlined text-6xl text-indigo-400 opacity-80 group-hover:scale-110 transition-transform">nutrition</span>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">PWA</span>
+              <span class="badge-pill bg-amber-950/50 text-amber-300 border-amber-500/30">FIREBASE</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Diet Management
+              App</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Precision macro-tracking application featuring visual
+              progress graphs and meal planner modules.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-slate-400">STATUS: DEPLOYED</span>
+          <a href="https://github.com/Arjunrajan250" target="_blank"
+            class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span
+              class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+      </div>
 
-<!-- Project 8: Bike Riding Community App -->
-<div class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all" data-category="web">
-<div>
-<div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-violet-400 opacity-80 group-hover:scale-110 transition-transform">directions_bike</span>
-</div>
-<div class="p-6">
-<div class="flex flex-wrap gap-2 mb-3">
-<span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">MAPBOX</span>
-<span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">SOCKET.IO</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Bike Riding Community App</h3>
-<p class="text-slate-300 text-sm leading-relaxed mb-4">Community portal for cyclists with live GPS route mapping, group ride coordination, and event feeds.</p>
-</div>
-</div>
-<div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-<span class="font-mono text-[11px] text-slate-400">STATUS: DEPLOYED</span>
-<a href="https://github.com/Arjunrajan250" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span class="material-symbols-outlined text-sm">open_in_new</span></a>
-</div>
-</div>
-</div>
-</main>
+      <!-- Project 8: Bike Riding Community App -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="web">
+        <div>
+          <div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
+            <span
+              class="material-symbols-outlined text-6xl text-violet-400 opacity-80 group-hover:scale-110 transition-transform">directions_bike</span>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">MAPBOX</span>
+              <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">SOCKET.IO</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Bike Riding
+              Community App</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Community portal for cyclists with live GPS route
+              mapping, group ride coordination, and event feeds.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-slate-400">STATUS: DEPLOYED</span>
+          <a href="https://github.com/Arjunrajan250" target="_blank"
+            class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span
+              class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
 
-<!-- Footer -->
-<footer class="bg-slate-950 border-t border-white/10 flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-12 py-8 gap-4 font-mono text-xs text-slate-400 relative z-10">
-<div>
-© 2025 Arjun R | Senior UI Engineer. Cyber-Precision Portfolio.
-</div>
-<div class="flex gap-6">
-<a class="hover:text-cyan-400 transition-colors" href="https://github.com/Arjunrajan250" target="_blank" rel="noopener noreferrer">GitHub</a>
-<a class="hover:text-cyan-400 transition-colors" href="contact.html">Contact</a>
-<a class="hover:text-cyan-400 transition-colors" href="assets/resume.pdf" target="_blank">CV (PDF)</a>
-</div>
-</footer>
+  <!-- Footer -->
+  <footer
+    class="bg-slate-950 border-t border-white/10 flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-12 py-8 gap-4 font-mono text-xs text-slate-400 relative z-10">
+    <div>
+      © 2025 Arjun R | Senior UI Engineer. Cyber-Precision Portfolio.
+    </div>
+    <div class="flex gap-6">
+      <a class="hover:text-cyan-400 transition-colors" href="https://github.com/Arjunrajan250" target="_blank"
+        rel="noopener noreferrer">GitHub</a>
+      <a class="hover:text-cyan-400 transition-colors" href="contact.html">Contact</a>
+      <a class="hover:text-cyan-400 transition-colors" href="assets/resume.pdf" target="_blank">CV (PDF)</a>
+    </div>
+  </footer>
 
-<script src="assets/main.js"></script>
+  <script src="assets/main.js"></script>
 </body>
+
 </html>

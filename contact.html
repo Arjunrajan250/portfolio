@@ -158,7 +158,8 @@
                 <div class="glass-panel-v2 p-8 md:p-10 rounded-3xl border-white/10 shadow-2xl relative">
                     <h3 class="text-2xl font-bold text-white mb-6">Send Direct Message</h3>
 
-                    <form id="contact-form" action="https://formsubmit.co/ajuarjunr@gmail.com" method="POST" class="space-y-6">
+                    <form id="contact-form" action="https://formsubmit.co/ajuarjunr@gmail.com" method="POST"
+                        class="space-y-6">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
                         <div>
@@ -171,14 +172,16 @@
                         <div>
                             <label class="block font-mono text-xs text-slate-300 mb-2" for="user_email">EMAIL ADDRESS
                                 *</label>
-                            <input id="user_email" name="email" required type="email" placeholder="e.g. sarah@cyberdyne.com"
+                            <input id="user_email" name="email" required type="email"
+                                placeholder="e.g. sarah@cyberdyne.com"
                                 class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
                         </div>
 
                         <div>
                             <label class="block font-mono text-xs text-slate-300 mb-2"
                                 for="user_subject">SUBJECT</label>
-                            <input id="user_subject" name="_subject" type="text" placeholder="e.g. Front-End Project Collaboration"
+                            <input id="user_subject" name="_subject" type="text"
+                                placeholder="e.g. Front-End Project Collaboration"
                                 class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
                         </div>
 
@@ -318,7 +321,7 @@
                         alert('Please fill in your Name, Email, and Message.');
                         return;
                     }
-                    
+
                     const mailtoUrl = `mailto:ajuarjunr@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent('From: ' + data.name + ' (' + data.email + ')\n\n' + data.message)}`;
                     window.location.href = mailtoUrl;
 

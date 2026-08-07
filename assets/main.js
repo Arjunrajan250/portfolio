@@ -528,8 +528,8 @@ function initProfileModal() {
     const avatarSelectors = ['.profile-avatar-btn', '.profile-avatar-img', 'img[src*="profile_avatar.jpg"]'];
 
     document.querySelectorAll(avatarSelectors.join(', ')).forEach(el => {
-        const targetContainer = el.parentElement && el.parentElement.classList.contains('rounded-full') 
-            ? el.parentElement 
+        const targetContainer = el.parentElement && el.parentElement.classList.contains('rounded-full')
+            ? el.parentElement
             : el;
         targetContainer.classList.add('profile-avatar-btn');
         targetContainer.title = "Click to view profile photo";
@@ -585,7 +585,7 @@ const CyberAudio = {
             gain.connect(this.ctx.destination);
             osc.start();
             osc.stop(this.ctx.currentTime + duration);
-        } catch (e) {}
+        } catch (e) { }
     },
 
     playChime() {
@@ -606,7 +606,7 @@ const CyberAudio = {
                 osc.start(now + idx * 0.05);
                 osc.stop(now + idx * 0.05 + 0.25);
             });
-        } catch (e) {}
+        } catch (e) { }
     },
 
     playKey() {
@@ -821,7 +821,7 @@ function initProjectFilters() {
         filterProjectsList(activeCategory, query);
     });
 
-    window.filterProjects = function(category) {
+    window.filterProjects = function (category) {
         const buttons = document.querySelectorAll('.filter-btn');
 
         buttons.forEach(btn => {
@@ -829,8 +829,8 @@ function initProjectFilters() {
             btn.classList.add('text-slate-400');
         });
 
-        const activeBtn = Array.from(buttons).find(btn => 
-            btn.innerText.toLowerCase().includes(category.toLowerCase()) || 
+        const activeBtn = Array.from(buttons).find(btn =>
+            btn.innerText.toLowerCase().includes(category.toLowerCase()) ||
             (category === 'all' && btn.innerText.includes('ALL'))
         );
 
