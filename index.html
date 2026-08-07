@@ -58,10 +58,10 @@
 <!-- Widescreen Split Hero Section -->
 <section class="relative min-h-[600px] md:min-h-[750px] flex flex-col justify-center px-4 md:px-12 py-12 md:py-20 overflow-hidden" id="home">
 <div class="max-w-[1700px] mx-auto w-full">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
 <!-- LEFT WING: Developer Profile & Quick Metrics HUD (3 Cols) -->
-<div class="lg:col-span-3 space-y-6 hidden lg:block">
+<div class="lg:col-span-3 hidden lg:flex lg:flex-col lg:justify-between space-y-6">
 <div class="glass-panel-v2 p-6 rounded-2xl border-white/10 shadow-xl space-y-5">
 <div class="flex items-center gap-4">
 <div class="w-14 h-14 rounded-2xl overflow-hidden border border-cyan-500/40 relative bg-slate-900 profile-avatar-btn">
@@ -98,8 +98,9 @@
 </div>
 
 <!-- Left Quick Skill Progress Mini Panel -->
-<div class="glass-panel-v2 p-6 rounded-2xl border-white/10 shadow-xl space-y-4">
-<h4 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider flex items-center justify-between">
+<div class="glass-panel-v2 p-6 rounded-2xl border-white/10 shadow-xl space-y-4 flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider flex items-center justify-between mb-4">
 <span>STACK_TELEMETRY</span>
 <span class="material-symbols-outlined text-sm">tune</span>
 </h4>
@@ -118,18 +119,43 @@
 </div>
 </div>
 <div>
+<div class="flex justify-between text-slate-300 mb-1"><span>Privacy-First AI</span><span class="text-emerald-400">95%</span></div>
+<div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
+<div class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400" style="width: 95%"></div>
+</div>
+</div>
+<div>
 <div class="flex justify-between text-slate-300 mb-1"><span>Sigma / amCharts</span><span class="text-violet-400">88%</span></div>
 <div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
 <div class="h-full bg-gradient-to-r from-indigo-500 to-cyan-400" style="width: 88%"></div>
 </div>
+</div>
+<div>
+<div class="flex justify-between text-slate-300 mb-1"><span>Three.js / WebGL 3D</span><span class="text-amber-400">82%</span></div>
+<div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
+<div class="h-full bg-gradient-to-r from-amber-500 to-indigo-500" style="width: 82%"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="border-t border-white/10 pt-3.5 mt-4 space-y-2 font-mono text-[11px]">
+<div class="flex items-center justify-between text-slate-400">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>AI Productivity</span>
+<span class="text-emerald-400 font-semibold">Max (Zero Leakage)</span>
+</div>
+<div class="flex items-center justify-between text-slate-400">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Data Security</span>
+<span class="text-cyan-400 font-semibold">100% Integrity</span>
 </div>
 </div>
 </div>
 </div>
 
 <!-- CENTER WING: Main Interactive ZSH Terminal Window (6 Cols) -->
-<div class="lg:col-span-6">
-<div class="glass-panel-v2 p-6 md:p-10 rounded-2xl border-white/10 shadow-2xl relative">
+<div class="lg:col-span-6 flex flex-col justify-between">
+<div class="glass-panel-v2 p-6 md:p-10 rounded-2xl border-white/10 shadow-2xl relative h-full flex flex-col justify-between">
+<div>
 <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
 <div class="flex items-center gap-2">
 <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
@@ -167,6 +193,7 @@ INITIATE_PROJECT
 RESUME_V4.5_2025.PDF
 </a>
 </div>
+</div>
 
 <!-- Floating Metrics Stats -->
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/10">
@@ -192,13 +219,15 @@ RESUME_V4.5_2025.PDF
 </div>
 
 <!-- RIGHT WING: Featured Lab Repo Highlights & CLI Launcher (3 Cols) -->
-<div class="lg:col-span-3 space-y-6 hidden lg:block">
-<div class="glass-panel-v2 p-6 rounded-2xl border-white/10 shadow-xl space-y-4">
-<h4 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider flex items-center justify-between">
+<div class="lg:col-span-3 hidden lg:flex lg:flex-col lg:justify-between space-y-6">
+<div class="glass-panel-v2 p-6 rounded-2xl border-white/10 shadow-xl space-y-4 flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider flex items-center justify-between mb-3">
 <span>FEATURED_OUTPUTS</span>
 <a href="projects.html" class="text-[10px] text-indigo-400 hover:underline">ALL_REPOS &rarr;</a>
 </h4>
 
+<div class="space-y-3">
 <!-- Mini Project 1: Sadhnam Indo -->
 <a href="https://sadhnam-indo.vercel.app/" target="_blank" class="block p-3 rounded-xl bg-slate-900/70 border border-white/10 hover:border-emerald-400/40 transition-all group">
 <div class="flex justify-between items-start mb-1">
@@ -234,6 +263,8 @@ RESUME_V4.5_2025.PDF
 </div>
 <p class="text-slate-400 text-[11px] line-clamp-2">Interactive 3D product showcase &amp; WebGL shaders.</p>
 </a>
+</div>
+</div>
 </div>
 
 <!-- Right CLI Terminal Launcher Card -->
