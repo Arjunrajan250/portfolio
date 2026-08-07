@@ -266,19 +266,6 @@ function injectSharedComponents() {
         `;
         document.body.insertAdjacentHTML('beforeend', projectModalHtml);
     }
-
-    const navRight = document.querySelector('nav .flex.items-center.gap-4');
-    if (navRight && !document.getElementById('audio-toggle-btn')) {
-        const audioBtn = document.createElement('button');
-        audioBtn.id = 'audio-toggle-btn';
-        audioBtn.className = 'audio-toggle-btn text-on-surface-variant hover:text-cyan-400 transition-colors';
-        audioBtn.title = 'Toggle Audio Cues (Web Audio API)';
-        audioBtn.setAttribute('aria-label', 'Toggle UI Audio Effects');
-        const isAudioOn = localStorage.getItem('arjun_portfolio_audio') === 'true';
-        audioBtn.innerHTML = `<span class="material-symbols-outlined text-xl">${isAudioOn ? 'volume_up' : 'volume_off'}</span>`;
-        if (isAudioOn) audioBtn.classList.add('active');
-        navRight.insertBefore(audioBtn, navRight.firstChild);
-    }
 }
 
 // --- 3. Mobile Navigation Drawer ---
