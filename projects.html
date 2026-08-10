@@ -12,7 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet">
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap"
     rel="stylesheet">
   <link href="assets/custom.css" rel="stylesheet">
   <script id="tailwind-config">
@@ -20,6 +20,12 @@
       darkMode: "class",
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            display: ['"Space Grotesk"', 'Outfit', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            syne: ['Syne', '"Space Grotesk"', 'sans-serif']
+          },
           colors: {
             primary: "#38bdf8",
             cyan: "#38bdf8",
@@ -57,9 +63,6 @@
       <a class="text-slate-400 hover:text-white transition-colors" href="index.html#contact">CONTACT</a>
     </div>
     <div class="flex items-center gap-4">
-      <button
-        class="navbar-terminal-btn material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors text-xl"
-        title="Open Interactive CLI Terminal (Ctrl+\)">terminal</button>
       <div
         class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md"
         title="Click to view profile photo">
@@ -143,8 +146,11 @@
           <span class="font-mono text-[11px] text-emerald-400 font-semibold">STATUS: LIVE VERCEL</span>
           <div class="flex items-center gap-3">
             <a href="https://sadhnam-indo.vercel.app/" target="_blank"
-              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
             <a href="https://github.com/Arjunrajan250" target="_blank"
               class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
                 class="material-symbols-outlined text-sm">code</span></a>
@@ -182,8 +188,11 @@
           <span class="font-mono text-[11px] text-indigo-400 font-semibold">STATUS: LIVE VERCEL</span>
           <div class="flex items-center gap-3">
             <a href="https://threatlens-jade.vercel.app/" target="_blank"
-              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
             <a href="https://github.com/Arjunrajan250/ThreatLens" target="_blank"
               class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
                 class="material-symbols-outlined text-sm">code</span></a>
@@ -224,8 +233,11 @@
           <span class="font-mono text-[11px] text-violet-400 font-semibold">STATUS: LIVE VERCEL</span>
           <div class="flex items-center gap-3">
             <a href="https://arion-aju.vercel.app/" target="_blank"
-              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
             <a href="https://github.com/Arjunrajan250" target="_blank"
               class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
                 class="material-symbols-outlined text-sm">code</span></a>
@@ -361,8 +373,11 @@
           <span class="font-mono text-[11px] text-cyan-400 font-semibold">STATUS: LIVE VERCEL</span>
           <div class="flex items-center gap-3">
             <a href="https://interactive-3d-showcase.vercel.app/" target="_blank"
-              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">LIVE_DEMO <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
             <a href="https://github.com/Arjunrajan250" target="_blank"
               class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
                 class="material-symbols-outlined text-sm">code</span></a>

@@ -1,5 +1,5 @@
 /* Custom style definitions for Arjun R's Cyber-Precision Portfolio */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
 
 :root {
     --color-bg: #0b0f17;
@@ -33,22 +33,55 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
     background-color: var(--color-bg);
     color: var(--text-on-surface);
-    font-family: 'Plus Jakarta Sans', 'Geist', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    letter-spacing: -0.011em;
+    line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
-    selection-background-color: rgba(99, 102, 241, 0.4);
 }
 
-/* Heading font assignments */
-h1,
-h2,
+/* Heading & Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+}
+
+h1 {
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+}
+
+h2 {
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+}
+
 .font-syne {
-    font-family: 'Space Grotesk', 'Syne', sans-serif;
+    font-family: 'Syne', 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.font-code, .font-mono, code, pre, kbd {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-feature-settings: "zero", "ss01";
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.015em;
+}
+
+p {
+    line-height: 1.65;
+    letter-spacing: -0.01em;
 }
 
 /* Background blueprint & particle canvas overlay */
@@ -325,7 +358,7 @@ h2,
     background: rgba(4, 7, 13, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    z-index: 200;
+    z-index: 999;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -377,6 +410,8 @@ h2,
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 20;
 }
 
 .terminal-body {
@@ -387,6 +422,8 @@ h2,
     font-size: 14px;
     line-height: 1.6;
     color: var(--terminal-accent);
+    position: relative;
+    z-index: 20;
 }
 
 .terminal-footer {
@@ -396,6 +433,8 @@ h2,
     display: flex;
     align-items: center;
     gap: 12px;
+    position: relative;
+    z-index: 20;
 }
 
 .terminal-prompt-input,
@@ -595,8 +634,8 @@ h2,
 
 /* Interactive Skill Matrix Cards */
 .skill-card {
-    background: rgba(13, 21, 39, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .skill-progress-bar {
@@ -943,4 +982,125 @@ h2,
 
 .apple-sheet-handle:active {
     cursor: grabbing;
+}
+
+/* --- High-Impact Animated CTA for VISIT_APP / LIVE_DEMO links --- */
+.visit-app-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.45rem 0.95rem;
+    border-radius: 9999px;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: transform 220ms var(--ease-out-apple),
+                box-shadow 220ms var(--ease-out-apple),
+                background-color 220ms var(--ease-out-apple),
+                border-color 220ms var(--ease-out-apple);
+    overflow: hidden;
+    will-change: transform, box-shadow;
+    animation: visit-pulse-glow 3s infinite var(--ease-out-apple);
+    text-decoration: none !important;
+}
+
+.visit-app-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: visit-shimmer 4s infinite ease-in-out;
+}
+
+.visit-app-btn:hover {
+    background: rgba(56, 189, 248, 0.22);
+    border-color: rgba(56, 189, 248, 0.9);
+    color: #ffffff;
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.5), 0 4px 14px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.visit-app-btn:active {
+    transform: translateY(0) scale(0.96) !important;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) !important;
+}
+
+.visit-app-btn .icon-arrow {
+    transition: transform 220ms var(--ease-out-apple);
+}
+
+.visit-app-btn:hover .icon-arrow {
+    transform: translate(2px, -2px);
+}
+
+/* Pulsing beacon dot inside Visit App button */
+.visit-pulse-dot {
+    position: relative;
+    display: inline-flex;
+    height: 0.5rem;
+    width: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.visit-pulse-dot span:first-child {
+    animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    position: absolute;
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 9999px;
+    background-color: #38bdf8;
+    opacity: 0.75;
+}
+
+.visit-pulse-dot span:last-child {
+    position: relative;
+    display: inline-flex;
+    border-radius: 9999px;
+    height: 0.5rem;
+    width: 0.5rem;
+    background-color: #38bdf8;
+}
+
+@keyframes visit-pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(56, 189, 248, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        border-color: rgba(56, 189, 248, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 22px rgba(56, 189, 248, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        border-color: rgba(56, 189, 248, 0.75);
+    }
+}
+
+@keyframes visit-shimmer {
+    0% {
+        left: -100%;
+    }
+    35%, 100% {
+        left: 200%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .visit-app-btn, .visit-app-btn::before, .visit-pulse-dot span:first-child {
+        animation: none !important;
+    }
 }

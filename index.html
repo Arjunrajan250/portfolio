@@ -12,7 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet">
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap"
     rel="stylesheet">
   <link href="assets/custom.css" rel="stylesheet">
   <script id="tailwind-config">
@@ -20,6 +20,12 @@
       darkMode: "class",
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            display: ['"Space Grotesk"', 'Outfit', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            syne: ['Syne', '"Space Grotesk"', 'sans-serif']
+          },
           colors: {
             primary: "#6366f1",
             cyan: "#06b6d4",
@@ -60,9 +66,6 @@
       <a class="nav-link text-slate-400 hover:text-white transition-all" href="#contact" data-nav="contact">CONTACT</a>
     </div>
     <div class="flex items-center gap-4">
-      <button
-        class="navbar-terminal-btn material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors text-xl"
-        title="Open Interactive CLI Terminal (Ctrl+\)">terminal</button>
       <div
         class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md"
         title="Click to view profile photo">
@@ -135,38 +138,33 @@
 
                 <div class="space-y-3 font-mono text-xs">
                   <div>
-                    <div class="flex justify-between text-slate-300 mb-1"><span>Angular / TS</span><span
-                        class="text-cyan-400">95%</span></div>
+                    <div class="flex justify-between text-slate-300 mb-1"><span>Angular / TS</span></div>
                     <div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
-                      <div class="h-full bg-gradient-to-r from-indigo-500 to-cyan-400" style="width: 95%"></div>
+                      <div class="h-full bg-gradient-to-r from-cyan-500 to-indigo-500" style="width: 95%"></div>
                     </div>
                   </div>
                   <div>
-                    <div class="flex justify-between text-slate-300 mb-1"><span>RxJS / State</span><span
-                        class="text-indigo-400">92%</span></div>
+                    <div class="flex justify-between text-slate-300 mb-1"><span>RxJS / State</span></div>
                     <div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
-                      <div class="h-full bg-gradient-to-r from-indigo-500 to-cyan-400" style="width: 92%"></div>
+                      <div class="h-full bg-gradient-to-r from-cyan-500 to-indigo-500" style="width: 92%"></div>
                     </div>
                   </div>
                   <div>
-                    <div class="flex justify-between text-slate-300 mb-1"><span>Privacy-First AI</span><span
-                        class="text-emerald-400">95%</span></div>
+                    <div class="flex justify-between text-slate-300 mb-1"><span>Privacy-First AI</span></div>
                     <div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
-                      <div class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400" style="width: 95%"></div>
+                      <div class="h-full bg-gradient-to-r from-cyan-500 to-indigo-500" style="width: 95%"></div>
                     </div>
                   </div>
                   <div>
-                    <div class="flex justify-between text-slate-300 mb-1"><span>Sigma / amCharts</span><span
-                        class="text-violet-400">88%</span></div>
+                    <div class="flex justify-between text-slate-300 mb-1"><span>Sigma / amCharts</span></div>
                     <div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
-                      <div class="h-full bg-gradient-to-r from-indigo-500 to-cyan-400" style="width: 88%"></div>
+                      <div class="h-full bg-gradient-to-r from-cyan-500 to-indigo-500" style="width: 88%"></div>
                     </div>
                   </div>
                   <div>
-                    <div class="flex justify-between text-slate-300 mb-1"><span>Three.js / WebGL 3D</span><span
-                        class="text-amber-400">82%</span></div>
+                    <div class="flex justify-between text-slate-300 mb-1"><span>Three.js / WebGL 3D</span></div>
                     <div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
-                      <div class="h-full bg-gradient-to-r from-amber-500 to-indigo-500" style="width: 82%"></div>
+                      <div class="h-full bg-gradient-to-r from-cyan-500 to-indigo-500" style="width: 82%"></div>
                     </div>
                   </div>
                 </div>
@@ -329,18 +327,22 @@
 
             <!-- Right CLI Terminal Launcher Card -->
             <button
-              class="navbar-terminal-btn w-full text-left glass-panel-v2 p-6 rounded-2xl border-cyan-500/30 hover:border-cyan-400 shadow-xl transition-all group">
-              <div class="flex items-center gap-3 mb-2">
-                <span
-                  class="material-symbols-outlined text-cyan-400 text-xl group-hover:rotate-12 transition-transform">terminal</span>
-                <span class="font-mono text-xs text-white font-bold">CLI COMMAND CONSOLE</span>
+              onclick="openTerminal()"
+              class="navbar-terminal-btn w-full text-left glass-panel-v2 p-6 rounded-2xl border-cyan-500/30 hover:border-cyan-400 shadow-xl transition-all group cursor-pointer relative overflow-hidden">
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-cyan-400 text-xl group-hover:rotate-12 transition-transform">terminal</span>
+                  <span class="font-mono text-xs text-white font-bold tracking-wider">CLI COMMAND CONSOLE</span>
+                </div>
+                <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] text-emerald-400 font-mono">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>ONLINE</span>
+                </div>
               </div>
-              <p class="text-slate-400 text-[11px] font-mono mb-3">Press <kbd
-                  class="px-1.5 py-0.5 rounded bg-slate-900 border border-white/20 text-cyan-300">Ctrl+\</kbd> or click
-                to open interactive command overlay.</p>
-              <div
-                class="font-mono text-[10px] text-cyan-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                LAUNCH_CLI.EXE &rarr;
+              <p class="text-slate-400 text-[11px] font-mono mb-3">Press <kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-white/20 text-cyan-300 font-semibold shadow-inner">Ctrl+\</kbd> or click to launch interactive command overlay.</p>
+              <div class="font-mono text-[11px] font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors flex items-center gap-1.5">
+                <span>LAUNCH_CLI.EXE</span>
+                <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
               </div>
             </button>
           </div>
@@ -539,8 +541,11 @@
             <p class="text-slate-300 text-xs mb-3">Hyperlocal community mutual aid with E2E encrypted chat &amp; Leaflet
               map.</p>
             <a href="https://sadhnam-indo.vercel.app/" target="_blank"
-              class="inline-flex items-center gap-1 font-mono text-xs text-cyan-400 hover:underline">VISIT_APP <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
           </div>
         </div>
 
@@ -566,8 +571,11 @@
             <p class="text-slate-300 text-xs mb-3">12-module SOC intelligence console with D3 network topology graph.
             </p>
             <a href="https://threatlens-jade.vercel.app/" target="_blank"
-              class="inline-flex items-center gap-1 font-mono text-xs text-cyan-400 hover:underline">VISIT_APP <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
           </div>
         </div>
 
@@ -593,8 +601,11 @@
             <p class="text-slate-300 text-xs mb-3">Military-grade 3D globe tactical surveillance with Web Speech AI
               controls.</p>
             <a href="https://arion-aju.vercel.app/" target="_blank"
-              class="inline-flex items-center gap-1 font-mono text-xs text-cyan-400 hover:underline">VISIT_APP <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
           </div>
         </div>
 
@@ -620,8 +631,11 @@
             <p class="text-slate-300 text-xs mb-3">Interactive 3D product configurator with real-time parametric optics
               &amp; Web Audio.</p>
             <a href="https://interactive-3d-showcase.vercel.app/" target="_blank"
-              class="inline-flex items-center gap-1 font-mono text-xs text-cyan-400 hover:underline">VISIT_APP <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
           </div>
         </div>
       </div>

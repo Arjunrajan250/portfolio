@@ -12,7 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet">
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap"
     rel="stylesheet">
   <link href="assets/custom.css" rel="stylesheet">
   <script id="tailwind-config">
@@ -20,6 +20,12 @@
       darkMode: "class",
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            display: ['"Space Grotesk"', 'Outfit', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            syne: ['Syne', '"Space Grotesk"', 'sans-serif']
+          },
           colors: {
             primary: "#6366f1",
             cyan: "#06b6d4",
@@ -57,9 +63,6 @@
       <a class="text-slate-400 hover:text-white transition-colors" href="index.html#contact">CONTACT</a>
     </div>
     <div class="flex items-center gap-4">
-      <button
-        class="navbar-terminal-btn material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors text-xl"
-        title="Open Interactive CLI Terminal (Ctrl+\)">terminal</button>
       <div
         class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md"
         title="Click to view profile photo">

@@ -411,74 +411,128 @@ function initMobileDrawer() {
 }
 
 // --- 4. Interactive HUD Terminal Modal ---
-function initTerminalHud() {
-    const triggerBtns = document.querySelectorAll('.terminal-trigger, .navbar-terminal-btn');
+function openTerminal() {
+    let overlay = document.getElementById('terminal-hud');
+    if (!overlay) {
+        if (typeof injectSharedComponents === 'function') {
+            injectSharedComponents();
+        }
+        overlay = document.getElementById('terminal-hud');
+    }
+    if (overlay) {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        
+        // Ensure event listeners are bound to prompt input
+        initTerminalHud();
+
+        const input = document.getElementById('terminal-prompt');
+        if (input) {
+            setTimeout(() => input.focus(), 50);
+        }
+    }
+}
+
+function closeTerminal() {
     const overlay = document.getElementById('terminal-hud');
+    if (overlay) {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+}
+
+// Expose globally on window scope immediately
+window.openTerminal = openTerminal;
+window.closeTerminal = closeTerminal;
+
+// Global hotkey listener for Ctrl+\ and Backtick
+window.addEventListener('keydown', (e) => {
+    const overlay = document.getElementById('terminal-hud');
+    const isOpen = overlay && overlay.classList.contains('open');
+
+    if (e.key === 'Escape' && isOpen) {
+        closeTerminal();
+        return;
+    }
+
+    const isBackslash = e.key === '\\' || e.key === '\x1c' || e.code === 'Backslash';
+    const isBacktick = e.key === '`' || e.code === 'Backquote' || e.key === '~';
+    const activeEl = document.activeElement;
+    const isEditing = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.isContentEditable);
+
+    if ((e.ctrlKey && isBackslash) || (isBacktick && !isOpen && !isEditing)) {
+        e.preventDefault();
+        if (isOpen) closeTerminal();
+        else openTerminal();
+    }
+});
+
+function initTerminalHud() {
+    const overlay = document.getElementById('terminal-hud');
+    if (!overlay) return;
+
     const closeBtn = document.getElementById('terminal-hud-close');
     const input = document.getElementById('terminal-prompt');
     const body = document.getElementById('terminal-body');
-    const windowEl = overlay ? overlay.querySelector('.terminal-hud-window') : null;
+    const windowEl = overlay.querySelector('.terminal-hud-window');
 
-    if (!overlay || !input || !body) return;
-
-    let targetBtns = Array.from(triggerBtns);
-    document.querySelectorAll('button').forEach(btn => {
-        if (btn.innerText.trim() === 'terminal' || btn.querySelector('.material-symbols-outlined')?.innerText === 'terminal') {
-            if (!targetBtns.includes(btn)) targetBtns.push(btn);
+    const triggerBtns = document.querySelectorAll('.terminal-trigger, .navbar-terminal-btn');
+    triggerBtns.forEach(btn => {
+        if (!btn.dataset.bound) {
+            btn.dataset.bound = 'true';
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openTerminal();
+            });
         }
     });
 
-    const openTerminal = () => {
-        overlay.classList.add('open');
-        input.focus();
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeTerminal = () => {
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-    };
-
-    targetBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openTerminal();
+    if (closeBtn && !closeBtn.dataset.bound) {
+        closeBtn.dataset.bound = 'true';
+        closeBtn.addEventListener('click', closeTerminal);
+    }
+    if (overlay && !overlay.dataset.bound) {
+        overlay.dataset.bound = 'true';
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeTerminal();
         });
-    });
+    }
 
-    if (closeBtn) closeBtn.addEventListener('click', closeTerminal);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeTerminal();
-    });
-
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.classList.contains('open')) {
-            closeTerminal();
-        }
-        if ((e.ctrlKey && e.key === '\\') || (e.key === '`' && !overlay.classList.contains('open') && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA')) {
-            e.preventDefault();
-            if (overlay.classList.contains('open')) closeTerminal();
-            else openTerminal();
-        }
-    });
-
-    input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const commandLine = input.value.trim();
-            input.value = '';
-            if (commandLine) {
+    if (input && body && !input.dataset.bound) {
+        input.dataset.bound = 'true';
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const commandLine = input.value;
+                input.value = '';
                 executeCommand(commandLine, body, windowEl, closeTerminal);
+            } else if (e.key.length === 1 || e.key === 'Backspace') {
+                try {
+                    if (window.CyberAudio && typeof window.CyberAudio.playKey === 'function') {
+                        window.CyberAudio.playKey();
+                    }
+                } catch (err) {}
             }
-        } else if (e.key.length === 1 || e.key === 'Backspace') {
-            CyberAudio.playKey();
-        }
-    });
-
-    body.addEventListener('click', () => input.focus());
+        });
+        body.addEventListener('click', () => input.focus());
+    }
 }
 
 function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
-    const rawInput = cmdLine.trim().toLowerCase();
+    if (!bodyEl) bodyEl = document.getElementById('terminal-body');
+    if (!bodyEl) return;
+
+    const trimmedInput = (cmdLine || '').trim();
+    if (!trimmedInput) {
+        const emptyEl = document.createElement('div');
+        emptyEl.className = 'mt-2';
+        emptyEl.innerHTML = `<span class="text-accent font-semibold">guest@arjunr:~$</span>`;
+        bodyEl.appendChild(emptyEl);
+        bodyEl.scrollTop = bodyEl.scrollHeight;
+        return;
+    }
+
+    const rawInput = trimmedInput.toLowerCase();
     const parts = rawInput.split(/\s+/);
     const primaryCmd = parts[0];
     const arg = parts[1];
@@ -487,17 +541,23 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
 
     const queryEl = document.createElement('div');
     queryEl.className = 'mt-2';
-    queryEl.innerHTML = `<span class="text-accent font-semibold">guest@arjunr:~$</span> <span>${escapeHtml(cmdLine)}</span>`;
+    queryEl.innerHTML = `<span class="text-accent font-semibold">guest@arjunr:~$</span> <span>${escapeHtml(trimmedInput)}</span>`;
     bodyEl.appendChild(queryEl);
 
     let cmd = primaryCmd;
-    if (['about', 'profile', 'bio', 'developer', 'who'].includes(cmd) || rawInput.includes('profile')) cmd = 'about';
+    if (['about', 'profile', 'bio', 'developer', 'who'].includes(cmd) || rawInput === 'whoami') cmd = 'about';
     else if (['skills', 'skill', 'matrix', 'stack', 'tech', 'metrics'].includes(cmd) || rawInput.includes('metrics') || rawInput.includes('matrix')) cmd = 'skills';
-    else if (['experience', 'career', 'summary', 'logs', 'timeline', 'work', 'history'].includes(cmd) || rawInput.includes('logs') || rawInput.includes('summary')) cmd = 'experience';
-    else if (['projects', 'output', 'outputs', 'portfolio', 'apps', 'highlight'].includes(cmd) || rawInput.includes('output') || rawInput.includes('outputs')) cmd = 'projects';
-    else if (['contact', 'handles', 'dispatch', 'email', 'socials', 'github', 'reach'].includes(cmd) || rawInput.includes('handles') || rawInput.includes('dispatch')) cmd = 'contact';
+    else if (['experience', 'career', 'summary', 'logs', 'timeline', 'work', 'history'].includes(cmd) || rawInput.includes('logs')) cmd = 'experience';
+    else if (['projects', 'output', 'outputs', 'portfolio', 'apps', 'highlight'].includes(cmd) || rawInput.includes('output')) cmd = 'projects';
+    else if (['contact', 'handles', 'dispatch', 'email', 'socials', 'github', 'reach'].includes(cmd) || rawInput.includes('socials')) cmd = 'contact';
     else if (['cv', 'resume', 'pdf'].includes(cmd) || rawInput.includes('cv') || rawInput.includes('resume')) cmd = 'cv';
     else if (['theme', 'colors', 'color', 'styling'].includes(cmd) || rawInput.includes('styling')) cmd = 'theme';
+    else if (['ls', 'dir', 'list'].includes(cmd)) cmd = 'ls';
+    else if (['cat', 'read', 'view'].includes(cmd)) cmd = 'cat';
+    else if (['date', 'time'].includes(cmd)) cmd = 'date';
+    else if (['neofetch', 'system', 'specs', 'sys'].includes(cmd)) cmd = 'neofetch';
+    else if (['sudo', 'su', 'root'].includes(cmd)) cmd = 'sudo';
+    else if (['ping'].includes(cmd)) cmd = 'ping';
 
     switch (cmd) {
         case 'help':
@@ -507,15 +567,17 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             output = `
 <div class="mt-1 text-accent font-bold">=== ARJUN-TERMINAL COMMAND DIRECTORY ===</div>
 <div class="mt-2 space-y-1.5 ml-1 font-mono text-xs md:text-sm">
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[about]</span><span class="text-slate-300">Developer profile & academic summary</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[skills]</span><span class="text-slate-300">Technical matrix & framework proficiencies</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[experience]</span><span class="text-slate-300">Career journey & engineering roles</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[projects]</span><span class="text-slate-300">Digital architecture showreel & outputs</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[contact]</span><span class="text-slate-300">Direct email & social handles</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[cv]</span><span class="text-slate-300">Open full Curriculum Vitae modal</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[theme &lt;col&gt;]</span><span class="text-slate-300">Set theme (cyan/green/amber/purple/steel)</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[clear]</span><span class="text-slate-300">Clear CLI console window</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-32 shrink-0">[exit]</span><span class="text-slate-300">Close terminal window</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[about / whoami]</span><span class="text-slate-300">Developer profile & academic summary</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[skills / stack]</span><span class="text-slate-300">Technical matrix & framework proficiencies</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[experience]</span><span class="text-slate-300">Career journey & engineering roles</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[projects]</span><span class="text-slate-300">Digital architecture showreel & outputs</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[contact / email]</span><span class="text-slate-300">Direct email & social handles</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[cv / resume]</span><span class="text-slate-300">Open full Curriculum Vitae modal</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[ls / cat &lt;file&gt;]</span><span class="text-slate-300">List and view virtual file system</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[neofetch / specs]</span><span class="text-slate-300">Display system telemetry specs</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[theme &lt;col&gt;]</span><span class="text-slate-300">Set theme (cyan/green/amber/purple/steel)</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[clear / cls]</span><span class="text-slate-300">Clear CLI console window</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[exit / quit]</span><span class="text-slate-300">Close terminal window</span></div>
 </div>
             `;
             break;
@@ -523,6 +585,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             output = `
 <div class="mt-1">
   <span class="font-bold text-accent">Arjun R</span> &mdash; Senior Front-End Developer & UI Engineer.<br>
+  Currently working at <span class="text-accent font-semibold">CISAI</span>.<br>
   Pursuing Bachelor of Computer Applications (BCA).<br>
   Obsessed with high-performance Web APIs, RxJS state management, and sleek glassmorphic UI systems.
 </div>
@@ -544,6 +607,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             output = `
 <div class="mt-1 font-bold text-accent">CAREER TIMELINE SUMMARY:</div>
 <div class="ml-2 mt-1 space-y-1">
+  <div>&bull; <span class="text-accent font-semibold">Front-End Developer @ CISAI</span> | Present</div>
   <div>&bull; <span class="text-accent font-semibold">Front-End Developer</span> | June 20, 2024 &mdash; Present</div>
   <div>&bull; <span class="text-accent font-semibold">MERN Stack Intern</span> | July 2023 &mdash; Jan 2024</div>
   <div>&bull; <span class="text-accent font-semibold">Diploma in Computer Engineering</span> | 2021 &mdash; 2023</div>
@@ -554,11 +618,11 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             output = `
 <div class="mt-1 font-bold text-accent">FEATURED OUTPUTS:</div>
 <div class="ml-2 mt-1 space-y-1">
-  <div>1. <span class="text-accent font-semibold">Network Analysis Dashboard</span> &mdash; Sigma.js</div>
-  <div>2. <span class="text-accent font-semibold">Traffic Analytics Hub</span> &mdash; amCharts</div>
-  <div>3. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; WebGL</div>
-  <div>4. <span class="text-accent font-semibold">SVG Convert</span> &mdash; ImageTracerJS Figma Plugin</div>
-  <div>5. <span class="text-accent font-semibold">Multi-Source Video Downloader</span> &mdash; Node.js Streams</div>
+  <div>1. <span class="text-accent font-semibold">Sadhnam Indo P2P</span> &mdash; React 19 & Supabase</div>
+  <div>2. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
+  <div>3. <span class="text-accent font-semibold">ARION C4ISR Suite</span> &mdash; amCharts 5 & Voice AI</div>
+  <div>4. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
+  <div>5. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
 </div>
             `;
             break;
@@ -578,9 +642,67 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             if (overlay) {
                 overlay.classList.add('open');
                 document.body.style.overflow = 'hidden';
-                CyberAudio.playChime();
+                if (window.CyberAudio) CyberAudio.playChime();
             }
             output = `<div class="mt-1 text-accent">Opening Curriculum Vitae modal...</div>`;
+            break;
+        case 'ls':
+            output = `
+<div class="mt-1 flex flex-wrap gap-4 font-mono text-xs">
+  <span class="text-cyan-400 font-bold">about.txt</span>
+  <span class="text-emerald-400 font-bold">skills.md</span>
+  <span class="text-violet-400 font-bold">projects.json</span>
+  <span class="text-amber-400 font-bold">experience.log</span>
+  <span class="text-indigo-400 font-bold">contact.vcf</span>
+  <span class="text-red-400 font-bold">cv.pdf</span>
+</div>
+            `;
+            break;
+        case 'cat':
+            if (!arg) {
+                output = `<div class="mt-1 text-red-400">Usage: cat &lt;filename&gt; (e.g. cat about.txt)</div>`;
+            } else if (arg.includes('about')) {
+                output = `<div class="mt-1">Arjun R &mdash; Senior Front-End Developer at CISAI specializing in high-performance web interfaces.</div>`;
+            } else if (arg.includes('skills')) {
+                output = `<div class="mt-1">Angular, React, TypeScript, RxJS, Three.js, amCharts, D3.js, Tailwind CSS</div>`;
+            } else if (arg.includes('projects')) {
+                output = `<div class="mt-1">Sadhnam Indo, ThreatLens, ARION C4ISR, Luxe3D Quantum, SVG Convert</div>`;
+            } else if (arg.includes('experience')) {
+                output = `<div class="mt-1">Currently working at CISAI as Front-End Developer.</div>`;
+            } else if (arg.includes('contact')) {
+                output = `<div class="mt-1">Email: ajuarjunr@gmail.com | Phone: +91 8921843248</div>`;
+            } else if (arg.includes('cv')) {
+                const cvModal = document.getElementById('resume-modal-overlay');
+                if (cvModal) {
+                    cvModal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                }
+                output = `<div class="mt-1 text-accent">Opening cv.pdf preview...</div>`;
+            } else {
+                output = `<div class="mt-1 text-red-400">cat: ${escapeHtml(arg)}: No such file or directory</div>`;
+            }
+            break;
+        case 'date':
+            output = `<div class="mt-1 text-accent">${new Date().toUTCString()}</div>`;
+            break;
+        case 'neofetch':
+            output = `
+<div class="mt-1 font-mono text-xs text-accent">
+  OS: CyberOS 4.5.0-generic x86_64<br>
+  Host: Arjun R Portfolio V4<br>
+  Kernel: WebAPI / HTML5 / JS ES2024<br>
+  Uptime: 99.99% active<br>
+  Shell: zsh / arjun-cyber-cli v4.5<br>
+  Resolution: Responsive Fluid Layout<br>
+  Terminal: HUD Overlay Component
+</div>
+            `;
+            break;
+        case 'sudo':
+            output = `<div class="mt-1 text-red-400">[ACCESS DENIED] User 'guest' is not in the sudoers file. Incident reported to Arjun R.</div>`;
+            break;
+        case 'ping':
+            output = `<div class="mt-1 text-emerald-400">PING api.arjunr.dev (127.0.0.1): 56 data bytes. 64 bytes: icmp_seq=0 ttl=64 time=0.42 ms</div>`;
             break;
         case 'theme':
             const themes = ['cyan', 'green', 'amber', 'purple', 'steel'];
@@ -606,7 +728,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             closeFn();
             return;
         default:
-            output = `<div class="mt-1 text-red-400">Unknown command: '${escapeHtml(cmdLine)}'. Type <span class="text-accent font-semibold">help</span>.</div>`;
+            output = `<div class="mt-1 text-red-400">Unknown command: '${escapeHtml(cmdLine)}'. Type <span class="text-accent font-semibold">help</span> to list commands.</div>`;
     }
 
     const responseEl = document.createElement('div');
@@ -614,6 +736,10 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
     responseEl.innerHTML = output;
     bodyEl.appendChild(responseEl);
     bodyEl.scrollTop = bodyEl.scrollHeight;
+    setTimeout(() => {
+        const input = document.getElementById('terminal-prompt');
+        if (input) input.focus();
+    }, 10);
 }
 
 function escapeHtml(text) {
@@ -726,6 +852,7 @@ const CyberAudio = {
         this.playBlip(850 + Math.random() * 250, 0.03);
     }
 };
+window.CyberAudio = CyberAudio;
 
 function initAudioToggle() {
     const btn = document.getElementById('audio-toggle-btn');
