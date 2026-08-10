@@ -230,15 +230,15 @@ function injectSharedComponents() {
     if (!document.getElementById('resume-modal-overlay')) {
         const resumeHtml = `
             <div id="resume-modal-overlay" class="resume-modal-overlay">
-                <div class="resume-modal-content glass-panel-v2 p-4 md:p-6 rounded-2xl relative max-w-4xl w-full h-[85vh] flex flex-col border border-white/15 shadow-2xl">
-                    <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4 select-none">
+                <div class="resume-modal-content glass-panel-v2 p-4 md:p-6 rounded-2xl relative max-w-4xl w-full h-[88vh] flex flex-col border border-white/15 shadow-2xl">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4 select-none flex-shrink-0">
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-full bg-cyan-500/20 flex items-center justify-center border border-cyan-500/40">
                                 <span class="material-symbols-outlined text-cyan-400 text-sm">description</span>
                             </div>
                             <div>
                                 <h3 class="font-headline-md text-base md:text-lg text-on-surface font-bold">Curriculum Vitae — Arjun R</h3>
-                                <p class="font-code-sm text-xs text-slate-400">Arjun_R_Resume.pdf • Official Verification Document</p>
+                                <p class="font-code-sm text-xs text-slate-400">Official Verification Document • Executive View</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
@@ -247,8 +247,114 @@ function injectSharedComponents() {
                             </button>
                         </div>
                     </div>
-                    <div class="flex-grow w-full rounded-xl overflow-hidden bg-black/50 border border-white/10 relative">
-                        <iframe src="assets/resume.html" class="w-full h-full border-none" title="Arjun R Resume Preview"></iframe>
+                    <div class="flex-grow w-full rounded-xl overflow-y-auto bg-[#0b0f17] border border-white/10 relative p-4 md:p-6 text-slate-200 space-y-4 font-sans text-xs custom-scrollbar">
+                        <!-- Header -->
+                        <header class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60 relative overflow-hidden">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 relative z-10">
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-mono text-[10px] text-cyan-400 tracking-widest uppercase">CURRICULUM VITAE</span>
+                                        <span class="font-mono text-[9px] px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300">VERIFIED PRO</span>
+                                    </div>
+                                    <h1 class="text-2xl font-bold text-white mt-0.5 tracking-tight">Arjun R</h1>
+                                    <p class="text-xs text-cyan-300 font-medium">Senior Front-End Developer &amp; UI Engineer</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[11px] text-slate-300">
+                                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">mail</span> ajuarjunr@gmail.com</span>
+                                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">call</span> +91 8921843248</span>
+                                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">code</span> github.com/Arjunrajan250</span>
+                                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">location_on</span> Kerala, India</span>
+                                </div>
+                            </div>
+                        </header>
+
+                        <!-- Executive Summary -->
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60">
+                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm">person</span> Executive Summary
+                            </h2>
+                            <p class="text-slate-300 leading-snug text-xs">
+                                Senior Front-End Engineer specializing in enterprise Angular architecture, reactive state streams (RxJS, NgRx, Signals), and WebGL data visualization (amCharts 5, Sigma.js). Proven track record building BDSAP cybersecurity suites and privacy-first AI development workflows.
+                            </p>
+                        </section>
+
+                        <!-- Technical Stack -->
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60">
+                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm">terminal</span> Technical Stack &amp; Architecture
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 font-mono text-[11px]">
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
+                                    <span class="text-indigo-400 block mb-1 font-bold">CORE FRAMEWORKS</span>
+                                    <p class="text-slate-200">Angular 17+, TypeScript, RxJS, NgRx, Signals, Standalone Components</p>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
+                                    <span class="text-cyan-400 block mb-1 font-bold">DATA VIZ &amp; GRAPHICS</span>
+                                    <p class="text-slate-200">amCharts 5, Sigma.js, Three.js, WebGL Canvas, ForceAtlas2</p>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
+                                    <span class="text-violet-400 block mb-1 font-bold">UI &amp; STYLING</span>
+                                    <p class="text-slate-200">Tailwind CSS, Material Design 3, Glassmorphism, Micro-Animations</p>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
+                                    <span class="text-emerald-400 block mb-1 font-bold">AI WORKFLOWS &amp; TOOLING</span>
+                                    <p class="text-slate-200">Privacy-First AI Integration, Figma API, Git, Webpack, Node.js</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Professional Experience -->
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60">
+                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm">work</span> Professional Experience
+                            </h2>
+                            <div class="space-y-3">
+                                <div class="border-l-2 border-indigo-500/60 pl-3 py-0.5">
+                                    <div class="flex justify-between items-center flex-wrap gap-1">
+                                        <h3 class="text-white font-semibold text-xs">Front-End Developer — Innspark Solutions</h3>
+                                        <span class="font-mono text-[10px] text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">June 2024 — PRESENT</span>
+                                    </div>
+                                    <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-tight">
+                                        <li>Engineered enterprise web UI for Innspark BDSAP (Big Data Security Analytics Platform) integrating SIEM, SOAR, UEBA, and NDR modules.</li>
+                                        <li>Architected zone-less Angular component structures with reactive RxJS pipelines, NgRx state management, and lazy loading.</li>
+                                        <li>Built real-time telemetry dashboards using Sigma.js graph engines and amCharts analytics visualization.</li>
+                                    </ul>
+                                </div>
+                                <div class="border-l-2 border-cyan-500/60 pl-3 py-0.5">
+                                    <div class="flex justify-between items-center flex-wrap gap-1">
+                                        <h3 class="text-white font-semibold text-xs">MERN Stack Developer Intern — Intensive Track</h3>
+                                        <span class="font-mono text-[10px] text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-white/10">July 2023 — Jan 2024</span>
+                                    </div>
+                                    <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-tight">
+                                        <li>Developed full-stack web applications using React.js, Node.js, Express REST APIs, and MongoDB databases.</li>
+                                        <li>Implemented secure JWT user authentication and responsive front-end dashboard interfaces.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Education -->
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60">
+                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm">school</span> Academic Credentials
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                                <div class="flex justify-between items-center bg-slate-950/80 p-2.5 rounded-lg border border-white/5">
+                                    <div>
+                                        <h3 class="text-white font-semibold text-xs">Bachelor of Computer Applications (BCA)</h3>
+                                        <p class="text-slate-400 text-[10px]">Software Engineering &amp; Web Architecture</p>
+                                    </div>
+                                    <span class="font-mono text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30">2024 — PRES</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-slate-950/80 p-2.5 rounded-lg border border-white/5">
+                                    <div>
+                                        <h3 class="text-white font-semibold text-xs">Diploma in Computer Engineering</h3>
+                                        <p class="text-slate-400 text-[10px]">Carmel Polytechnic College, Alappuzha</p>
+                                    </div>
+                                    <span class="font-mono text-[10px] text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-white/10">2021 — 2023</span>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -636,54 +742,68 @@ function initAudioToggle() {
     });
 }
 
-// --- 7. In-Page Resume PDF Viewer Modal ---
-function initResumeModal() {
-    const overlay = document.getElementById('resume-modal-overlay');
-    const closeBtn = document.getElementById('resume-modal-close');
-    if (!overlay) return;
-
-    const openModal = () => {
+window.openResumeModal = function() {
+    let overlay = document.getElementById('resume-modal-overlay');
+    if (!overlay) {
+        injectSharedComponents();
+        overlay = document.getElementById('resume-modal-overlay');
+    }
+    if (overlay) {
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
-        CyberAudio.playChime();
-    };
+        try { if (window.CyberAudio) CyberAudio.playChime(); } catch(e) {}
+    }
+};
 
-    const closeModal = () => {
+window.closeResumeModal = function() {
+    const overlay = document.getElementById('resume-modal-overlay');
+    if (overlay) {
         overlay.classList.remove('open');
         document.body.style.overflow = '';
-        CyberAudio.playBlip(450, 0.04);
-    };
+        try { if (window.CyberAudio) CyberAudio.playBlip(450, 0.04); } catch(e) {}
+    }
+};
 
-    const selectors = ['a[href*="resume"]', 'a[href*="Resume"]', 'a[href*="CV"]', '[data-action="view-resume"]', '.btn-resume'];
+// --- 7. In-Page Resume PDF Viewer Modal ---
+function initResumeModal() {
+    document.addEventListener('click', (e) => {
+        const closeBtn = e.target.closest('#resume-modal-close');
+        if (closeBtn) {
+            window.closeResumeModal();
+            return;
+        }
 
-    document.querySelectorAll(selectors.join(', ')).forEach(link => {
-        if (link.closest('#resume-modal-overlay')) return;
-        link.addEventListener('click', (e) => {
+        const overlay = document.getElementById('resume-modal-overlay');
+        if (overlay && e.target === overlay) {
+            window.closeResumeModal();
+            return;
+        }
+
+        const trigger = e.target.closest('[data-action="view-resume"], .btn-resume, a[href*="resume"], a[href*="Resume"], a[href*="CV"]');
+        if (trigger) {
+            if (trigger.closest('#resume-modal-overlay')) return;
             e.preventDefault();
             e.stopPropagation();
-            openModal();
-        });
-    });
+            window.openResumeModal();
+            return;
+        }
 
-    document.querySelectorAll('a, button').forEach(el => {
-        if (el.closest('#resume-modal-overlay')) return;
-        const txt = (el.textContent || '').trim().toUpperCase();
-        if ((txt.includes('RESUME') || txt.includes('VIEW CV')) && !el.dataset.resumeBound) {
-            el.dataset.resumeBound = 'true';
-            el.addEventListener('click', (e) => {
+        const btnOrLink = e.target.closest('a, button');
+        if (btnOrLink && !btnOrLink.closest('#resume-modal-overlay')) {
+            const txt = (btnOrLink.textContent || '').trim().toUpperCase();
+            if (txt.includes('CV') || txt.includes('RESUME')) {
                 e.preventDefault();
                 e.stopPropagation();
-                openModal();
-            });
+                window.openResumeModal();
+            }
         }
     });
 
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeModal();
-    });
     window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+        const overlay = document.getElementById('resume-modal-overlay');
+        if (e.key === 'Escape' && overlay && overlay.classList.contains('open')) {
+            window.closeResumeModal();
+        }
     });
 }
 
@@ -724,7 +844,7 @@ function initProjectModal() {
             </div>
             <p class="font-body-lg text-slate-300 mb-6 leading-relaxed">${desc}</p>
             <div class="border-t border-white/10 pt-4">
-                <h4 class="font-label-caps text-xs text-cyan-400 mb-3 tracking-wider">TEHNOLOGY STACK &amp; HIGHLIGHTS</h4>
+                <h4 class="font-label-caps text-xs text-cyan-400 mb-3 tracking-wider">TECHNOLOGY STACK &amp; HIGHLIGHTS</h4>
                 <div class="flex flex-wrap gap-2">
                     ${badges.map(b => `<span class="badge-pill border-cyan-500/30 text-cyan-300 bg-cyan-950/40">${b}</span>`).join('')}
                 </div>
@@ -815,23 +935,25 @@ function initProjectFilters() {
 
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.toLowerCase().trim();
-        const activeBtn = document.querySelector('.filter-btn.bg-indigo-600, .filter-btn.bg-primary');
+        const activeBtn = document.querySelector('.apple-segmented-item.active, .filter-btn.active, .filter-btn.bg-indigo-600');
         let activeCategory = 'all';
 
         if (activeBtn) {
-            if (activeBtn.innerText.includes('WEB')) activeCategory = 'web';
-            else if (activeBtn.innerText.includes('DATA')) activeCategory = 'data';
-            else if (activeBtn.innerText.includes('DASHBOARD')) activeCategory = 'ui';
+            const btnText = activeBtn.innerText.toUpperCase();
+            if (btnText.includes('WEB')) activeCategory = 'web';
+            else if (btnText.includes('DATA')) activeCategory = 'data';
+            else if (btnText.includes('DASHBOARD')) activeCategory = 'ui';
+            else if (btnText.includes('PLUGIN')) activeCategory = 'plugins';
         }
 
         filterProjectsList(activeCategory, query);
     });
 
     window.filterProjects = function (category) {
-        const buttons = document.querySelectorAll('.filter-btn');
+        const buttons = document.querySelectorAll('.apple-segmented-item, .filter-btn');
 
         buttons.forEach(btn => {
-            btn.classList.remove('bg-indigo-600', 'bg-primary', 'text-white', 'text-on-primary', 'shadow-md');
+            btn.classList.remove('active', 'bg-indigo-600', 'bg-primary', 'text-white', 'text-on-primary', 'shadow-md');
             btn.classList.add('text-slate-400');
         });
 
@@ -842,7 +964,19 @@ function initProjectFilters() {
 
         if (activeBtn) {
             activeBtn.classList.remove('text-slate-400');
-            activeBtn.classList.add('bg-indigo-600', 'text-white', 'shadow-md');
+            activeBtn.classList.add('active');
+
+            const parentControl = activeBtn.closest('.apple-segmented-control');
+            if (parentControl) {
+                const indicator = parentControl.querySelector('.apple-segmented-indicator');
+                if (indicator) {
+                    const controlRect = parentControl.getBoundingClientRect();
+                    const btnRect = activeBtn.getBoundingClientRect();
+                    const left = btnRect.left - controlRect.left - parentControl.clientLeft;
+                    indicator.style.transform = `translateX(${left}px)`;
+                    indicator.style.width = `${btnRect.width}px`;
+                }
+            }
         }
 
         const query = searchInput.value.toLowerCase().trim();
@@ -976,53 +1110,6 @@ function initAppleSegmentedControls() {
             const currentActive = control.querySelector('.apple-segmented-item.active');
             if (currentActive) updateIndicator(currentActive);
         });
-    });
-}
-
-function injectAppleDynamicIsland() {
-    if (document.getElementById('apple-dynamic-island')) return;
-
-    const islandHtml = `
-        <div id="apple-dynamic-island" class="apple-dynamic-island" title="Arjun R Cyber HUD (Press ⌘K or Ctrl+K)">
-            <div class="apple-dynamic-island-badge select-none">
-                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span>ARJUN.HUD</span>
-            </div>
-            <div class="w-[1px] h-4 bg-white/15"></div>
-            <button class="apple-dynamic-island-btn navbar-terminal-btn" title="Open Interactive CLI (Ctrl+\)">
-                <span class="material-symbols-outlined text-sm">terminal</span>
-                <span class="hidden sm:inline">CLI</span>
-            </button>
-            <button class="apple-dynamic-island-btn" data-action="view-resume" title="View Curriculum Vitae">
-                <span class="material-symbols-outlined text-sm">description</span>
-                <span class="hidden sm:inline">CV</span>
-            </button>
-            <button id="island-audio-btn" class="apple-dynamic-island-btn" title="Toggle Micro Audio FX">
-                <span class="material-symbols-outlined text-sm">volume_up</span>
-            </button>
-        </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', islandHtml);
-
-    const islandAudioBtn = document.getElementById('island-audio-btn');
-    if (islandAudioBtn) {
-        islandAudioBtn.addEventListener('click', () => {
-            const isAudioOn = CyberAudio.toggle();
-            islandAudioBtn.querySelector('.material-symbols-outlined').textContent = isAudioOn ? 'volume_up' : 'volume_off';
-            const navAudioBtn = document.getElementById('audio-toggle-btn');
-            if (navAudioBtn) {
-                navAudioBtn.classList.toggle('active', isAudioOn);
-                navAudioBtn.querySelector('.material-symbols-outlined').textContent = isAudioOn ? 'volume_up' : 'volume_off';
-            }
-        });
-    }
-
-    window.addEventListener('keydown', (e) => {
-        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-            e.preventDefault();
-            const terminalBtn = document.querySelector('.navbar-terminal-btn');
-            if (terminalBtn) terminalBtn.click();
-        }
     });
 }
 

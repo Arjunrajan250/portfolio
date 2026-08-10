@@ -65,11 +65,12 @@ h2,
 
 .blueprint-grid {
     background-image:
-        radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 60%),
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 40px 40px, 40px 40px;
-    background-attachment: fixed;
+        linear-gradient(180deg, rgba(11, 15, 23, 0.78) 0%, rgba(11, 15, 23, 0.88) 100%),
+        url('images/dark_crumpled_paper.png');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
 }
 
 /* Gradient Text Utilities */
@@ -100,7 +101,7 @@ h2,
 /* Glassmorphism V2 Styles */
 .glass-panel,
 .glass-panel-v2 {
-    background: rgba(13, 21, 39, 0.6);
+    /* background: rgba(13, 21, 39, 0.6); */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -116,8 +117,8 @@ h2,
     transform: translateZ(0);
     backface-visibility: hidden;
     transition: transform var(--duration-hover) var(--ease-out-apple),
-                box-shadow var(--duration-hover) var(--ease-out-apple),
-                border-color var(--duration-hover) var(--ease-out-apple);
+        box-shadow var(--duration-hover) var(--ease-out-apple),
+        border-color var(--duration-hover) var(--ease-out-apple);
 }
 
 .project-card img {
@@ -166,8 +167,8 @@ h2,
 .skill-card:active {
     transform: scale(0.975) translateY(-1px) translateZ(0) !important;
     transition: transform var(--duration-press) var(--ease-press),
-                box-shadow var(--duration-press) ease-out,
-                border-color var(--duration-press) ease-out !important;
+        box-shadow var(--duration-press) ease-out,
+        border-color var(--duration-press) ease-out !important;
     box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -178,6 +179,7 @@ h2,
 
 /* Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
+
     .project-card,
     .glass-card,
     .skill-card,
@@ -501,10 +503,10 @@ h2,
 .resume-modal-overlay {
     position: fixed;
     inset: 0;
-    z-index: 110;
-    background: rgba(4, 7, 13, 0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    z-index: 9999;
+    background: rgba(4, 7, 13, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -768,7 +770,7 @@ h2,
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
     will-change: transform, width;
     transition: transform var(--duration-hover) var(--ease-out-apple),
-                width var(--duration-hover) var(--ease-out-apple);
+        width var(--duration-hover) var(--ease-out-apple);
     z-index: 1;
     pointer-events: none;
 }
@@ -823,8 +825,8 @@ h2,
     box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.65), 0 0 20px rgba(56, 189, 248, 0.06);
     will-change: transform, width, height, padding;
     transition: transform 350ms var(--ease-out-apple),
-                box-shadow 350ms var(--ease-out-apple),
-                border-color 350ms var(--ease-out-apple);
+        box-shadow 350ms var(--ease-out-apple),
+        border-color 350ms var(--ease-out-apple);
 }
 
 .apple-dynamic-island:hover {
@@ -888,8 +890,8 @@ h2,
     box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
     will-change: transform, box-shadow;
     transition: transform var(--duration-hover) var(--ease-out-apple),
-                box-shadow var(--duration-hover) var(--ease-out-apple),
-                background 200ms ease;
+        box-shadow var(--duration-hover) var(--ease-out-apple),
+        background 200ms ease;
     cursor: pointer;
     user-select: none;
 }

@@ -232,11 +232,11 @@
                     INITIATE_PROJECT
                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
                   </a>
-                  <a href="assets/resume.pdf"
+                  <button data-action="view-resume"
                     class="apple-btn apple-btn-secondary font-mono text-xs font-semibold px-8 py-4 rounded-xl text-cyan-300 border-cyan-500/30 flex items-center justify-center gap-2 cursor-pointer shadow-md">
-                    <span class="material-symbols-outlined text-sm">description</span>
-                    RESUME_V4.5_2025.PDF
-                  </a>
+                    <span class="material-symbols-outlined text-sm">visibility</span>
+                    VIEW_CV_PREVIEW
+                  </button>
                 </div>
               </div>
 
@@ -277,7 +277,7 @@
                 <div class="space-y-3">
                   <!-- Mini Project 1: Sadhnam Indo -->
                   <a href="https://sadhnam-indo.vercel.app/" target="_blank"
-                    class="block p-3 rounded-xl bg-slate-900/70 border border-white/10 hover:border-emerald-400/40 transition-all group">
+                    class="block p-3 rounded-xl border border-white/10 hover:border-emerald-400/40 transition-all group">
                     <div class="flex justify-between items-start mb-1">
                       <span class="font-bold text-white text-xs group-hover:text-emerald-400 transition-colors">Sadhnam
                         Indo P2P</span>
@@ -289,7 +289,7 @@
 
                   <!-- Mini Project 2: ThreatLens -->
                   <a href="https://threatlens-jade.vercel.app/" target="_blank"
-                    class="block p-3 rounded-xl bg-slate-900/70 border border-white/10 hover:border-indigo-400/40 transition-all group">
+                    class="block p-3 rounded-xl border border-white/10 hover:border-indigo-400/40 transition-all group">
                     <div class="flex justify-between items-start mb-1">
                       <span
                         class="font-bold text-white text-xs group-hover:text-indigo-400 transition-colors">ThreatLens
@@ -302,7 +302,7 @@
 
                   <!-- Mini Project 3: ARION -->
                   <a href="https://arion-aju.vercel.app/" target="_blank"
-                    class="block p-3 rounded-xl bg-slate-900/70 border border-white/10 hover:border-violet-400/40 transition-all group">
+                    class="block p-3 rounded-xl border border-white/10 hover:border-violet-400/40 transition-all group">
                     <div class="flex justify-between items-start mb-1">
                       <span class="font-bold text-white text-xs group-hover:text-violet-400 transition-colors">ARION
                         C4ISR</span>
@@ -314,7 +314,7 @@
 
                   <!-- Mini Project 4: Luxe3D Quantum One -->
                   <a href="https://interactive-3d-showcase.vercel.app/" target="_blank"
-                    class="block p-3 rounded-xl bg-slate-900/70 border border-white/10 hover:border-cyan-400/40 transition-all group">
+                    class="block p-3 rounded-xl border border-white/10 hover:border-cyan-400/40 transition-all group">
                     <div class="flex justify-between items-start mb-1">
                       <span class="font-bold text-white text-xs group-hover:text-cyan-400 transition-colors">Luxe3D
                         Quantum One</span>
@@ -357,7 +357,7 @@
     </section>
 
     <!-- Tech Stack Marquee -->
-    <section class="py-10 bg-slate-950/60 border-y border-white/10 overflow-hidden">
+    <!-- <section class="py-10 bg-slate-950/60 border-y border-white/10 overflow-hidden">
       <div class="animate-marquee whitespace-nowrap gap-16 items-center">
         <div class="flex items-center gap-12 font-mono text-lg md:text-xl font-bold tracking-wider">
           <span
@@ -412,7 +412,7 @@
               class="material-symbols-outlined text-violet-400">view_in_ar</span>Three.js</span>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Professional Journey & Education Section -->
     <section class="px-4 md:px-12 py-24 max-w-[1700px] mx-auto" id="experience">
@@ -909,7 +909,7 @@
       <a class="hover:text-cyan-400 transition-colors" href="https://github.com/Arjunrajan250" target="_blank"
         rel="noopener noreferrer">GitHub</a>
       <a class="hover:text-cyan-400 transition-colors" href="contact.html">Contact</a>
-      <a class="hover:text-cyan-400 transition-colors" href="assets/resume.pdf" target="_blank">CV (PDF)</a>
+      <button data-action="view-resume" onclick="openResumeModal()" class="hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-0 p-0 text-inherit font-inherit">CV Preview</button>
     </div>
   </footer>
 

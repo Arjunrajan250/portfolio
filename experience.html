@@ -247,16 +247,15 @@
           </div>
         </div>
 
-        <!-- Download CV Banner -->
+        <!-- View CV Banner -->
         <div class="glass-panel-v2 p-8 rounded-3xl border-cyan-500/30 shadow-2xl space-y-4">
           <h3 class="text-xl font-bold text-white">Curriculum Vitae</h3>
-          <p class="text-slate-300 text-xs leading-relaxed">Download official resume PDF or open live in-browser preview
-            modal.</p>
-          <a href="assets/resume.pdf" target="_blank"
-            class="shimmer w-full bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg">
-            <span class="material-symbols-outlined text-sm">download</span>
-            DOWNLOAD_CV.PDF
-          </a>
+          <p class="text-slate-300 text-xs leading-relaxed">Open official Curriculum Vitae in live interactive preview modal.</p>
+          <button data-action="view-resume" onclick="openResumeModal()"
+            class="shimmer w-full bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer">
+            <span class="material-symbols-outlined text-sm">visibility</span>
+            VIEW_CV_PREVIEW
+          </button>
         </div>
       </div>
     </div>
@@ -272,7 +271,7 @@
       <a class="hover:text-cyan-400 transition-colors" href="https://github.com/Arjunrajan250" target="_blank"
         rel="noopener noreferrer">GitHub</a>
       <a class="hover:text-cyan-400 transition-colors" href="contact.html">Contact</a>
-      <a class="hover:text-cyan-400 transition-colors" href="assets/resume.pdf" target="_blank">CV (PDF)</a>
+      <button data-action="view-resume" onclick="openResumeModal()" class="hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-0 p-0 text-inherit font-inherit">CV Preview</button>
     </div>
   </footer>
 

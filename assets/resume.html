@@ -8,115 +8,140 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background: #030a16;
+            background: #0b0f17;
             color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .glass-box {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
+            background: rgba(17, 24, 39, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @media print {
+            body { background: #0b0f17 !important; padding: 0 !important; }
+            .page-container { padding: 16px !important; margin: 0 !important; max-width: 100% !important; }
         }
     </style>
 </head>
-<body class="p-6 md:p-10 max-w-4xl mx-auto selection:bg-cyan-500 selection:text-black">
-    <!-- Header -->
-    <header class="glass-box p-8 rounded-2xl mb-8 relative overflow-hidden">
-        <div class="absolute -top-12 -right-12 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl"></div>
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
-            <div>
-                <span class="font-mono text-xs text-cyan-400 tracking-widest uppercase">CURRICULUM VITAE // VERIFIED_2025</span>
-                <h1 class="text-3xl md:text-4xl font-bold text-white mt-1">Arjun R</h1>
-                <p class="text-lg text-slate-300 font-medium mt-1">Senior Front-End Developer & UI Engineer</p>
-            </div>
-            <div class="flex flex-col gap-1.5 font-mono text-xs text-slate-400">
-                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-cyan-400 text-sm">mail</span> ajuarjunr@gmail.com</span>
-                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-cyan-400 text-sm">call</span> +91 8921843248</span>
-                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-cyan-400 text-sm">code</span> github.com/Arjunrajan250</span>
-                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-cyan-400 text-sm">location_on</span> Kerala, India</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- Professional Summary -->
-    <section class="glass-box p-6 md:p-8 rounded-2xl mb-8">
-        <h2 class="font-mono text-sm text-cyan-400 font-bold uppercase tracking-wider mb-3 flex items-center gap-2">
-            <span class="material-symbols-outlined text-base">person</span> Professional Profile
-        </h2>
-        <p class="text-slate-300 leading-relaxed text-sm md:text-base">
-            Senior UI Engineer specializing in enterprise Angular application architecture, reactive state management (RxJS, NgRx), and high-performance data visualizations (amCharts, Sigma.js). Expert in leveraging AI workflows for high-productivity, rapid development while enforcing strict data privacy, zero-leakage policies, and security integrity.
-        </p>
-    </section>
-
-    <!-- Core Competencies -->
-    <section class="glass-box p-6 md:p-8 rounded-2xl mb-8">
-        <h2 class="font-mono text-sm text-cyan-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span class="material-symbols-outlined text-base">terminal</span> Technical Stack
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
-            <div class="p-4 bg-slate-900/60 rounded-xl border border-white/5">
-                <span class="text-slate-400 block mb-2 font-bold text-cyan-300">CORE FRAMEWORKS</span>
-                <p class="text-slate-200">Angular 17+, TypeScript, RxJS, NgRx, React 18, HTML5/CSS3/Sass</p>
-            </div>
-            <div class="p-4 bg-slate-900/60 rounded-xl border border-white/5">
-                <span class="text-slate-400 block mb-2 font-bold text-cyan-300">DATA VIZ & GRAPHICS</span>
-                <p class="text-slate-200">amCharts 5, Sigma.js, Three.js, WebGL Canvas, SVG Manipulation</p>
-            </div>
-            <div class="p-4 bg-slate-900/60 rounded-xl border border-white/5">
-                <span class="text-slate-400 block mb-2 font-bold text-cyan-300">UI & STYLING</span>
-                <p class="text-slate-200">Tailwind CSS, Material Design 3, Glassmorphism, Responsive WPO</p>
-            </div>
-            <div class="p-4 bg-slate-900/60 rounded-xl border border-white/5">
-                <span class="text-slate-400 block mb-2 font-bold text-cyan-300">TOOLING &amp; AI WORKFLOWS</span>
-                <p class="text-slate-200">Git/GitHub, Privacy-First AI Integration, Figma API, Webpack, Vite, Node.js</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Experience -->
-    <section class="glass-box p-6 md:p-8 rounded-2xl mb-8">
-        <h2 class="font-mono text-sm text-cyan-400 font-bold uppercase tracking-wider mb-6 flex items-center gap-2">
-            <span class="material-symbols-outlined text-base">work</span> Experience Highlights
-        </h2>
-        <div class="space-y-6">
-            <div class="border-l-2 border-cyan-500/50 pl-4 py-1">
-                <div class="flex justify-between items-start flex-wrap gap-2">
-                    <h3 class="text-white font-semibold">Front-End Developer — Innspark Solutions</h3>
-                    <span class="font-mono text-xs text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded-md border border-cyan-500/20">June 2024 — PRESENT</span>
+<body class="bg-[#0b0f17] text-slate-200 selection:bg-cyan-500 selection:text-black">
+    <div class="page-container p-4 md:p-6 max-w-4xl mx-auto space-y-3.5">
+        <!-- Header -->
+        <header class="glass-box p-5 rounded-2xl relative overflow-hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative z-10">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-mono text-[10px] text-cyan-400 tracking-widest uppercase">CURRICULUM VITAE</span>
+                        <span class="font-mono text-[9px] px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300">VERIFIED PRO</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-white mt-0.5 tracking-tight">Arjun R</h1>
+                    <p class="text-xs md:text-sm text-cyan-300 font-medium">Senior Front-End Developer &amp; UI Engineer</p>
                 </div>
-                <ul class="text-slate-300 text-sm mt-2 space-y-1.5 list-disc list-inside">
-                    <li>Engineered enterprise web interfaces for Innspark BDSAP (Big Data Security Analytics Platform) integrating SIEM, SOAR, UEBA, and NDR modules.</li>
-                    <li>Architected modular Angular component structures with signals, RxJS reactive pipelines, and micro-frontend lazy loading.</li>
-                    <li>Developed high-throughput real-time security dashboards powered by amCharts, Sigma.js graph engines, and WebSockets.</li>
-                </ul>
-            </div>
-            <div class="border-l-2 border-slate-700 pl-4 py-1">
-                <div class="flex justify-between items-start flex-wrap gap-2">
-                    <h3 class="text-white font-semibold">Front-End Developer — Enterprise UI Projects</h3>
-                    <span class="font-mono text-xs text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-white/5">2023 — MAY 2025</span>
+                <div class="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[11px] text-slate-300">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">mail</span> ajuarjunr@gmail.com</span>
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">call</span> +91 8921843248</span>
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">code</span> github.com/Arjunrajan250</span>
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">location_on</span> Kerala, India</span>
                 </div>
-                <ul class="text-slate-300 text-sm mt-2 space-y-1.5 list-disc list-inside">
-                    <li>Engineered multi-threaded web tools, Figma API integrations, and vector image trace engines.</li>
-                    <li>Optimized bundle sizes and core web vitals, reducing page rendering latency by over 40%.</li>
-                </ul>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Education -->
-    <section class="glass-box p-6 md:p-8 rounded-2xl">
-        <h2 class="font-mono text-sm text-cyan-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span class="material-symbols-outlined text-base">school</span> Education
-        </h2>
-        <div class="flex justify-between items-center flex-wrap gap-2 text-sm">
-            <div>
-                <h3 class="text-white font-semibold">Bachelor of Computer Applications (BCA)</h3>
-                <p class="text-slate-400 text-xs mt-0.5">Software Engineering & Web Application Architecture</p>
+        <!-- Executive Summary -->
+        <section class="glass-box p-4 rounded-xl">
+            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">person</span> Executive Summary
+            </h2>
+            <p class="text-slate-300 leading-snug text-xs">
+                Senior Front-End Engineer specializing in enterprise Angular architecture, reactive state streams (RxJS, NgRx, Signals), and WebGL data visualization (amCharts 5, Sigma.js). Proven track record building BDSAP cybersecurity suites and privacy-first AI development workflows.
+            </p>
+        </section>
+
+        <!-- Technical Stack -->
+        <section class="glass-box p-4 rounded-xl">
+            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">terminal</span> Technical Stack &amp; Architecture
+            </h2>
+            <div class="grid grid-cols-2 gap-2.5 font-mono text-[11px]">
+                <div class="p-2.5 bg-slate-900/80 rounded-lg border border-white/5">
+                    <span class="text-indigo-400 block mb-1 font-bold">CORE FRAMEWORKS</span>
+                    <p class="text-slate-200">Angular 17+, TypeScript, RxJS, NgRx, Signals, Standalone Components</p>
+                </div>
+                <div class="p-2.5 bg-slate-900/80 rounded-lg border border-white/5">
+                    <span class="text-cyan-400 block mb-1 font-bold">DATA VIZ &amp; GRAPHICS</span>
+                    <p class="text-slate-200">amCharts 5, Sigma.js, Three.js, WebGL Canvas, ForceAtlas2</p>
+                </div>
+                <div class="p-2.5 bg-slate-900/80 rounded-lg border border-white/5">
+                    <span class="text-violet-400 block mb-1 font-bold">UI &amp; STYLING</span>
+                    <p class="text-slate-200">Tailwind CSS, Material Design 3, Glassmorphism, Micro-Animations</p>
+                </div>
+                <div class="p-2.5 bg-slate-900/80 rounded-lg border border-white/5">
+                    <span class="text-emerald-400 block mb-1 font-bold">AI WORKFLOWS &amp; TOOLING</span>
+                    <p class="text-slate-200">Privacy-First AI Integration, Figma API, Git, Webpack, Node.js</p>
+                </div>
             </div>
-            <span class="font-mono text-xs text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-500/20">2024 — PRESENT (PURSUING)</span>
-        </div>
-    </section>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="glass-box p-4 rounded-xl">
+            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">work</span> Professional Experience
+            </h2>
+            <div class="space-y-3">
+                <div class="border-l-2 border-indigo-500/60 pl-3 py-0.5">
+                    <div class="flex justify-between items-center flex-wrap gap-1">
+                        <h3 class="text-white font-semibold text-xs">Front-End Developer — Innspark Solutions</h3>
+                        <span class="font-mono text-[10px] text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">June 2024 — PRESENT</span>
+                    </div>
+                    <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-tight">
+                        <li>Engineered enterprise web UI for Innspark BDSAP (Big Data Security Analytics Platform) integrating SIEM, SOAR, UEBA, and NDR modules.</li>
+                        <li>Architected zone-less Angular component structures with reactive RxJS pipelines, NgRx state management, and lazy loading.</li>
+                        <li>Built real-time telemetry dashboards using Sigma.js graph engines and amCharts analytics visualization.</li>
+                    </ul>
+                </div>
+                <div class="border-l-2 border-cyan-500/60 pl-3 py-0.5">
+                    <div class="flex justify-between items-center flex-wrap gap-1">
+                        <h3 class="text-white font-semibold text-xs">MERN Stack Developer Intern — Intensive Track</h3>
+                        <span class="font-mono text-[10px] text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-white/10">July 2023 — Jan 2024</span>
+                    </div>
+                    <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-tight">
+                        <li>Developed full-stack web applications using React.js, Node.js, Express REST APIs, and MongoDB databases.</li>
+                        <li>Implemented secure JWT user authentication and responsive front-end dashboard interfaces.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="glass-box p-4 rounded-xl">
+            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">school</span> Academic Credentials
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                <div class="flex justify-between items-center bg-slate-900/60 p-2.5 rounded-lg border border-white/5">
+                    <div>
+                        <h3 class="text-white font-semibold text-xs">Bachelor of Computer Applications (BCA)</h3>
+                        <p class="text-slate-400 text-[10px]">Software Engineering &amp; Web Architecture</p>
+                    </div>
+                    <span class="font-mono text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30">2024 — PRES</span>
+                </div>
+                <div class="flex justify-between items-center bg-slate-900/60 p-2.5 rounded-lg border border-white/5">
+                    <div>
+                        <h3 class="text-white font-semibold text-xs">Diploma in Computer Engineering</h3>
+                        <p class="text-slate-400 text-[10px]">Carmel Polytechnic College, Alappuzha</p>
+                    </div>
+                    <span class="font-mono text-[10px] text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-white/10">2021 — 2023</span>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
