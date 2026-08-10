@@ -229,7 +229,7 @@ function injectSharedComponents() {
 
     if (!document.getElementById('resume-modal-overlay')) {
         const resumeHtml = `
-            <div id="resume-modal-overlay" class="resume-modal-overlay">
+            <div id="resume-modal-overlay" class="resume-modal-overlay" onclick="if(event.target === this) closeResumeModal()">
                 <div class="resume-modal-content glass-panel-v2 p-4 md:p-6 rounded-2xl relative max-w-4xl w-full h-[88vh] flex flex-col border border-white/15 shadow-2xl">
                     <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4 select-none flex-shrink-0">
                         <div class="flex items-center gap-3">
@@ -242,7 +242,7 @@ function injectSharedComponents() {
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
-                            <button id="resume-modal-close" class="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-white/20 text-on-surface flex items-center justify-center transition-colors">
+                            <button id="resume-modal-close" onclick="closeResumeModal()" class="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-white/20 text-on-surface flex items-center justify-center transition-colors cursor-pointer" aria-label="Close CV Modal">
                                 <span class="material-symbols-outlined text-xl">close</span>
                             </button>
                         </div>
@@ -769,12 +769,16 @@ function initResumeModal() {
     document.addEventListener('click', (e) => {
         const closeBtn = e.target.closest('#resume-modal-close');
         if (closeBtn) {
+            e.preventDefault();
+            e.stopPropagation();
             window.closeResumeModal();
             return;
         }
 
         const overlay = document.getElementById('resume-modal-overlay');
         if (overlay && e.target === overlay) {
+            e.preventDefault();
+            e.stopPropagation();
             window.closeResumeModal();
             return;
         }
