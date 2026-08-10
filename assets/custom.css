@@ -2,23 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
 
 :root {
-    --color-bg: #090d16;
-    --color-surface: #0d1527;
-    --color-surface-high: #162238;
-    --color-primary: #6366f1;
-    --color-primary-light: #818cf8;
-    --color-cyan: #06b6d4;
-    --color-violet: #a855f7;
-    --color-emerald: #10b981;
-    --color-amber: #f59e0b;
+    --color-bg: #0b0f17;
+    --color-surface: #111827;
+    --color-surface-high: #162032;
+    --color-primary: #38bdf8;
+    --color-primary-light: #7dd3fc;
+    --color-cyan: #38bdf8;
+    --color-violet: #818cf8;
+    --color-emerald: #34d399;
+    --color-amber: #fbbf24;
     --text-bright: #f8fafc;
     --text-on-surface: #cbd5e1;
-    --text-muted: #94a3b8;
-    --primary-glow: rgba(99, 102, 241, 0.25);
-    --cyan-glow: rgba(6, 182, 212, 0.25);
-    --violet-glow: rgba(168, 85, 247, 0.25);
-    --terminal-accent: #06b6d4;
-    --terminal-accent-bg: rgba(6, 182, 212, 0.1);
+    --text-muted: #64748b;
+    --primary-glow: rgba(56, 189, 248, 0.08);
+    --cyan-glow: rgba(56, 189, 248, 0.08);
+    --violet-glow: rgba(129, 140, 248, 0.08);
+    --terminal-accent: #38bdf8;
+    --terminal-accent-bg: rgba(56, 189, 248, 0.08);
+
+    /* Apple Design & Emil Kowalski Animation Tokens */
+    --ease-out-apple: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-press: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-press: 120ms;
+    --duration-hover: 220ms;
 }
 
 /* Base resets & styles */
@@ -101,19 +108,84 @@ h2,
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Apple Design & Emil Kowalski Fluid Card System */
+.project-card,
+.glass-card,
+.skill-card {
+    will-change: transform, box-shadow, border-color;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: transform var(--duration-hover) var(--ease-out-apple),
+                box-shadow var(--duration-hover) var(--ease-out-apple),
+                border-color var(--duration-hover) var(--ease-out-apple);
+}
+
+.project-card img {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: transform 500ms var(--ease-out-apple);
+}
+
 .glass-card {
     background: rgba(15, 23, 42, 0.5);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.glass-card:hover {
-    border-color: rgba(99, 102, 241, 0.4);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7), 0 0 25px var(--primary-glow);
-    transform: translateY(-5px) scale(1.01);
+/* Hover States — Gated for Fine Pointer Devices */
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover {
+        border-color: rgba(6, 182, 212, 0.45);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px var(--cyan-glow);
+        transform: translateY(-6px) scale(1.012) translateZ(0);
+    }
+
+    .project-card:hover img {
+        transform: scale(1.06) translateZ(0);
+    }
+
+    .glass-card:hover {
+        border-color: rgba(99, 102, 241, 0.45);
+        box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7), 0 0 25px var(--primary-glow);
+        transform: translateY(-5px) scale(1.015) translateZ(0);
+    }
+
+    .skill-card:hover {
+        border-color: rgba(6, 182, 212, 0.45);
+        transform: translateY(-4px) scale(1.01) translateZ(0);
+        box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.6), 0 0 25px var(--cyan-glow);
+    }
+}
+
+/* Instant Press Feedback (:active) — Apple Principle 1 ("Kill Latency") */
+.project-card:active,
+.glass-card:active,
+.skill-card:active {
+    transform: scale(0.975) translateY(-1px) translateZ(0) !important;
+    transition: transform var(--duration-press) var(--ease-press),
+                box-shadow var(--duration-press) ease-out,
+                border-color var(--duration-press) ease-out !important;
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.project-card:active img {
+    transform: scale(1.02) translateZ(0) !important;
+    transition: transform var(--duration-press) var(--ease-press) !important;
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .glass-card,
+    .skill-card,
+    .project-card img {
+        transform: none !important;
+        will-change: auto !important;
+        transition: opacity 200ms ease, border-color 200ms ease, box-shadow 200ms ease !important;
+    }
 }
 
 /* Mouse-tracking radial card glow effect */
@@ -519,15 +591,8 @@ h2,
 
 /* Interactive Skill Matrix Cards */
 .skill-card {
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     background: rgba(13, 21, 39, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.skill-card:hover {
-    border-color: rgba(6, 182, 212, 0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.6), 0 0 25px var(--cyan-glow);
 }
 
 .skill-progress-bar {
@@ -670,4 +735,208 @@ h2,
         font-size: 1.65rem !important;
         line-height: 1.25 !important;
     }
+}
+
+/* ==========================================================================
+   Apple Design Smooth UI Component Suite
+   ========================================================================== */
+
+/* --- 1. Apple Segmented Control System --- */
+.apple-segmented-control {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 3px;
+    background: rgba(13, 21, 39, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06), 0 8px 24px -6px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.apple-segmented-indicator {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    width: 0px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(30, 41, 59, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    will-change: transform, width;
+    transition: transform var(--duration-hover) var(--ease-out-apple),
+                width var(--duration-hover) var(--ease-out-apple);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.apple-segmented-item {
+    position: relative;
+    z-index: 2;
+    padding: 8px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    border: none;
+    background: transparent;
+    border-radius: 11px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 180ms ease, transform 120ms var(--ease-press);
+}
+
+.apple-segmented-item:hover {
+    color: var(--text-bright);
+}
+
+.apple-segmented-item.active {
+    color: #ffffff;
+}
+
+.apple-segmented-item:active {
+    transform: scale(0.95);
+}
+
+/* --- 2. Apple Dynamic Island Floating Action HUD --- */
+.apple-dynamic-island {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    height: 44px;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 9999px;
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.65), 0 0 20px rgba(56, 189, 248, 0.06);
+    will-change: transform, width, height, padding;
+    transition: transform 350ms var(--ease-out-apple),
+                box-shadow 350ms var(--ease-out-apple),
+                border-color 350ms var(--ease-out-apple);
+}
+
+.apple-dynamic-island:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 20px 45px -8px rgba(0, 0, 0, 0.75), 0 0 25px var(--cyan-glow);
+}
+
+.apple-dynamic-island-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--color-cyan);
+    font-weight: 700;
+}
+
+.apple-dynamic-island-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 9999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-on-surface);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 120ms var(--ease-press);
+}
+
+.apple-dynamic-island-btn:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #ffffff;
+}
+
+.apple-dynamic-island-btn:active {
+    transform: scale(0.94);
+}
+
+/* --- 3. Apple Buttons with Light Reflections & Spring Physics --- */
+.apple-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    will-change: transform, box-shadow;
+    transition: transform var(--duration-hover) var(--ease-out-apple),
+                box-shadow var(--duration-hover) var(--ease-out-apple),
+                background 200ms ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.apple-btn:hover {
+    box-shadow: 0 8px 24px -2px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px) scale(1.015);
+}
+
+.apple-btn:active {
+    transform: scale(0.96) translateY(0px) !important;
+    transition: transform var(--duration-press) var(--ease-press) !important;
+    box-shadow: 0 2px 8px -1px rgba(99, 102, 241, 0.4) !important;
+}
+
+.apple-btn-secondary {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: var(--text-bright);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 14px -3px rgba(0, 0, 0, 0.4);
+}
+
+.apple-btn-secondary:hover {
+    border-color: rgba(6, 182, 212, 0.45);
+    box-shadow: 0 8px 22px -3px rgba(0, 0, 0, 0.6), 0 0 20px var(--cyan-glow);
+}
+
+/* --- 4. Apple Sheet / Modal Drag Handle & Origin Scaling --- */
+.apple-sheet-handle {
+    width: 36px;
+    height: 5px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.25);
+    margin: 0 auto 16px auto;
+    cursor: grab;
+    transition: background 180ms ease, width 180ms ease;
+}
+
+.apple-sheet-handle:hover {
+    background: rgba(255, 255, 255, 0.5);
+    width: 44px;
+}
+
+.apple-sheet-handle:active {
+    cursor: grabbing;
 }

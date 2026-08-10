@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initInteractiveGlows();
     init3DTilt();
 
-    // 2. Inject Shared Components (Drawer, Terminal HUD, Profile Modal, Resume Modal, Project Lightbox Modal, Audio Controls)
+    // 2. Inject Shared Components (Drawer, Terminal HUD, Profile Modal, Resume Modal, Project Lightbox Modal, Audio Controls, Apple Dynamic Island)
     injectSharedComponents();
 
     // 3. Initialize Controllers
@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initSkillRadar();
     initProjectFilters();
     initScrollSpyAndNavbar();
+
+    // 4. Apple Design Smooth UI Components
+    initAppleSegmentedControls();
+    initAppleSheetDragDismiss();
 });
 
 // --- 0. Ambient Particle Network Canvas ---
@@ -51,7 +55,7 @@ function initParticleCanvas() {
             vx: (Math.random() - 0.5) * 0.4,
             vy: (Math.random() - 0.5) * 0.4,
             radius: Math.random() * 1.8 + 0.8,
-            color: Math.random() > 0.5 ? 'rgba(99, 102, 241, ' : 'rgba(6, 182, 212, '
+            color: Math.random() > 0.5 ? 'rgba(148, 163, 184, ' : 'rgba(56, 189, 248, '
         });
     }
 
@@ -267,6 +271,8 @@ function injectSharedComponents() {
         `;
         document.body.insertAdjacentHTML('beforeend', projectModalHtml);
     }
+
+    injectAppleDynamicIsland();
 }
 
 // --- 3. Mobile Navigation Drawer ---
@@ -927,4 +933,155 @@ function initScrollSpyAndNavbar() {
     }, observerOptions);
 
     sections.forEach(sec => observer.observe(sec));
+}
+
+// --- 11. Apple Design Smooth UI Components ---
+
+function initAppleSegmentedControls() {
+    document.querySelectorAll('.apple-segmented-control').forEach(control => {
+        let indicator = control.querySelector('.apple-segmented-indicator');
+        if (!indicator) {
+            indicator = document.createElement('div');
+            indicator.className = 'apple-segmented-indicator';
+            control.prepend(indicator);
+        }
+
+        const updateIndicator = (activeBtn) => {
+            if (!activeBtn) return;
+            const controlRect = control.getBoundingClientRect();
+            const btnRect = activeBtn.getBoundingClientRect();
+            const left = btnRect.left - controlRect.left - control.clientLeft;
+            const width = btnRect.width;
+
+            indicator.style.transform = `translateX(${left}px)`;
+            indicator.style.width = `${width}px`;
+        };
+
+        const activeItem = control.querySelector('.apple-segmented-item.active') || control.querySelector('.apple-segmented-item');
+        if (activeItem) {
+            activeItem.classList.add('active');
+            // Allow layout to render before measuring rect
+            requestAnimationFrame(() => updateIndicator(activeItem));
+        }
+
+        control.querySelectorAll('.apple-segmented-item').forEach(item => {
+            item.addEventListener('click', () => {
+                control.querySelectorAll('.apple-segmented-item').forEach(btn => btn.classList.remove('active'));
+                item.classList.add('active');
+                updateIndicator(item);
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            const currentActive = control.querySelector('.apple-segmented-item.active');
+            if (currentActive) updateIndicator(currentActive);
+        });
+    });
+}
+
+function injectAppleDynamicIsland() {
+    if (document.getElementById('apple-dynamic-island')) return;
+
+    const islandHtml = `
+        <div id="apple-dynamic-island" class="apple-dynamic-island" title="Arjun R Cyber HUD (Press ⌘K or Ctrl+K)">
+            <div class="apple-dynamic-island-badge select-none">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span>ARJUN.HUD</span>
+            </div>
+            <div class="w-[1px] h-4 bg-white/15"></div>
+            <button class="apple-dynamic-island-btn navbar-terminal-btn" title="Open Interactive CLI (Ctrl+\)">
+                <span class="material-symbols-outlined text-sm">terminal</span>
+                <span class="hidden sm:inline">CLI</span>
+            </button>
+            <button class="apple-dynamic-island-btn" data-action="view-resume" title="View Curriculum Vitae">
+                <span class="material-symbols-outlined text-sm">description</span>
+                <span class="hidden sm:inline">CV</span>
+            </button>
+            <button id="island-audio-btn" class="apple-dynamic-island-btn" title="Toggle Micro Audio FX">
+                <span class="material-symbols-outlined text-sm">volume_up</span>
+            </button>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', islandHtml);
+
+    const islandAudioBtn = document.getElementById('island-audio-btn');
+    if (islandAudioBtn) {
+        islandAudioBtn.addEventListener('click', () => {
+            const isAudioOn = CyberAudio.toggle();
+            islandAudioBtn.querySelector('.material-symbols-outlined').textContent = isAudioOn ? 'volume_up' : 'volume_off';
+            const navAudioBtn = document.getElementById('audio-toggle-btn');
+            if (navAudioBtn) {
+                navAudioBtn.classList.toggle('active', isAudioOn);
+                navAudioBtn.querySelector('.material-symbols-outlined').textContent = isAudioOn ? 'volume_up' : 'volume_off';
+            }
+        });
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            const terminalBtn = document.querySelector('.navbar-terminal-btn');
+            if (terminalBtn) terminalBtn.click();
+        }
+    });
+}
+
+function initAppleSheetDragDismiss() {
+    const modals = document.querySelectorAll('.profile-modal-content, .resume-modal-content, .project-modal-content, .terminal-hud-window');
+    modals.forEach(content => {
+        if (content.querySelector('.apple-sheet-handle')) return;
+        const handle = document.createElement('div');
+        handle.className = 'apple-sheet-handle';
+        content.prepend(handle);
+
+        let startY = 0;
+        let currentY = 0;
+        let isDragging = false;
+
+        const onPointerDown = (e) => {
+            if (e.target !== handle && !e.target.classList.contains('apple-sheet-handle')) return;
+            startY = e.clientY;
+            isDragging = true;
+            content.style.transition = 'none';
+            handle.setPointerCapture(e.pointerId);
+        };
+
+        const onPointerMove = (e) => {
+            if (!isDragging) return;
+            currentY = Math.max(0, e.clientY - startY);
+            content.style.transform = `translateY(${currentY}px)`;
+            const overlay = content.closest('.profile-modal-overlay, .resume-modal-overlay, .project-modal-overlay, .terminal-hud-overlay');
+            if (overlay) {
+                const opacity = Math.max(0.2, 1 - currentY / 400);
+                overlay.style.opacity = opacity;
+            }
+        };
+
+        const onPointerUp = (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            content.style.transition = 'transform 300ms cubic-bezier(0.16, 1, 0.3, 1)';
+            const overlay = content.closest('.profile-modal-overlay, .resume-modal-overlay, .project-modal-overlay, .terminal-hud-overlay');
+
+            if (currentY > 120) {
+                content.style.transform = `translateY(100vh)`;
+                setTimeout(() => {
+                    if (overlay) {
+                        overlay.classList.remove('open');
+                        overlay.style.opacity = '';
+                    }
+                    content.style.transform = '';
+                    document.body.style.overflow = '';
+                }, 250);
+            } else {
+                content.style.transform = '';
+                if (overlay) overlay.style.opacity = '';
+            }
+        };
+
+        handle.addEventListener('pointerdown', onPointerDown);
+        handle.addEventListener('pointermove', onPointerMove);
+        handle.addEventListener('pointerup', onPointerUp);
+        handle.addEventListener('pointercancel', onPointerUp);
+    });
 }
