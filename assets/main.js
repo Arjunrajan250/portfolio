@@ -1317,7 +1317,7 @@ function initGitHubCommitCounter() {
     if (!el) return;
 
     const initialTarget = parseInt(el.textContent) || 101;
-    animateCounterNumber(el, initialTarget, '+');
+    animateCounterNumber(el, initialTarget);
 
     fetch('https://api.github.com/users/Arjunrajan250/repos?per_page=100')
         .then(res => res.ok ? res.json() : [])
@@ -1332,16 +1332,17 @@ function initGitHubCommitCounter() {
             const counts = await Promise.all(fetchPromises);
             const total = counts.reduce((acc, curr) => acc + curr, 0);
             if (total > initialTarget) {
-                animateCounterNumber(el, total, '+');
+                animateCounterNumber(el, total);
             }
         })
         .catch(err => console.debug('GitHub commit fetch notice:', err));
 }
 
-function animateCounterNumber(element, target, suffix = '') {
+function animateCounterNumber(element, target, customSuffix = null) {
     let start = 0;
     const duration = 1200;
     const startTime = performance.now();
+    const suffix = customSuffix !== null ? customSuffix : (target > 999 ? '+' : '');
 
     function step(currentTime) {
         const elapsed = currentTime - startTime;
