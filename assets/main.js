@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSkillRadar();
     initProjectFilters();
     initScrollSpyAndNavbar();
+    initGitHubCommitCounter();
 
     // 4. Apple Design Smooth UI Components
     initAppleSegmentedControls();
@@ -99,7 +100,7 @@ function initParticleCanvas() {
 
 // --- 1. Interactive Card Glows & 3D Tilt ---
 function initInteractiveGlows() {
-    document.querySelectorAll('.glass-card, .glass-panel').forEach(card => {
+    document.querySelectorAll('.glass-card, .glass-panel, .glass-panel-v2').forEach(card => {
         card.classList.add('interactive-glow-card');
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -139,6 +140,12 @@ function init3DTilt() {
             card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
         });
     });
+}
+
+function injectAppleDynamicIsland() {
+    // Dynamic Island element removed per user request
+    const existing = document.getElementById('apple-dynamic-island');
+    if (existing) existing.remove();
 }
 
 // --- 2. Inject Shared HTML Components Dynamically ---
@@ -274,7 +281,7 @@ function injectSharedComponents() {
                                 <span class="material-symbols-outlined text-sm">person</span> Executive Summary
                             </h2>
                             <p class="text-slate-300 leading-snug text-xs">
-                                Senior Front-End Engineer specializing in enterprise Angular architecture, reactive state streams (RxJS, NgRx, Signals), and WebGL data visualization (amCharts 5, Sigma.js). Proven track record building BDSAP cybersecurity suites and privacy-first AI development workflows.
+                                Senior Front-End Engineer specializing in enterprise Angular architecture, modern UI design, and WebGL data visualization (Three.js, 3D Canvas). Proven track record building BDSAP cybersecurity suites and privacy-first AI development workflows.
                             </p>
                         </section>
 
@@ -286,11 +293,11 @@ function injectSharedComponents() {
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 font-mono text-[11px]">
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-indigo-400 block mb-1 font-bold">CORE FRAMEWORKS</span>
-                                    <p class="text-slate-200">Angular 17+, TypeScript, RxJS, NgRx, Signals, Standalone Components</p>
+                                    <p class="text-slate-200">Angular 17+, TypeScript, HTML5/CSS3, Modular Architecture, Standalone Components</p>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-cyan-400 block mb-1 font-bold">DATA VIZ &amp; GRAPHICS</span>
-                                    <p class="text-slate-200">amCharts 5, Sigma.js, Three.js, WebGL Canvas, ForceAtlas2</p>
+                                    <p class="text-slate-200">Three.js, WebGL Canvas, D3.js, ForceAtlas2, Dynamic Graphs</p>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-violet-400 block mb-1 font-bold">UI &amp; STYLING</span>
@@ -316,8 +323,8 @@ function injectSharedComponents() {
                                     </div>
                                     <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-tight">
                                         <li>Engineered enterprise web UI for Innspark BDSAP (Big Data Security Analytics Platform) integrating SIEM, SOAR, UEBA, and NDR modules.</li>
-                                        <li>Architected zone-less Angular component structures with reactive RxJS pipelines, NgRx state management, and lazy loading.</li>
-                                        <li>Built real-time telemetry dashboards using Sigma.js graph engines and amCharts analytics visualization.</li>
+                                        <li>Architected modular Angular component structures with clean routing, component reusability, and lazy loading.</li>
+                                        <li>Built real-time telemetry dashboards using custom network graph engines and data analytics visualization.</li>
                                     </ul>
                                 </div>
                                 <div class="border-l-2 border-cyan-500/60 pl-3 py-0.5">
@@ -587,7 +594,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
   <span class="font-bold text-accent">Arjun R</span> &mdash; Senior Front-End Developer & UI Engineer.<br>
   Currently working at <span class="text-accent font-semibold">CISAI</span>.<br>
   Pursuing Bachelor of Computer Applications (BCA).<br>
-  Obsessed with high-performance Web APIs, RxJS state management, and sleek glassmorphic UI systems.
+  Obsessed with high-performance Web APIs, modular component architecture, and sleek glassmorphic UI systems.
 </div>
             `;
             break;
@@ -596,8 +603,8 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
 <div class="mt-1 font-bold text-accent">TECHNICAL STACK MATRIX:</div>
 <div class="ml-2 mt-1 select-none font-code-sm leading-tight">
   Angular / TS  <span class="text-accent">[████████████████████████]</span> 95%<br>
-  RxJS / NgRx   <span class="text-accent">[██████████████████████░░]</span> 92%<br>
-  Sigma / Viz   <span class="text-accent">[████████████████████░░░░]</span> 88%<br>
+  UI Architecture <span class="text-accent">[██████████████████████░░]</span> 92%<br>
+  Data / Viz    <span class="text-accent">[████████████████████░░░░]</span> 88%<br>
   React / Tailwind <span class="text-accent">[██████████████████████░░]</span> 90%<br>
   Three.js / WebGL <span class="text-accent">[██████████████████░░░░░░]</span> 82%
 </div>
@@ -620,7 +627,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
 <div class="ml-2 mt-1 space-y-1">
   <div>1. <span class="text-accent font-semibold">Sadhnam Indo P2P</span> &mdash; React 19 & Supabase</div>
   <div>2. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
-  <div>3. <span class="text-accent font-semibold">ARION C4ISR Suite</span> &mdash; amCharts 5 & Voice AI</div>
+  <div>3. <span class="text-accent font-semibold">ARION C4ISR Suite</span> &mdash; Real-Time Data & Voice AI</div>
   <div>4. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
   <div>5. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
 </div>
@@ -664,7 +671,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             } else if (arg.includes('about')) {
                 output = `<div class="mt-1">Arjun R &mdash; Senior Front-End Developer at CISAI specializing in high-performance web interfaces.</div>`;
             } else if (arg.includes('skills')) {
-                output = `<div class="mt-1">Angular, React, TypeScript, RxJS, Three.js, amCharts, D3.js, Tailwind CSS</div>`;
+                output = `<div class="mt-1">Angular, React, TypeScript, HTML5/CSS3, Three.js, WebGL, D3.js, Tailwind CSS</div>`;
             } else if (arg.includes('projects')) {
                 output = `<div class="mt-1">Sadhnam Indo, ThreatLens, ARION C4ISR, Luxe3D Quantum, SVG Convert</div>`;
             } else if (arg.includes('experience')) {
@@ -1302,4 +1309,51 @@ function initAppleSheetDragDismiss() {
         handle.addEventListener('pointerup', onPointerUp);
         handle.addEventListener('pointercancel', onPointerUp);
     });
+}
+
+// --- Live GitHub Commit Counter & Dynamic Rollup ---
+function initGitHubCommitCounter() {
+    const el = document.getElementById('github-commit-count');
+    if (!el) return;
+
+    const initialTarget = parseInt(el.textContent) || 101;
+    animateCounterNumber(el, initialTarget, '+');
+
+    fetch('https://api.github.com/users/Arjunrajan250/repos?per_page=100')
+        .then(res => res.ok ? res.json() : [])
+        .then(async (repos) => {
+            if (!Array.isArray(repos) || repos.length === 0) return;
+            const fetchPromises = repos.map(repo =>
+                fetch(`https://api.github.com/repos/Arjunrajan250/${repo.name}/commits?per_page=100`)
+                    .then(res => res.ok ? res.json() : [])
+                    .then(commits => Array.isArray(commits) ? commits.length : 0)
+                    .catch(() => 0)
+            );
+            const counts = await Promise.all(fetchPromises);
+            const total = counts.reduce((acc, curr) => acc + curr, 0);
+            if (total > initialTarget) {
+                animateCounterNumber(el, total, '+');
+            }
+        })
+        .catch(err => console.debug('GitHub commit fetch notice:', err));
+}
+
+function animateCounterNumber(element, target, suffix = '') {
+    let start = 0;
+    const duration = 1200;
+    const startTime = performance.now();
+
+    function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(easeProgress * target);
+        element.textContent = current + suffix;
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            element.textContent = target + suffix;
+        }
+    }
+    requestAnimationFrame(step);
 }

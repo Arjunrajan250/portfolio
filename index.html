@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Arjun R | Front-End Developer &amp; UI Engineer</title>
   <meta name="description"
-    content="Arjun R is a Senior Front-End Developer and UI Engineer specializing in Angular, RxJS, NgRx, WebGL, and enterprise design systems.">
+    content="Arjun R is a Senior Front-End Developer and UI Engineer specializing in Angular, WebGL, 3D Canvas, and enterprise design systems.">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -141,7 +141,7 @@
                     </div>
                   </div>
                   <div>
-                    <div class="flex justify-between text-slate-300 mb-1"><span>RxJS / State</span></div>
+                    <div class="flex justify-between text-slate-300 mb-1"><span>UI Architecture</span></div>
                     <div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
                       <div class="h-full bg-gradient-to-r from-cyan-500 to-indigo-500" style="width: 92%"></div>
                     </div>
@@ -153,7 +153,7 @@
                     </div>
                   </div>
                   <div>
-                    <div class="flex justify-between text-slate-300 mb-1"><span>Sigma / amCharts</span></div>
+                    <div class="flex justify-between text-slate-300 mb-1"><span>Graph &amp; Data Viz</span></div>
                     <div class="h-1.5 rounded-full bg-slate-900 overflow-hidden border border-white/10">
                       <div class="h-full bg-gradient-to-r from-cyan-500 to-indigo-500" style="width: 88%"></div>
                     </div>
@@ -227,7 +227,7 @@
                     INITIATE_PROJECT
                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
                   </a>
-                  <button data-action="view-resume"
+                  <button data-action="view-resume" onclick="openResumeModal()"
                     class="apple-btn apple-btn-secondary font-mono text-xs font-semibold px-8 py-4 rounded-xl text-cyan-300 border-cyan-500/30 flex items-center justify-center gap-2 cursor-pointer shadow-md">
                     <span class="material-symbols-outlined text-sm">visibility</span>
                     VIEW_CV_PREVIEW
@@ -237,21 +237,24 @@
 
               <!-- Floating Metrics Stats -->
               <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/10">
-                <div class="metric-stat-card glass-card p-4 rounded-xl text-center">
+                <div class="metric-stat-card glass-card p-4 rounded-xl text-center" data-accent="cyan">
                   <div class="stat-val text-2xl font-extrabold text-cyan-400 font-syne">JUN 2024</div>
-                  <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-1">Current Role</div>
+                  <div class="stat-label text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-1">Current Role</div>
                 </div>
-                <div class="metric-stat-card glass-card p-4 rounded-xl text-center">
-                  <div class="stat-val text-2xl font-extrabold text-indigo-400 font-syne">120+</div>
-                  <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-1">Commits</div>
-                </div>
-                <div class="metric-stat-card glass-card p-4 rounded-xl text-center">
+                <a href="https://github.com/Arjunrajan250" target="_blank" rel="noopener noreferrer" class="metric-stat-card glass-card p-4 rounded-xl text-center block transition-all" data-accent="indigo" id="commit-stat-card" title="View Arjunrajan250 on GitHub">
+                  <div class="stat-val text-2xl font-extrabold text-indigo-400 font-syne" id="github-commit-count">101+</div>
+                  <div class="stat-label text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-1 flex items-center justify-center gap-1">
+                    <span>Commits</span>
+                    <span class="material-symbols-outlined text-[11px] opacity-70">open_in_new</span>
+                  </div>
+                </a>
+                <div class="metric-stat-card glass-card p-4 rounded-xl text-center" data-accent="violet">
                   <div class="stat-val text-2xl font-extrabold text-violet-400 font-syne">BCA</div>
-                  <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-1">Pursuing Degree</div>
+                  <div class="stat-label text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-1">Pursuing Degree</div>
                 </div>
-                <div class="metric-stat-card glass-card p-4 rounded-xl text-center">
+                <div class="metric-stat-card glass-card p-4 rounded-xl text-center" data-accent="emerald">
                   <div class="stat-val text-2xl font-extrabold text-emerald-400 font-syne">100%</div>
-                  <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-1">UI Precision</div>
+                  <div class="stat-label text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-1">UI Precision</div>
                 </div>
               </div>
 
@@ -301,7 +304,7 @@
                     <div class="flex justify-between items-start mb-1">
                       <span class="font-bold text-white text-xs group-hover:text-violet-400 transition-colors">ARION
                         C4ISR</span>
-                      <span class="badge-pill py-0.5 px-2 text-[9px] bg-violet-950/60 text-violet-300">AMCHARTS 5</span>
+                      <span class="badge-pill py-0.5 px-2 text-[9px] bg-violet-950/60 text-violet-300">DATA VIZ</span>
                     </div>
                     <p class="text-slate-400 text-[11px] line-clamp-2">Tactical 3D globe &amp; Web Speech AI
                       surveillance suite.</p>
@@ -363,19 +366,19 @@
               class="material-symbols-outlined text-cyan-400">terminal</span>TypeScript</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
-              class="material-symbols-outlined text-violet-400">waves</span>RxJS</span>
+              class="material-symbols-outlined text-violet-400">html</span>HTML5 / CSS3</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
               class="material-symbols-outlined text-emerald-400">style</span>Tailwind CSS</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
-              class="material-symbols-outlined text-amber-400">memory</span>NgRx</span>
+              class="material-symbols-outlined text-amber-400">layers</span>Web APIs</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
-              class="material-symbols-outlined text-cyan-400">hub</span>Sigma.js</span>
+              class="material-symbols-outlined text-cyan-400">hub</span>D3.js</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
-              class="material-symbols-outlined text-indigo-400">bar_chart</span>amCharts</span>
+              class="material-symbols-outlined text-indigo-400">bar_chart</span>Data Canvas</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
               class="material-symbols-outlined text-violet-400">view_in_ar</span>Three.js</span>
@@ -389,19 +392,19 @@
               class="material-symbols-outlined text-cyan-400">terminal</span>TypeScript</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
-              class="material-symbols-outlined text-violet-400">waves</span>RxJS</span>
+              class="material-symbols-outlined text-violet-400">html</span>HTML5 / CSS3</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
               class="material-symbols-outlined text-emerald-400">style</span>Tailwind CSS</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
-              class="material-symbols-outlined text-amber-400">memory</span>NgRx</span>
+              class="material-symbols-outlined text-amber-400">layers</span>Web APIs</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
-              class="material-symbols-outlined text-cyan-400">hub</span>Sigma.js</span>
+              class="material-symbols-outlined text-cyan-400">hub</span>D3.js</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
-              class="material-symbols-outlined text-indigo-400">bar_chart</span>amCharts</span>
+              class="material-symbols-outlined text-indigo-400">bar_chart</span>Data Canvas</span>
           <span
             class="text-slate-400 hover:text-cyan-400 transition-colors cursor-default flex items-center gap-2"><span
               class="material-symbols-outlined text-violet-400">view_in_ar</span>Three.js</span>
@@ -584,7 +587,7 @@
           </a>
           <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
             <div class="flex gap-2 mb-3">
-              <span class="badge-pill bg-violet-950/70 border-violet-500/40 text-violet-300">AMCHARTS 5</span>
+              <span class="badge-pill bg-violet-950/70 border-violet-500/40 text-violet-300">DATA VIZ</span>
               <span class="badge-pill bg-amber-950/70 border-amber-500/40 text-amber-300">VOICE AI</span>
             </div>
             <h3 class="text-xl font-bold text-white mb-2">
@@ -646,7 +649,7 @@
           <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
             <div class="flex gap-2 mb-4">
               <span class="badge-pill bg-indigo-950/70 border-indigo-500/40 text-indigo-300">ANGULAR</span>
-              <span class="badge-pill bg-cyan-950/70 border-cyan-500/40 text-cyan-300">SIGMA.JS</span>
+              <span class="badge-pill bg-cyan-950/70 border-cyan-500/40 text-cyan-300">GRAPH VIZ</span>
             </div>
             <h3 class="text-2xl font-bold text-white mb-2">Network Analysis Dashboard</h3>
             <p class="text-slate-300 text-sm max-w-lg transition-all duration-300">Interactive network topology
@@ -664,11 +667,11 @@
             alt="Traffic Analytics Hub" src="assets/images/img_5ea0394726.jpg">
           <div class="absolute bottom-0 left-0 p-8 z-20">
             <div class="flex gap-2 mb-4">
-              <span class="badge-pill bg-violet-950/70 border-violet-500/40 text-violet-300">AMCHARTS</span>
+              <span class="badge-pill bg-violet-950/70 border-violet-500/40 text-violet-300">DATA VIZ</span>
             </div>
             <h3 class="text-2xl font-bold text-white mb-2">Traffic Analytics</h3>
             <p class="text-slate-300 text-sm transition-all duration-300">Real-time server telemetry monitoring
-              utilizing amCharts visualization engines.</p>
+              utilizing dynamic visualization engines.</p>
           </div>
         </div>
       </div>
@@ -688,7 +691,7 @@
         <div>
           <h2 class="text-3xl md:text-4xl font-bold text-white">Interactive Skill Radar</h2>
           <p class="text-slate-300 text-base max-w-xl mt-2 font-sans">
-            Core technical proficiencies across enterprise front-end frameworks, reactive state management, and
+            Core technical proficiencies across enterprise front-end frameworks, modular component architectures, and
             real-time visualization engines.
           </p>
         </div>
@@ -709,6 +712,9 @@
             data-skill-cat="viz">DATA VIZ &amp; 3D</button>
           <button
             class="skill-filter-btn px-4 py-2 rounded-lg font-mono text-xs text-slate-400 hover:text-white transition-all"
+            data-skill-cat="ai">AI &amp; GENERATIVE</button>
+          <button
+            class="skill-filter-btn px-4 py-2 rounded-lg font-mono text-xs text-slate-400 hover:text-white transition-all"
             data-skill-cat="tooling">TOOLING &amp; APIS</button>
         </div>
       </div>
@@ -716,80 +722,75 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="skill-matrix-grid">
         <!-- Skill Card 1 -->
         <div class="skill-card p-6 rounded-xl relative" data-skill-cat="core">
-          <div class="flex justify-between items-center mb-3">
+          <div class="mb-2">
             <span class="text-lg font-bold text-white">Angular &amp; TypeScript</span>
-            <span class="font-mono text-xs text-cyan-400 font-semibold">95% PROFICIENCY</span>
           </div>
-          <p class="text-sm text-slate-300 mb-4">Enterprise modular architecture, standalone components, signals, lazy
-            loading.</p>
-          <div class="skill-progress-bar">
-            <div class="skill-progress-fill" data-level="95%"></div>
-          </div>
+          <p class="text-sm text-slate-300">Enterprise modular architecture, standalone components, reactive state, lazy loading.</p>
         </div>
 
         <!-- Skill Card 2 -->
         <div class="skill-card p-6 rounded-xl relative" data-skill-cat="state">
-          <div class="flex justify-between items-center mb-3">
-            <span class="text-lg font-bold text-white">RxJS &amp; NgRx</span>
-            <span class="font-mono text-xs text-cyan-400 font-semibold">92% PROFICIENCY</span>
+          <div class="mb-2">
+            <span class="text-lg font-bold text-white">Modular UI Architecture</span>
           </div>
-          <p class="text-sm text-slate-300 mb-4">Reactive stream pipelines, centralized state management, side-effect
-            isolation.</p>
-          <div class="skill-progress-bar">
-            <div class="skill-progress-fill" data-level="92%"></div>
-          </div>
+          <p class="text-sm text-slate-300">Reusable component patterns, clean data flow, and front-end performance.</p>
         </div>
 
         <!-- Skill Card 3 -->
         <div class="skill-card p-6 rounded-xl relative" data-skill-cat="viz">
-          <div class="flex justify-between items-center mb-3">
-            <span class="text-lg font-bold text-white">Sigma.js &amp; amCharts</span>
-            <span class="font-mono text-xs text-cyan-400 font-semibold">88% PROFICIENCY</span>
+          <div class="mb-2">
+            <span class="text-lg font-bold text-white">Graph &amp; Data Visualization</span>
           </div>
-          <p class="text-sm text-slate-300 mb-4">Large-scale network cluster graphs, high-frequency real-time analytics
-            dashboards.</p>
-          <div class="skill-progress-bar">
-            <div class="skill-progress-fill" data-level="88%"></div>
-          </div>
+          <p class="text-sm text-slate-300">Large-scale network cluster graphs, high-frequency real-time telemetry dashboards.</p>
         </div>
 
         <!-- Skill Card 4 -->
         <div class="skill-card p-6 rounded-xl relative" data-skill-cat="core">
-          <div class="flex justify-between items-center mb-3">
+          <div class="mb-2">
             <span class="text-lg font-bold text-white">React &amp; Tailwind CSS</span>
-            <span class="font-mono text-xs text-cyan-400 font-semibold">90% PROFICIENCY</span>
           </div>
-          <p class="text-sm text-slate-300 mb-4">Custom design systems, glassmorphic Cyber UI components, adaptive
+          <p class="text-sm text-slate-300">Custom design systems, glassmorphic Cyber UI components, adaptive
             layout WPO.</p>
-          <div class="skill-progress-bar">
-            <div class="skill-progress-fill" data-level="90%"></div>
-          </div>
         </div>
 
         <!-- Skill Card 5 -->
         <div class="skill-card p-6 rounded-xl relative" data-skill-cat="viz">
-          <div class="flex justify-between items-center mb-3">
+          <div class="mb-2">
             <span class="text-lg font-bold text-white">Three.js &amp; WebGL</span>
-            <span class="font-mono text-xs text-cyan-400 font-semibold">82% PROFICIENCY</span>
           </div>
-          <p class="text-sm text-slate-300 mb-4">3D canvas product showcases, PBR material shading, cinematic camera
+          <p class="text-sm text-slate-300">3D canvas product showcases, PBR material shading, cinematic camera
             animations.</p>
-          <div class="skill-progress-bar">
-            <div class="skill-progress-fill" data-level="82%"></div>
-          </div>
         </div>
 
-        <!-- Skill Card 6 -->
-        <div class="skill-card p-6 rounded-xl relative" data-skill-cat="tooling">
+        <!-- Skill Card 6: Generative AI & LLM Workflows (APPLE DESIGN POLISHED) -->
+        <div class="skill-card ai-highlight-card p-6 rounded-xl relative group" data-skill-cat="ai">
           <div class="flex justify-between items-center mb-3">
+            <span class="text-lg font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-400">Generative AI &amp; LLM Workflows</span>
+            <span class="font-mono text-[10px] tracking-wider px-2 py-0.5 rounded-md bg-amber-500/15 text-amber-300 border border-amber-400/35 font-semibold shadow-[0_0_12px_rgba(245,158,11,0.2)] flex items-center gap-1.5 shrink-0 ml-2">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+              </span> SPECIALTY
+            </span>
+          </div>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Power-user expert in 
+            <span class="ai-tool-pill">Antigravity</span>
+            <span class="ai-tool-pill">Claude</span>
+            <span class="ai-tool-pill">ChatGPT</span>
+            <span class="ai-tool-pill">Gemini</span>
+            <span class="ai-tool-pill">Grok</span>
+            for high-speed prompt engineering, code synthesis, &amp; workflow automation.
+          </p>
+        </div>
+
+        <!-- Skill Card 7 -->
+        <div class="skill-card p-6 rounded-xl relative" data-skill-cat="tooling">
+          <div class="mb-2">
             <span class="text-lg font-bold text-white">Figma API &amp; ImageTracerJS</span>
-            <span class="font-mono text-xs text-cyan-400 font-semibold">85% PROFICIENCY</span>
           </div>
-          <p class="text-sm text-slate-300 mb-4">Multi-threaded plugin engineering, client-side SVG vectorization,
+          <p class="text-sm text-slate-300">Multi-threaded plugin engineering, client-side SVG vectorization,
             esbuild bundling.</p>
-          <div class="skill-progress-bar">
-            <div class="skill-progress-fill" data-level="85%"></div>
-          </div>
         </div>
       </div>
       <!-- About & Developer Ethos Section -->
@@ -814,9 +815,8 @@
                 enforcing enterprise data privacy, zero-leakage standards, and security integrity.
               </p>
               <p class="text-slate-300 text-base leading-relaxed mb-6">
-                Over the past years, I have built production Angular platforms for Innspark's enterprise cybersecurity
-                suite using signals, RxJS reactive pipelines, and NgRx state management, alongside custom visualization
-                engines powered by Sigma.js and amCharts.
+                Over the past years, I have built production Angular web platforms for Innspark's enterprise cybersecurity
+                suite, crafting modular component architectures alongside high-performance data visualization engines.
               </p>
               <div class="flex flex-wrap gap-6 pt-4 border-t border-white/10 font-mono text-xs">
                 <div class="flex items-center gap-2 text-cyan-400">
@@ -849,18 +849,18 @@
           <div
             class="glass-panel-v2 p-8 rounded-3xl border-indigo-500/30 hover:border-indigo-500/60 shadow-xl transition-all">
             <span class="material-symbols-outlined text-4xl text-indigo-400 mb-6">code</span>
-            <h4 class="text-xl font-bold text-white mb-2">Angular &amp; Signals</h4>
+            <h4 class="text-xl font-bold text-white mb-2">Angular Architecture</h4>
             <p class="text-slate-300 text-sm leading-relaxed mb-4">Enterprise standalone component architectures,
-              zone-less signal state updates, lazy-loaded submodules, and strict TypeScript types.</p>
+              zone-less reactive state updates, lazy-loaded submodules, and strict TypeScript types.</p>
             <span class="badge-pill bg-indigo-950/60 text-indigo-300 border-indigo-500/30">CORE DOMAIN</span>
           </div>
 
           <div
             class="glass-panel-v2 p-8 rounded-3xl border-cyan-500/30 hover:border-cyan-500/60 shadow-xl transition-all">
             <span class="material-symbols-outlined text-4xl text-cyan-400 mb-6">hub</span>
-            <h4 class="text-xl font-bold text-white mb-2">Sigma.js &amp; amCharts</h4>
+            <h4 class="text-xl font-bold text-white mb-2">Network Data Engines</h4>
             <p class="text-slate-300 text-sm leading-relaxed mb-4">ForceAtlas2 layout algorithms, multi-cluster node
-              inspection, real-time streaming telemetry charts, and high-frequency UI updates.</p>
+              inspection, real-time streaming telemetry, and high-frequency UI updates.</p>
             <span class="badge-pill bg-cyan-950/60 text-cyan-300 border-cyan-500/30">VISUALIZATION</span>
           </div>
 
