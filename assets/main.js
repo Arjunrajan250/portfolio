@@ -1316,7 +1316,7 @@ function initGitHubCommitCounter() {
     const el = document.getElementById('github-commit-count');
     if (!el) return;
 
-    const initialTarget = parseInt(el.textContent) || 101;
+    const initialTarget = parseInt(el.textContent) || 125;
     animateCounterNumber(el, initialTarget);
 
     fetch('https://api.github.com/users/Arjunrajan250/repos?per_page=100')
