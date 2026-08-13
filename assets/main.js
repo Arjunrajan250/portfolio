@@ -221,7 +221,7 @@ function injectSharedComponents() {
                     <div class="flex items-center justify-between w-full px-1">
                         <div>
                             <h3 class="font-headline-md text-headline-md text-on-surface font-bold">Arjun R</h3>
-                            <p class="font-code-sm text-code-sm text-cyan-400">Front-End Developer &amp; UI Engineer</p>
+                            <p class="font-code-sm text-code-sm text-cyan-400">Front-End Developer &amp; UI Architect</p>
                         </div>
                         <a href="assets/images/profile_avatar.jpg" download="Arjun_R_Profile_Photo.jpg" class="glass-panel px-4 py-2.5 rounded-lg font-label-caps text-label-caps text-xs text-on-surface hover:text-cyan-400 hover:border-cyan-400/50 transition-all flex items-center gap-2 shadow-sm" title="Download Full Resolution Photo">
                             <span class="material-symbols-outlined text-sm">download</span>
@@ -264,7 +264,7 @@ function injectSharedComponents() {
                                         <span class="font-mono text-[9px] px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300">VERIFIED PRO</span>
                                     </div>
                                     <h1 class="text-2xl font-bold text-white mt-0.5 tracking-tight">Arjun R</h1>
-                                    <p class="text-xs text-cyan-300 font-medium">Senior Front-End Developer &amp; UI Engineer</p>
+                                    <p class="text-xs text-cyan-300 font-medium">Front-End Developer &amp; UI Architect | Data Viz Specialist</p>
                                 </div>
                                 <div class="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[11px] text-slate-300">
                                     <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">mail</span> ajuarjunr@gmail.com</span>
@@ -281,7 +281,7 @@ function injectSharedComponents() {
                                 <span class="material-symbols-outlined text-sm">person</span> Executive Summary
                             </h2>
                             <p class="text-slate-300 leading-snug text-xs">
-                                Senior Front-End Engineer specializing in enterprise Angular architecture, modern UI design, and WebGL data visualization (Three.js, 3D Canvas). Proven track record building BDSAP cybersecurity suites and privacy-first AI development workflows.
+                                Front-End Engineer specializing in enterprise Angular architecture, modern UI design, and WebGL data visualization (Three.js, 3D Canvas). Proven track record building BDSAP cybersecurity suites and privacy-first AI development workflows.
                             </p>
                         </section>
 
@@ -591,7 +591,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
         case 'about':
             output = `
 <div class="mt-1">
-  <span class="font-bold text-accent">Arjun R</span> &mdash; Senior Front-End Developer & UI Engineer.<br>
+  <span class="font-bold text-accent">Arjun R</span> &mdash; Front-End Developer & UI Architect.<br>
   Currently working at <span class="text-accent font-semibold">CISAI</span>.<br>
   Pursuing Bachelor of Computer Applications (BCA).<br>
   Obsessed with high-performance Web APIs, modular component architecture, and sleek glassmorphic UI systems.
@@ -669,7 +669,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             if (!arg) {
                 output = `<div class="mt-1 text-red-400">Usage: cat &lt;filename&gt; (e.g. cat about.txt)</div>`;
             } else if (arg.includes('about')) {
-                output = `<div class="mt-1">Arjun R &mdash; Senior Front-End Developer at CISAI specializing in high-performance web interfaces.</div>`;
+                output = `<div class="mt-1">Arjun R &mdash; Front-End Developer & UI Architect at CISAI specializing in high-performance web interfaces.</div>`;
             } else if (arg.includes('skills')) {
                 output = `<div class="mt-1">Angular, React, TypeScript, HTML5/CSS3, Three.js, WebGL, D3.js, Tailwind CSS</div>`;
             } else if (arg.includes('projects')) {
