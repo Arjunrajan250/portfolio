@@ -91,7 +91,7 @@
       class="glass-panel-v2 p-4 md:p-6 rounded-2xl mb-12 flex flex-col lg:flex-row justify-between items-center gap-6 border-white/10 shadow-xl">
       <div class="apple-segmented-control w-full lg:w-auto">
         <button onclick="filterProjects('all')"
-          class="apple-segmented-item filter-btn active">ALL (8)</button>
+          class="apple-segmented-item filter-btn active">ALL (9)</button>
         <button onclick="filterProjects('web')"
           class="apple-segmented-item filter-btn">WEB APPS</button>
         <button onclick="filterProjects('data')"
@@ -112,6 +112,48 @@
 
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="projects-container">
+
+      <!-- Flagship Project: IndiaLens -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="data">
+        <div>
+          <a href="https://indialens.vercel.app" target="_blank"
+            class="block aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/indialens.png" alt="IndiaLens — Government Data Intelligence Platform"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
+            </div>
+          </a>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">LEAFLET.JS</span>
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">CHART.JS 4</span>
+              <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">DATA.GOV.IN</span>
+              <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">AI ANALYTICS</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+              <a href="https://indialens.vercel.app" target="_blank" class="hover:underline">🇮🇳 IndiaLens — Government Data Intelligence Platform</a>
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Interactive open data visualization &amp; governance intelligence platform synthesizing public administration data into Leaflet spatial heatmaps, dual-region policy benchmarks, threat matrices, and predictive AI analytics.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-cyan-400 font-semibold">STATUS: LIVE VERCEL</span>
+          <div class="flex items-center gap-3">
+            <a href="https://indialens.vercel.app" target="_blank"
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
+            <a href="https://github.com/Arjunrajan250" target="_blank"
+              class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
+                class="material-symbols-outlined text-sm">code</span></a>
+          </div>
+        </div>
+      </div>
 
       <!-- Flagship Project 1: Sadhnam Indo -->
       <div
