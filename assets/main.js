@@ -626,11 +626,12 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
 <div class="mt-1 font-bold text-accent">FEATURED OUTPUTS:</div>
 <div class="ml-2 mt-1 space-y-1">
   <div>1. <span class="text-accent font-semibold">IndiaLens OGD</span> &mdash; Leaflet GIS & data.gov.in AI</div>
-  <div>2. <span class="text-accent font-semibold">Sadhnam Indo P2P</span> &mdash; React 19 & Supabase</div>
-  <div>3. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
-  <div>4. <span class="text-accent font-semibold">ARION C4ISR Suite</span> &mdash; Real-Time Data & Voice AI</div>
-  <div>5. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
-  <div>6. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
+  <div>2. <span class="text-accent font-semibold">Cyber Crimes & Threat Intelligence India</span> &mdash; Crime Telemetry & 1930 Triage</div>
+  <div>3. <span class="text-accent font-semibold">Sadhnam Indo P2P</span> &mdash; React 19 & Supabase</div>
+  <div>4. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
+  <div>5. <span class="text-accent font-semibold">ARION C4ISR Suite</span> &mdash; Real-Time Data & Voice AI</div>
+  <div>6. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
+  <div>7. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
 </div>
             `;
             break;
@@ -674,7 +675,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             } else if (arg.includes('skills')) {
                 output = `<div class="mt-1">Angular, React, TypeScript, HTML5/CSS3, Three.js, WebGL, D3.js, Leaflet.js, Tailwind CSS</div>`;
             } else if (arg.includes('projects')) {
-                output = `<div class="mt-1">IndiaLens, Sadhnam Indo, ThreatLens, ARION C4ISR, Luxe3D Quantum, SVG Convert</div>`;
+                output = `<div class="mt-1">IndiaLens, Cyber Crimes & Threat Intelligence India, Sadhnam Indo, ThreatLens, ARION C4ISR, Luxe3D Quantum, SVG Convert</div>`;
             } else if (arg.includes('experience')) {
                 output = `<div class="mt-1">Currently working at CISAI as Front-End Developer.</div>`;
             } else if (arg.includes('contact')) {
@@ -1131,7 +1132,8 @@ function filterProjectsList(category, searchQuery) {
         const description = card.querySelector('p')?.innerText.toLowerCase() || '';
         const badges = Array.from(card.querySelectorAll('.tech-badge, span')).map(b => b.innerText.toLowerCase()).join(' ');
 
-        const matchesCategory = (category === 'all' || card.dataset.category === category);
+        const cardCat = card.dataset.category || '';
+        const matchesCategory = (category === 'all' || cardCat === category || cardCat.split(' ').includes(category));
         const matchesSearch = !searchQuery || title.includes(searchQuery) || description.includes(searchQuery) || badges.includes(searchQuery);
 
         card.style.opacity = '0';

@@ -91,7 +91,7 @@
       class="glass-panel-v2 p-4 md:p-6 rounded-2xl mb-12 flex flex-col lg:flex-row justify-between items-center gap-6 border-white/10 shadow-xl">
       <div class="apple-segmented-control w-full lg:w-auto">
         <button onclick="filterProjects('all')"
-          class="apple-segmented-item filter-btn active">ALL (9)</button>
+          class="apple-segmented-item filter-btn active">ALL (10)</button>
         <button onclick="filterProjects('web')"
           class="apple-segmented-item filter-btn">WEB APPS</button>
         <button onclick="filterProjects('data')"
@@ -143,6 +143,49 @@
           <span class="font-mono text-[11px] text-cyan-400 font-semibold">STATUS: LIVE VERCEL</span>
           <div class="flex items-center gap-3">
             <a href="https://indialens.vercel.app" target="_blank"
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
+            <a href="https://github.com/Arjunrajan250" target="_blank"
+              class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
+                class="material-symbols-outlined text-sm">code</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flagship Project: Cyber Crimes & Threat Intelligence India -->
+      <div
+        class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
+        data-category="data web">
+        <div>
+          <a href="https://cyber-threat-intelligence-india.vercel.app" target="_blank"
+            class="block aspect-video w-full overflow-hidden relative bg-slate-900">
+            <img src="assets/images/cyber_threat_intel.png" alt="Cyber Crimes &amp; Threat Intelligence India"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3">
+              <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
+            </div>
+          </a>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT 19</span>
+              <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">LEAFLET MAPS</span>
+              <span class="badge-pill bg-rose-950/50 text-rose-300 border-rose-500/30">THREAT SCANNER</span>
+              <span class="badge-pill bg-amber-950/50 text-amber-300 border-amber-500/30">1930 TRIAGE</span>
+              <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">IT ACT &amp; BNS</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+              <a href="https://cyber-threat-intelligence-india.vercel.app" target="_blank" class="hover:underline">🇮🇳 Cyber Crimes &amp; Threat Intelligence India</a>
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Interactive open cyber defense &amp; threat telemetry platform synthesizing NCRB crime stats, 5-stage scam kill-chains, heuristic SMS/URL/UPI scanner, Golden Hour 1930 incident triage, and IT Act/BNS legal provisions.</p>
+          </div>
+        </div>
+        <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
+          <span class="font-mono text-[11px] text-cyan-400 font-semibold">STATUS: LIVE VERCEL</span>
+          <div class="flex items-center gap-3">
+            <a href="https://cyber-threat-intelligence-india.vercel.app" target="_blank"
               class="visit-app-btn group">
               <span class="visit-pulse-dot"><span></span><span></span></span>
               <span>VISIT_APP</span>
