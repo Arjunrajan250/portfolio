@@ -437,26 +437,59 @@ function injectSharedComponents() {
                             </div>
                         </section>
 
-                        <!-- Specialized Competencies & Strengths -->
+                        <!-- Specialized Competencies & Strengths (4 Cards) -->
                         <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70">
-                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-sm">verified_user</span> Specialized Competencies &amp; Engineering Strengths
                             </h2>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 font-mono text-[11px]">
-                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-cyan-500/20">
-                                    <span class="text-cyan-400 font-bold block mb-1">AI-INTEGRATED DEV &amp; DATA INTEGRITY</span>
-                                    <p class="text-slate-400 text-[10px] leading-snug">Leveraging advanced AI workflows for rapid engineering velocity while strictly preserving data integrity, code cleanliness, and security posture.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 font-mono text-[11px]">
+                                <div class="p-3 bg-slate-950/80 rounded-lg border border-cyan-500/20 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-cyan-400 font-bold text-xs">AI Dev &amp; Data Integrity</span>
+                                            <span class="text-[9px] text-cyan-300 bg-cyan-950/80 px-1.5 py-0.2 rounded border border-cyan-500/30">ZERO LEAKAGE</span>
+                                        </div>
+                                        <p class="text-slate-300 text-[10.5px] leading-relaxed mb-2">Leveraging advanced AI workflows for rapid engineering velocity while strictly adhering to corporate data privacy boundaries, code cleanliness, and security integrity.</p>
+                                    </div>
+                                    <span class="text-[9.5px] text-cyan-400/80 font-mono">High-Productivity AI Workflows &bull; Safe Prompting</span>
                                 </div>
-                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-indigo-500/20">
-                                    <span class="text-indigo-400 font-bold block mb-1">CYBERSECURITY &amp; DASHBOARDS</span>
-                                    <p class="text-slate-400 text-[10px] leading-snug">Specialized in building high-throughput SOC telemetry interfaces (SIEM, SOAR, UEBA, NDR) and interactive data visualization systems.</p>
+                                <div class="p-3 bg-slate-950/80 rounded-lg border border-indigo-500/20 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-indigo-400 font-bold text-xs">Cyber &amp; SOC Telemetry Dashboards</span>
+                                            <span class="text-[9px] text-indigo-300 bg-indigo-950/80 px-1.5 py-0.2 rounded border border-indigo-500/30">TELEMETRY / VIZ</span>
+                                        </div>
+                                        <p class="text-slate-300 text-[10.5px] leading-relaxed mb-2">Specialized in architecting high-density telemetry consoles, SOC suites (SIEM, SOAR, UEBA, NDR), interactive data grids, dynamic graph topologies, and real-time security analytics.</p>
+                                    </div>
+                                    <span class="text-[9.5px] text-indigo-400/80 font-mono">amCharts &bull; Three.js &bull; Highcharts &bull; Sigma.js</span>
                                 </div>
-                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-emerald-500/20">
-                                    <span class="text-emerald-400 font-bold block mb-1">RAPID TECH STACK ADAPTABILITY</span>
-                                    <p class="text-slate-400 text-[10px] leading-snug">Fast-learning agility to master new frameworks and libraries with minimal turnaround time to design, build, and deploy full-lifecycle software.</p>
+                                <div class="p-3 bg-slate-950/80 rounded-lg border border-emerald-500/20 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-emerald-400 font-bold text-xs">Rapid Tech Stack Adaptability</span>
+                                            <span class="text-[9px] text-emerald-300 bg-emerald-950/80 px-1.5 py-0.2 rounded border border-emerald-500/30">FAST LEARNER</span>
+                                        </div>
+                                        <p class="text-slate-300 text-[10.5px] leading-relaxed mb-2">Fast-learning agility to master new frameworks and libraries with minimal turnaround time to design, build, and deploy full-lifecycle websites, apps, and software systems.</p>
+                                    </div>
+                                    <span class="text-[9.5px] text-emerald-400/80 font-mono">Full-Lifecycle Delivery &bull; Rapid Prototyping</span>
+                                </div>
+                                <div class="p-3 bg-slate-950/80 rounded-lg border border-violet-500/20 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-violet-400 font-bold text-xs">UI Architecture &amp; Performance</span>
+                                            <span class="text-[9px] text-violet-300 bg-violet-950/80 px-1.5 py-0.2 rounded border border-violet-500/30">HIGH PERFORMANCE</span>
+                                        </div>
+                                        <p class="text-slate-300 text-[10.5px] leading-relaxed mb-2">Engineering modular component systems, reactive state architectures, responsive cross-device layouts, glassmorphic UI polish, and smooth micro-animations for high-load platforms.</p>
+                                    </div>
+                                    <span class="text-[9.5px] text-violet-400/80 font-mono">Component Design &bull; Reactive Streams &bull; UX Polish</span>
                                 </div>
                             </div>
                         </section>
+
+                        <!-- Subtle Closing Portfolio CTA Footer -->
+                        <footer class="text-center font-mono text-[10px] text-slate-400 border-t border-white/10 pt-2.5 mt-2">
+                            ✦ Explore live interactive demos, architecture case studies &amp; terminal: <a href="https://arjun-portfolio-03.vercel.app" target="_blank" class="text-cyan-400 hover:underline font-bold">arjun-portfolio-03.vercel.app</a>
+                        </footer>
                     </div>
                 </div>
             </div>
