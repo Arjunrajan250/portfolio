@@ -249,69 +249,77 @@ function injectSharedComponents() {
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
+                            <a href="assets/resume.pdf" download="Arjun_R_Resume.pdf" class="px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer" title="Download Resume PDF">
+                                <span class="material-symbols-outlined text-sm">download</span>
+                                <span>PDF</span>
+                            </a>
+                            <a href="assets/resume.html" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/40 font-mono text-xs font-semibold items-center gap-1.5 transition-all cursor-pointer" title="Open Fullscreen Resume">
+                                <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                <span>Fullscreen</span>
+                            </a>
                             <button id="resume-modal-close" onclick="closeResumeModal()" class="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-white/20 text-on-surface flex items-center justify-center transition-colors cursor-pointer" aria-label="Close CV Modal">
                                 <span class="material-symbols-outlined text-xl">close</span>
                             </button>
                         </div>
                     </div>
-                    <div class="flex-grow w-full rounded-xl overflow-y-auto bg-[#0b0f17] border border-white/10 relative p-4 md:p-6 text-slate-200 space-y-4 font-sans text-xs custom-scrollbar">
+                    <div class="flex-grow w-full rounded-xl overflow-y-auto bg-[#070a13] border border-white/10 relative p-4 md:p-6 text-slate-200 space-y-4 font-sans text-xs custom-scrollbar">
                         <!-- Header -->
-                        <header class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60 relative overflow-hidden">
+                        <header class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70 relative overflow-hidden">
                             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 relative z-10">
                                 <div>
                                     <div class="flex items-center gap-2">
                                         <span class="font-mono text-[10px] text-cyan-400 tracking-widest uppercase">CURRICULUM VITAE</span>
-                                        <span class="font-mono text-[9px] px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300">VERIFIED PRO</span>
                                     </div>
                                     <h1 class="text-2xl font-bold text-white mt-0.5 tracking-tight">Arjun R</h1>
-                                    <p class="text-xs text-cyan-300 font-medium">Front-End Developer &amp; UI Architect | Data Viz Specialist</p>
+                                    <p class="text-xs text-cyan-300 font-medium">Front-End Developer &amp; UI Architect | 2+ Years Experience | Data Viz Specialist</p>
                                 </div>
                                 <div class="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[11px] text-slate-300">
-                                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">mail</span> ajuarjunr@gmail.com</span>
-                                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">call</span> +91 8921843248</span>
-                                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">code</span> github.com/Arjunrajan250</span>
-                                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-xs">location_on</span> Kerala, India</span>
+                                    <a href="mailto:ajuarjunr@gmail.com" class="flex items-center gap-1.5 hover:text-cyan-300"><span class="material-symbols-outlined text-cyan-400 text-xs">mail</span> ajuarjunr@gmail.com</a>
+                                    <a href="tel:+918921843248" class="flex items-center gap-1.5 hover:text-cyan-300"><span class="material-symbols-outlined text-cyan-400 text-xs">call</span> +91 8921843248</a>
+                                    <a href="https://arjun-portfolio-03.vercel.app" target="_blank" class="flex items-center gap-1.5 hover:text-cyan-300 text-cyan-400 font-bold"><span class="material-symbols-outlined text-cyan-400 text-xs">language</span> arjun-portfolio-03.vercel.app</a>
+                                    <a href="https://github.com/Arjunrajan250" target="_blank" class="flex items-center gap-1.5 hover:text-cyan-300"><span class="material-symbols-outlined text-cyan-400 text-xs">code</span> github.com/Arjunrajan250</a>
+                                    <span class="flex items-center gap-1.5 col-span-2 text-[10px] text-slate-400 mt-0.5"><span class="material-symbols-outlined text-cyan-400 text-xs">location_on</span> Kerala, India &bull; Currently Working</span>
                                 </div>
                             </div>
                         </header>
 
                         <!-- Executive Summary -->
-                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60">
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70">
                             <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-sm">person</span> Executive Summary
                             </h2>
-                            <p class="text-slate-300 leading-snug text-xs">
-                                Front-End Engineer specializing in enterprise Angular architecture, modern UI design, and WebGL data visualization (Three.js, 3D Canvas). Proven track record building BDSAP cybersecurity suites and privacy-first AI development workflows.
+                            <p class="text-slate-300 leading-relaxed text-xs">
+                                Front-End Developer &amp; UI Architect with <strong class="text-white">2+ years of hands-on experience</strong> in modern JavaScript, Angular, and React architectures with rich data visualization (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Experienced in engineering enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and interactive telemetry dashboards. Expert in AI-integrated rapid development workflows with strict data integrity, zero data-leakage security posture, and fast adaptability to build full-lifecycle websites, apps, and software systems.
                             </p>
                         </section>
 
                         <!-- Technical Stack -->
-                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60">
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70">
                             <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-sm">terminal</span> Technical Stack &amp; Architecture
                             </h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 font-mono text-[11px]">
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-indigo-400 block mb-1 font-bold">CORE FRAMEWORKS</span>
-                                    <p class="text-slate-200">Angular 17+, TypeScript, HTML5/CSS3, Modular Architecture, Standalone Components</p>
+                                    <p class="text-slate-200">Angular, JavaScript, React, and other libraries and frameworks</p>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-cyan-400 block mb-1 font-bold">DATA VIZ &amp; GRAPHICS</span>
-                                    <p class="text-slate-200">Three.js, WebGL Canvas, D3.js, ForceAtlas2, Dynamic Graphs</p>
+                                    <p class="text-slate-200">Three.js, amCharts, Highcharts, Sigma.js, Chart.js, etc.</p>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-violet-400 block mb-1 font-bold">UI &amp; STYLING</span>
-                                    <p class="text-slate-200">Tailwind CSS, Material Design 3, Glassmorphism, Micro-Animations</p>
+                                    <p class="text-slate-200">Tailwind CSS, Material Design 3, Glassmorphism, Micro-Animations, Responsive UX</p>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-emerald-400 block mb-1 font-bold">AI WORKFLOWS &amp; TOOLING</span>
-                                    <p class="text-slate-200">Privacy-First AI Integration, Figma API, Git, Webpack, Node.js</p>
+                                    <p class="text-slate-200">Privacy-First AI Integration, REST APIs, Git, Webpack, Vite, Node.js</p>
                                 </div>
                             </div>
                         </section>
 
                         <!-- Professional Experience -->
-                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60">
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70">
                             <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-sm">work</span> Professional Experience
                             </h2>
@@ -319,46 +327,133 @@ function injectSharedComponents() {
                                 <div class="border-l-2 border-indigo-500/60 pl-3 py-0.5">
                                     <div class="flex justify-between items-center flex-wrap gap-1">
                                         <h3 class="text-white font-semibold text-xs">Front-End Developer — Innspark Solutions</h3>
-                                        <span class="font-mono text-[10px] text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">June 2024 — PRESENT</span>
+                                        <span class="font-mono text-[10px] text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">JUNE 2024 — PRESENT</span>
                                     </div>
-                                    <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-tight">
-                                        <li>Engineered enterprise web UI for Innspark BDSAP (Big Data Security Analytics Platform) integrating SIEM, SOAR, UEBA, and NDR modules.</li>
-                                        <li>Architected modular Angular component structures with clean routing, component reusability, and lazy loading.</li>
-                                        <li>Built real-time telemetry dashboards using custom network graph engines and data analytics visualization.</li>
+                                    <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-relaxed">
+                                        <li>Working as a Front-End Developer on the CISAI platform under Innspark Solutions, with strong expertise in JavaScript, ecosystem libraries, and modern frameworks.</li>
+                                        <li>Engineered enterprise UI for Innspark BDSAP (Big Data Security Analytics Platform) integrating SIEM, SOAR, UEBA, and NDR modules.</li>
+                                        <li>Leveraged AI-integrated development workflows to maximize engineering velocity, code quality, and high productivity.</li>
                                     </ul>
                                 </div>
                                 <div class="border-l-2 border-cyan-500/60 pl-3 py-0.5">
                                     <div class="flex justify-between items-center flex-wrap gap-1">
-                                        <h3 class="text-white font-semibold text-xs">MERN Stack Developer Intern — Intensive Track</h3>
-                                        <span class="font-mono text-[10px] text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-white/10">July 2023 — Jan 2024</span>
+                                        <h3 class="text-white font-semibold text-xs">MERN Stack Developer Intern — Techfriar Technologies</h3>
+                                        <span class="font-mono text-[10px] text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-white/10">JULY 2023 — JAN 2024</span>
                                     </div>
-                                    <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-tight">
+                                    <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-relaxed">
                                         <li>Developed full-stack web applications using React.js, Node.js, Express REST APIs, and MongoDB databases.</li>
-                                        <li>Implemented secure JWT user authentication and responsive front-end dashboard interfaces.</li>
+                                        <li>Implemented secure JWT authentication workflows and responsive front-end dashboard interfaces.</li>
                                     </ul>
                                 </div>
                             </div>
                         </section>
 
-                        <!-- Education -->
-                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/60">
-                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-sm">school</span> Academic Credentials
+                        <!-- Featured Projects -->
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70">
+                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm">rocket_launch</span> Key Projects &amp; Engineering Systems
                             </h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 font-mono text-[11px]">
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-cyan-500/25 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-cyan-400 font-bold">Enterprise SIEM &amp; SOAR Suite</span>
+                                            <span class="text-[9px] text-cyan-300 bg-cyan-950/80 px-1.5 py-0.5 rounded border border-cyan-500/30">CYBERSECURITY / SOC</span>
+                                        </div>
+                                        <p class="text-slate-300 text-[10px] leading-tight font-sans">Enterprise cybersecurity UI for event correlation, incident triage, and automated response playbooks.</p>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400 mt-2 font-mono">Confidential Enterprise Platform (Under NDA)</span>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-indigo-500/25 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-indigo-400 font-bold">UEBA &amp; NDR Telemetry Systems</span>
+                                            <span class="text-[9px] text-indigo-300 bg-indigo-950/80 px-1.5 py-0.5 rounded border border-indigo-500/30">BEHAVIORAL AI / NDR</span>
+                                        </div>
+                                        <p class="text-slate-300 text-[10px] leading-tight font-sans">User entity behavioral analytics &amp; network detection dashboards visualizing threat risk scores.</p>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400 mt-2 font-mono">Confidential Security Analytics Suite</span>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-emerald-500/25 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-emerald-400 font-bold">AI-Integrated Web Applications</span>
+                                            <span class="text-[9px] text-emerald-300 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-500/30">AI DEVELOPMENT</span>
+                                        </div>
+                                        <p class="text-slate-300 text-[10px] leading-tight font-sans">High-velocity front-end applications built utilizing AI-integrated development workflows &amp; modern tooling.</p>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400 mt-2 font-mono">AI-Driven Architecture &amp; Rapid Delivery</span>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-violet-500/25 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-violet-400 font-bold">Voice Assist AI for Visually Impaired</span>
+                                            <span class="text-[9px] text-violet-300 bg-violet-950/80 px-1.5 py-0.5 rounded border border-violet-500/30">DEEP LEARNING</span>
+                                        </div>
+                                        <p class="text-slate-300 text-[10px] leading-tight font-sans">Deep learning-based intelligent voice assistance system enhancing accessibility and independence.</p>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400 mt-2 font-mono">Diploma Final Year Capstone Project</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Education & Certifications -->
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70">
+                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm">school</span> Academic Credentials &amp; Certifications
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-2.5">
                                 <div class="flex justify-between items-center bg-slate-950/80 p-2.5 rounded-lg border border-white/5">
                                     <div>
                                         <h3 class="text-white font-semibold text-xs">Bachelor of Computer Applications (BCA)</h3>
-                                        <p class="text-slate-400 text-[10px]">Software Engineering &amp; Web Architecture</p>
+                                        <p class="text-slate-400 text-[10px]">Amrita AHEAD (Online) &bull; Software Eng. (Pursuing alongside full-time work)</p>
                                     </div>
                                     <span class="font-mono text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30">2024 — PRES</span>
                                 </div>
                                 <div class="flex justify-between items-center bg-slate-950/80 p-2.5 rounded-lg border border-white/5">
                                     <div>
                                         <h3 class="text-white font-semibold text-xs">Diploma in Computer Engineering</h3>
-                                        <p class="text-slate-400 text-[10px]">Carmel Polytechnic College, Alappuzha</p>
+                                        <p class="text-slate-400 text-[10px]">Carmel Polytechnic &bull; Distinction &bull; Campus Placed at CISAI (Innspark)</p>
                                     </div>
-                                    <span class="font-mono text-[10px] text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-white/10">2021 — 2023</span>
+                                    <span class="font-mono text-[10px] text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-white/10">2021 — 2024</span>
+                                </div>
+                            </div>
+                            <!-- Diploma Internship Certifications -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-cyan-500/20">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-cyan-400 font-bold text-[11px]">Basics of AI &amp; ML &mdash; Lekshmi Infotech</span>
+                                        <span class="text-[9px] text-cyan-300 bg-cyan-950/80 px-1.5 py-0.2 rounded border border-cyan-500/30">DIPLOMA INTERNSHIP</span>
+                                    </div>
+                                    <p class="text-slate-400 text-[10px] leading-snug">Comprehensive training in AI &amp; Machine Learning algorithms, data preprocessing, and hands-on implementation.</p>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-indigo-500/20">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-indigo-400 font-bold text-[11px]">Basics of Telecommunication &mdash; BSNL</span>
+                                        <span class="text-[9px] text-indigo-300 bg-indigo-950/80 px-1.5 py-0.2 rounded border border-indigo-500/30">DIPLOMA INTERNSHIP</span>
+                                    </div>
+                                    <p class="text-slate-400 text-[10px] leading-snug">Fundamentals of modern telecom concepts, data transmission, and network infrastructure architecture.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Specialized Competencies & Strengths -->
+                        <section class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70">
+                            <h2 class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm">verified_user</span> Specialized Competencies &amp; Engineering Strengths
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 font-mono text-[11px]">
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-cyan-500/20">
+                                    <span class="text-cyan-400 font-bold block mb-1">AI-INTEGRATED DEV &amp; DATA INTEGRITY</span>
+                                    <p class="text-slate-400 text-[10px] leading-snug">Leveraging advanced AI workflows for rapid engineering velocity while strictly preserving data integrity, code cleanliness, and security posture.</p>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-indigo-500/20">
+                                    <span class="text-indigo-400 font-bold block mb-1">CYBERSECURITY &amp; DASHBOARDS</span>
+                                    <p class="text-slate-400 text-[10px] leading-snug">Specialized in building high-throughput SOC telemetry interfaces (SIEM, SOAR, UEBA, NDR) and interactive data visualization systems.</p>
+                                </div>
+                                <div class="p-2.5 bg-slate-950/80 rounded-lg border border-emerald-500/20">
+                                    <span class="text-emerald-400 font-bold block mb-1">RAPID TECH STACK ADAPTABILITY</span>
+                                    <p class="text-slate-400 text-[10px] leading-snug">Fast-learning agility to master new frameworks and libraries with minimal turnaround time to design, build, and deploy full-lifecycle software.</p>
                                 </div>
                             </div>
                         </section>
