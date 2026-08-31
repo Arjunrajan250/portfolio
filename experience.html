@@ -112,14 +112,12 @@
               </div>
 
               <ul class="space-y-3 text-slate-300 text-sm mb-6 list-disc list-inside leading-relaxed">
-                <li>Engineered enterprise UI for Innspark BDSAP (Big Data Security Analytics Platform) integrating SIEM, SOAR, UEBA, and NDR modules, optimizing dashboard rendering speed by 35% across 10,000+ real-time security events/sec using Angular signals and custom Canvas visualization.</li>
-                <li>Building real-time security telemetry and data visualization dashboards for SIEM, SOAR, UEBA, and
-                  NDR modules using custom network graph engines and telemetry visualizers.</li>
-                <li>Enforcing modular component patterns and clean architecture for seamless user flows and
-                  high-density security console interactions.</li>
-                <li>Collaborating directly with product engineering teams to translate security requirements into clean,
-                  scalable design systems and Tailwind CSS components.</li>
+                <li>Working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
+                <li>Architecting real-time security telemetry and high-density data visualization dashboards for threat monitoring, alert triage, and incident playbooks.</li>
+                <li>Enforcing modular component patterns, clean architecture, and strict zero data-leakage standards across all client interfaces.</li>
+                <li>Collaborating directly with engineering teams to translate security requirements into high-performance, responsive UI systems.</li>
               </ul>
+
 
               <div class="flex flex-wrap gap-2">
                 <span class="badge-pill bg-indigo-950/70 border-indigo-500/40 text-indigo-300">ANGULAR</span>
@@ -265,12 +263,20 @@
         <div class="glass-panel-v2 p-8 rounded-3xl border-cyan-500/30 shadow-2xl space-y-4">
           <h3 class="text-xl font-bold text-white">Curriculum Vitae</h3>
           <p class="text-slate-300 text-xs leading-relaxed">Open official Curriculum Vitae in live interactive preview modal.</p>
-          <button data-action="view-resume" onclick="openResumeModal()"
-            class="shimmer w-full bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer">
-            <span class="material-symbols-outlined text-sm">visibility</span>
-            VIEW_CV_PREVIEW
-          </button>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button data-action="view-resume" onclick="openResumeModal('executive')"
+              class="shimmer flex-1 bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer">
+              <span class="material-symbols-outlined text-sm">visibility</span>
+              EXECUTIVE_CV
+            </button>
+            <button data-action="view-ats-resume" onclick="openResumeModal('ats')"
+              class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer">
+              <span class="material-symbols-outlined text-sm">verified</span>
+              ATS_FRIENDLY_CV
+            </button>
+          </div>
         </div>
+
       </div>
     </div>
   </main>

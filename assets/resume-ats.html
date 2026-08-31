@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjun R — Resume (ATS Friendly)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 10mm 12mm 10mm 12mm;
+        }
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            color: #0f172a;
+            background-color: #f8fafc;
+            line-height: 1.45;
+            font-size: 11pt;
+            margin: 0;
+            padding: 0;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .resume-sheet {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+        /* ATS Strict Single Column Flow */
+        .ats-section-title {
+            font-size: 11.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0f172a;
+            border-bottom: 1.5px solid #0f172a;
+            padding-bottom: 3px;
+            margin-top: 14px;
+            margin-bottom: 8px;
+        }
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm 12mm;
+            }
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 10.5pt !important;
+            }
+
+            .resume-sheet {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            a {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-slate-900 selection:text-white pb-12">
+
+    <!-- Screen-only Floating Action Bar -->
+    <div class="no-print sticky top-3 z-50 max-w-3xl mx-auto px-4 mb-4 pt-3">
+        <div class="bg-white/95 backdrop-blur-md border border-slate-300 rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 shadow-xl">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span class="font-mono text-xs font-bold text-slate-900 tracking-wider">ATS-OPTIMIZED RESUME (PARSER-FRIENDLY)</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-mono text-xs font-semibold flex items-center gap-1.5 transition-all shadow cursor-pointer">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    Print / Save
+                </button>
+                <a href="resume-ats.pdf" download="Arjun_R_Resume_ATS.pdf" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-semibold flex items-center gap-1.5 transition-all shadow cursor-pointer">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    Download PDF
+                </a>
+                <button id="btn-copy-plain" onclick="copyPlainResumeText()" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-mono text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                    <span id="copy-text-label">Copy Text</span>
+                </button>
+                <a href="resume.html" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-mono text-xs font-semibold flex items-center gap-1 transition-all" title="View Executive Dark/Print CV">
+                    <span>Executive View</span> &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main ATS Single-Column Document -->
+    <main class="resume-sheet p-6 sm:p-10 bg-white border border-slate-200 sm:rounded-2xl sm:shadow-lg">
+        
+        <!-- ATS Standard Header -->
+        <header class="text-center pb-3 border-b border-slate-300">
+            <h1 class="text-2xl sm:text-3xl font-extrabold uppercase text-slate-900 tracking-tight">Arjun R</h1>
+            <p class="text-sm font-semibold text-slate-700 mt-1">Front-End Developer &bull; UI Architect &bull; Data Visualization Specialist</p>
+            <div class="mt-2 text-xs text-slate-600 flex flex-wrap justify-center gap-x-3 gap-y-1 font-mono">
+                <span>Alappuzha, Kerala, India</span>
+                <span>&bull;</span>
+                <a href="mailto:ajuarjunr@gmail.com" class="text-slate-900 font-medium hover:underline">ajuarjunr@gmail.com</a>
+                <span>&bull;</span>
+                <a href="tel:+918921843248" class="text-slate-900 font-medium hover:underline">+91 8921843248</a>
+                <span>&bull;</span>
+                <a href="https://arjun-portfolio-03.vercel.app" target="_blank" class="text-slate-900 font-medium hover:underline">arjun-portfolio-03.vercel.app</a>
+                <span>&bull;</span>
+                <a href="https://github.com/Arjunrajan250" target="_blank" class="text-slate-900 font-medium hover:underline">github.com/Arjunrajan250</a>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section>
+            <h2 class="ats-section-title">Professional Summary</h2>
+            <p class="text-xs text-slate-700 leading-relaxed text-justify">
+                Front-End Developer and UI Architect with <strong>2+ years of professional hands-on experience</strong> specializing in high-performance web applications, modern JavaScript frameworks (Angular, React), and complex telemetry/data visualization architectures (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Proven track record developing enterprise-grade cybersecurity suites (SIEM, SOAR, UEBA, NDR) and interactive dashboards. Proficient in integrating AI-assisted rapid development workflows with strict zero-leakage enterprise security and data integrity. Rapid tech stack adaptability with complete full-lifecycle website and application delivery expertise.
+            </p>
+        </section>
+
+        <!-- Core Competencies & Technical Skills -->
+        <section>
+            <h2 class="ats-section-title">Core Competencies &amp; Technical Skills</h2>
+            <div class="text-xs text-slate-800 space-y-1.5">
+                <div>
+                    <strong class="text-slate-950 font-bold">Front-End Technologies &amp; Frameworks:</strong>
+                    <span>JavaScript (ES6+), TypeScript, Angular, React.js, HTML5, CSS3, Tailwind CSS, Responsive Web Design, Component-Driven UI.</span>
+                </div>
+                <div>
+                    <strong class="text-slate-950 font-bold">Data Visualization &amp; Graphics:</strong>
+                    <span>Three.js (WebGL 3D), amCharts 5, Highcharts, Sigma.js (Graph Networks), Chart.js, D3.js, Leaflet.js (GIS/Geospatial).</span>
+                </div>
+                <div>
+                    <strong class="text-slate-950 font-bold">State Management &amp; Architecture:</strong>
+                    <span>RxJS Reactive Streams, RESTful APIs, State Management, Micro-Frontend Integration, UI Performance Optimization.</span>
+                </div>
+                <div>
+                    <strong class="text-slate-950 font-bold">Domain Expertise:</strong>
+                    <span>Cybersecurity Operations Center (SOC) Dashboards, SIEM Event Correlation, SOAR Orchestration UI, UEBA Analytics, NDR Network Telemetry, Dark Mode &amp; Accessibility (a11y).</span>
+                </div>
+                <div>
+                    <strong class="text-slate-950 font-bold">Developer Tools &amp; Methodologies:</strong>
+                    <span>Git, GitHub, Webpack, Vite, Node.js, Express.js, Headless Browser Automation, CI/CD, Agile/Scrum, AI-Assisted Engineering Workflows.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section>
+            <h2 class="ats-section-title">Work Experience</h2>
+            
+            <!-- Experience Item 1 -->
+            <div class="mb-4">
+                <div class="flex justify-between items-baseline flex-wrap">
+                    <span class="text-sm font-bold text-slate-900">Front-End Developer</span>
+                    <span class="text-xs font-semibold text-slate-600 font-mono">June 2024 — Present</span>
+                </div>
+                <div class="text-xs font-semibold text-slate-700 mb-1.5">
+                    Innspark Solutions &bull; Kerala, India (Full-Time)
+                </div>
+                <ul class="list-disc list-outside ml-4 text-xs text-slate-700 space-y-1 leading-normal">
+                    <li>Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
+                    <li>Architected dynamic real-time telemetry dashboards and high-density data visualizations utilizing amCharts, Three.js, Highcharts, Sigma.js, and Chart.js for rapid threat triage.</li>
+                    <li>Enforced strict zero data-leakage standards, enterprise privacy boundaries, and confidential security protocols across all deliverables.</li>
+                    <li>Optimized client-side rendering pipelines and state propagation, reducing dashboard load times and boosting performance on high-event-volume streams.</li>
+                </ul>
+            </div>
+
+
+            <!-- Experience Item 2 -->
+            <div class="mb-3">
+                <div class="flex justify-between items-baseline flex-wrap">
+                    <span class="text-sm font-bold text-slate-900">MERN Stack Developer Intern</span>
+                    <span class="text-xs font-semibold text-slate-600 font-mono">July 2023 — January 2024</span>
+                </div>
+                <div class="text-xs font-semibold text-slate-700 mb-1.5">
+                    Techfriar Technologies &bull; Kerala, India (Internship)
+                </div>
+                <ul class="list-disc list-outside ml-4 text-xs text-slate-700 space-y-1 leading-normal">
+                    <li>Developed responsive full-stack web applications utilizing React.js, Node.js, Express REST APIs, and MongoDB databases.</li>
+                    <li>Implemented secure user authentication workflows, JWT token management, and role-based access control (RBAC).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Key Engineering Projects -->
+        <section>
+            <h2 class="ats-section-title">Key Engineering Projects</h2>
+            
+            <div class="space-y-2.5 text-xs text-slate-700">
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <span class="font-bold text-slate-900">Enterprise SIEM, SOAR &amp; DNS Security Console</span>
+                        <span class="font-mono text-[10px] text-slate-500">Cybersecurity / SOC Suite</span>
+                    </div>
+                    <p class="leading-normal mt-0.5">
+                        Engineered mission-critical cybersecurity consoles for security operations centers (SOC) and confidential government projects. Triaged multi-source log streams, correlated SIEM alerts, automated SOAR incident playbooks, and visualized DNS security telemetry with strict access boundaries.
+                    </p>
+                </div>
+
+
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <span class="font-bold text-slate-900">UEBA &amp; NDR Network Telemetry Systems</span>
+                        <span class="font-mono text-[10px] text-slate-500">Behavioral AI / Network Analytics</span>
+                    </div>
+                    <p class="leading-normal mt-0.5">
+                        Built user entity behavioral analytics and network detection dashboards with topological graph network visualizers (Sigma.js) to identify malicious internal lateral movements and abnormal data exfiltration events in real time.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <span class="font-bold text-slate-900">Cyber Crimes &amp; Threat Intelligence India (IndiaLens)</span>
+                        <span class="font-mono text-[10px] text-slate-500">Open Cyber Defense Platform</span>
+                    </div>
+                    <p class="leading-normal mt-0.5">
+                        Engineered an open interactive cyber defense portal synthesizing national cybercrime stats, 5-stage scam kill-chain visualizers, a heuristic SMS/URL scanner, and national 1930 incident triage workflows with zero external trackers.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <span class="font-bold text-slate-900">Voice Assist AI for the Visually Impaired</span>
+                        <span class="font-mono text-[10px] text-slate-500">Diploma Capstone Project</span>
+                    </div>
+                    <p class="leading-normal mt-0.5">
+                        Engineered a voice-controlled accessibility system using deep learning and speech synthesis to aid visually impaired individuals with computer navigation and everyday digital tasks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2 class="ats-section-title">Education</h2>
+            
+            <div class="mb-2">
+                <div class="flex justify-between items-baseline flex-wrap">
+                    <span class="text-xs font-bold text-slate-900">Bachelor of Computer Applications (BCA) — Software Engineering</span>
+                    <span class="text-xs font-semibold text-slate-600 font-mono">2024 — Present</span>
+                </div>
+                <div class="text-xs text-slate-700">
+                    Amrita AHEAD (Amrita Vishwa Vidyapeetham) &bull; Online Higher Education (Pursuing alongside full-time work)
+                </div>
+            </div>
+
+            <div>
+                <div class="flex justify-between items-baseline flex-wrap">
+                    <span class="text-xs font-bold text-slate-900">Diploma in Computer Engineering</span>
+                    <span class="text-xs font-semibold text-slate-600 font-mono">2021 — 2024</span>
+                </div>
+                <div class="text-xs text-slate-700">
+                    Carmel Polytechnic College, Alappuzha &bull; First Class with Distinction &bull; Campus Placed at CISAI (Innspark)
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Internships -->
+        <section>
+            <h2 class="ats-section-title">Certifications &amp; Professional Training</h2>
+            <ul class="list-disc list-outside ml-4 text-xs text-slate-700 space-y-1">
+                <li><strong>Basics of Artificial Intelligence &amp; Machine Learning (AI/ML):</strong> Lekshmi Infotech &mdash; Practical training on machine learning algorithms, model evaluation, and Python data preprocessing.</li>
+                <li><strong>Fundamentals of Telecommunications &amp; Network Infrastructure:</strong> BSNL (Bharat Sanchar Nigam Limited) &mdash; Data transmission architecture, IP protocols, and network routing.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        function copyPlainResumeText() {
+            const plainText = `ARJUN R
+Front-End Developer | UI Architect | Data Visualization Specialist
+Alappuzha, Kerala, India | Email: ajuarjunr@gmail.com | Phone: +91 8921843248
+Portfolio: https://arjun-portfolio-03.vercel.app | GitHub: https://github.com/Arjunrajan250
+
+PROFESSIONAL SUMMARY
+Front-End Developer & UI Architect with 2+ years of hands-on experience in modern JavaScript, Angular, and React architectures with rich data visualization (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Experienced in engineering enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and interactive telemetry dashboards. Expert in AI-integrated rapid development workflows with strict data integrity, zero data-leakage security posture, and fast adaptability to build full-lifecycle websites, apps, and software systems.
+
+TECHNICAL SKILLS
+• Front-End: JavaScript (ES6+), TypeScript, Angular, React.js, HTML5, CSS3, Tailwind CSS, Responsive Design
+• Data Visualization: Three.js (WebGL), amCharts 5, Highcharts, Sigma.js, Chart.js, D3.js, Leaflet.js
+• State & Architecture: RxJS, RESTful APIs, Component-Driven UI, UI Optimization, Micro-Frontend
+• Domains: Cybersecurity Operations (SOC), SIEM, SOAR, UEBA, NDR Telemetry, Accessibility
+• Tools: Git, GitHub, Webpack, Vite, Node.js, Express.js, Headless Browser Automation, Agile/Scrum
+
+WORK EXPERIENCE
+
+Front-End Developer | Innspark Solutions
+June 2024 — Present | Kerala, India
+• Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.
+• Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.
+• Enforced strict zero data-leakage standards, enterprise privacy boundaries, and confidential security protocols.
+• Optimized client-side performance and rendering pipelines for high-event-volume streams.
+
+MERN Stack Developer Intern | Techfriar Technologies
+July 2023 — January 2024 | Kerala, India
+• Developed full-stack web applications using React.js, Node.js, Express REST APIs, and MongoDB.
+• Implemented JWT authentication and responsive front-end dashboard interfaces.
+
+KEY PROJECTS
+• Enterprise SIEM, SOAR & DNS Security Console: Mission-critical consoles for SOC triage, SIEM alert correlation, SOAR automation, and confidential government projects.
+• UEBA & NDR Network Telemetry Systems: Behavioral AI and network analytics dashboards with topological graph network visualizers.
+
+• Cyber Crimes & Threat Intelligence India (IndiaLens): Open cyber defense portal synthesizing crime telemetry, scam kill-chains, and 1930 incident triage.
+• Voice Assist AI: Accessibility assistant using deep learning and speech synthesis for visually impaired users.
+
+EDUCATION
+• Bachelor of Computer Applications (BCA) — Software Engineering | Amrita AHEAD (2024 — Present, Pursuing alongside full-time work)
+• Diploma in Computer Engineering | Carmel Polytechnic College (2021 — 2024, First Class Distinction, Campus Placed at CISAI)
+
+CERTIFICATIONS
+• Basics of AI & ML — Lekshmi Infotech
+• Fundamentals of Telecommunication — BSNL`;
+
+            navigator.clipboard.writeText(plainText).then(() => {
+                const label = document.getElementById('copy-text-label');
+                if (label) {
+                    const orig = label.textContent;
+                    label.textContent = 'Copied!';
+                    setTimeout(() => { label.textContent = orig; }, 2000);
+                }
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -238,31 +238,49 @@ function injectSharedComponents() {
         const resumeHtml = `
             <div id="resume-modal-overlay" class="resume-modal-overlay" onclick="if(event.target === this) closeResumeModal()">
                 <div class="resume-modal-content glass-panel-v2 p-4 md:p-6 rounded-2xl relative max-w-4xl w-full h-[88vh] flex flex-col border border-white/15 shadow-2xl">
-                    <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4 select-none flex-shrink-0">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 mb-3 select-none flex-shrink-0 gap-3">
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-full bg-cyan-500/20 flex items-center justify-center border border-cyan-500/40">
                                 <span class="material-symbols-outlined text-cyan-400 text-sm">description</span>
                             </div>
                             <div>
                                 <h3 class="font-headline-md text-base md:text-lg text-on-surface font-bold">Curriculum Vitae — Arjun R</h3>
-                                <p class="font-code-sm text-xs text-slate-400">Official Verification Document • Executive View</p>
+                                <p class="font-code-sm text-xs text-slate-400" id="cv-modal-subtitle">Official Verification Document • Executive View</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <a href="assets/resume.pdf" download="Arjun_R_Resume.pdf" class="px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer" title="Download Resume PDF">
-                                <span class="material-symbols-outlined text-sm">download</span>
-                                <span>PDF</span>
-                            </a>
-                            <a href="assets/resume.html" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/40 font-mono text-xs font-semibold items-center gap-1.5 transition-all cursor-pointer" title="Open Fullscreen Resume">
-                                <span class="material-symbols-outlined text-sm">open_in_new</span>
-                                <span>Fullscreen</span>
-                            </a>
-                            <button id="resume-modal-close" onclick="closeResumeModal()" class="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-white/20 text-on-surface flex items-center justify-center transition-colors cursor-pointer" aria-label="Close CV Modal">
-                                <span class="material-symbols-outlined text-xl">close</span>
-                            </button>
+
+                        <!-- Segmented Switcher Tabs (Executive vs ATS) -->
+                        <div class="flex items-center justify-between sm:justify-end gap-2 flex-wrap">
+                            <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-white/10 gap-1 text-xs font-mono">
+                                <button type="button" id="tab-cv-executive" onclick="switchCvModalTab('executive')" class="cv-tab-btn active px-3 py-1.5 rounded-lg border border-transparent font-semibold flex items-center gap-1.5 cursor-pointer text-slate-300">
+                                    <span class="material-symbols-outlined text-xs">tune</span>
+                                    <span>Executive</span>
+                                </button>
+                                <button type="button" id="tab-cv-ats" onclick="switchCvModalTab('ats')" class="cv-tab-btn px-3 py-1.5 rounded-lg border border-transparent font-semibold flex items-center gap-1.5 cursor-pointer text-slate-400 hover:text-white">
+                                    <span class="material-symbols-outlined text-xs text-emerald-400">verified</span>
+                                    <span class="text-emerald-400">ATS-Friendly</span>
+                                </button>
+                            </div>
+
+                            <div class="flex items-center gap-1.5">
+                                <a id="cv-btn-download" href="assets/resume.pdf" download="Arjun_R_Resume.pdf" class="px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer" title="Download Resume PDF">
+                                    <span class="material-symbols-outlined text-sm">download</span>
+                                    <span id="cv-download-label">PDF</span>
+                                </a>
+                                <a id="cv-btn-fullscreen" href="assets/resume.html" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/40 font-mono text-xs font-semibold items-center gap-1.5 transition-all cursor-pointer" title="Open Fullscreen Resume">
+                                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                    <span>Fullscreen</span>
+                                </a>
+                                <button id="resume-modal-close" onclick="closeResumeModal()" class="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-white/20 text-on-surface flex items-center justify-center transition-colors cursor-pointer" aria-label="Close CV Modal">
+                                    <span class="material-symbols-outlined text-xl">close</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex-grow w-full rounded-xl overflow-y-auto bg-[#070a13] border border-white/10 relative p-4 md:p-6 text-slate-200 space-y-4 font-sans text-xs custom-scrollbar">
+                    <div class="flex-grow w-full rounded-xl overflow-y-auto bg-[#070a13] border border-white/10 relative p-4 md:p-6 text-slate-200 font-sans text-xs custom-scrollbar">
+                        <!-- Pane 1: Executive Cyber CV -->
+                        <div id="cv-pane-executive" class="cv-view-pane active space-y-4">
+
                         <!-- Header -->
                         <header class="glass-box p-4 rounded-xl border border-white/10 bg-slate-900/70 relative overflow-hidden">
                             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 relative z-10">
@@ -330,9 +348,10 @@ function injectSharedComponents() {
                                         <span class="font-mono text-[10px] text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">JUNE 2024 — PRESENT</span>
                                     </div>
                                     <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-relaxed">
-                                        <li>Working as a Front-End Developer on the CISAI platform under Innspark Solutions, with strong expertise in JavaScript, ecosystem libraries, and modern frameworks.</li>
-                                        <li>Engineered enterprise UI for Innspark BDSAP (Big Data Security Analytics Platform) integrating SIEM, SOAR, UEBA, and NDR modules.</li>
-                                        <li>Leveraged AI-integrated development workflows to maximize engineering velocity, code quality, and high productivity.</li>
+                                        <li>Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
+                                        <li>Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.</li>
+                                        <li>Enforced strict zero data-leakage standards, enterprise privacy boundaries, and confidential security protocols across all deliverables.</li>
+                                        <li>Optimized client-side rendering pipelines and state propagation, reducing dashboard load times and boosting performance on high-event-volume streams.</li>
                                     </ul>
                                 </div>
                                 <div class="border-l-2 border-cyan-500/60 pl-3 py-0.5">
@@ -490,12 +509,163 @@ function injectSharedComponents() {
                         <footer class="text-center font-mono text-[10px] text-slate-400 border-t border-white/10 pt-2.5 mt-2">
                             ✦ Explore live interactive demos, architecture case studies &amp; terminal: <a href="https://arjun-portfolio-03.vercel.app" target="_blank" class="text-cyan-400 hover:underline font-bold">arjun-portfolio-03.vercel.app</a>
                         </footer>
+                        </div>
+                        <!-- End Pane 1 -->
+
+                        <!-- Pane 2: ATS-Friendly CV (Machine-Readable, High Contrast, Single Column) -->
+                        <div id="cv-pane-ats" class="cv-view-pane space-y-4">
+                            <!-- ATS Action Bar within pane -->
+                            <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-2.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <div>
+                                        <div class="font-mono text-xs text-emerald-300 font-bold">ATS Optimized &bull; 99% Parser Score</div>
+                                        <div class="text-[10.5px] text-slate-300">Clean single-column structure &bull; Zero graphics interference &bull; Standard keywords</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button" onclick="copyPlainResumeText()" id="modal-copy-plain-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 font-mono text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
+                                        <span class="material-symbols-outlined text-sm">content_copy</span>
+                                        <span id="modal-copy-plain-label">Copy Plain Text</span>
+                                    </button>
+                                    <a href="assets/resume-ats.pdf" download="Arjun_R_Resume_ATS.pdf" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md">
+                                        <span class="material-symbols-outlined text-sm">download</span>
+                                        <span>Download ATS PDF</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- ATS Document Body (Rendered High-Contrast Container) -->
+                            <div class="bg-white text-slate-900 p-6 md:p-8 rounded-xl border border-slate-300 shadow-xl space-y-3 font-sans text-xs">
+                                <!-- ATS Header -->
+                                <div class="text-center pb-2 border-b border-slate-900">
+                                    <h1 class="text-2xl font-extrabold uppercase text-slate-950 tracking-tight">Arjun R</h1>
+                                    <p class="text-xs font-bold text-slate-800 mt-0.5">Front-End Developer &bull; UI Architect &bull; Data Visualization Specialist</p>
+                                    <div class="mt-1.5 text-[10px] text-slate-700 flex flex-wrap justify-center gap-x-2 gap-y-0.5 font-mono">
+                                        <span>Alappuzha, Kerala, India</span>
+                                        <span>&bull;</span>
+                                        <a href="mailto:ajuarjunr@gmail.com" class="text-slate-900 font-semibold hover:underline">ajuarjunr@gmail.com</a>
+                                        <span>&bull;</span>
+                                        <a href="tel:+918921843248" class="text-slate-900 font-semibold hover:underline">+91 8921843248</a>
+                                        <span>&bull;</span>
+                                        <a href="https://arjun-portfolio-03.vercel.app" target="_blank" class="text-slate-900 font-semibold hover:underline">arjun-portfolio-03.vercel.app</a>
+                                        <span>&bull;</span>
+                                        <a href="https://github.com/Arjunrajan250" target="_blank" class="text-slate-900 font-semibold hover:underline">github.com/Arjunrajan250</a>
+                                    </div>
+                                </div>
+
+                                <!-- ATS Section: Professional Summary -->
+                                <div>
+                                    <h2 class="font-mono text-[11px] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-900 pb-0.5 mb-1 mt-2">Professional Summary</h2>
+                                    <p class="text-slate-700 leading-relaxed text-[11px]">
+                                        Front-End Developer and UI Architect with <strong>2+ years of professional experience</strong> engineering modern JavaScript, Angular, and React applications with high-density data visualizations (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Proven track record developing enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and telemetry dashboards. Expert in AI-assisted rapid development workflows with zero data-leakage posture and fast adaptability to build full-lifecycle websites, apps, and software systems.
+                                    </p>
+                                </div>
+
+                                <!-- ATS Section: Technical Skills -->
+                                <div>
+                                    <h2 class="font-mono text-[11px] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-900 pb-0.5 mb-1 mt-2">Core Competencies &amp; Technical Skills</h2>
+                                    <div class="space-y-1 text-[11px] text-slate-800">
+                                        <div><strong class="text-slate-950">Front-End &amp; UI:</strong> JavaScript (ES6+), TypeScript, Angular, React.js, HTML5, CSS3, Tailwind CSS, Responsive Web Design, Component-Driven UI.</div>
+                                        <div><strong class="text-slate-950">Data Visualization &amp; 3D:</strong> Three.js (WebGL), amCharts 5, Highcharts, Sigma.js (Network Graphs), Chart.js, D3.js, Leaflet.js.</div>
+                                        <div><strong class="text-slate-950">State &amp; Architecture:</strong> RxJS Reactive Streams, RESTful APIs, State Management, UI Performance Optimization.</div>
+                                        <div><strong class="text-slate-950">Domain Expertise:</strong> Cybersecurity Operations (SOC) Suites, SIEM Event Correlation, SOAR Incident Playbooks, UEBA Analytics, NDR Telemetry.</div>
+                                        <div><strong class="text-slate-950">Tooling &amp; AI:</strong> Git, GitHub, Vite, Webpack, Node.js, Express.js, Headless Automation, AI-Integrated Engineering Workflows.</div>
+                                    </div>
+                                </div>
+
+                                <!-- ATS Section: Work Experience -->
+                                <div>
+                                    <h2 class="font-mono text-[11px] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-900 pb-0.5 mb-1 mt-2">Work Experience</h2>
+                                    
+                                    <div class="mb-2.5">
+                                        <div class="flex justify-between items-baseline flex-wrap">
+                                            <span class="font-bold text-slate-950 text-xs">Front-End Developer</span>
+                                            <span class="font-mono text-[10px] text-slate-600 font-bold">June 2024 — Present</span>
+                                        </div>
+                                        <div class="text-[10.5px] font-semibold text-slate-700 mb-1">Innspark Solutions &bull; Kerala, India (Full-Time)</div>
+                                        <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 space-y-0.5">
+                                            <li>Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
+                                            <li>Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.</li>
+                                            <li>Enforced strict zero data-leakage standards, enterprise privacy boundaries, and confidential security protocols across all deliverables.</li>
+                                            <li>Optimized client-side rendering pipelines and state propagation, reducing dashboard load times and boosting performance on high-event-volume streams.</li>
+                                        </ul>
+                                    </div>
+
+
+                                    <div>
+                                        <div class="flex justify-between items-baseline flex-wrap">
+                                            <span class="font-bold text-slate-950 text-xs">MERN Stack Developer Intern</span>
+                                            <span class="font-mono text-[10px] text-slate-600 font-bold">July 2023 — January 2024</span>
+                                        </div>
+                                        <div class="text-[10.5px] font-semibold text-slate-700 mb-1">Techfriar Technologies &bull; Kerala, India (Internship)</div>
+                                        <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 space-y-0.5">
+                                            <li>Developed full-stack web applications with React.js, Node.js, Express REST APIs, and MongoDB.</li>
+                                            <li>Implemented secure user authentication with JWT tokens and responsive dashboard interfaces.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- ATS Section: Key Projects -->
+                                <div>
+                                    <h2 class="font-mono text-[11px] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-900 pb-0.5 mb-1 mt-2">Key Engineering Projects</h2>
+                                    <div class="space-y-1.5 text-[10.5px] text-slate-700">
+                                        <div>
+                                            <div class="flex justify-between items-baseline font-bold text-slate-950">
+                                                <span>Enterprise SIEM, SOAR &amp; DNS Security Console</span>
+                                                <span class="font-mono text-[9.5px] text-slate-500 font-normal">Cybersecurity / SOC Suite</span>
+                                            </div>
+                                            <p class="leading-snug">Enterprise console for security operations and confidential government projects: incident correlation, threat investigation, and automated response playbooks.</p>
+                                        </div>
+
+                                        <div>
+                                            <div class="flex justify-between items-baseline font-bold text-slate-950">
+                                                <span>UEBA &amp; NDR Telemetry Systems</span>
+                                                <span class="font-mono text-[9.5px] text-slate-500 font-normal">Behavioral AI / NDR</span>
+                                            </div>
+                                            <p class="leading-snug">Topological graph network dashboards (Sigma.js) monitoring lateral entity movements and data exfiltration.</p>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between items-baseline font-bold text-slate-950">
+                                                <span>Cyber Crimes &amp; Threat Intelligence India (IndiaLens)</span>
+                                                <span class="font-mono text-[9.5px] text-slate-500 font-normal">Open Defense Portal</span>
+                                            </div>
+                                            <p class="leading-snug">Interactive portal with scam kill-chain visualizers, SMS/URL scanner, and 1930 incident triage workflows.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ATS Section: Education & Certifications -->
+                                <div>
+                                    <h2 class="font-mono text-[11px] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-900 pb-0.5 mb-1 mt-2">Education &amp; Certifications</h2>
+                                    <div class="space-y-1 text-[10.5px] text-slate-700">
+                                        <div class="flex justify-between items-baseline">
+                                            <span class="font-bold text-slate-950">Bachelor of Computer Applications (BCA) &mdash; Software Engineering</span>
+                                            <span class="font-mono text-[10px] text-slate-600">2024 — Present</span>
+                                        </div>
+                                        <p class="text-slate-600 text-[10px]">Amrita AHEAD &bull; Online Higher Education (Pursuing alongside full-time work)</p>
+
+                                        <div class="flex justify-between items-baseline mt-1">
+                                            <span class="font-bold text-slate-950">Diploma in Computer Engineering</span>
+                                            <span class="font-mono text-[10px] text-slate-600">2021 — 2024</span>
+                                        </div>
+                                        <p class="text-slate-600 text-[10px]">Carmel Polytechnic College &bull; First Class with Distinction &bull; Campus Placed at CISAI</p>
+
+                                        <div class="mt-1.5 pt-1 border-t border-slate-200">
+                                            <strong class="text-slate-950">Certifications:</strong> Basics of AI &amp; ML (Lekshmi Infotech) &bull; Fundamentals of Telecommunications (BSNL).
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Pane 2 -->
                     </div>
                 </div>
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', resumeHtml);
     }
+
 
     if (!document.getElementById('project-modal-overlay')) {
         const projectModalHtml = `
@@ -775,13 +945,13 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             `;
             break;
         case 'cv':
-            const overlay = document.getElementById('resume-modal-overlay');
-            if (overlay) {
-                overlay.classList.add('open');
-                document.body.style.overflow = 'hidden';
-                if (window.CyberAudio) CyberAudio.playChime();
+            if (arg.includes('ats')) {
+                window.openResumeModal('ats');
+                output = `<div class="mt-1 text-emerald-400">Opening ATS-Friendly Curriculum Vitae (Machine-Readable)...</div>`;
+            } else {
+                window.openResumeModal('executive');
+                output = `<div class="mt-1 text-accent">Opening Curriculum Vitae modal (Executive View)...</div>`;
             }
-            output = `<div class="mt-1 text-accent">Opening Curriculum Vitae modal...</div>`;
             break;
         case 'ls':
             output = `
@@ -792,6 +962,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
   <span class="text-amber-400 font-bold">experience.log</span>
   <span class="text-indigo-400 font-bold">contact.vcf</span>
   <span class="text-red-400 font-bold">cv.pdf</span>
+  <span class="text-emerald-400 font-bold">cv-ats.pdf</span>
 </div>
             `;
             break;
@@ -808,17 +979,17 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
                 output = `<div class="mt-1">Currently working at CISAI as Front-End Developer.</div>`;
             } else if (arg.includes('contact')) {
                 output = `<div class="mt-1">Email: ajuarjunr@gmail.com | Phone: +91 8921843248</div>`;
+            } else if (arg.includes('ats')) {
+                window.openResumeModal('ats');
+                output = `<div class="mt-1 text-emerald-400">Opening cv-ats.pdf machine-readable preview...</div>`;
             } else if (arg.includes('cv')) {
-                const cvModal = document.getElementById('resume-modal-overlay');
-                if (cvModal) {
-                    cvModal.classList.add('open');
-                    document.body.style.overflow = 'hidden';
-                }
+                window.openResumeModal('executive');
                 output = `<div class="mt-1 text-accent">Opening cv.pdf preview...</div>`;
             } else {
                 output = `<div class="mt-1 text-red-400">cat: ${escapeHtml(arg)}: No such file or directory</div>`;
             }
             break;
+
         case 'date':
             output = `<div class="mt-1 text-accent">${new Date().toUTCString()}</div>`;
             break;
@@ -1006,7 +1177,126 @@ function initAudioToggle() {
     });
 }
 
-window.openResumeModal = function() {
+window.switchCvModalTab = function(tabName) {
+    const execTab = document.getElementById('tab-cv-executive');
+    const atsTab = document.getElementById('tab-cv-ats');
+    const execPane = document.getElementById('cv-pane-executive');
+    const atsPane = document.getElementById('cv-pane-ats');
+    const subtitle = document.getElementById('cv-modal-subtitle');
+    const downloadBtn = document.getElementById('cv-btn-download');
+    const fullscreenBtn = document.getElementById('cv-btn-fullscreen');
+    const downloadLabel = document.getElementById('cv-download-label');
+
+    if (!execTab || !atsTab || !execPane || !atsPane) return;
+
+    try { if (window.CyberAudio) CyberAudio.playBlip(750, 0.03); } catch(e) {}
+
+    if (tabName === 'ats') {
+        execTab.classList.remove('active');
+        execTab.classList.add('text-slate-400');
+        execTab.classList.remove('text-slate-300');
+        
+        atsTab.classList.add('active');
+        atsTab.classList.remove('text-slate-400');
+
+        execPane.classList.remove('active');
+        atsPane.classList.add('active');
+
+        if (subtitle) subtitle.textContent = 'Official Verification Document • ATS-Friendly Machine-Readable View';
+        if (downloadBtn) {
+            downloadBtn.href = 'assets/resume-ats.pdf';
+            downloadBtn.download = 'Arjun_R_Resume_ATS.pdf';
+            downloadBtn.className = 'px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer';
+        }
+        if (downloadLabel) downloadLabel.textContent = 'ATS PDF';
+        if (fullscreenBtn) {
+            fullscreenBtn.href = 'assets/resume-ats.html';
+            fullscreenBtn.className = 'hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 font-mono text-xs font-semibold items-center gap-1.5 transition-all cursor-pointer';
+        }
+    } else {
+        atsTab.classList.remove('active');
+        atsTab.classList.add('text-slate-400');
+
+        execTab.classList.add('active');
+        execTab.classList.remove('text-slate-400');
+        execTab.classList.add('text-slate-300');
+
+        atsPane.classList.remove('active');
+        execPane.classList.add('active');
+
+        if (subtitle) subtitle.textContent = 'Official Verification Document • Executive View';
+        if (downloadBtn) {
+            downloadBtn.href = 'assets/resume.pdf';
+            downloadBtn.download = 'Arjun_R_Resume.pdf';
+            downloadBtn.className = 'px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer';
+        }
+        if (downloadLabel) downloadLabel.textContent = 'PDF';
+        if (fullscreenBtn) {
+            fullscreenBtn.href = 'assets/resume.html';
+            fullscreenBtn.className = 'hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/40 font-mono text-xs font-semibold items-center gap-1.5 transition-all cursor-pointer';
+        }
+    }
+};
+
+window.copyPlainResumeText = function() {
+    const plainText = `ARJUN R
+Front-End Developer | UI Architect | Data Visualization Specialist
+Alappuzha, Kerala, India | Email: ajuarjunr@gmail.com | Phone: +91 8921843248
+Portfolio: https://arjun-portfolio-03.vercel.app | GitHub: https://github.com/Arjunrajan250
+
+PROFESSIONAL SUMMARY
+Front-End Developer & UI Architect with 2+ years of hands-on experience in modern JavaScript, Angular, and React architectures with rich data visualization (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Experienced in engineering enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and interactive telemetry dashboards. Expert in AI-integrated rapid development workflows with strict data integrity, zero data-leakage security posture, and fast adaptability to build full-lifecycle websites, apps, and software systems.
+
+TECHNICAL SKILLS
+• Front-End: JavaScript (ES6+), TypeScript, Angular, React.js, HTML5, CSS3, Tailwind CSS, Responsive Design
+• Data Visualization: Three.js (WebGL), amCharts 5, Highcharts, Sigma.js, Chart.js, D3.js, Leaflet.js
+• State & Architecture: RxJS, RESTful APIs, Component-Driven UI, UI Optimization, Micro-Frontend
+• Domains: Cybersecurity Operations (SOC), SIEM, SOAR, UEBA, NDR Telemetry, Accessibility
+• Tools: Git, GitHub, Webpack, Vite, Node.js, Express.js, Headless Browser Automation, Agile/Scrum
+
+WORK EXPERIENCE
+
+Front-End Developer | Innspark Solutions
+June 2024 — Present | Kerala, India
+• Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.
+• Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.
+• Enforced strict zero data-leakage standards, enterprise privacy boundaries, and confidential security protocols.
+• Optimized client-side performance and rendering pipelines for high-event-volume streams.
+
+MERN Stack Developer Intern | Techfriar Technologies
+July 2023 — January 2024 | Kerala, India
+• Developed full-stack web applications using React.js, Node.js, Express REST APIs, and MongoDB.
+• Implemented JWT authentication and responsive front-end dashboard interfaces.
+
+KEY PROJECTS
+• Enterprise SIEM, SOAR & DNS Security Console: Mission-critical consoles for SOC triage, SIEM alert correlation, SOAR automation, and confidential government projects.
+• UEBA & NDR Network Telemetry Systems: Behavioral AI and network analytics dashboards with topological graph network visualizers.
+
+• Cyber Crimes & Threat Intelligence India (IndiaLens): Open cyber defense portal synthesizing crime telemetry, scam kill-chains, and 1930 incident triage.
+• Voice Assist AI: Accessibility assistant using deep learning and speech synthesis for visually impaired users.
+
+EDUCATION
+• Bachelor of Computer Applications (BCA) — Software Engineering | Amrita AHEAD (2024 — Present, Pursuing alongside full-time work)
+• Diploma in Computer Engineering | Carmel Polytechnic College (2021 — 2024, First Class Distinction, Campus Placed at CISAI)
+
+CERTIFICATIONS
+• Basics of AI & ML — Lekshmi Infotech
+• Fundamentals of Telecommunication — BSNL`;
+
+    navigator.clipboard.writeText(plainText).then(() => {
+        try { if (window.CyberAudio) CyberAudio.playChime(); } catch(e) {}
+        const label = document.getElementById('modal-copy-plain-label');
+        if (label) {
+            const orig = label.textContent;
+            label.textContent = 'Copied to Clipboard!';
+            setTimeout(() => { label.textContent = orig; }, 2000);
+        }
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+};
+
+window.openResumeModal = function(initialView = 'executive') {
     let overlay = document.getElementById('resume-modal-overlay');
     if (!overlay) {
         injectSharedComponents();
@@ -1015,6 +1305,11 @@ window.openResumeModal = function() {
     if (overlay) {
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
+        if (initialView === 'ats') {
+            window.switchCvModalTab('ats');
+        } else {
+            window.switchCvModalTab('executive');
+        }
         try { if (window.CyberAudio) CyberAudio.playChime(); } catch(e) {}
     }
 };
@@ -1030,6 +1325,7 @@ window.closeResumeModal = function() {
 
 // --- 7. In-Page Resume PDF Viewer Modal ---
 function initResumeModal() {
+
     document.addEventListener('click', (e) => {
         const closeBtn = e.target.closest('#resume-modal-close');
         if (closeBtn) {
@@ -1047,25 +1343,40 @@ function initResumeModal() {
             return;
         }
 
+        const atsTrigger = e.target.closest('[data-action="view-ats-resume"]');
+        if (atsTrigger) {
+            if (atsTrigger.closest('#resume-modal-overlay')) return;
+            e.preventDefault();
+            e.stopPropagation();
+            window.openResumeModal('ats');
+            return;
+        }
+
         const trigger = e.target.closest('[data-action="view-resume"], .btn-resume, a[href*="resume"], a[href*="Resume"], a[href*="CV"]');
         if (trigger) {
             if (trigger.closest('#resume-modal-overlay')) return;
             e.preventDefault();
             e.stopPropagation();
-            window.openResumeModal();
+            window.openResumeModal('executive');
             return;
         }
+
 
         const btnOrLink = e.target.closest('a, button');
         if (btnOrLink && !btnOrLink.closest('#resume-modal-overlay')) {
             const txt = (btnOrLink.textContent || '').trim().toUpperCase();
-            if (txt.includes('CV') || txt.includes('RESUME')) {
+            if (txt.includes('ATS')) {
                 e.preventDefault();
                 e.stopPropagation();
-                window.openResumeModal();
+                window.openResumeModal('ats');
+            } else if (txt.includes('CV') || txt.includes('RESUME')) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.openResumeModal('executive');
             }
         }
     });
+
 
     window.addEventListener('keydown', (e) => {
         const overlay = document.getElementById('resume-modal-overlay');

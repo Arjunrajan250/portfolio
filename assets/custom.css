@@ -573,6 +573,47 @@ p {
     transform: scale(1) translateY(0);
 }
 
+/* CV Modal View Switcher Tabs */
+.cv-tab-btn {
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    user-select: none;
+}
+.cv-tab-btn:active {
+    transform: scale(0.96);
+}
+.cv-tab-btn.active {
+    background: rgba(6, 182, 212, 0.18);
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.18);
+}
+#tab-cv-ats.cv-tab-btn.active {
+    background: rgba(16, 185, 129, 0.18);
+    color: #34d399;
+    border-color: rgba(52, 211, 153, 0.45);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.18);
+}
+
+.cv-view-pane {
+    display: none;
+    animation: cvFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.cv-view-pane.active {
+    display: block;
+}
+@keyframes cvFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* Project Detail Lightbox Modal */
 .project-modal-overlay {
     position: fixed;
