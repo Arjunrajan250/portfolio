@@ -1305,6 +1305,133 @@ p {
     }
 }
 
+/* --- High-Impact & Magnetic "VIEW_ALL_REPOS" / Project CTA Button --- */
+.view-all-repos-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1.35rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.25) 0%, rgba(6, 182, 212, 0.2) 50%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(129, 140, 248, 0.55);
+    border-radius: 0.875rem;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.25), 
+                0 4px 16px rgba(0, 0, 0, 0.4), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: transform 240ms var(--ease-out-apple),
+                box-shadow 240ms var(--ease-out-apple),
+                border-color 240ms var(--ease-out-apple),
+                background 240ms var(--ease-out-apple);
+    overflow: hidden;
+    text-decoration: none !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+    will-change: transform, box-shadow;
+    animation: repos-cta-glow 3.5s infinite var(--ease-out-apple);
+}
+
+.view-all-repos-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: repos-cta-shimmer 4s infinite ease-in-out;
+}
+
+.view-all-repos-cta:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.45) 0%, rgba(6, 182, 212, 0.35) 50%, rgba(15, 23, 42, 0.98) 100%);
+    border-color: rgba(165, 180, 252, 0.95);
+    box-shadow: 0 0 35px rgba(99, 102, 241, 0.6), 
+                0 0 18px rgba(6, 182, 212, 0.45), 
+                0 6px 22px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+    color: #ffffff !important;
+}
+
+.view-all-repos-cta:active {
+    transform: translateY(0) scale(0.97) !important;
+    box-shadow: 0 0 14px rgba(99, 102, 241, 0.35) !important;
+}
+
+.view-all-repos-cta .repos-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 0.5rem;
+    background: rgba(99, 102, 241, 0.25);
+    border: 1px solid rgba(129, 140, 248, 0.45);
+    color: #a5b4fc;
+    transition: transform 240ms var(--ease-out-apple), background-color 240ms var(--ease-out-apple), color 240ms var(--ease-out-apple);
+}
+
+.view-all-repos-cta:hover .repos-icon-box {
+    transform: rotate(-8deg) scale(1.1);
+    background: rgba(99, 102, 241, 0.5);
+    color: #ffffff;
+}
+
+.view-all-repos-cta .repos-counter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    background: rgba(6, 182, 212, 0.2);
+    border: 1px solid rgba(6, 182, 212, 0.5);
+    color: #67e8f9;
+}
+
+.view-all-repos-cta .repos-arrow {
+    transition: transform 240ms var(--ease-out-apple), color 240ms var(--ease-out-apple);
+    color: #38bdf8;
+}
+
+.view-all-repos-cta:hover .repos-arrow {
+    transform: translateX(4px);
+    color: #ffffff;
+}
+
+@keyframes repos-cta-glow {
+    0%, 100% {
+        box-shadow: 0 0 18px rgba(99, 102, 241, 0.25), 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-color: rgba(129, 140, 248, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.45), 0 0 16px rgba(6, 182, 212, 0.35), 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        border-color: rgba(165, 180, 252, 0.85);
+    }
+}
+
+@keyframes repos-cta-shimmer {
+    0% { left: -120%; }
+    30%, 100% { left: 220%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .view-all-repos-cta, .view-all-repos-cta::before {
+        animation: none !important;
+    }
+}
+
 /* --- Crisp & Clean AI Skill Card --- */
 .ai-highlight-card {
     position: relative;

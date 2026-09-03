@@ -929,7 +929,8 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
   <div>4. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
   <div>5. <span class="text-accent font-semibold">ARION C4ISR Suite</span> &mdash; Real-Time Data & Voice AI</div>
   <div>6. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
-  <div>7. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
+  <div>7. <span class="text-accent font-semibold">VortexDL Media Downloader</span> &mdash; <a href="https://938752.vercel.app/" target="_blank" class="text-accent underline">938752.vercel.app</a></div>
+  <div>8. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
 </div>
             `;
             break;
@@ -974,7 +975,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             } else if (arg.includes('skills')) {
                 output = `<div class="mt-1">Angular, React, TypeScript, HTML5/CSS3, Three.js, WebGL, D3.js, Leaflet.js, Tailwind CSS</div>`;
             } else if (arg.includes('projects')) {
-                output = `<div class="mt-1">IndiaLens, Cyber Crimes & Threat Intelligence India, Sadhnam Indo, ThreatLens, ARION C4ISR, Luxe3D Quantum, SVG Convert</div>`;
+                output = `<div class="mt-1">IndiaLens, Cyber Crimes & Threat Intelligence India, Sadhnam Indo, ThreatLens, ARION C4ISR, Luxe3D Quantum, VortexDL, SVG Convert</div>`;
             } else if (arg.includes('experience')) {
                 output = `<div class="mt-1">Currently working at CISAI as Front-End Developer.</div>`;
             } else if (arg.includes('contact')) {

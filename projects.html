@@ -335,13 +335,14 @@
         class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
         data-category="web">
         <div>
-          <div class="aspect-video w-full overflow-hidden relative bg-slate-900">
+          <a href="https://938752.vercel.app/" target="_blank"
+            class="block aspect-video w-full overflow-hidden relative bg-slate-900">
             <img src="assets/images/vortexdl.png" alt="VortexDL Media Downloader"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute top-3 right-3">
-              <span class="badge-pill bg-amber-950/80 text-amber-300 border-amber-500/40">GITHUB SOURCE</span>
+              <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
             </div>
-          </div>
+          </a>
           <div class="p-6">
             <div class="flex flex-wrap gap-2 mb-3">
               <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">NODE.JS STREAMS</span>
@@ -349,18 +350,28 @@
               <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">YT-DLP BINARY</span>
               <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">FAILOVER</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">VortexDL — Media
-              Downloader</h3>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+              <a href="https://938752.vercel.app/" target="_blank" class="hover:underline">VortexDL — Media
+                Downloader</a>
+            </h3>
             <p class="text-slate-300 text-sm leading-relaxed mb-4">Zero-disk-space media extractor streaming videos
               directly via Node.js stdout pipes (`child.stdout.pipe(res)`), embedded `yt-dlp` CLI binary, and social
               failover mirrors.</p>
           </div>
         </div>
         <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-          <span class="font-mono text-[11px] text-amber-400 font-semibold">STATUS: GITHUB ONLY</span>
-          <a href="https://github.com/Arjunrajan250" target="_blank"
-            class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">VIEW_SOURCE <span
-              class="material-symbols-outlined text-sm">open_in_new</span></a>
+          <span class="font-mono text-[11px] text-cyan-400 font-semibold">STATUS: LIVE VERCEL</span>
+          <div class="flex items-center gap-3">
+            <a href="https://938752.vercel.app/" target="_blank"
+              class="visit-app-btn group">
+              <span class="visit-pulse-dot"><span></span><span></span></span>
+              <span>VISIT_APP</span>
+              <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
+            </a>
+            <a href="https://github.com/Arjunrajan250" target="_blank"
+              class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">REPO <span
+                class="material-symbols-outlined text-sm">code</span></a>
+          </div>
         </div>
       </div>
       <!-- Project 1: Network Analysis Dashboard -->

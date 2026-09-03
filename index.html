@@ -275,7 +275,7 @@
                 <h4
                   class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider flex items-center justify-between mb-3">
                   <span>FEATURED_OUTPUTS</span>
-                  <a href="projects.html" class="text-[10px] text-indigo-400 hover:underline">ALL_REPOS &rarr;</a>
+                  <a href="projects.html" class="inline-flex items-center gap-1 text-[10px] font-mono text-cyan-300 hover:text-white bg-cyan-950/70 hover:bg-cyan-900/80 px-2.5 py-0.5 rounded-full border border-cyan-500/40 hover:border-cyan-400 transition-all shadow-sm">ALL_REPOS <span class="material-symbols-outlined text-xs">east</span></a>
                 </h4>
 
                 <div class="space-y-3">
@@ -546,10 +546,18 @@
           <span class="font-mono text-xs text-cyan-400 mb-2 block tracking-widest uppercase">SELECTED_OUTPUTS</span>
           <h2 class="text-3xl md:text-5xl font-bold text-white">Digital Architecture Showreel</h2>
         </div>
-        <a class="font-mono text-xs text-indigo-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group bg-slate-900 px-4 py-2.5 rounded-lg border border-indigo-500/30"
-          href="projects.html">
-          VIEW_ALL_REPOS
-          <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-sm">east</span>
+        <a class="view-all-repos-cta group" href="projects.html" title="Explore full project directory and code repositories">
+          <span class="repos-icon-box">
+            <span class="material-symbols-outlined text-base">folder_open</span>
+          </span>
+          <span class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2.5">
+            <span class="tracking-wider">VIEW ALL REPOSITORIES &amp; PROJECTS</span>
+            <span class="repos-counter-badge">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              10+ REPOS
+            </span>
+          </span>
+          <span class="material-symbols-outlined text-lg repos-arrow">east</span>
         </a>
       </div>
 
@@ -775,6 +783,34 @@
         </div>
       </div>
 
+      <!-- Bottom CTA Banner: Explore Full Architecture Archive -->
+      <div class="mt-12 p-8 md:p-10 rounded-2xl glass-panel-v2 border border-indigo-500/40 hover:border-cyan-400/60 shadow-2xl relative overflow-hidden transition-all duration-300">
+        <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -top-20 w-72 h-72 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-mono text-xs mb-3 shadow-inner">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              COMPREHENSIVE CODE ARCHIVE
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Explore All 10+ Systems &amp; Source Repositories</h3>
+            <p class="text-slate-300 text-sm max-w-2xl leading-relaxed">
+              Browse deep-dive architectural breakdowns including GIS telemetry platforms, SOC consoles, 3D WebGL shaders, video streaming pipes, and open-source tools.
+            </p>
+          </div>
+          <a class="view-all-repos-cta group shrink-0" href="projects.html" title="Explore all 10+ projects and repositories">
+            <span class="repos-icon-box">
+              <span class="material-symbols-outlined text-lg">layers</span>
+            </span>
+            <span class="flex items-center gap-2.5">
+              <span class="tracking-wider">EXPLORE ALL PROJECTS</span>
+              <span class="repos-counter-badge">10+ LIVE</span>
+            </span>
+            <span class="material-symbols-outlined text-lg repos-arrow">east</span>
+          </a>
+        </div>
+      </div>
 
     </section>
 
