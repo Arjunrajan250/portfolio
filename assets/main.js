@@ -171,8 +171,8 @@ function injectSharedComponents() {
                     </div>
                 </div>
                 <div class="font-code-sm text-[11px] text-on-surface-variant opacity-70 flex items-center justify-between">
-                    <span>// SYS_STATUS: OPTIMAL</span>
-                    <span class="text-cyan-400">V4.5</span>
+                    <span>Front-End Developer · Kerala, India</span>
+                    <span class="text-cyan-400">Available</span>
                 </div>
             </div>
         `;
@@ -184,23 +184,26 @@ function injectSharedComponents() {
             <div id="terminal-hud" class="terminal-hud-overlay">
                 <div class="terminal-hud-window theme-cyan flex flex-col">
                     <div class="terminal-header select-none">
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
-                            <div class="w-3 h-3 rounded-full bg-amber-500/60"></div>
-                            <div class="w-3 h-3 rounded-full bg-emerald-500/60"></div>
-                            <span class="ml-2 font-code-sm text-[12px] opacity-75 text-accent">arjun-cyber-terminal-v4.5.exe</span>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-cyan-400 text-base">terminal</span>
+                            <span class="font-mono text-xs font-semibold text-white">Command Palette</span>
+                            <span class="text-slate-600 text-xs">/</span>
+                            <span class="font-mono text-[11px] text-slate-400">Quick Actions</span>
                         </div>
-                        <button id="terminal-hud-close" class="material-symbols-outlined text-on-surface-variant hover:text-accent transition-colors font-bold text-sm">close</button>
+                        <div class="flex items-center gap-2">
+                            <span class="font-mono text-[10px] text-slate-400 px-1.5 py-0.5 rounded border border-white/10 bg-slate-900/80">ESC</span>
+                            <button id="terminal-hud-close" class="material-symbols-outlined text-slate-400 hover:text-white transition-colors font-bold text-sm" aria-label="Close command palette">close</button>
+                        </div>
                     </div>
                     <div id="terminal-body" class="terminal-body flex-grow">
-                        <div class="mb-4">
-                            <span class="text-accent font-bold">Arjun R Terminal Core UI v4.5.0</span><br>
-                            <span>Type <span class="text-accent font-semibold">help</span> to list available commands.</span>
+                        <div class="mb-4 text-xs font-mono">
+                            <span class="text-cyan-400 font-bold">Arjun R &mdash; Quick Command Console</span><br>
+                            <span class="text-slate-400">Type <span class="text-cyan-300 font-semibold">help</span> or any keyword (projects, experience, skills, contact, resume) to navigate.</span>
                         </div>
                     </div>
                     <div class="terminal-footer">
-                        <span class="text-accent font-code-sm select-none">guest@arjunr:~$</span>
-                        <input id="terminal-prompt" class="terminal-prompt-input" type="text" autocomplete="off" spellcheck="false" placeholder="type 'help'...">
+                        <span class="text-cyan-400 font-mono text-sm select-none font-bold">›</span>
+                        <input id="terminal-prompt" class="terminal-prompt-input" type="text" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. projects, skills, resume, contact)...">
                     </div>
                 </div>
             </div>
@@ -240,39 +243,39 @@ function injectSharedComponents() {
                 <div class="resume-modal-content glass-panel-v2 p-4 md:p-6 rounded-2xl relative max-w-4xl w-full h-[88vh] flex flex-col border border-white/15 shadow-2xl">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 mb-3 select-none flex-shrink-0 gap-3">
                         <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-full bg-cyan-500/20 flex items-center justify-center border border-cyan-500/40">
-                                <span class="material-symbols-outlined text-cyan-400 text-sm">description</span>
+                            <div class="w-9 h-9 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center text-slate-300 shadow-inner">
+                                <span class="material-symbols-outlined text-base">description</span>
                             </div>
                             <div>
-                                <h3 class="font-headline-md text-base md:text-lg text-on-surface font-bold">Curriculum Vitae — Arjun R</h3>
-                                <p class="font-code-sm text-xs text-slate-400" id="cv-modal-subtitle">Official Verification Document • Executive View</p>
+                                <h3 class="font-sans text-base md:text-lg text-white font-bold tracking-tight">Curriculum Vitae &mdash; Arjun R</h3>
+                                <p class="font-sans text-xs text-slate-400" id="cv-modal-subtitle">Front-End Developer &bull; Executive View</p>
                             </div>
                         </div>
 
                         <!-- Segmented Switcher Tabs (Executive vs ATS) -->
-                        <div class="flex items-center justify-between sm:justify-end gap-2 flex-wrap">
-                            <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-white/10 gap-1 text-xs font-mono">
-                                <button type="button" id="tab-cv-executive" onclick="switchCvModalTab('executive')" class="cv-tab-btn active px-3 py-1.5 rounded-lg border border-transparent font-semibold flex items-center gap-1.5 cursor-pointer text-slate-300">
-                                    <span class="material-symbols-outlined text-xs">tune</span>
+                        <div class="flex items-center justify-between sm:justify-end gap-2.5 flex-wrap">
+                            <div class="flex items-center bg-slate-950/80 p-1 rounded-xl border border-white/10 gap-1 text-xs font-sans">
+                                <button type="button" id="tab-cv-executive" onclick="switchCvModalTab('executive')" class="cv-tab-btn active px-3.5 py-1.5 rounded-lg font-medium flex items-center gap-1.5 cursor-pointer text-white">
+                                    <span class="material-symbols-outlined text-sm">palette</span>
                                     <span>Executive</span>
                                 </button>
-                                <button type="button" id="tab-cv-ats" onclick="switchCvModalTab('ats')" class="cv-tab-btn px-3 py-1.5 rounded-lg border border-transparent font-semibold flex items-center gap-1.5 cursor-pointer text-slate-400 hover:text-white">
-                                    <span class="material-symbols-outlined text-xs text-emerald-400">verified</span>
-                                    <span class="text-emerald-400">ATS-Friendly</span>
+                                <button type="button" id="tab-cv-ats" onclick="switchCvModalTab('ats')" class="cv-tab-btn px-3.5 py-1.5 rounded-lg font-medium flex items-center gap-1.5 cursor-pointer text-slate-400 hover:text-white">
+                                    <span class="material-symbols-outlined text-sm">article</span>
+                                    <span>ATS View</span>
                                 </button>
                             </div>
 
-                            <div class="flex items-center gap-1.5">
-                                <a id="cv-btn-download" href="assets/resume.pdf" download="Arjun_R_Resume.pdf" class="px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer" title="Download Resume PDF">
+                            <div class="flex items-center gap-2">
+                                <a id="cv-btn-download" href="assets/resume.pdf" download="Arjun_R_Resume.pdf" class="px-3.5 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-950 font-sans text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer" title="Download Resume PDF">
                                     <span class="material-symbols-outlined text-sm">download</span>
-                                    <span id="cv-download-label">PDF</span>
+                                    <span id="cv-download-label">Download PDF</span>
                                 </a>
-                                <a id="cv-btn-fullscreen" href="assets/resume.html" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/40 font-mono text-xs font-semibold items-center gap-1.5 transition-all cursor-pointer" title="Open Fullscreen Resume">
+                                <a id="cv-btn-fullscreen" href="assets/resume.html" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-white/10 font-sans text-xs font-medium items-center gap-1.5 transition-all cursor-pointer" title="Open Fullscreen Resume">
                                     <span class="material-symbols-outlined text-sm">open_in_new</span>
-                                    <span>Fullscreen</span>
+                                    <span>Open Tab</span>
                                 </a>
-                                <button id="resume-modal-close" onclick="closeResumeModal()" class="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-white/20 text-on-surface flex items-center justify-center transition-colors cursor-pointer" aria-label="Close CV Modal">
-                                    <span class="material-symbols-outlined text-xl">close</span>
+                                <button id="resume-modal-close" onclick="closeResumeModal()" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-white/10 flex items-center justify-center transition-colors cursor-pointer" aria-label="Close CV Modal">
+                                    <span class="material-symbols-outlined text-base">close</span>
                                 </button>
                             </div>
                         </div>
@@ -307,7 +310,7 @@ function injectSharedComponents() {
                                 <span class="material-symbols-outlined text-sm">person</span> Executive Summary
                             </h2>
                             <p class="text-slate-300 leading-relaxed text-xs">
-                                Front-End Developer &amp; UI Architect with <strong class="text-white">2+ years of hands-on experience</strong> in modern JavaScript, Angular, and React architectures with rich data visualization (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Experienced in engineering enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and interactive telemetry dashboards. Expert in AI-integrated rapid development workflows with strict data integrity, zero data-leakage security posture, and fast adaptability to build full-lifecycle websites, apps, and software systems.
+                                Front-End Developer &amp; UI Architect with <strong class="text-white">2+ years of hands-on experience</strong> in modern JavaScript, Angular, and React architectures with rich data visualization (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Experienced in engineering enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and interactive telemetry dashboards. Focused on modular component architecture, UI performance optimization, and reliable end-to-end delivery across high-density web platforms.
                             </p>
                         </section>
 
@@ -319,19 +322,19 @@ function injectSharedComponents() {
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 font-mono text-[11px]">
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-indigo-400 block mb-1 font-bold">CORE FRAMEWORKS</span>
-                                    <p class="text-slate-200">Angular, JavaScript, React, and other libraries and frameworks</p>
+                                    <p class="text-slate-200">Angular, JavaScript, React, and modern UI libraries</p>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-cyan-400 block mb-1 font-bold">DATA VIZ &amp; GRAPHICS</span>
-                                    <p class="text-slate-200">Three.js, amCharts, Highcharts, Sigma.js, Chart.js, etc.</p>
+                                    <p class="text-slate-200">Three.js, amCharts, Highcharts, Sigma.js, Chart.js</p>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
                                     <span class="text-violet-400 block mb-1 font-bold">UI &amp; STYLING</span>
                                     <p class="text-slate-200">Tailwind CSS, Material Design 3, Glassmorphism, Micro-Animations, Responsive UX</p>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-white/5">
-                                    <span class="text-emerald-400 block mb-1 font-bold">AI WORKFLOWS &amp; TOOLING</span>
-                                    <p class="text-slate-200">Privacy-First AI Integration, REST APIs, Git, Webpack, Vite, Node.js</p>
+                                    <span class="text-emerald-400 block mb-1 font-bold">TOOLING &amp; AUTOMATION</span>
+                                    <p class="text-slate-200">Git, GitHub, Vite, Webpack, Node.js, REST APIs, Headless Automation</p>
                                 </div>
                             </div>
                         </section>
@@ -350,7 +353,7 @@ function injectSharedComponents() {
                                     <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-relaxed">
                                         <li>Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
                                         <li>Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.</li>
-                                        <li>Enforced strict zero data-leakage standards, enterprise privacy boundaries, and confidential security protocols across all deliverables.</li>
+                                        <li>Maintained strict client data security, enterprise privacy boundaries, and confidential compliance protocols across all deliverables.</li>
                                         <li>Optimized client-side rendering pipelines and state propagation, reducing dashboard load times and boosting performance on high-event-volume streams.</li>
                                     </ul>
                                 </div>
@@ -396,12 +399,12 @@ function injectSharedComponents() {
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-emerald-500/25 flex flex-col justify-between">
                                     <div>
                                         <div class="flex justify-between items-center mb-1">
-                                            <span class="text-emerald-400 font-bold">AI-Integrated Web Applications</span>
-                                            <span class="text-[9px] text-emerald-300 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-500/30">AI DEVELOPMENT</span>
+                                            <span class="text-emerald-400 font-bold">Interactive Web Platforms</span>
+                                            <span class="text-[9px] text-emerald-300 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-500/30">FULL-STACK UI</span>
                                         </div>
-                                        <p class="text-slate-300 text-[10px] leading-tight font-sans">High-velocity front-end applications built utilizing AI-integrated development workflows &amp; modern tooling.</p>
+                                        <p class="text-slate-300 text-[10px] leading-tight font-sans">High-performance modern web applications engineered with modular architecture, reactive state, and responsive styling.</p>
                                     </div>
-                                    <span class="text-[10px] text-slate-400 mt-2 font-mono">AI-Driven Architecture &amp; Rapid Delivery</span>
+                                    <span class="text-[10px] text-slate-400 mt-2 font-mono">Component Architecture &amp; Delivery</span>
                                 </div>
                                 <div class="p-2.5 bg-slate-950/80 rounded-lg border border-violet-500/25 flex flex-col justify-between">
                                     <div>
@@ -465,12 +468,12 @@ function injectSharedComponents() {
                                 <div class="p-3 bg-slate-950/80 rounded-lg border border-cyan-500/20 flex flex-col justify-between">
                                     <div>
                                         <div class="flex justify-between items-center mb-1">
-                                            <span class="text-cyan-400 font-bold text-xs">AI Dev &amp; Data Integrity</span>
-                                            <span class="text-[9px] text-cyan-300 bg-cyan-950/80 px-1.5 py-0.2 rounded border border-cyan-500/30">ZERO LEAKAGE</span>
+                                            <span class="text-cyan-400 font-bold text-xs">Security &amp; Data Privacy</span>
+                                            <span class="text-[9px] text-cyan-300 bg-cyan-950/80 px-1.5 py-0.2 rounded border border-cyan-500/30">CONFIDENTIALITY</span>
                                         </div>
-                                        <p class="text-slate-300 text-[10.5px] leading-relaxed mb-2">Leveraging advanced AI workflows for rapid engineering velocity while strictly adhering to corporate data privacy boundaries, code cleanliness, and security integrity.</p>
+                                        <p class="text-slate-300 text-[10.5px] leading-relaxed mb-2">Adhering to strict enterprise security standards, code cleanliness, and confidentiality protocols when developing mission-critical software.</p>
                                     </div>
-                                    <span class="text-[9.5px] text-cyan-400/80 font-mono">High-Productivity AI Workflows &bull; Safe Prompting</span>
+                                    <span class="text-[9.5px] text-cyan-400/80 font-mono">Enterprise Privacy &bull; Code Integrity</span>
                                 </div>
                                 <div class="p-3 bg-slate-950/80 rounded-lg border border-indigo-500/20 flex flex-col justify-between">
                                     <div>
@@ -485,10 +488,10 @@ function injectSharedComponents() {
                                 <div class="p-3 bg-slate-950/80 rounded-lg border border-emerald-500/20 flex flex-col justify-between">
                                     <div>
                                         <div class="flex justify-between items-center mb-1">
-                                            <span class="text-emerald-400 font-bold text-xs">Rapid Tech Stack Adaptability</span>
-                                            <span class="text-[9px] text-emerald-300 bg-emerald-950/80 px-1.5 py-0.2 rounded border border-emerald-500/30">FAST LEARNER</span>
+                                            <span class="text-emerald-400 font-bold text-xs">Technical Adaptability</span>
+                                            <span class="text-[9px] text-emerald-300 bg-emerald-950/80 px-1.5 py-0.2 rounded border border-emerald-500/30">FAST TURNAROUND</span>
                                         </div>
-                                        <p class="text-slate-300 text-[10.5px] leading-relaxed mb-2">Fast-learning agility to master new frameworks and libraries with minimal turnaround time to design, build, and deploy full-lifecycle websites, apps, and software systems.</p>
+                                        <p class="text-slate-300 text-[10.5px] leading-relaxed mb-2">Quickly mastering new frameworks, libraries, and APIs to design, build, and deploy full-lifecycle websites, apps, and software systems.</p>
                                     </div>
                                     <span class="text-[9.5px] text-emerald-400/80 font-mono">Full-Lifecycle Delivery &bull; Rapid Prototyping</span>
                                 </div>
@@ -514,21 +517,21 @@ function injectSharedComponents() {
 
                         <!-- Pane 2: ATS-Friendly CV (Machine-Readable, High Contrast, Single Column) -->
                         <div id="cv-pane-ats" class="cv-view-pane space-y-4">
-                            <!-- ATS Action Bar within pane -->
-                            <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-2.5">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <!-- ATS Utility Bar within pane -->
+                            <div class="bg-slate-900/80 border border-white/10 rounded-xl p-3 sm:p-3.5 flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-400"></div>
                                     <div>
-                                        <div class="font-mono text-xs text-emerald-300 font-bold">ATS Optimized &bull; 99% Parser Score</div>
-                                        <div class="text-[10.5px] text-slate-300">Clean single-column structure &bull; Zero graphics interference &bull; Standard keywords</div>
+                                        <div class="font-sans text-xs text-white font-semibold tracking-tight">Plain Text &amp; Single-Column Format</div>
+                                        <div class="text-[11px] text-slate-400">Optimized for automated parsers and clean text extraction</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <button type="button" onclick="copyPlainResumeText()" id="modal-copy-plain-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 font-mono text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
+                                    <button type="button" onclick="copyPlainResumeText()" id="modal-copy-plain-btn" class="px-3 py-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-white/10 font-sans text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer hover:border-white/20">
                                         <span class="material-symbols-outlined text-sm">content_copy</span>
                                         <span id="modal-copy-plain-label">Copy Plain Text</span>
                                     </button>
-                                    <a href="assets/resume-ats.pdf" download="Arjun_R_Resume_ATS.pdf" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md">
+                                    <a href="assets/resume-ats.pdf" download="Arjun_R_Resume_ATS.pdf" class="px-3.5 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-950 font-sans text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-sm">
                                         <span class="material-symbols-outlined text-sm">download</span>
                                         <span>Download ATS PDF</span>
                                     </a>
@@ -558,7 +561,7 @@ function injectSharedComponents() {
                                 <div>
                                     <h2 class="font-mono text-[11px] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-900 pb-0.5 mb-1 mt-2">Professional Summary</h2>
                                     <p class="text-slate-700 leading-relaxed text-[11px]">
-                                        Front-End Developer and UI Architect with <strong>2+ years of professional experience</strong> engineering modern JavaScript, Angular, and React applications with high-density data visualizations (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Proven track record developing enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and telemetry dashboards. Expert in AI-assisted rapid development workflows with zero data-leakage posture and fast adaptability to build full-lifecycle websites, apps, and software systems.
+                                        Front-End Developer and UI Architect with <strong>2+ years of professional experience</strong> engineering modern JavaScript, Angular, and React applications with high-density data visualizations (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Proven track record developing enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and telemetry dashboards. Focused on modular component architecture, UI performance optimization, and reliable end-to-end delivery across high-density web platforms.
                                     </p>
                                 </div>
 
@@ -570,7 +573,7 @@ function injectSharedComponents() {
                                         <div><strong class="text-slate-950">Data Visualization &amp; 3D:</strong> Three.js (WebGL), amCharts 5, Highcharts, Sigma.js (Network Graphs), Chart.js, D3.js, Leaflet.js.</div>
                                         <div><strong class="text-slate-950">State &amp; Architecture:</strong> RxJS Reactive Streams, RESTful APIs, State Management, UI Performance Optimization.</div>
                                         <div><strong class="text-slate-950">Domain Expertise:</strong> Cybersecurity Operations (SOC) Suites, SIEM Event Correlation, SOAR Incident Playbooks, UEBA Analytics, NDR Telemetry.</div>
-                                        <div><strong class="text-slate-950">Tooling &amp; AI:</strong> Git, GitHub, Vite, Webpack, Node.js, Express.js, Headless Automation, AI-Integrated Engineering Workflows.</div>
+                                        <div><strong class="text-slate-950">Developer Tools:</strong> Git, GitHub, Vite, Webpack, Node.js, Express.js, Headless Automation, Modern CI/CD Workflows.</div>
                                     </div>
                                 </div>
 
@@ -587,7 +590,7 @@ function injectSharedComponents() {
                                         <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 space-y-0.5">
                                             <li>Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
                                             <li>Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.</li>
-                                            <li>Enforced strict zero data-leakage standards, enterprise privacy boundaries, and confidential security protocols across all deliverables.</li>
+                                            <li>Maintained strict client data security, enterprise privacy boundaries, and confidential compliance protocols across all deliverables.</li>
                                             <li>Optimized client-side rendering pipelines and state propagation, reducing dashboard load times and boosting performance on high-event-volume streams.</li>
                                         </ul>
                                     </div>
@@ -831,7 +834,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
     if (!trimmedInput) {
         const emptyEl = document.createElement('div');
         emptyEl.className = 'mt-2';
-        emptyEl.innerHTML = `<span class="text-accent font-semibold">guest@arjunr:~$</span>`;
+        emptyEl.innerHTML = `<span class="text-cyan-400 font-bold">›</span>`;
         bodyEl.appendChild(emptyEl);
         bodyEl.scrollTop = bodyEl.scrollHeight;
         return;
@@ -846,7 +849,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
 
     const queryEl = document.createElement('div');
     queryEl.className = 'mt-2';
-    queryEl.innerHTML = `<span class="text-accent font-semibold">guest@arjunr:~$</span> <span>${escapeHtml(trimmedInput)}</span>`;
+    queryEl.innerHTML = `<span class="text-cyan-400 font-bold">›</span> <span class="text-white">${escapeHtml(trimmedInput)}</span>`;
     bodyEl.appendChild(queryEl);
 
     let cmd = primaryCmd;
@@ -870,19 +873,17 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
         case 'man':
         case 'commands':
             output = `
-<div class="mt-1 text-accent font-bold">=== ARJUN-TERMINAL COMMAND DIRECTORY ===</div>
+<div class="mt-1 text-cyan-400 font-bold">=== AVAILABLE COMMANDS ===</div>
 <div class="mt-2 space-y-1.5 ml-1 font-mono text-xs md:text-sm">
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[about / whoami]</span><span class="text-slate-300">Developer profile & academic summary</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[skills / stack]</span><span class="text-slate-300">Technical matrix & framework proficiencies</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[experience]</span><span class="text-slate-300">Career journey & engineering roles</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[projects]</span><span class="text-slate-300">Digital architecture showreel & outputs</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[contact / email]</span><span class="text-slate-300">Direct email & social handles</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[cv / resume]</span><span class="text-slate-300">Open full Curriculum Vitae modal</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[ls / cat &lt;file&gt;]</span><span class="text-slate-300">List and view virtual file system</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[neofetch / specs]</span><span class="text-slate-300">Display system telemetry specs</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[theme &lt;col&gt;]</span><span class="text-slate-300">Set theme (cyan/green/amber/purple/steel)</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[clear / cls]</span><span class="text-slate-300">Clear CLI console window</span></div>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-accent font-bold w-36 shrink-0">[exit / quit]</span><span class="text-slate-300">Close terminal window</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[projects]</span><span class="text-slate-300">Selected projects & live web applications</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[skills / stack]</span><span class="text-slate-300">Front-end architecture & framework proficiencies</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[experience]</span><span class="text-slate-300">Career timeline & engineering roles</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[about]</span><span class="text-slate-300">Developer background & bio</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[contact / email]</span><span class="text-slate-300">Direct email, phone & social profiles</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[cv / resume]</span><span class="text-slate-300">Open full Curriculum Vitae modal</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[theme &lt;name&gt;]</span><span class="text-slate-300">Set theme (cyan, green, amber, purple, steel)</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[clear]</span><span class="text-slate-300">Clear console history</span></div>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"><span class="text-cyan-400 font-bold w-36 shrink-0">[exit / quit]</span><span class="text-slate-300">Close command palette</span></div>
 </div>
             `;
             break;
@@ -925,12 +926,14 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
 <div class="ml-2 mt-1 space-y-1">
   <div>1. <span class="text-accent font-semibold">IndiaLens OGD</span> &mdash; Leaflet GIS & data.gov.in AI</div>
   <div>2. <span class="text-accent font-semibold">Cyber Crimes & Threat Intelligence India</span> &mdash; Crime Telemetry & 1930 Triage</div>
-  <div>3. <span class="text-accent font-semibold">Sadhnam Indo P2P</span> &mdash; React 19 & Supabase</div>
-  <div>4. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
-  <div>5. <span class="text-accent font-semibold">ARION C4ISR Suite</span> &mdash; Real-Time Data & Voice AI</div>
-  <div>6. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
-  <div>7. <span class="text-accent font-semibold">VortexDL Media Downloader</span> &mdash; <a href="https://938752.vercel.app/" target="_blank" class="text-accent underline">938752.vercel.app</a></div>
-  <div>8. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
+  <div>3. <span class="text-accent font-semibold">InstantCred Decision Engine</span> &mdash; Vanilla JS & Vite (<a href="https://www.instantcred.in/" target="_blank" class="text-accent underline">instantcred.in</a>)</div>
+  <div>4. <span class="text-accent font-semibold">PixelNest Headless E-Commerce</span> &mdash; React 19 & Shopify GraphQL (<a href="https://pixelnest-headless-shopify.vercel.app/" target="_blank" class="text-accent underline">pixelnest.vercel.app</a>)</div>
+  <div>5. <span class="text-accent font-semibold">Sadhnam Indo P2P</span> &mdash; React 19 & Supabase</div>
+  <div>6. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
+  <div>7. <span class="text-accent font-semibold">ARION Tactical &amp; Voice Operations Suite</span> &mdash; Real-Time Data &amp; Voice AI</div>
+  <div>8. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
+  <div>9. <span class="text-accent font-semibold">VortexDL Media Downloader</span> &mdash; <a href="https://938752.vercel.app/" target="_blank" class="text-accent underline">938752.vercel.app</a></div>
+  <div>10. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
 </div>
             `;
             break;
@@ -975,7 +978,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             } else if (arg.includes('skills')) {
                 output = `<div class="mt-1">Angular, React, TypeScript, HTML5/CSS3, Three.js, WebGL, D3.js, Leaflet.js, Tailwind CSS</div>`;
             } else if (arg.includes('projects')) {
-                output = `<div class="mt-1">IndiaLens, Cyber Crimes & Threat Intelligence India, Sadhnam Indo, ThreatLens, ARION C4ISR, Luxe3D Quantum, VortexDL, SVG Convert</div>`;
+                output = `<div class="mt-1">IndiaLens, Cyber Crimes & Threat Intelligence India, InstantCred, PixelNest, Sadhnam Indo, ThreatLens, ARION Tactical Suite, Luxe3D Quantum, VortexDL, SVG Convert</div>`;
             } else if (arg.includes('experience')) {
                 output = `<div class="mt-1">Currently working at CISAI as Front-End Developer.</div>`;
             } else if (arg.includes('contact')) {
@@ -997,21 +1000,20 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
         case 'neofetch':
             output = `
 <div class="mt-1 font-mono text-xs text-accent">
-  OS: CyberOS 4.5.0-generic x86_64<br>
-  Host: Arjun R Portfolio V4<br>
-  Kernel: WebAPI / HTML5 / JS ES2024<br>
-  Uptime: 99.99% active<br>
-  Shell: zsh / arjun-cyber-cli v4.5<br>
-  Resolution: Responsive Fluid Layout<br>
-  Terminal: HUD Overlay Component
+  Role: Front-End Developer &amp; UI Engineer<br>
+  Location: Alappuzha, Kerala, India (IST)<br>
+  Core Stack: Angular, TypeScript, React, Tailwind CSS, Three.js<br>
+  Current: Innspark Solutions<br>
+  Education: BCA (Amrita AHEAD) / Diploma in Computer Eng.<br>
+  Platform: Modern Web Standards (HTML5 / ES2024 / CSS3)
 </div>
             `;
             break;
         case 'sudo':
-            output = `<div class="mt-1 text-red-400">[ACCESS DENIED] User 'guest' is not in the sudoers file. Incident reported to Arjun R.</div>`;
+            output = `<div class="mt-1 text-slate-400">All commands in this portfolio are read-only. Try typing <span class="text-cyan-400 font-semibold">projects</span> or <span class="text-cyan-400 font-semibold">resume</span>.</div>`;
             break;
         case 'ping':
-            output = `<div class="mt-1 text-emerald-400">PING api.arjunr.dev (127.0.0.1): 56 data bytes. 64 bytes: icmp_seq=0 ttl=64 time=0.42 ms</div>`;
+            output = `<div class="mt-1 text-emerald-400">Response time: ~0.4ms (Client-Side Reactive SPA)</div>`;
             break;
         case 'theme':
             const themes = ['cyan', 'green', 'amber', 'purple', 'steel'];
@@ -1195,46 +1197,48 @@ window.switchCvModalTab = function(tabName) {
     if (tabName === 'ats') {
         execTab.classList.remove('active');
         execTab.classList.add('text-slate-400');
-        execTab.classList.remove('text-slate-300');
+        execTab.classList.remove('text-white');
         
         atsTab.classList.add('active');
         atsTab.classList.remove('text-slate-400');
+        atsTab.classList.add('text-white');
 
         execPane.classList.remove('active');
         atsPane.classList.add('active');
 
-        if (subtitle) subtitle.textContent = 'Official Verification Document • ATS-Friendly Machine-Readable View';
+        if (subtitle) subtitle.textContent = 'Front-End Developer • Single-Column Plain Text View';
         if (downloadBtn) {
             downloadBtn.href = 'assets/resume-ats.pdf';
             downloadBtn.download = 'Arjun_R_Resume_ATS.pdf';
-            downloadBtn.className = 'px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer';
+            downloadBtn.className = 'px-3.5 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-950 font-sans text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer';
         }
-        if (downloadLabel) downloadLabel.textContent = 'ATS PDF';
+        if (downloadLabel) downloadLabel.textContent = 'Download ATS PDF';
         if (fullscreenBtn) {
             fullscreenBtn.href = 'assets/resume-ats.html';
-            fullscreenBtn.className = 'hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 font-mono text-xs font-semibold items-center gap-1.5 transition-all cursor-pointer';
+            fullscreenBtn.className = 'hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-white/10 font-sans text-xs font-medium items-center gap-1.5 transition-all cursor-pointer';
         }
     } else {
         atsTab.classList.remove('active');
         atsTab.classList.add('text-slate-400');
+        atsTab.classList.remove('text-white');
 
         execTab.classList.add('active');
         execTab.classList.remove('text-slate-400');
-        execTab.classList.add('text-slate-300');
+        execTab.classList.add('text-white');
 
         atsPane.classList.remove('active');
         execPane.classList.add('active');
 
-        if (subtitle) subtitle.textContent = 'Official Verification Document • Executive View';
+        if (subtitle) subtitle.textContent = 'Front-End Developer • Executive View';
         if (downloadBtn) {
             downloadBtn.href = 'assets/resume.pdf';
             downloadBtn.download = 'Arjun_R_Resume.pdf';
-            downloadBtn.className = 'px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer';
+            downloadBtn.className = 'px-3.5 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-950 font-sans text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer';
         }
-        if (downloadLabel) downloadLabel.textContent = 'PDF';
+        if (downloadLabel) downloadLabel.textContent = 'Download PDF';
         if (fullscreenBtn) {
             fullscreenBtn.href = 'assets/resume.html';
-            fullscreenBtn.className = 'hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/40 font-mono text-xs font-semibold items-center gap-1.5 transition-all cursor-pointer';
+            fullscreenBtn.className = 'hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-white/10 font-sans text-xs font-medium items-center gap-1.5 transition-all cursor-pointer';
         }
     }
 };
@@ -1246,7 +1250,7 @@ Alappuzha, Kerala, India | Email: ajuarjunr@gmail.com | Phone: +91 8921843248
 Portfolio: https://arjun-portfolio-03.vercel.app | GitHub: https://github.com/Arjunrajan250
 
 PROFESSIONAL SUMMARY
-Front-End Developer & UI Architect with 2+ years of hands-on experience in modern JavaScript, Angular, and React architectures with rich data visualization (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Experienced in engineering enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and interactive telemetry dashboards. Expert in AI-integrated rapid development workflows with strict data integrity, zero data-leakage security posture, and fast adaptability to build full-lifecycle websites, apps, and software systems.
+Front-End Developer & UI Architect with 2+ years of hands-on experience in modern JavaScript, Angular, and React architectures with rich data visualization (amCharts, Three.js, Highcharts, Sigma.js, Chart.js). Experienced in engineering enterprise cybersecurity suites (SIEM, SOAR, UEBA, NDR) and interactive telemetry dashboards. Focused on modular component architecture, UI performance optimization, and reliable end-to-end delivery across high-density web platforms.
 
 TECHNICAL SKILLS
 • Front-End: JavaScript (ES6+), TypeScript, Angular, React.js, HTML5, CSS3, Tailwind CSS, Responsive Design
@@ -1261,7 +1265,7 @@ Front-End Developer | Innspark Solutions
 June 2024 — Present | Kerala, India
 • Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.
 • Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.
-• Enforced strict zero data-leakage standards, enterprise privacy boundaries, and confidential security protocols.
+• Maintained strict client data security, enterprise privacy boundaries, and confidential compliance protocols.
 • Optimized client-side performance and rendering pipelines for high-event-volume streams.
 
 MERN Stack Developer Intern | Techfriar Technologies
@@ -1272,7 +1276,6 @@ July 2023 — January 2024 | Kerala, India
 KEY PROJECTS
 • Enterprise SIEM, SOAR & DNS Security Console: Mission-critical consoles for SOC triage, SIEM alert correlation, SOAR automation, and confidential government projects.
 • UEBA & NDR Network Telemetry Systems: Behavioral AI and network analytics dashboards with topological graph network visualizers.
-
 • Cyber Crimes & Threat Intelligence India (IndiaLens): Open cyber defense portal synthesizing crime telemetry, scam kill-chains, and 1930 incident triage.
 • Voice Assist AI: Accessibility assistant using deep learning and speech synthesis for visually impaired users.
 
