@@ -30,7 +30,7 @@
 ### 🛰️ Telemetry & Engineering Overview
 
 ```yaml
-[SYSTEM]       Innspark Solutions • Front-End Developer & UI Architect
+[SYSTEM]       Innspark Solutions (CISAI) • Front-End Developer & UI Architect
 [STATUS]       🟢 Active — Engineering Defensive-Grade Web Applications
 [CORE DOMAIN]  SIEM / SOAR / UEBA Telemetry • Real-Time WebGL 3D • Tactical C4ISR
 [MISSION]      "Pixel-precision engineering meets zero-latency telemetry."

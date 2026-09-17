@@ -347,7 +347,7 @@ function injectSharedComponents() {
                             <div class="space-y-3">
                                 <div class="border-l-2 border-indigo-500/60 pl-3 py-0.5">
                                     <div class="flex justify-between items-center flex-wrap gap-1">
-                                        <h3 class="text-white font-semibold text-xs">Front-End Developer — Innspark Solutions</h3>
+                                        <h3 class="text-white font-semibold text-xs">Front-End Developer — Innspark Solutions (CISAI)</h3>
                                         <span class="font-mono text-[10px] text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">JUNE 2024 — PRESENT</span>
                                     </div>
                                     <ul class="text-slate-300 text-[11px] mt-1 space-y-1 list-disc list-inside leading-relaxed">
@@ -586,7 +586,7 @@ function injectSharedComponents() {
                                             <span class="font-bold text-slate-950 text-xs">Front-End Developer</span>
                                             <span class="font-mono text-[10px] text-slate-600 font-bold">June 2024 — Present</span>
                                         </div>
-                                        <div class="text-[10.5px] font-semibold text-slate-700 mb-1">Innspark Solutions &bull; Kerala, India (Full-Time)</div>
+                                        <div class="text-[10.5px] font-semibold text-slate-700 mb-1">Innspark Solutions (CISAI) &bull; Kerala, India (Full-Time)</div>
                                         <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 space-y-0.5">
                                             <li>Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
                                             <li>Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.</li>
@@ -1003,7 +1003,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
   Role: Front-End Developer &amp; UI Engineer<br>
   Location: Alappuzha, Kerala, India (IST)<br>
   Core Stack: Angular, TypeScript, React, Tailwind CSS, Three.js<br>
-  Current: Innspark Solutions<br>
+  Current: Innspark Solutions (CISAI)<br>
   Education: BCA (Amrita AHEAD) / Diploma in Computer Eng.<br>
   Platform: Modern Web Standards (HTML5 / ES2024 / CSS3)
 </div>
@@ -1261,7 +1261,7 @@ TECHNICAL SKILLS
 
 WORK EXPERIENCE
 
-Front-End Developer | Innspark Solutions
+Front-End Developer | Innspark Solutions (CISAI)
 June 2024 — Present | Kerala, India
 • Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.
 • Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.
