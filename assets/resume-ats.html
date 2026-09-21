@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom.css">
     <style>
         @page {
             size: A4 portrait;
@@ -102,6 +103,10 @@
                 <button id="btn-copy-plain" onclick="copyPlainResumeText()" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-mono text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
                     <span id="copy-text-label">Copy Text</span>
+                </button>
+                <button id="btn-theme-toggle" onclick="toggleResumeTheme()" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-mono text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer" title="Toggle Dark Theme">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <span id="theme-btn-label">Dark Theme</span>
                 </button>
                 <a href="resume.html" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-mono text-xs font-semibold flex items-center gap-1 transition-all" title="View Executive Dark/Print CV">
                     <span>Executive View</span> &rarr;
@@ -361,6 +366,31 @@ CERTIFICATIONS & PROFESSIONAL TRAINING
                 console.error('Failed to copy: ', err);
             });
         }
+
+        function toggleResumeTheme() {
+            const isDark = document.body.classList.toggle('resume-dark-mode');
+            const label = document.getElementById('theme-btn-label');
+            const btn = document.getElementById('btn-theme-toggle');
+            if (label) label.textContent = isDark ? 'Light Theme' : 'Dark Theme';
+            if (btn) {
+                btn.setAttribute('title', isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme');
+                btn.classList.toggle('bg-slate-800', isDark);
+                btn.classList.toggle('text-white', isDark);
+                btn.classList.toggle('border-slate-600', isDark);
+            }
+            try {
+                localStorage.setItem('portfolio-resume-theme', isDark ? 'dark' : 'light');
+            } catch(e) {}
+        }
+
+        (function() {
+            try {
+                const saved = localStorage.getItem('portfolio-resume-theme');
+                if (saved === 'dark') {
+                    toggleResumeTheme();
+                }
+            } catch(e) {}
+        })();
     </script>
 </body>
 </html>

@@ -1,17 +1,20 @@
 /* Main JS logic for Arjun R's Portfolio */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. Initialize Particle Background Canvas
+    // 0. Initialize Theme Toggle early
+    initThemeToggle();
+
+    // 1. Initialize Particle Background Canvas
     initParticleCanvas();
 
-    // 1. Initialize Interactive Card Glow Effects & 3D Tilt
+    // 2. Initialize Interactive Card Glow Effects & 3D Tilt
     initInteractiveGlows();
     init3DTilt();
 
-    // 2. Inject Shared Components (Drawer, Terminal HUD, Profile Modal, Resume Modal, Project Lightbox Modal, Audio Controls, Apple Dynamic Island)
+    // 3. Inject Shared Components (Drawer, Terminal HUD, Profile Modal, Resume Modal, Project Lightbox Modal, Audio Controls, Apple Dynamic Island)
     injectSharedComponents();
 
-    // 3. Initialize Controllers
+    // 4. Initialize Controllers
     initMobileDrawer();
     initTerminalHud();
     initProfileModal();
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollSpyAndNavbar();
     initGitHubCommitCounter();
 
-    // 4. Apple Design Smooth UI Components
+    // 5. Apple Design Smooth UI Components
     initAppleSegmentedControls();
     initAppleSheetDragDismiss();
 });
@@ -49,16 +52,25 @@ function initParticleCanvas() {
     const particles = [];
     const particleCount = Math.min(Math.floor(width / 25), 55);
 
-    for (let i = 0; i < particleCount; i++) {
-        particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4,
-            radius: Math.random() * 1.8 + 0.8,
-            color: Math.random() > 0.5 ? 'rgba(148, 163, 184, ' : 'rgba(56, 189, 248, '
-        });
+    function populateParticles() {
+        particles.length = 0;
+        const isDark = document.documentElement.classList.contains('dark');
+        const colorSlate = isDark ? 'rgba(148, 163, 184, ' : 'rgba(100, 116, 139, ';
+        const colorCyan = isDark ? 'rgba(56, 189, 248, ' : 'rgba(2, 132, 199, ';
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                radius: Math.random() * 1.8 + 0.8,
+                color: Math.random() > 0.5 ? colorSlate : colorCyan
+            });
+        }
     }
+    populateParticles();
+    window.addEventListener('themechanged', populateParticles);
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
@@ -168,6 +180,15 @@ function injectSharedComponents() {
                         <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="#experience"><span>Experience</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
                         <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="#about"><span>About</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
                         <a class="text-on-surface-variant hover:text-cyan-400 py-2 border-b border-white/5 transition-colors flex items-center justify-between" href="#contact"><span>Contact</span><span class="material-symbols-outlined text-xs">chevron_right</span></a>
+                        
+                        <!-- Mobile Theme Switch -->
+                        <button id="mobile-theme-toggle-btn" class="drawer-theme-toggle" type="button" aria-label="Toggle theme">
+                            <span class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-sm mobile-theme-icon">light_mode</span>
+                                <span class="mobile-theme-label font-mono text-xs">Light Theme</span>
+                            </span>
+                            <span class="text-xs text-cyan-400 font-mono switch-action-text">Switch to Dark</span>
+                        </button>
                     </div>
                 </div>
                 <div class="font-code-sm text-[11px] text-on-surface-variant opacity-70 flex items-center justify-between">
@@ -280,7 +301,7 @@ function injectSharedComponents() {
                             </div>
                         </div>
                     </div>
-                    <div class="flex-grow w-full rounded-xl overflow-y-auto bg-[#070a13] border border-white/10 relative p-4 md:p-6 text-slate-200 font-sans text-xs custom-scrollbar">
+                    <div class="resume-modal-body flex-grow w-full rounded-xl overflow-y-auto bg-[#070a13] border border-white/10 relative p-4 md:p-6 text-slate-200 font-sans text-xs custom-scrollbar">
                         <!-- Pane 1: Executive Cyber CV -->
                         <div id="cv-pane-executive" class="cv-view-pane active space-y-4">
 
@@ -689,6 +710,92 @@ function injectSharedComponents() {
     injectAppleDynamicIsland();
 }
 
+// --- Theme Controller (Dark / Light Theme Toggle) ---
+function initThemeToggle() {
+    const STORAGE_KEY = 'portfolio-theme';
+
+    function getSavedTheme() {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            const qTheme = params.get('theme');
+            if (qTheme === 'light' || qTheme === 'dark') return qTheme;
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved === 'light' || saved === 'dark') return saved;
+        } catch (e) {
+            // localStorage unavailable
+        }
+        return 'light'; // Clean light theme by default
+    }
+
+    function applyTheme(theme, persist = true) {
+        const isDark = theme === 'dark';
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+        }
+
+        if (persist) {
+            try {
+                localStorage.setItem(STORAGE_KEY, theme);
+            } catch (e) {}
+        }
+
+        // Update all desktop and header theme toggle buttons
+        const toggleButtons = document.querySelectorAll('.theme-toggle-btn, #theme-toggle-btn');
+        toggleButtons.forEach(btn => {
+            btn.setAttribute('aria-label', isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme');
+            btn.setAttribute('title', isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme');
+        });
+
+        // Update mobile drawer button
+        const mobileBtn = document.getElementById('mobile-theme-toggle-btn');
+        if (mobileBtn) {
+            const icon = mobileBtn.querySelector('.mobile-theme-icon');
+            const label = mobileBtn.querySelector('.mobile-theme-label');
+            const action = mobileBtn.querySelector('.switch-action-text');
+            if (icon) icon.textContent = isDark ? 'dark_mode' : 'light_mode';
+            if (label) label.textContent = isDark ? 'Dark Theme' : 'Light Theme';
+            if (action) action.textContent = isDark ? 'Switch to Light' : 'Switch to Dark';
+        }
+
+        window.dispatchEvent(new CustomEvent('themechanged', { detail: { theme, isDark } }));
+    }
+
+    // Set initial theme based on saved setting
+    const currentTheme = getSavedTheme();
+    applyTheme(currentTheme, false);
+
+    window.togglePortfolioTheme = function() {
+        const isCurrentlyDark = document.documentElement.classList.contains('dark');
+        const nextTheme = isCurrentlyDark ? 'light' : 'dark';
+        applyTheme(nextTheme, true);
+        if (window.CyberAudio && typeof window.CyberAudio.playBlip === 'function') {
+            window.CyberAudio.playBlip(isCurrentlyDark ? 700 : 950, 0.04);
+        }
+    };
+
+    window.setPortfolioTheme = function(theme) {
+        if (theme === 'light' || theme === 'dark') {
+            applyTheme(theme, true);
+        }
+    };
+
+    // Attach listeners to all theme toggle buttons present on DOM
+    document.querySelectorAll('.theme-toggle-btn, #theme-toggle-btn').forEach(btn => {
+        btn.removeEventListener('click', window.togglePortfolioTheme);
+        btn.addEventListener('click', window.togglePortfolioTheme);
+    });
+
+    const mobileBtn = document.getElementById('mobile-theme-toggle-btn');
+    if (mobileBtn) {
+        mobileBtn.removeEventListener('click', window.togglePortfolioTheme);
+        mobileBtn.addEventListener('click', window.togglePortfolioTheme);
+    }
+}
+
 // --- 3. Mobile Navigation Drawer ---
 function initMobileDrawer() {
     const btn = document.getElementById('mobile-menu-btn');
@@ -859,7 +966,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
     else if (['projects', 'output', 'outputs', 'portfolio', 'apps', 'highlight'].includes(cmd) || rawInput.includes('output')) cmd = 'projects';
     else if (['contact', 'handles', 'dispatch', 'email', 'socials', 'github', 'reach'].includes(cmd) || rawInput.includes('socials')) cmd = 'contact';
     else if (['cv', 'resume', 'pdf'].includes(cmd) || rawInput.includes('cv') || rawInput.includes('resume')) cmd = 'cv';
-    else if (['theme', 'colors', 'color', 'styling'].includes(cmd) || rawInput.includes('styling')) cmd = 'theme';
+    else if (['theme', 'colors', 'color', 'styling', 'dark', 'light', 'mode'].includes(cmd) || rawInput.includes('styling')) cmd = 'theme';
     else if (['ls', 'dir', 'list'].includes(cmd)) cmd = 'ls';
     else if (['cat', 'read', 'view'].includes(cmd)) cmd = 'cat';
     else if (['date', 'time'].includes(cmd)) cmd = 'date';
@@ -1017,8 +1124,18 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             break;
         case 'theme':
             const themes = ['cyan', 'green', 'amber', 'purple', 'steel'];
-            if (!arg) {
-                output = `<div class="mt-1">Specify theme. Available: ${themes.join(', ')}</div>`;
+            if (primaryCmd === 'dark' || arg === 'dark') {
+                window.setPortfolioTheme('dark');
+                output = `<div class="mt-1 text-cyan-400 font-semibold">Portfolio switched to: DARK THEME</div>`;
+            } else if (primaryCmd === 'light' || arg === 'light') {
+                window.setPortfolioTheme('light');
+                output = `<div class="mt-1 text-amber-400 font-semibold">Portfolio switched to: LIGHT THEME</div>`;
+            } else if (primaryCmd === 'mode' || arg === 'toggle') {
+                window.togglePortfolioTheme();
+                const isNowDark = document.documentElement.classList.contains('dark');
+                output = `<div class="mt-1 text-accent font-semibold">Theme toggled to: ${isNowDark ? 'DARK' : 'LIGHT'}</div>`;
+            } else if (!arg) {
+                output = `<div class="mt-1">Specify theme. Colors: ${themes.join(', ')} | Mode: 'dark', 'light'</div>`;
             } else if (themes.includes(arg)) {
                 if (windowEl) {
                     themes.forEach(t => windowEl.classList.remove(`theme-${t}`));
@@ -1026,7 +1143,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
                 }
                 output = `<div class="mt-1 text-accent font-semibold">Terminal theme set to: ${arg}</div>`;
             } else {
-                output = `<div class="mt-1 text-red-400">Invalid theme. Supported: ${themes.join(', ')}</div>`;
+                output = `<div class="mt-1 text-red-400">Invalid theme. Supported: ${themes.join(', ')}, or 'dark' / 'light'</div>`;
             }
             break;
         case 'clear':
@@ -1388,6 +1505,15 @@ function initResumeModal() {
             window.closeResumeModal();
         }
     });
+
+    try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('modal') === 'resume') {
+            setTimeout(() => {
+                window.openResumeModal(params.get('tab') || 'executive');
+            }, 120);
+        }
+    } catch (e) {}
 }
 
 // --- 8. Project Architecture Detail Lightbox Modal ---
