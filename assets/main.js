@@ -192,8 +192,8 @@ function injectSharedComponents() {
                     </div>
                 </div>
                 <div class="font-code-sm text-[11px] text-on-surface-variant opacity-70 flex items-center justify-between">
-                    <span>Front-End Developer · Kerala, India</span>
-                    <span class="text-cyan-400">Available</span>
+                    <span>Frontend Engineer · Cybersecurity &amp; Enterprise UI</span>
+                    <span class="text-cyan-400">2+ Years Exp</span>
                 </div>
             </div>
         `;
@@ -316,7 +316,7 @@ function injectSharedComponents() {
                                     <p class="text-xs text-cyan-300 font-medium">Front-End Developer &amp; UI Architect | 2+ Years Experience | Data Viz Specialist</p>
                                 </div>
                                 <div class="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[11px] text-slate-300">
-                                    <a href="mailto:ajuarjunr@gmail.com" class="flex items-center gap-1.5 hover:text-cyan-300"><span class="material-symbols-outlined text-cyan-400 text-xs">mail</span> ajuarjunr@gmail.com</a>
+                                    <a href="mailto:arjunrthedeveloper@gmail.com" class="flex items-center gap-1.5 hover:text-cyan-300"><span class="material-symbols-outlined text-cyan-400 text-xs">mail</span> arjunrthedeveloper@gmail.com</a>
                                     <a href="tel:+918921843248" class="flex items-center gap-1.5 hover:text-cyan-300"><span class="material-symbols-outlined text-cyan-400 text-xs">call</span> +91 8921843248</a>
                                     <a href="https://arjun-portfolio-03.vercel.app" target="_blank" class="flex items-center gap-1.5 hover:text-cyan-300 text-cyan-400 font-bold"><span class="material-symbols-outlined text-cyan-400 text-xs">language</span> arjun-portfolio-03.vercel.app</a>
                                     <a href="https://github.com/Arjunrajan250" target="_blank" class="flex items-center gap-1.5 hover:text-cyan-300"><span class="material-symbols-outlined text-cyan-400 text-xs">code</span> github.com/Arjunrajan250</a>
@@ -568,7 +568,7 @@ function injectSharedComponents() {
                                     <div class="mt-1.5 text-[10px] text-slate-700 flex flex-wrap justify-center gap-x-2 gap-y-0.5 font-mono">
                                         <span>Alappuzha, Kerala, India</span>
                                         <span>&bull;</span>
-                                        <a href="mailto:ajuarjunr@gmail.com" class="text-slate-900 font-semibold hover:underline">ajuarjunr@gmail.com</a>
+                                        <a href="mailto:arjunrthedeveloper@gmail.com" class="text-slate-900 font-semibold hover:underline">arjunrthedeveloper@gmail.com</a>
                                         <span>&bull;</span>
                                         <a href="tel:+918921843248" class="text-slate-900 font-semibold hover:underline">+91 8921843248</a>
                                         <span>&bull;</span>
@@ -1048,7 +1048,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             output = `
 <div class="mt-1 font-bold text-accent">COMMUNICATION DIRECTORY:</div>
 <div class="ml-2 mt-1">
-  Email: <a href="mailto:ajuarjunr@gmail.com" class="text-accent underline">ajuarjunr@gmail.com</a><br>
+  Email: <a href="mailto:arjunrthedeveloper@gmail.com" class="text-accent underline">arjunrthedeveloper@gmail.com</a><br>
   Phone: <a href="tel:+918921843248" class="text-accent underline">+91 8921843248</a><br>
   GitHub: <a href="https://github.com/Arjunrajan250" target="_blank" class="text-accent underline">github.com/Arjunrajan250</a><br>
   Location: Alappuzha, Kerala, India
@@ -1089,7 +1089,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             } else if (arg.includes('experience')) {
                 output = `<div class="mt-1">Currently working at CISAI as Front-End Developer.</div>`;
             } else if (arg.includes('contact')) {
-                output = `<div class="mt-1">Email: ajuarjunr@gmail.com | Phone: +91 8921843248</div>`;
+                output = `<div class="mt-1">Email: arjunrthedeveloper@gmail.com | Phone: +91 8921843248</div>`;
             } else if (arg.includes('ats')) {
                 window.openResumeModal('ats');
                 output = `<div class="mt-1 text-emerald-400">Opening cv-ats.pdf machine-readable preview...</div>`;
@@ -1363,7 +1363,7 @@ window.switchCvModalTab = function(tabName) {
 window.copyPlainResumeText = function() {
     const plainText = `ARJUN R
 Front-End Developer | UI Architect | Data Visualization Specialist
-Alappuzha, Kerala, India | Email: ajuarjunr@gmail.com | Phone: +91 8921843248
+Alappuzha, Kerala, India | Email: arjunrthedeveloper@gmail.com | Phone: +91 8921843248
 Portfolio: https://arjun-portfolio-03.vercel.app | GitHub: https://github.com/Arjunrajan250
 
 PROFESSIONAL SUMMARY

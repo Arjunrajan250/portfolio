@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/🌐_LIVE_PORTFOLIO-06B6D4?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Portfolio" />
   </a>
   &nbsp;
-  <a href="mailto:ajuarjunr@gmail.com">
+  <a href="mailto:arjunrthedeveloper@gmail.com">
     <img src="https://img.shields.io/badge/✉️_DIRECT_EMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
   &nbsp;
@@ -293,7 +293,7 @@
 
   <p>
     <a href="https://arjun-portfolio-03.vercel.app/" target="_blank"><b>[ 🌐 Launch Portfolio ]</b></a> • 
-    <a href="mailto:ajuarjunr@gmail.com"><b>[ ✉️ ajuarjunr@gmail.com ]</b></a> • 
+    <a href="mailto:arjunrthedeveloper@gmail.com"><b>[ ✉️ arjunrthedeveloper@gmail.com ]</b></a> • 
     <a href="tel:+918921843248"><b>[ 📱 +91 8921843248 ]</b></a> • 
     <a href="https://github.com/Arjunrajan250"><b>[ 📍 Kerala, India ]</b></a>
   </p>
