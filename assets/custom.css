@@ -2982,3 +2982,181 @@ body.resume-dark-mode .tag-bw {
         color: #000000 !important;
     }
 }
+
+/* ==========================================================================
+   EDITORIAL ENGINEERING DESIGN SYSTEM (Linear + Vercel Aesthetic)
+   ========================================================================== */
+
+.editorial-body {
+    background-color: #fafafa;
+    color: #18181b;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    -webkit-font-smoothing: antialiased;
+}
+
+html.dark .editorial-body {
+    background-color: #090d16;
+    color: #f4f4f5;
+}
+
+/* Sticky Minimal Header */
+.editorial-header {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(228, 228, 231, 0.85);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+html.dark .editorial-header {
+    background: rgba(9, 13, 22, 0.88);
+    border-bottom: 1px solid rgba(39, 39, 42, 0.85);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Editorial Monospace Tech Tags */
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    line-height: 1.25;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-tag:hover {
+    border-color: #cbd5e1;
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+html.dark .tech-tag {
+    background-color: rgba(39, 39, 42, 0.6);
+    color: #cbd5e1;
+    border-color: rgba(63, 63, 70, 0.6);
+}
+
+html.dark .tech-tag:hover {
+    border-color: rgba(161, 161, 170, 0.5);
+    background-color: rgba(63, 63, 70, 0.8);
+    color: #f8fafc;
+}
+
+/* Case Study Cards (Large Screenshots & Case Presentation) */
+.case-study-card {
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease;
+}
+
+.case-study-card:hover {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+}
+
+html.dark .case-study-card:hover {
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.55);
+}
+
+.case-study-img {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+    will-change: transform;
+}
+
+.case-study-card:hover .case-study-img {
+    transform: scale(1.025);
+}
+
+/* Editorial Portrait Card */
+.editorial-portrait {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-portrait:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+html.dark .editorial-portrait:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Press Feedback (Apple/Emil guidelines) */
+button:active,
+a.inline-flex:active {
+    transform: scale(0.985);
+    transition: transform 0.1s ease;
+}
+
+/* Subtle entry animation */
+@keyframes editorialFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-editorial {
+    animation: editorialFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Mobile drawer clean styling */
+#mobile-drawer {
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Editorial Button Utilities */
+.btn-editorial-primary {
+    background-color: #18181b !important;
+    color: #ffffff !important;
+    border: 1px solid #18181b !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-editorial-primary * {
+    color: #ffffff !important;
+}
+
+html.dark .btn-editorial-primary {
+    background-color: #ffffff !important;
+    color: #18181b !important;
+    border-color: #ffffff !important;
+}
+
+html.dark .btn-editorial-primary * {
+    color: #18181b !important;
+}
+
+.btn-editorial-secondary {
+    background-color: #ffffff !important;
+    color: #18181b !important;
+    border: 1px solid #e4e4e7 !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-editorial-secondary * {
+    color: #18181b !important;
+}
+
+html.dark .btn-editorial-secondary {
+    background-color: #18181b !important;
+    color: #f4f4f5 !important;
+    border-color: #27272a !important;
+}
+
+html.dark .btn-editorial-secondary * {
+    color: #f4f4f5 !important;
+}

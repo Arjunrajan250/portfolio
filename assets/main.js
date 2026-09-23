@@ -1517,59 +1517,194 @@ function initResumeModal() {
 }
 
 // --- 8. Project Architecture Detail Lightbox Modal ---
+const PROJECT_DETAILS = {
+    'PixelNest': {
+        title: 'PixelNest — Headless Commerce & Admin Portal',
+        category: 'E-Commerce Architecture · React 19 · Headless Shopify',
+        img: 'assets/images/pixelnest.png',
+        desc: 'Ultra-fast headless e-commerce storefront and merchant administration portal engineered with React 19, Tailwind CSS, and the Shopify Storefront GraphQL API. Delivers sub-second transitions, dynamic cart state management, and real-time inventory synchronization.',
+        architecture: 'Decoupled headless architecture utilizing GraphQL queries, reactive client caching, and custom component design tokens for seamless checkout integration.',
+        badges: ['React 19', 'Shopify Storefront API', 'GraphQL', 'Tailwind CSS', 'Headless Architecture', 'Vite'],
+        liveLink: 'https://pixelnest-headless-shopify.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'Media Extraction Tool': {
+        title: 'VortexDL — High-Speed Media Extraction Tool',
+        category: 'Node.js Streams · Media Extraction · Express API',
+        img: 'assets/images/vortexdl.png',
+        desc: 'High-performance media extraction and streaming utility built on Node.js piping architectures. Streams audio/video payloads directly through child processes and client-side download streams with zero server-side disk overhead.',
+        architecture: 'Leverages Node.js Stream APIs, child process execution with yt-dlp binary wrappers, and chunked transfer encoding for instant browser downloads.',
+        badges: ['Node.js Streams', 'Express API', 'yt-dlp Binary', 'Stream Pipes', 'JavaScript', 'Tailwind CSS'],
+        liveLink: 'https://938752.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'VortexDL': {
+        title: 'VortexDL — High-Speed Media Extraction Tool',
+        category: 'Node.js Streams · Media Extraction · Express API',
+        img: 'assets/images/vortexdl.png',
+        desc: 'High-performance media extraction and streaming utility built on Node.js piping architectures. Streams audio/video payloads directly through child processes and client-side download streams with zero server-side disk overhead.',
+        architecture: 'Leverages Node.js Stream APIs, child process execution with yt-dlp binary wrappers, and chunked transfer encoding for instant browser downloads.',
+        badges: ['Node.js Streams', 'Express API', 'yt-dlp Binary', 'Stream Pipes', 'JavaScript', 'Tailwind CSS'],
+        liveLink: 'https://938752.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'Sadhnam Indo': {
+        title: 'Sadhnam Indo — P2P Mutual Aid Platform',
+        category: 'Web Platforms · React 19 · Supabase · Leaflet',
+        img: 'assets/images/sadhnam_indo.png',
+        desc: 'Hyperlocal community mutual aid and emergency logistics platform built with React 19 and Supabase. Features neighborhood geospatial request mapping with Leaflet, client-side AES encrypted messaging, and multilingual accessibility.',
+        architecture: 'Real-time PostgreSQL listeners via Supabase, client-side cryptographic hashing for sensitive requests, and custom Leaflet marker clustering for 1000+ local aid pins.',
+        badges: ['React 19', 'Supabase', 'Leaflet GIS', 'AES Crypto', 'Tailwind CSS', 'PostgreSQL'],
+        liveLink: 'https://sadhnam-indo.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'ARION': {
+        title: 'ARION — Geospatial 3D Tactical Dashboard',
+        category: '3D Graphics · WebGL Globe · Web Speech API',
+        img: 'assets/images/arion.png',
+        desc: 'Interactive 3D geospatial dashboard with WebGL globe rendering, tactical mission waypoint overlays, and real-time voice command recognition powered by the browser Web Speech API.',
+        architecture: 'Hardware-accelerated 3D sphere projection using Three.js, event-driven speech grammar recognition for hands-free navigation, and dynamic audio cue generation via Web Audio API.',
+        badges: ['WebGL Globe', 'Three.js', 'Web Speech API', 'Web Audio', 'Tailwind CSS', 'PWA'],
+        liveLink: 'https://arion-aju.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'InstantCred': {
+        title: 'InstantCred — Card Decision & Comparison Engine',
+        category: 'FinTech · Decision Tree · Vite · TypeScript',
+        img: 'assets/images/instantcred.png',
+        desc: 'A credit-card suitability and decision platform built around personalized fee-vs-reward calculations. Evaluates real-time reward point redemption values, milestone spend criteria, and annual fee amortization for 50+ banking products.',
+        architecture: 'High-speed client-side filtering algorithms with TypeScript, Vite, and responsive mobile-first UI with smooth micro-interactions and zero UI lag.',
+        badges: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Financial Modeling', 'Affiliate Platform'],
+        liveLink: 'https://instant-cred-git-main-arjunrajan250s-projects.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'Cyber Threat Intelligence': {
+        title: 'Cyber Crimes & Threat Intelligence India',
+        category: 'Cybersecurity · Data Visualization · React 19',
+        img: 'assets/images/cyber_threat_intel.png',
+        desc: 'An open defense telemetry platform designed to aggregate nation-wide cybercrime vectors, scam attack kill-chains, and 1930 incident triage into actionable visual intelligence. Features interactive geospatial heatmaps, dynamic timeline telemetry, and instant threat lookups.',
+        architecture: 'Engineered with React 19, Leaflet GIS, D3.js and modular Tailwind CSS. Built to ingest and render heavy geospatial datasets with client-side indexing and debounced spatial filters.',
+        badges: ['React 19', 'D3.js', 'Leaflet GIS', 'GeoJSON', 'TailwindCSS', 'Threat Telemetry', 'amCharts 5'],
+        liveLink: 'https://cyber-crimes-and-threat-intelligence-india.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'IndiaLens': {
+        title: 'IndiaLens — Geospatial Public Data Analytics',
+        category: 'Data Visualization · React · Leaflet',
+        img: 'assets/images/indialens.png',
+        desc: 'Interactive platform for exploring open government datasets across India through choropleth maps and high-performance visual analytics. Enables citizens and analysts to cross-reference multi-year census, demographic, and agricultural telemetry at sub-district resolution.',
+        architecture: 'Engineered with Leaflet, GeoJSON, and Highcharts for 60fps canvas/SVG rendering across 700+ districts with zero UI blocking during complex spatial queries.',
+        badges: ['React', 'Leaflet', 'GeoJSON', 'Highcharts', 'data.gov.in API', 'Web Workers', 'GIS Analytics'],
+        liveLink: 'https://indialens.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'ThreatLens': {
+        title: 'ThreatLens — SOC Security Console',
+        category: 'Cybersecurity · Real-Time Telemetry',
+        img: 'assets/images/threatlens.png',
+        desc: 'High-density security operations center console visualizing alert correlations, SIEM feeds, and anomalous entity behavior in real-time.',
+        architecture: 'WebSocket ingestion stream with throttled DOM batch updates and dark-optimized tactical UI.',
+        badges: ['React', 'WebSockets', 'D3.js', 'SOC Monitoring', 'SIEM / SOAR'],
+        liveLink: 'https://threatlens-jade.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250/ThreatLens'
+    },
+    'Luxe3D': {
+        title: 'Luxe3D Quantum — 3D Product Configurator',
+        category: '3D Graphics · WebGL · Three.js',
+        img: 'assets/images/luxe3d.png',
+        desc: 'Photorealistic WebGL 3D asset configurator enabling real-time material swapping, HDR environment lighting, and interactive camera orbits.',
+        architecture: 'Built with Three.js and GLTF pipeline with baked PBR materials for 60fps mobile execution.',
+        badges: ['Three.js', 'WebGL', 'GLTF', 'PBR Shaders', '3D Interaction'],
+        liveLink: 'https://luxe-3-d.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    }
+};
+
 function initProjectModal() {
     const overlay = document.getElementById('project-modal-overlay');
     const closeBtn = document.getElementById('project-modal-close');
     const modalBody = document.getElementById('project-modal-body');
     if (!overlay || !modalBody) return;
 
-    const openProjectModal = (card) => {
-        const title = card.querySelector('h3, h4')?.innerText || 'Digital Project Showcase';
-        const img = card.querySelector('img')?.src || '';
-        const desc = card.querySelector('p')?.innerText || '';
-        const badges = Array.from(card.querySelectorAll('.tech-badge, span[class*="bg-"]')).map(b => b.innerText.trim());
-        const liveLink = card.querySelector('a[href*="vercel.app"], a[href*="http"]')?.href;
-        const liveBtnHtml = liveLink ? `
-            <a href="${liveLink}" target="_blank" class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-label-caps text-xs flex items-center gap-2 transition-all shadow-md">
+    window.openProjectModalByTitle = function(titleKey) {
+        let project = PROJECT_DETAILS[titleKey];
+        if (!project) {
+            const foundKey = Object.keys(PROJECT_DETAILS).find(k =>
+                k.toLowerCase().includes(titleKey.toLowerCase()) || titleKey.toLowerCase().includes(k.toLowerCase())
+            );
+            if (foundKey) project = PROJECT_DETAILS[foundKey];
+        }
+        if (!project) {
+            project = {
+                title: titleKey,
+                category: 'Frontend Engineering Case Study',
+                img: 'assets/images/cyber_threat_intel.png',
+                desc: 'Production application developed by Arjun R with focus on high-performance frontend architecture, responsive design, and intuitive user workflows.',
+                architecture: 'Engineered with modern component patterns and clean separation of concerns.',
+                badges: ['React', 'TypeScript', 'TailwindCSS', 'Frontend Systems'],
+                liveLink: 'https://github.com/Arjunrajan250',
+                githubLink: 'https://github.com/Arjunrajan250'
+            };
+        }
+
+        const liveBtnHtml = project.liveLink ? `
+            <a href="${project.liveLink}" target="_blank" rel="noopener noreferrer" class="btn-editorial-primary px-4 py-2 rounded-lg font-medium text-xs flex items-center gap-2 transition-all shadow-sm">
                 <span class="material-symbols-outlined text-sm">open_in_new</span>
-                <span>Live Demo</span>
+                <span>Live Project</span>
+            </a>
+        ` : '';
+
+        const githubBtnHtml = project.githubLink ? `
+            <a href="${project.githubLink}" target="_blank" rel="noopener noreferrer" class="btn-editorial-secondary px-4 py-2 rounded-lg font-medium text-xs flex items-center gap-2 transition-all">
+                <span class="material-symbols-outlined text-sm">code</span>
+                <span>Source Code</span>
             </a>
         ` : '';
 
         modalBody.innerHTML = `
-            <div class="aspect-video w-full rounded-xl overflow-hidden mb-6 border border-white/10 shadow-2xl relative bg-slate-950">
-                <img src="${img}" alt="${title}" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+            <div class="aspect-video w-full rounded-xl overflow-hidden mb-6 border border-zinc-200 dark:border-zinc-800 shadow-xl relative bg-zinc-100 dark:bg-zinc-900">
+                <img src="${project.img}" alt="${project.title}" class="w-full h-full object-cover">
             </div>
-            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-                <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold">${title}</h2>
-                <div class="flex items-center gap-2">
-                    ${liveBtnHtml}
-                    <a href="https://github.com/Arjunrajan250" target="_blank" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-label-caps text-xs flex items-center gap-2 transition-all shadow-md">
-                        <span class="material-symbols-outlined text-sm">code</span>
-                        <span>Source Code</span>
-                    </a>
+            <div class="mb-4">
+                <p class="text-xs font-mono font-medium text-zinc-500 dark:text-zinc-400 mb-1 tracking-wider uppercase">${project.category}</p>
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <h2 class="font-headline-lg text-2xl md:text-3xl text-zinc-900 dark:text-zinc-100 font-bold">${project.title}</h2>
+                    <div class="flex items-center gap-2">
+                        ${liveBtnHtml}
+                        ${githubBtnHtml}
+                    </div>
                 </div>
             </div>
-            <p class="font-body-lg text-slate-300 mb-6 leading-relaxed">${desc}</p>
-            <div class="border-t border-white/10 pt-4">
-                <h4 class="font-label-caps text-xs text-cyan-400 mb-3 tracking-wider">TECHNOLOGY STACK &amp; HIGHLIGHTS</h4>
+            <p class="text-zinc-700 dark:text-zinc-300 mb-4 leading-relaxed">${project.desc}</p>
+            ${project.architecture ? `
+                <div class="p-4 rounded-xl bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 mb-6">
+                    <h4 class="text-xs font-mono font-bold text-zinc-700 dark:text-zinc-300 uppercase mb-1">Architecture & Engineering Decisions</h4>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">${project.architecture}</p>
+                </div>
+            ` : ''}
+            <div class="border-t border-zinc-200 dark:border-zinc-800 pt-4">
+                <h4 class="text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400 mb-3 tracking-wider uppercase">TECH STACK &amp; CAPABILITIES</h4>
                 <div class="flex flex-wrap gap-2">
-                    ${badges.map(b => `<span class="badge-pill border-cyan-500/30 text-cyan-300 bg-cyan-950/40">${b}</span>`).join('')}
+                    ${project.badges.map(b => `<span class="tech-tag">${b}</span>`).join('')}
                 </div>
             </div>
         `;
 
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
-        CyberAudio.playChime();
+        try { if (window.CyberAudio && typeof CyberAudio.playChime === 'function') CyberAudio.playChime(); } catch(e) {}
+    };
+
+    const openProjectModalFromCard = (card) => {
+        const title = card.querySelector('h3, h4')?.innerText || 'Digital Project Showcase';
+        window.openProjectModalByTitle(title);
     };
 
     document.querySelectorAll('.project-card, .glass-panel:has(h3), .glass-panel:has(h4)').forEach(card => {
         card.style.cursor = 'pointer';
         card.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A' || e.target.closest('a')) return;
-            openProjectModal(card);
+            if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+            openProjectModalFromCard(card);
         });
     });
 
@@ -1591,6 +1726,16 @@ function initProjectModal() {
             document.body.style.overflow = '';
         }
     });
+
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const autoProject = urlParams.get('project');
+        if (autoProject) {
+            setTimeout(() => {
+                window.openProjectModalByTitle(autoProject);
+            }, 250);
+        }
+    } catch(e) {}
 }
 
 // --- 9. Interactive Skill Radar & Matrix ---
