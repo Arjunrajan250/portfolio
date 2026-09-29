@@ -237,6 +237,50 @@
       </p>
     </td>
   </tr>
+
+  <!-- ROW 5: Nexa Digitals & SVG Convert -->
+  <tr>
+    <td width="50%" valign="top">
+      <div align="center">
+        <h3>⚡ Nexa Digitals (NexusLoot)</h3>
+        <p><b>Modern Digital Subscriptions & Licenses Marketplace</b></p>
+      </div>
+      <p>High-conversion digital marketplace featuring real-time multi-currency conversion (₹, $, €, £), reactive slide-out cart drawer, and automated instant post-checkout credential reveal simulator with buyer-seller support chat.</p>
+      <p align="center">
+        <img src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+        <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
+        <img src="https://img.shields.io/badge/Lucide_Icons-F59E0B?style=flat-square" />
+        <img src="https://img.shields.io/badge/Digital_Commerce-10B981?style=flat-square" />
+      </p>
+      <p align="center">
+        <a href="https://nexusloot.vercel.app/" target="_blank">
+          <img src="https://img.shields.io/badge/🚀_LAUNCH_LIVE_APP-10B981?style=for-the-badge&logo=vercel&logoColor=white" />
+        </a>
+        <br/>
+        <a href="https://github.com/Arjunrajan250" target="_blank">
+          <img src="https://img.shields.io/badge/📦_SOURCE_CODE-1E293B?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <div align="center">
+        <h3>📐 SVG Convert — Vectorization Studio</h3>
+        <p><b>Client-Side Image-to-SVG Vectorization & Optimization</b></p>
+      </div>
+      <p>High-precision vectorization tool utilizing ImageTracerJS and canvas raster algorithms to convert bitmaps into scalable, clean SVGs completely in-browser without server transmission.</p>
+      <p align="center">
+        <img src="https://img.shields.io/badge/Figma_API-F24E1E?style=flat-square&logo=figma&logoColor=white" />
+        <img src="https://img.shields.io/badge/ImageTracerJS-06B6D4?style=flat-square" />
+        <img src="https://img.shields.io/badge/Canvas_API-E34F26?style=flat-square&logo=html5&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
+      </p>
+      <p align="center">
+        <a href="https://github.com/Arjunrajan250" target="_blank">
+          <img src="https://img.shields.io/badge/📦_SOURCE_CODE-1E293B?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+      </p>
+    </td>
+  </tr>
 </table>
 
 ---

@@ -1035,12 +1035,13 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
   <div>2. <span class="text-accent font-semibold">Cyber Crimes & Threat Intelligence India</span> &mdash; Crime Telemetry & 1930 Triage</div>
   <div>3. <span class="text-accent font-semibold">InstantCred Decision Engine</span> &mdash; Vanilla JS & Vite (<a href="https://www.instantcred.in/" target="_blank" class="text-accent underline">instantcred.in</a>)</div>
   <div>4. <span class="text-accent font-semibold">PixelNest Headless E-Commerce</span> &mdash; React 19 & Shopify GraphQL (<a href="https://pixelnest-headless-shopify.vercel.app/" target="_blank" class="text-accent underline">pixelnest.vercel.app</a>)</div>
-  <div>5. <span class="text-accent font-semibold">Sadhnam Indo P2P</span> &mdash; React 19 & Supabase</div>
-  <div>6. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
-  <div>7. <span class="text-accent font-semibold">ARION Tactical &amp; Voice Operations Suite</span> &mdash; Real-Time Data &amp; Voice AI</div>
-  <div>8. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
-  <div>9. <span class="text-accent font-semibold">VortexDL Media Downloader</span> &mdash; <a href="https://938752.vercel.app/" target="_blank" class="text-accent underline">938752.vercel.app</a></div>
-  <div>10. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
+  <div>5. <span class="text-accent font-semibold">Nexa Digitals (NexusLoot)</span> &mdash; React 19 & Vite Digital Marketplace (<a href="https://nexusloot.vercel.app/" target="_blank" class="text-accent underline">nexusloot.vercel.app</a>)</div>
+  <div>6. <span class="text-accent font-semibold">Sadhnam Indo P2P</span> &mdash; React 19 & Supabase</div>
+  <div>7. <span class="text-accent font-semibold">ThreatLens Cyber Console</span> &mdash; D3.js v7 OSINT</div>
+  <div>8. <span class="text-accent font-semibold">ARION Tactical &amp; Voice Operations Suite</span> &mdash; Real-Time Data &amp; Voice AI</div>
+  <div>9. <span class="text-accent font-semibold">Luxe3D Quantum One Showcase</span> &mdash; Three.js WebGL 3D</div>
+  <div>10. <span class="text-accent font-semibold">VortexDL Media Downloader</span> &mdash; <a href="https://938752.vercel.app/" target="_blank" class="text-accent underline">938752.vercel.app</a></div>
+  <div>11. <span class="text-accent font-semibold">SVG Convert</span> &mdash; Figma Plugin API</div>
 </div>
             `;
             break;
@@ -1085,7 +1086,7 @@ function executeCommand(cmdLine, bodyEl, windowEl, closeFn) {
             } else if (arg.includes('skills')) {
                 output = `<div class="mt-1">Angular, React, TypeScript, HTML5/CSS3, Three.js, WebGL, D3.js, Leaflet.js, Tailwind CSS</div>`;
             } else if (arg.includes('projects')) {
-                output = `<div class="mt-1">IndiaLens, Cyber Crimes & Threat Intelligence India, InstantCred, PixelNest, Sadhnam Indo, ThreatLens, ARION Tactical Suite, Luxe3D Quantum, VortexDL, SVG Convert</div>`;
+                output = `<div class="mt-1">IndiaLens, Cyber Crimes & Threat Intelligence India, InstantCred, PixelNest, Nexa Digitals (NexusLoot), Sadhnam Indo, ThreatLens, ARION Tactical Suite, Luxe3D Quantum, VortexDL, SVG Convert</div>`;
             } else if (arg.includes('experience')) {
                 output = `<div class="mt-1">Currently working at CISAI as Front-End Developer.</div>`;
             } else if (arg.includes('contact')) {
@@ -1518,6 +1519,26 @@ function initResumeModal() {
 
 // --- 8. Project Architecture Detail Lightbox Modal ---
 const PROJECT_DETAILS = {
+    'Nexa Digitals': {
+        title: 'Nexa Digitals (NexusLoot) — Digital Subscription Marketplace',
+        category: 'E-Commerce · React 19 · Vite · State Architecture',
+        img: 'assets/images/nexa_digitals.png',
+        desc: 'A high-conversion, responsive digital marketplace built for purchasing verified premium software licenses, streaming subscriptions, gaming codes, and AI productivity tools. Features real-time multi-currency conversions, instant search filtering, interactive slide-out cart drawer, and simulated instant order credential reveal with mock seller support chat.',
+        architecture: 'Engineered with React 19 and Vite. Features client-side state synchronisation via custom React hooks, localStorage persistence for cart items and order histories, responsive slide-out cart drawer, and masked credential security reveal simulator.',
+        badges: ['React 19', 'Vite', 'LocalStorage State', 'Lucide Icons', 'Multi-Currency', 'E-Commerce UX', 'Oxlint'],
+        liveLink: 'https://nexusloot.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
+    'NexusLoot': {
+        title: 'Nexa Digitals (NexusLoot) — Digital Subscription Marketplace',
+        category: 'E-Commerce · React 19 · Vite · State Architecture',
+        img: 'assets/images/nexa_digitals.png',
+        desc: 'A high-conversion, responsive digital marketplace built for purchasing verified premium software licenses, streaming subscriptions, gaming codes, and AI productivity tools. Features real-time multi-currency conversions, instant search filtering, interactive slide-out cart drawer, and simulated instant order credential reveal with mock seller support chat.',
+        architecture: 'Engineered with React 19 and Vite. Features client-side state synchronisation via custom React hooks, localStorage persistence for cart items and order histories, responsive slide-out cart drawer, and masked credential security reveal simulator.',
+        badges: ['React 19', 'Vite', 'LocalStorage State', 'Lucide Icons', 'Multi-Currency', 'E-Commerce UX', 'Oxlint'],
+        liveLink: 'https://nexusloot.vercel.app/',
+        githubLink: 'https://github.com/Arjunrajan250'
+    },
     'PixelNest': {
         title: 'PixelNest — Headless Commerce & Admin Portal',
         category: 'E-Commerce Architecture · React 19 · Headless Shopify',
@@ -1575,7 +1596,7 @@ const PROJECT_DETAILS = {
         desc: 'A credit-card suitability and decision platform built around personalized fee-vs-reward calculations. Evaluates real-time reward point redemption values, milestone spend criteria, and annual fee amortization for 50+ banking products.',
         architecture: 'High-speed client-side filtering algorithms with TypeScript, Vite, and responsive mobile-first UI with smooth micro-interactions and zero UI lag.',
         badges: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Financial Modeling', 'Affiliate Platform'],
-        liveLink: 'https://instant-cred-git-main-arjunrajan250s-projects.vercel.app/',
+        liveLink: 'https://www.instantcred.in/',
         githubLink: 'https://github.com/Arjunrajan250'
     },
     'Cyber Threat Intelligence': {
