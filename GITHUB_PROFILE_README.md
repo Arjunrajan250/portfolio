@@ -189,6 +189,54 @@
       </p>
     </td>
   </tr>
+
+  <!-- ROW 4: Brunch & PixelNest -->
+  <tr>
+    <td width="50%" valign="top">
+      <div align="center">
+        <h3>🍳 Brunch — Indie Maker Launchpad</h3>
+        <p><b>Product Showcase, Community Discovery &amp; Upvoting Board</b></p>
+      </div>
+      <p>A community showcase and discovery launchpad for indie makers, games, tools, and side projects with upvote ranking, curated charts ("For You", "Top Charts"), and creator profiles.</p>
+      <p align="center">
+        <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white" />
+        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Tailwind-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" />
+      </p>
+      <p align="center">
+        <a href="https://brunch-4gts.vercel.app/" target="_blank">
+          <img src="https://img.shields.io/badge/🚀_LAUNCH_LIVE_APP-F59E0B?style=for-the-badge&logo=vercel&logoColor=white" />
+        </a>
+        <br/>
+        <a href="https://github.com/Arjunrajan250" target="_blank">
+          <img src="https://img.shields.io/badge/📦_SOURCE_CODE-1E293B?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <div align="center">
+        <h3>🛍️ PixelNest — Headless Shopify &amp; Admin Portal</h3>
+        <p><b>React 19 Headless E-Commerce Storefront &amp; Order Management</b></p>
+      </div>
+      <p>Ultra-responsive headless commerce storefront powered by Shopify GraphQL API with real-time product search, cart drawer, checkout, and integrated sales analytics admin console.</p>
+      <p align="center">
+        <img src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Shopify_GraphQL-96BF48?style=flat-square&logo=shopify&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
+      </p>
+      <p align="center">
+        <a href="https://pixelnest-headless-shopify.vercel.app/" target="_blank">
+          <img src="https://img.shields.io/badge/🚀_LAUNCH_LIVE_APP-10B981?style=for-the-badge&logo=vercel&logoColor=white" />
+        </a>
+        <br/>
+        <a href="https://github.com/Arjunrajan250" target="_blank">
+          <img src="https://img.shields.io/badge/📦_SOURCE_CODE-1E293B?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+      </p>
+    </td>
+  </tr>
 </table>
 
 ---
