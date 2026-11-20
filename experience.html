@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html class="light" lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -37,6 +37,20 @@
       }
     }
   </script>
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('portfolio-theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.remove('light');
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body
@@ -62,23 +76,26 @@
       <a class="text-slate-400 hover:text-white transition-colors" href="index.html#about">ABOUT</a>
       <a class="text-slate-400 hover:text-white transition-colors" href="index.html#contact">CONTACT</a>
     </div>
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3 md:gap-4">
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Dark / Light Theme">
+        <span class="material-symbols-outlined theme-icon-sun">light_mode</span>
+        <span class="material-symbols-outlined theme-icon-moon">dark_mode</span>
+      </button>
       <div
-        class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md"
+        class="w-10 h-10 rounded-full border border-cyan-500/30 overflow-hidden bg-slate-900 flex items-center justify-center profile-avatar-btn hover:border-cyan-400 transition-all hover:scale-105 shadow-md cursor-pointer"
         title="Click to view profile photo">
         <img alt="Arjun R Profile Avatar" class="w-full h-full object-cover object-top profile-avatar-img"
           src="assets/images/profile_avatar.jpg">
       </div>
       <button id="mobile-menu-btn"
-        class="md:hidden material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors">menu</button>
+        class="md:hidden material-symbols-outlined text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">menu</button>
     </div>
   </nav>
 
   <main class="relative z-10 px-4 md:px-12 py-12 md:py-20 max-w-[1700px] mx-auto w-full flex-grow">
     <!-- Page Header -->
     <div class="mb-16">
-      <span class="font-mono text-xs text-cyan-400 mb-2 block tracking-widest uppercase">CAREER_MILESTONES //
-        TIMELINE</span>
+      <span class="font-mono text-xs text-cyan-400 mb-2 block tracking-widest uppercase">EXPERIENCE // CAREER TIMELINE</span>
       <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Engineering Career &amp; Experience</h1>
       <p class="text-slate-300 text-base md:text-lg max-w-3xl font-sans">
         A chronological log of professional front-end engineering roles, full-stack software development internships,
@@ -103,7 +120,7 @@
                 class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 border-b border-white/10 pb-4">
                 <div>
                   <h3 class="text-2xl font-bold text-white">Front-End Developer</h3>
-                  <p class="text-indigo-400 font-mono text-xs mt-1">Innspark Solutions Private Limited | Enterprise
+                  <p class="text-indigo-400 font-mono text-xs mt-1">Innspark Solutions (CISAI) Private Limited | Enterprise
                     Cybersecurity Platform</p>
                 </div>
                 <span
@@ -112,10 +129,10 @@
               </div>
 
               <ul class="space-y-3 text-slate-300 text-sm mb-6 list-disc list-inside leading-relaxed">
-                <li>Working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
-                <li>Architecting real-time security telemetry and high-density data visualization dashboards for threat monitoring, alert triage, and incident playbooks.</li>
-                <li>Enforcing modular component patterns, clean architecture, and strict zero data-leakage standards across all client interfaces.</li>
-                <li>Collaborating directly with engineering teams to translate security requirements into high-performance, responsive UI systems.</li>
+                <li>Engineering front-end interfaces for enterprise cybersecurity modules, including SIEM, SOAR, UEBA, and DNS threat monitoring.</li>
+                <li>Developing real-time telemetry dashboards, alert triage workflows, and responsive security playbooks.</li>
+                <li>Architecting modular components, reactive state handling, and ensuring strict data confidentiality across all client surfaces.</li>
+                <li>Collaborating closely with backend and security engineering teams to deliver fast, accessible, and intuitive user experiences.</li>
               </ul>
 
 
@@ -236,9 +253,8 @@
 
           <div class="space-y-4">
             <div class="p-4 rounded-xl bg-slate-900/80 border border-white/10">
-              <div class="font-mono text-xs text-emerald-400 font-bold mb-1">PRIVACY-FIRST AI INTEGRATION</div>
-              <p class="text-xs text-slate-300 leading-relaxed">Leveraging generative AI tools to rapidly build
-                applications while enforcing strict data privacy, zero-leakage, and security integrity.</p>
+              <div class="font-mono text-xs text-emerald-400 font-bold mb-1">AI-AUGMENTED WORKFLOWS</div>
+              <p class="text-xs text-slate-300 leading-relaxed">Accelerating front-end prototyping, automated testing, and interface iteration using modern LLM tooling while maintaining code quality and security standards.</p>
             </div>
 
             <div class="p-4 rounded-xl bg-slate-900/80 border border-white/10">
@@ -247,14 +263,13 @@
             </div>
 
             <div class="p-4 rounded-xl bg-slate-900/80 border border-white/10">
-              <div class="font-mono text-xs text-cyan-400 font-bold mb-1">DATA VIZ ENGINES</div>
-              <p class="text-xs text-slate-300 leading-relaxed">Large-scale ForceAtlas2 network clusters and real-time telemetry analytics dashboards.</p>
+              <div class="font-mono text-xs text-cyan-400 font-bold mb-1">DATA VISUALIZATION</div>
+              <p class="text-xs text-slate-300 leading-relaxed">Large-scale ForceAtlas2 network clusters, spatial GIS heatmaps, and real-time telemetry analytics dashboards.</p>
             </div>
 
             <div class="p-4 rounded-xl bg-slate-900/80 border border-white/10">
-              <div class="font-mono text-xs text-violet-400 font-bold mb-1">DESIGN SYSTEM UTILS</div>
-              <p class="text-xs text-slate-300 leading-relaxed">Figma token alignment, Tailwind utility architecture,
-                micro-animations, and glassmorphism styling.</p>
+              <div class="font-mono text-xs text-violet-400 font-bold mb-1">DESIGN SYSTEMS &amp; UI</div>
+              <p class="text-xs text-slate-300 leading-relaxed">Figma token alignment, Tailwind utility architecture, micro-interactions, and modern glassmorphism styling.</p>
             </div>
           </div>
         </div>
@@ -267,12 +282,12 @@
             <button data-action="view-resume" onclick="openResumeModal('executive')"
               class="shimmer flex-1 bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer">
               <span class="material-symbols-outlined text-sm">visibility</span>
-              EXECUTIVE_CV
+              Executive Resume
             </button>
             <button data-action="view-ats-resume" onclick="openResumeModal('ats')"
               class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer">
               <span class="material-symbols-outlined text-sm">verified</span>
-              ATS_FRIENDLY_CV
+              ATS Resume
             </button>
           </div>
         </div>
@@ -285,11 +300,13 @@
   <footer
     class="bg-slate-950 border-t border-white/10 flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-12 py-8 gap-4 font-mono text-xs text-slate-400 relative z-10">
     <div>
-      © 2025 Arjun R | Front-End Developer &amp; UI Architect. Cyber-Precision Portfolio.
+      © 2025 Arjun R · Front-End Developer &amp; UI Engineer · Built with clean web standards.
     </div>
     <div class="flex gap-6">
       <a class="hover:text-cyan-400 transition-colors" href="https://github.com/Arjunrajan250" target="_blank"
         rel="noopener noreferrer">GitHub</a>
+      <a class="hover:text-cyan-400 transition-colors" href="https://www.linkedin.com/in/arjun-r-b04726285" target="_blank"
+        rel="noopener noreferrer">LinkedIn</a>
       <a class="hover:text-cyan-400 transition-colors" href="contact.html">Contact</a>
       <button data-action="view-resume" onclick="openResumeModal()" class="hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-0 p-0 text-inherit font-inherit">CV Preview</button>
     </div>
