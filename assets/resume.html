@@ -51,6 +51,36 @@
             color: #ffffff;
         }
 
+        @media screen and (max-width: 640px) {
+            .no-print > div,
+            .no-print > div > div {
+                flex-wrap: wrap;
+            }
+            .no-print > div > div:last-child {
+                width: 100%;
+            }
+            .no-print a,
+            .no-print button {
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+            .page-container * {
+                min-width: 0;
+            }
+            .page-container > header > div {
+                flex-direction: column;
+            }
+            .page-container header .grid.grid-cols-2,
+            .page-container section .grid.grid-cols-2 {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .page-container a,
+            .page-container p,
+            .page-container span {
+                overflow-wrap: anywhere;
+            }
+        }
+
         @media print {
             .no-print {
                 display: none !important;
@@ -189,7 +219,7 @@
                         <span class="font-mono text-[8px] tag-dark px-2 py-0.5 rounded font-bold">JUNE 2024 — PRESENT</span>
                     </div>
                     <ul class="text-slate-700 text-[10px] mt-1 space-y-1 list-disc list-inside leading-snug">
-                        <li>Front-End Developer working on mission-critical cybersecurity-related projects, including SIEM, SOAR, UEBA, DNS security, and other highly confidential government projects.</li>
+                        <li>Front-End Developer building enterprise cybersecurity interfaces for SIEM, SOAR, UEBA, DNS security, and confidential government workflows.</li>
                         <li>Architected dynamic real-time telemetry dashboards and data visualizations with amCharts, Three.js, Highcharts, Sigma.js, and Chart.js.</li>
                         <li>Maintained strict client data security, enterprise privacy boundaries, and confidential compliance protocols.</li>
                     </ul>
@@ -313,7 +343,7 @@
                             <span class="text-[7px] tag-dark px-1 py-0.2 rounded font-bold">CONFIDENTIALITY</span>
                         </div>
                         <p class="text-slate-700 text-[8px] font-sans leading-tight mb-1.5">
-                            Adhering to strict enterprise security standards, code cleanliness, and privacy boundaries when developing mission-critical software.
+                            Applying strict enterprise security standards, maintainable code practices, and explicit privacy boundaries across client applications.
                         </p>
                     </div>
                     <span class="text-[7.5px] text-slate-600 font-mono font-semibold">Enterprise Privacy &bull; Code Integrity</span>
@@ -359,7 +389,7 @@
 
         <!-- Subtle Closing Portfolio CTA Footer -->
         <footer class="text-center font-mono text-[8.5px] text-slate-600 border-t border-slate-300 pt-2 pb-1">
-            ✦ Explore live interactive demos, architecture case studies &amp; terminal: <strong class="text-slate-900 font-bold">arjun-portfolio-03.vercel.app</strong>
+            Live project case studies and source repositories: <strong class="text-slate-900 font-bold">arjun-portfolio-03.vercel.app</strong>
         </footer>
 
     </div>

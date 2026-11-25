@@ -1,1055 +1,475 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arjun R — Frontend Engineer</title>
-  <meta name="description"
-    content="Arjun R is a Frontend Engineer specializing in complex web applications, cybersecurity interfaces, and interactive data visualizations.">
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
-    rel="stylesheet">
+  <meta name="description" content="Frontend engineering by Arjun R: Angular and React applications, cybersecurity consoles, network visualization, and high-density telemetry interfaces.">
+  <meta id="theme-color" name="theme-color" content="#f4f1eb">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="assets/custom.css" rel="stylesheet">
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'sans-serif'],
-            display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          colors: {
-            primary: "#0284c7",
-            accent: "#0ea5e9",
-            surface: "#ffffff",
-            background: "#fafafa"
-          }
-        }
-      }
-    }
-  </script>
   <script>
     (function () {
-      try {
-        var theme = localStorage.getItem('portfolio-theme');
-        if (theme === 'dark') {
-          document.documentElement.classList.remove('light');
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-        }
-      } catch (e) {}
+      var saved = null;
+      try { saved = localStorage.getItem('portfolio-theme'); } catch (error) {}
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', dark);
+      document.documentElement.classList.toggle('light', !dark);
     })();
   </script>
+  <script src="assets/main.js" defer></script>
 </head>
+<body class="site-body">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7l-4-4Z M14 3v4h4M9 12h6M9 16h6"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  </svg>
 
-<body class="editorial-body text-slate-800 dark:text-slate-200 antialiased selection:bg-sky-500/20 relative min-h-screen flex flex-col justify-between">
-
-  <!-- Subtle Ambient Canvas -->
-  <canvas id="particle-canvas"></canvas>
-
-  <!-- Minimal Sticky Navigation -->
-  <header class="editorial-header sticky top-0 z-50 w-full transition-all duration-200">
-    <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-2.5 group">
-        <!-- <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span> -->
-        <span class="font-display font-bold text-base tracking-tight text-slate-900 dark:text-white">Arjun R</span>
-        <span class="hidden sm:inline-block text-xs font-mono text-slate-500 dark:text-slate-400">/ Frontend Engineer</span>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#home" aria-label="Arjun R, home">
+        <span>Arjun R</span>
+        <span class="brand-meta">PORTFOLIO / 2026</span>
       </a>
-
-      <nav class="hidden md:flex items-center gap-7 text-xs font-mono tracking-wide text-slate-600 dark:text-slate-300">
-        <a href="#work" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">WORK</a>
-        <a href="#capabilities" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">CAPABILITIES</a>
-        <a href="#experience" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">EXPERIENCE</a>
-        <a href="#about" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">ABOUT</a>
-        <a href="#contact" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">CONTACT</a>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="#work" data-nav="work">Work</a>
+        <a class="nav-link" href="#capabilities" data-nav="capabilities">Engineering</a>
+        <a class="nav-link" href="#experience" data-nav="experience">Experience</a>
+        <a class="nav-link" href="#about" data-nav="about">Background</a>
+        <a class="nav-link" href="#contact" data-nav="contact">Contact</a>
       </nav>
-
-      <div class="flex items-center gap-3">
-        <!-- Resume Action Pill -->
-        <button onclick="openResumeModal('executive')" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-slate-800 dark:text-slate-200 hover:border-sky-500 dark:hover:border-sky-400 transition-all shadow-sm cursor-pointer" title="View Full Curriculum Vitae">
-          <span class="material-symbols-outlined text-sm text-sky-500">description</span>
-          <span>Resume</span>
+      <div class="header-actions">
+        <button class="header-cv-button" type="button" data-resume="executive" aria-label="Open curriculum vitae">
+          <svg aria-hidden="true"><use href="#icon-file"></use></svg>
+          <span class="button-label">CV</span>
         </button>
-
-        <!-- Theme Toggle -->
-        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Dark / Light Theme">
-          <span class="material-symbols-outlined theme-icon-sun">light_mode</span>
-          <span class="material-symbols-outlined theme-icon-moon">dark_mode</span>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Switch to dark theme">
+          <svg aria-hidden="true"><use data-theme-icon href="#icon-moon"></use></svg>
         </button>
-
-        <!-- Mobile Menu Trigger -->
-        <button id="mobile-menu-btn" class="md:hidden p-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-500 transition-colors cursor-pointer" aria-label="Open Navigation Menu">
-          <span class="material-symbols-outlined text-2xl">menu</span>
+        <button id="mobile-menu-button" class="menu-button" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
+          <svg aria-hidden="true"><use data-menu-icon href="#icon-menu"></use></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Container -->
-  <main class="flex-grow relative z-10">
-
-    <!-- 1. HERO VIEWPORT -->
-    <section id="home" class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-16 sm:pb-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Left Hero Narrative (7 Cols) -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800/60">
-            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
-            Frontend Engineer
-          </div>
-
-          <h1 class="font-display text-4xl sm:text-6xl md:text-[68px] font-bold tracking-tight text-slate-950 dark:text-white leading-[1.06]">
-            I build interfaces for complex systems.
-          </h1>
-
-          <p class="font-sans text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl lg:max-w-3xl">
-            Frontend engineer with 2+ years of professional experience, focused on building fast, responsive web applications, cybersecurity interfaces, and interactive data visualizations. Currently building enterprise software at <strong class="text-slate-900 dark:text-slate-100 font-semibold">Innspark Solutions</strong>.
+  <main id="main-content">
+    <section id="home" class="shell hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Frontend Engineer / Data-dense web systems</p>
+          <h1 id="hero-title" class="hero-title">I build interfaces for complex systems.</h1>
+          <p class="hero-summary">
+            I work across <strong>Angular and React</strong>, building security consoles, graph explorers, and public-data tools. My focus is rendering performance, reactive state, and interfaces that remain legible under high information density.
           </p>
-
-          <!-- Primary Actions -->
-          <div class="pt-2 flex flex-wrap items-center gap-3.5">
-            <a href="#work" class="btn-editorial-primary px-6 py-3 rounded-xl font-sans text-xs font-semibold hover:opacity-90 transition-all shadow-sm flex items-center gap-2">
-              <span>View my work</span>
-              <span class="material-symbols-outlined text-sm">arrow_downward</span>
-            </a>
-            <a href="#contact" class="btn-editorial-secondary px-5 py-3 rounded-xl font-sans text-xs font-medium hover:border-sky-500 transition-all shadow-sm flex items-center gap-1.5">
-              <span>Get in touch</span>
-              <span class="material-symbols-outlined text-sm">mail</span>
-            </a>
-            <button onclick="openResumeModal('ats')" class="px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 font-sans text-xs font-medium hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center gap-1.5 cursor-pointer">
-              <span class="material-symbols-outlined text-sm">article</span>
-              <span>ATS CV</span>
-            </button>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">View case studies <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+            <a class="button button-secondary" href="#contact">Contact &amp; availability</a>
           </div>
-
-          <!-- Proof Metadata Strip -->
-          <div class="pt-6 border-t border-slate-200 dark:border-zinc-800/80 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-slate-500 dark:text-slate-400">
-            <div class="flex items-center gap-1.5">
-              <span class="font-bold text-slate-900 dark:text-slate-200">2+ Years</span> Experience
-            </div>
-            <span class="text-slate-300 dark:text-zinc-700">·</span>
-            <div class="flex items-center gap-1.5">
-              <span class="font-bold text-slate-900 dark:text-slate-200">13+</span> Delivered Projects
-            </div>
-            <span class="text-slate-300 dark:text-zinc-700">·</span>
-            <div class="flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-xs text-sky-500">location_on</span> Kerala, India
-            </div>
+          <div class="metrics" aria-label="Portfolio summary">
+            <div class="metric"><strong class="metric-value">2+ Years</strong><span class="metric-label">Engineering experience</span></div>
+            <div class="metric"><strong class="metric-value">14</strong><span class="metric-label">Projects indexed</span></div>
+            <div class="metric"><strong class="metric-value">IST / +05:30</strong><span class="metric-label">Kerala, India</span></div>
           </div>
         </div>
-
-        <!-- Right Editorial Portrait (5 Cols) -->
-        <div class="lg:col-span-5 flex justify-center lg:justify-end">
-          <div class="relative group max-w-sm sm:max-w-md w-full">
-            <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-sky-500/20 via-indigo-500/10 to-transparent blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
-            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl profile-avatar-btn cursor-pointer" title="Click to view profile photo">
-              <div class="aspect-[4/5] w-full overflow-hidden bg-slate-100 dark:bg-zinc-950">
-                <img src="assets/images/profile_avatar.jpg" alt="Arjun R — Frontend Engineer" class="w-full h-full object-cover object-top profile-avatar-img transition-transform duration-500 group-hover:scale-[1.02]">
-              </div>
-              <div class="p-4 bg-white/90 dark:bg-zinc-900/90 backdrop-blur border-t border-slate-100 dark:border-zinc-800/60 flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <h3 class="font-display font-semibold text-sm text-slate-900 dark:text-white">Arjun R</h3>
-                  <p class="font-mono text-[11px] text-slate-500 dark:text-slate-400 truncate sm:whitespace-normal">Frontend Engineer · Cybersecurity &amp; Enterprise UI</p>
-                </div>
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800/60 font-medium whitespace-nowrap shrink-0">
-                  2+ Years Experience
-                </span>
-              </div>
-            </div>
-          </div>
+        <div class="hero-aside">
+          <figure class="portrait">
+            <img class="portrait-image" src="assets/images/profile_avatar.jpg" alt="Portrait of Arjun R" width="772" height="1024" fetchpriority="high">
+            <figcaption><span>Current / Innspark Solutions</span><span>CISAI</span></figcaption>
+          </figure>
         </div>
-
       </div>
     </section>
 
-    <!-- 2. PORTFOLIO // PROJECTS -->
-    <section id="work" class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-slate-200 dark:border-zinc-800/80">
-
-      <!-- Page Header -->
-      <div class="mb-12">
-        <span class="font-mono text-xs text-cyan-400 mb-2 block tracking-widest uppercase">PORTFOLIO // PROJECTS</span>
-        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Projects &amp; Applications</h2>
-        <p class="text-slate-300 text-base md:text-lg max-w-3xl font-sans">
-          A curated showcase of real-world web applications, interactive data dashboards, 3D visualizers, and front-end developer tools.
-        </p>
+    <section id="work" class="shell section" aria-labelledby="work-title">
+      <div class="section-heading">
+        <p class="section-number">01 // Selected Systems</p>
+        <h2 id="work-title" class="section-title">Case studies &amp; project index</h2>
+        <p class="section-intro">Projects are ordered by priority. Seven case studies cover product discovery, finance, commerce, graph rendering, public data, and security triage; seven additional systems are indexed below.</p>
       </div>
 
-      <!-- Search & Category Filters Toolbar -->
-      <div
-        class="glass-panel-v2 p-4 md:p-6 rounded-2xl mb-12 flex flex-col lg:flex-row justify-between items-center gap-6 border-white/10 shadow-xl">
-        <div class="apple-segmented-control w-full lg:w-auto">
-          <button onclick="filterProjects('all')"
-            class="apple-segmented-item filter-btn active">ALL (14)</button>
-          <button onclick="filterProjects('web')"
-            class="apple-segmented-item filter-btn">WEB APPS</button>
-          <button onclick="filterProjects('data')"
-            class="apple-segmented-item filter-btn">DATA VIZ</button>
-          <button onclick="filterProjects('ui')"
-            class="apple-segmented-item filter-btn">DASHBOARDS</button>
-          <button onclick="filterProjects('plugins')"
-            class="apple-segmented-item filter-btn">PLUGINS</button>
+      <div class="project-toolbar" aria-label="Project search and category filters">
+        <div class="filter-list" role="group" aria-label="Filter projects by category">
+          <button class="filter-button" type="button" data-filter="all" aria-pressed="true">ALL [14]</button>
+          <button class="filter-button" type="button" data-filter="web" aria-pressed="false">WEB APPS</button>
+          <button class="filter-button" type="button" data-filter="data" aria-pressed="false">DATA VIZ</button>
+          <button class="filter-button" type="button" data-filter="ui" aria-pressed="false">DASHBOARDS</button>
+          <button class="filter-button" type="button" data-filter="plugins" aria-pressed="false">PLUGINS</button>
         </div>
-
-        <div class="relative w-full lg:w-96">
-          <span
-            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
-          <input type="text" placeholder="Search by tech or keyword..."
-            class="w-full bg-slate-900/80 border border-white/15 rounded-xl py-3 pl-12 pr-4 text-xs font-mono text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all shadow-inner">
-        </div>
+        <label class="project-search">
+          <span class="sr-only">Search projects by name, technology, or keyword</span>
+          <svg aria-hidden="true"><use href="#icon-search"></use></svg>
+          <input id="project-search" type="search" placeholder="SEARCH NAME, STACK, OR SYSTEM" autocomplete="off" spellcheck="false">
+        </label>
+      </div>
+      <div class="results-line">
+        <span id="project-results-count" role="status" aria-live="polite">14 / 14 systems</span>
+        <span>Case studies + archive</span>
       </div>
 
-      <!-- Projects Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="projects-container">
+      <div id="featured-projects" class="featured-projects">
+        <article class="case-study" data-project data-category="web ui" data-search="Brunch indie maker launchpad community board Next.js React TypeScript Tailwind CSS upvoting For You Top Charts creator profiles">
+          <div class="case-copy">
+            <div class="case-topline"><span>Case 01 / Indie maker launchpad</span><span>Community board</span></div>
+            <h3 class="case-title">Brunch</h3>
+            <p class="case-description">A product showcase and discovery platform for indie makers and side projects, featuring upvoting dynamics, curated charts (“For You”, “Top Charts”), and creator profiles.</p>
+            <p class="stack-metadata">NEXT.JS / REACT / TYPESCRIPT / TAILWIND CSS</p>
+            <dl class="architecture-list">
+              <div class="architecture-row"><dt>Discovery</dt><dd>Curated “For You” and “Top Charts” views organize maker and side-project discovery.</dd></div>
+              <div class="architecture-row"><dt>Interaction</dt><dd>Upvoting dynamics and creator profiles connect projects with their audiences.</dd></div>
+              <div class="architecture-row"><dt>Delivery</dt><dd>A typed Next.js and React interface styled with Tailwind CSS.</dd></div>
+            </dl>
+            <div class="case-metrics" aria-label="Brunch implementation highlights">
+              <div class="case-metric"><strong>For You</strong><span>Discovery view</span></div>
+              <div class="case-metric"><strong>Top Charts</strong><span>Curated ranking</span></div>
+              <div class="case-metric"><strong>Profiles</strong><span>Creator pages</span></div>
+            </div>
+            <div class="case-actions">
+              <button class="text-link" type="button" data-preview data-preview-type="iframe" data-preview-url="https://brunch-4gts.vercel.app/" data-preview-title="Brunch — interactive preview">Interactive preview</button>
+              <a class="text-link" href="https://brunch-4gts.vercel.app/" target="_blank" rel="noopener noreferrer">Open application <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+            </div>
+          </div>
+          <figure class="case-media preview-frame">
+            <div class="preview-bar"><span>Brunch / Maker discovery</span><button class="preview-bar-button" type="button" data-preview data-preview-type="iframe" data-preview-url="https://brunch-4gts.vercel.app/" data-preview-title="Brunch — interactive preview">Launch preview <svg aria-hidden="true"><use href="#icon-external"></use></svg></button></div>
+            <img class="preview-image" src="assets/images/brunch.jpg" alt="Brunch indie maker launchpad with project discovery and community charts" width="1024" height="539" loading="lazy">
+          </figure>
+        </article>
 
-        <!-- Flagship Project: Brunch -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-amber-500/40 shadow-xl transition-all"
-          data-category="web ui">
-          <div>
-            <a href="https://brunch-4gts.vercel.app/" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/brunch.jpg" alt="Brunch — Indie Maker Discovery &amp; Launchpad"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-amber-950/80 text-amber-300 border-amber-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-amber-950/50 text-amber-300 border-amber-500/30">NEXT.JS</span>
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">TYPESCRIPT</span>
-                <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">TAILWIND CSS</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">LAUNCHPAD</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
-                <a href="https://brunch-4gts.vercel.app/" target="_blank" class="hover:underline">🍳 Brunch — Indie Maker &amp; Discovery Board</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">A community showcase and discovery launchpad for indie makers, games, tools, and side projects. Features upvoting dynamics, curated charts ("For You", "Top Charts"), and creator profiles.</p>
+        <article class="case-study reverse" data-project data-category="web data" data-search="InstantCred personal finance decision engine Vanilla JavaScript Vite Zero PII privacy architecture credit card recommendations annual rewards spending zero tracking">
+          <div class="case-copy">
+            <div class="case-topline"><span>Case 02 / Personal finance</span><span>Decision engine</span></div>
+            <h3 class="case-title">InstantCred</h3>
+            <p class="case-description">An algorithmic credit card recommendation engine calculating true net annual rewards from spending habits with zero tracking.</p>
+            <p class="stack-metadata">VANILLA JAVASCRIPT / VITE / ZERO-PII PRIVACY ARCHITECTURE</p>
+            <dl class="architecture-list">
+              <div class="architecture-row"><dt>Decision</dt><dd>Spending inputs are evaluated to calculate true net annual rewards.</dd></div>
+              <div class="architecture-row"><dt>Privacy</dt><dd>A zero-PII privacy architecture provides recommendations without tracking.</dd></div>
+              <div class="architecture-row"><dt>Delivery</dt><dd>Vanilla JavaScript and Vite keep the decision tool focused and lightweight.</dd></div>
+            </dl>
+            <div class="case-metrics" aria-label="InstantCred implementation highlights">
+              <div class="case-metric"><strong>Net annual</strong><span>Reward calculation</span></div>
+              <div class="case-metric"><strong>Zero-PII</strong><span>Privacy architecture</span></div>
+              <div class="case-metric"><strong>No tracking</strong><span>Recommendation flow</span></div>
+            </div>
+            <div class="case-actions">
+              <button class="text-link" type="button" data-preview data-preview-type="iframe" data-preview-url="https://www.instantcred.in/" data-preview-title="InstantCred — interactive preview">Interactive preview</button>
+              <a class="text-link" href="https://www.instantcred.in/" target="_blank" rel="noopener noreferrer">Open application <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
             </div>
           </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-amber-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://brunch-4gts.vercel.app/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
+          <figure class="case-media preview-frame">
+            <div class="preview-bar"><span>InstantCred / Reward decisions</span><button class="preview-bar-button" type="button" data-preview data-preview-type="iframe" data-preview-url="https://www.instantcred.in/" data-preview-title="InstantCred — interactive preview">Launch preview <svg aria-hidden="true"><use href="#icon-external"></use></svg></button></div>
+            <img class="preview-image" src="assets/images/instantcred.png" alt="InstantCred personal finance decision engine with credit card recommendations" width="1024" height="710" loading="lazy">
+          </figure>
+        </article>
 
-        <!-- Flagship Project: IndiaLens -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="data">
-          <div>
-            <a href="https://indialens.vercel.app" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/indialens.png" alt="IndiaLens — Government Data Intelligence Platform"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">LEAFLET.JS</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">CHART.JS 4</span>
-                <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">DATA.GOV.IN</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">POLICY BENCHMARKS</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://indialens.vercel.app" target="_blank" class="hover:underline">🇮🇳 IndiaLens — Government Data Intelligence</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Open data visualization portal for Indian public metrics. Integrates Data.gov.in APIs with interactive Leaflet maps, multi-state comparison charts, and regional analytics.</p>
+        <article class="case-study" data-project data-category="web ui" data-search="PixelNest headless commerce admin portal React 19 TypeScript Shopify GraphQL API Vite fuzzy search cart drawer sales analytics">
+          <div class="case-copy">
+            <div class="case-topline"><span>Case 03 / Headless commerce</span><span>Storefront + admin</span></div>
+            <h3 class="case-title">PixelNest</h3>
+            <p class="case-description">A headless Shopify e-commerce storefront with client-side fuzzy search, a cart drawer, and an integrated sales analytics admin console.</p>
+            <p class="stack-metadata">REACT 19 / TYPESCRIPT / SHOPIFY GRAPHQL API / VITE</p>
+            <dl class="architecture-list">
+              <div class="architecture-row"><dt>Storefront</dt><dd>Client-side fuzzy search and a cart drawer support product discovery and checkout.</dd></div>
+              <div class="architecture-row"><dt>Admin</dt><dd>An integrated administrative console exposes sales analytics beside the storefront.</dd></div>
+              <div class="architecture-row"><dt>Data</dt><dd>Typed React 19 views consume commerce data through Shopify’s GraphQL API.</dd></div>
+            </dl>
+            <div class="case-metrics" aria-label="PixelNest implementation highlights">
+              <div class="case-metric"><strong>Store + admin</strong><span>Application surfaces</span></div>
+              <div class="case-metric"><strong>Fuzzy search</strong><span>Client discovery</span></div>
+              <div class="case-metric"><strong>Shopify GQL</strong><span>Commerce data</span></div>
+            </div>
+            <div class="case-actions">
+              <button class="text-link" type="button" data-preview data-preview-type="iframe" data-preview-url="https://pixelnest-headless-shopify.vercel.app/" data-preview-title="PixelNest — interactive preview">Interactive preview</button>
+              <a class="text-link" href="https://pixelnest-headless-shopify.vercel.app/" target="_blank" rel="noopener noreferrer">Open application <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
             </div>
           </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-cyan-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://indialens.vercel.app" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
+          <figure class="case-media preview-frame">
+            <div class="preview-bar"><span>PixelNest / Headless commerce</span><button class="preview-bar-button" type="button" data-preview data-preview-type="iframe" data-preview-url="https://pixelnest-headless-shopify.vercel.app/" data-preview-title="PixelNest — interactive preview">Launch preview <svg aria-hidden="true"><use href="#icon-external"></use></svg></button></div>
+            <img class="preview-image" src="assets/images/pixelnest.png" alt="PixelNest headless Shopify storefront and sales analytics admin portal" width="1024" height="586" loading="lazy">
+          </figure>
+        </article>
 
-        <!-- Flagship Project: Cyber Crimes & Threat Intelligence India -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="data web">
-          <div>
-            <a href="https://cyber-threat-intelligence-india.vercel.app" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/cyber_threat_intel.png" alt="Cyber Crimes &amp; Threat Intelligence India"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT 19</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">LEAFLET MAPS</span>
-                <span class="badge-pill bg-rose-950/50 text-rose-300 border-rose-500/30">THREAT SCANNER</span>
-                <span class="badge-pill bg-amber-950/50 text-amber-300 border-amber-500/30">1930 TRIAGE</span>
-                <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">IT ACT &amp; BNS</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://cyber-threat-intelligence-india.vercel.app" target="_blank" class="hover:underline">🇮🇳 Cyber Crimes &amp; Threat Intelligence India</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Public cybersecurity telemetry platform built with React 19 and Leaflet. Tracks national cybercrime trends, visualizes digital scam patterns, and provides guided incident triage for the 1930 helpline.</p>
+        <article class="case-study reverse" data-project data-category="ui data" data-search="ThreatLens security telemetry web console cyber command D3.js v7 Leaflet OSINT telemetry network graphs 12 panels simulated threat events force directed geospatial">
+          <div class="case-copy">
+            <div class="case-topline"><span>Case 04 / Security telemetry</span><span>Web console</span></div>
+            <h3 class="case-title">ThreatLens</h3>
+            <p class="case-description">A 12-panel cyber command console for exploring simulated threat events through a force-directed network graph and geospatial overlays.</p>
+            <p class="stack-metadata">D3.JS V7 / LEAFLET / OSINT TELEMETRY / NETWORK GRAPHS</p>
+            <dl class="architecture-list">
+              <div class="architecture-row"><dt>Render</dt><dd>D3 force simulation with a shared node-selection and inspection model.</dd></div>
+              <div class="architecture-row"><dt>Data</dt><dd>Leaflet layers and simulated OSINT telemetry, separated from live customer sources.</dd></div>
+              <div class="architecture-row"><dt>Privacy</dt><dd>Demonstration records execute entirely in the browser.</dd></div>
+            </dl>
+            <div class="case-metrics" aria-label="ThreatLens implementation metrics">
+              <div class="case-metric"><strong>12</strong><span>Monitoring modules</span></div>
+              <div class="case-metric"><strong>D3 v7</strong><span>Graph renderer</span></div>
+              <div class="case-metric"><strong>Local</strong><span>Demo data boundary</span></div>
+            </div>
+            <div class="case-actions">
+              <button class="text-link" type="button" data-preview data-preview-type="iframe" data-preview-url="https://threatlens-jade.vercel.app/" data-preview-title="ThreatLens — interactive preview">Interactive preview</button>
+              <a class="text-link" href="https://github.com/Arjunrajan250/ThreatLens" target="_blank" rel="noopener noreferrer">Repository <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
             </div>
           </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-cyan-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://cyber-threat-intelligence-india.vercel.app" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
+          <figure class="case-media preview-frame">
+            <div class="preview-bar"><span>ThreatLens / Network topology</span><button class="preview-bar-button" type="button" data-preview data-preview-type="iframe" data-preview-url="https://threatlens-jade.vercel.app/" data-preview-title="ThreatLens — interactive preview">Launch preview <svg aria-hidden="true"><use href="#icon-external"></use></svg></button></div>
+            <img class="preview-image" src="assets/images/threatlens.png" alt="ThreatLens cybersecurity console showing network topology and monitoring panels" width="1024" height="1024" loading="lazy">
+          </figure>
+        </article>
 
-        <!-- Project: InstantCred -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="web data">
-          <div>
-            <a href="https://www.instantcred.in/" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/instantcred.png" alt="InstantCred — Personal Finance Decision Engine"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-emerald-950/80 text-emerald-300 border-emerald-500/40">LIVE PRODUCTION</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">VANILLA JS</span>
-                <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">VITE</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">FINTECH ENGINE</span>
-                <span class="badge-pill bg-amber-950/50 text-amber-300 border-amber-500/30">30S SMART MATCH</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">ZERO-PII</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://www.instantcred.in/" target="_blank" class="hover:underline">💳 InstantCred — Personal Finance Decision Engine</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Personal finance decision engine for Indian credit cards. Calculates real net annual benefits based on user spending habits with a 30-second match wizard and a zero-PII, privacy-first design.</p>
+        <article class="case-study" data-project data-category="data web" data-search="IndiaLens open data GIS regional analytics government public metrics Data.gov.in APIs Leaflet Chart.js 4 GeoJSON policy benchmarks state comparison interactive maps">
+          <div class="case-copy">
+            <div class="case-topline"><span>Case 05 / Open data GIS</span><span>Regional analytics</span></div>
+            <h3 class="case-title">IndiaLens</h3>
+            <p class="case-description">An open-data intelligence workspace synthesizing Indian public metrics across states with interactive maps, policy benchmarks, and comparison charts.</p>
+            <p class="stack-metadata">LEAFLET / CHART.JS 4 / DATA.GOV.IN APIS / GEOJSON</p>
+            <dl class="architecture-list">
+              <div class="architecture-row"><dt>Ingest</dt><dd>Public API records are normalized into shared regional view models.</dd></div>
+              <div class="architecture-row"><dt>Render</dt><dd>Leaflet geography and Chart.js comparisons respond to the same selected region.</dd></div>
+              <div class="architecture-row"><dt>Access</dt><dd>Only public datasets are requested; no private account data is required.</dd></div>
+            </dl>
+            <div class="case-metrics" aria-label="IndiaLens implementation metrics">
+              <div class="case-metric"><strong>Multi-state</strong><span>Comparison model</span></div>
+              <div class="case-metric"><strong>2 Views</strong><span>Map + chart output</span></div>
+              <div class="case-metric"><strong>Public</strong><span>Data source</span></div>
+            </div>
+            <div class="case-actions">
+              <button class="text-link" type="button" data-preview data-preview-type="iframe" data-preview-url="https://indialens.vercel.app" data-preview-title="IndiaLens — interactive preview">Interactive preview</button>
+              <a class="text-link" href="https://indialens.vercel.app" target="_blank" rel="noopener noreferrer">Open application <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
             </div>
           </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Live Production</span>
-            <div class="flex items-center gap-3">
-              <a href="https://www.instantcred.in/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
+          <figure class="case-media preview-frame">
+            <div class="preview-bar"><span>IndiaLens / Regional analytics</span><button class="preview-bar-button" type="button" data-preview data-preview-type="iframe" data-preview-url="https://indialens.vercel.app" data-preview-title="IndiaLens — interactive preview">Launch preview <svg aria-hidden="true"><use href="#icon-external"></use></svg></button></div>
+            <img class="preview-image" src="assets/images/indialens.png" alt="IndiaLens public-data dashboard with Indian map and regional charts" width="1024" height="587" loading="lazy">
+          </figure>
+        </article>
 
-        <!-- Project: PixelNest -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="web ui">
-          <div>
-            <a href="https://pixelnest-headless-shopify.vercel.app/" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/pixelnest.png" alt="PixelNest Headless Shopify Commerce & Admin Portal"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT 19</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">TYPESCRIPT</span>
-                <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">VITE</span>
-                <span class="badge-pill bg-rose-950/50 text-rose-300 border-rose-500/30">SHOPIFY GRAPHQL</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">ADMIN PORTAL</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://pixelnest-headless-shopify.vercel.app/" target="_blank" class="hover:underline">🛍️ PixelNest — Headless Shopify &amp; Admin Portal</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">High-performance headless e-commerce storefront powered by Shopify's GraphQL API and React 19. Features instant client-side search, a slide-out cart drawer, and order tracking.</p>
+        <article class="case-study reverse" data-project data-category="data web ui" data-search="Cyber Crimes Threat Intelligence India national telemetry incident triage React 19 Leaflet 1930 helpline IT Act BNS cybercrime patterns Indian law incident reports scanner">
+          <div class="case-copy">
+            <div class="case-topline"><span>Case 06 / National telemetry</span><span>Incident triage</span></div>
+            <h3 class="case-title">Cyber Crimes &amp; Threat Intelligence India</h3>
+            <p class="case-description">A public security interface analyzing national cybercrime patterns, categorizing offenses under Indian law, and preparing incident reports for the 1930 helpline.</p>
+            <p class="stack-metadata">REACT 19 / LEAFLET / 1930 HELPLINE TRIAGE / IT ACT + BNS</p>
+            <dl class="architecture-list">
+              <div class="architecture-row"><dt>Render</dt><dd>React 19 views coordinate national trend charts and Leaflet incident maps.</dd></div>
+              <div class="architecture-row"><dt>Workflow</dt><dd>Guided triage converts an incident description into structured reporting steps.</dd></div>
+              <div class="architecture-row"><dt>Reference</dt><dd>IT Act and BNS categories sit beside the 1930 reporting workflow.</dd></div>
+            </dl>
+            <div class="case-metrics" aria-label="Cyber Threat Intelligence implementation metrics">
+              <div class="case-metric"><strong>1930</strong><span>Helpline workflow</span></div>
+              <div class="case-metric"><strong>React 19</strong><span>UI runtime</span></div>
+              <div class="case-metric"><strong>IT Act + BNS</strong><span>Legal references</span></div>
+            </div>
+            <div class="case-actions">
+              <button class="text-link" type="button" data-preview data-preview-type="iframe" data-preview-url="https://cyber-threat-intelligence-india.vercel.app" data-preview-title="Cyber Crimes and Threat Intelligence India — interactive preview">Interactive preview</button>
+              <a class="text-link" href="https://cyber-threat-intelligence-india.vercel.app" target="_blank" rel="noopener noreferrer">Open application <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
             </div>
           </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-cyan-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://pixelnest-headless-shopify.vercel.app/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
+          <figure class="case-media preview-frame">
+            <div class="preview-bar"><span>Cyber Intelligence / National telemetry</span><button class="preview-bar-button" type="button" data-preview data-preview-type="iframe" data-preview-url="https://cyber-threat-intelligence-india.vercel.app" data-preview-title="Cyber Crimes and Threat Intelligence India — interactive preview">Launch preview <svg aria-hidden="true"><use href="#icon-external"></use></svg></button></div>
+            <img class="preview-image" src="assets/images/cyber_threat_intel.png" alt="Cyber Crimes and Threat Intelligence India dashboard with crime trends and triage tools" width="1024" height="578" loading="lazy">
+          </figure>
+        </article>
 
-        <!-- Flagship Project: Nexa Digitals -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="web ui">
-          <div>
-            <a href="https://nexusloot.vercel.app/" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/nexa_digitals.png" alt="Nexa Digitals (NexusLoot) — Digital Subscriptions & Licenses Marketplace"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT 19</span>
-                <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">VITE</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">DIGITAL COMMERCE</span>
-                <span class="badge-pill bg-amber-950/50 text-amber-300 border-amber-500/30">MULTI-CURRENCY</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">INSTANT DISPATCH</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://nexusloot.vercel.app/" target="_blank" class="hover:underline">⚡ Nexa Digitals — Digital Subscriptions &amp; Licenses</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Modern e-commerce marketplace for instant software licenses, AI subscriptions, and gaming codes. Features multi-currency conversion, real-time catalog search, interactive cart drawer, and post-checkout credential reveal.</p>
+        <article class="case-study" data-project data-category="data ui" data-search="Network Analysis Dashboard enterprise topology graph visualization commercial Angular TypeScript ForceAtlas2 graph clustering dense cluster persistent node inspector">
+          <div class="case-copy">
+            <div class="case-topline"><span>Case 07 / Enterprise topology</span><span>Commercial graph visualization</span></div>
+            <h3 class="case-title">Network Analysis Dashboard</h3>
+            <p class="case-description">An enterprise workspace for inspecting dense cluster topology using ForceAtlas2 with a persistent node inspector model.</p>
+            <p class="stack-metadata">ANGULAR / TYPESCRIPT / FORCEATLAS2 / GRAPH CLUSTERING</p>
+            <dl class="architecture-list">
+              <div class="architecture-row"><dt>Layout</dt><dd>ForceAtlas2 computes readable cluster positions for connected network entities.</dd></div>
+              <div class="architecture-row"><dt>State</dt><dd>Selection and inspection preserve the current viewport and graph state.</dd></div>
+              <div class="architecture-row"><dt>Structure</dt><dd>Typed view models isolate topology rendering from enterprise data contracts.</dd></div>
+            </dl>
+            <div class="case-metrics" aria-label="Network Analysis Dashboard implementation metrics">
+              <div class="case-metric"><strong>ForceAtlas2</strong><span>Layout engine</span></div>
+              <div class="case-metric"><strong>Retained</strong><span>Inspection context</span></div>
+              <div class="case-metric"><strong>Angular</strong><span>UI runtime</span></div>
+            </div>
+            <div class="case-actions">
+              <button class="text-link" type="button" data-preview data-preview-type="image" data-preview-url="assets/images/img_cbd9d91170.jpg" data-preview-title="Network Analysis Dashboard — interface preview">Inspect interface</button>
+              <span class="meta-label">Confidential client work</span>
             </div>
           </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-cyan-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://nexusloot.vercel.app/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Flagship Project 1: Sadhnam Indo -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="web">
-          <div>
-            <a href="https://sadhnam-indo.vercel.app/" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/sadhnam_indo.png" alt="Sadhnam Indo"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-emerald-950/80 text-emerald-300 border-emerald-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">REACT 19</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">SUPABASE</span>
-                <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">LEAFLET</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">AES CRYPTO</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://sadhnam-indo.vercel.app/" target="_blank" class="hover:underline">Sadhnam Indo — P2P Mutual Aid</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Hyperlocal community mutual aid platform built with React 19 and Supabase. Features neighborhood request mapping, encrypted messaging, and multilingual support.</p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://sadhnam-indo.vercel.app/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Flagship Project 2: ThreatLens -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="ui">
-          <div>
-            <div class="aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/threatlens.png" alt="ThreatLens Cyber Intelligence"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">LIVE VERCEL</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">D3.JS V7</span>
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">LEAFLET</span>
-                <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">OSINT TELEMETRY</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">NETWORK GRAPH</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">ThreatLens — Cybersecurity Console</h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Interactive cybersecurity console featuring 12 modular monitoring panels, D3 force-directed network topology graphs, and simulated threat intelligence.</p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-indigo-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://threatlens-jade.vercel.app/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250/ThreatLens" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Flagship Project 3: ARION -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="ui">
-          <div>
-            <a href="https://arion-aju.vercel.app/" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/arion.png" alt="ARION Tactical Surveillance"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-violet-950/80 text-violet-300 border-violet-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">DATA VIZ</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">WEB SPEECH API</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">WEBGL GLOBE</span>
-                <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">WEB AUDIO</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://arion-aju.vercel.app/" target="_blank" class="hover:underline">ARION — Geospatial 3D Dashboard</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Interactive 3D geospatial dashboard with WebGL globe rendering, tactical map overlays, and voice command recognition via the Web Speech API.</p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-violet-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://arion-aju.vercel.app/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: VortexDL / Multi-Source Video Downloader -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="web">
-          <div>
-            <a href="https://938752.vercel.app/" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/vortexdl.png" alt="VortexDL Media Downloader"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-emerald-950/50 text-emerald-300 border-emerald-500/30">NODE.JS STREAMS</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">EXPRESS API</span>
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">YT-DLP BINARY</span>
-                <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">STREAM PIPES</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://938752.vercel.app/" target="_blank" class="hover:underline">VortexDL — Media Extraction Tool</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Lightweight media extraction utility built on Node.js streaming pipelines, piping video streams directly via child processes with zero disk overhead.</p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-cyan-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://938752.vercel.app/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
-        <!-- Project 1: Network Analysis Dashboard -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="data">
-          <div>
-            <div class="aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/img_cbd9d91170.jpg" alt="Network Analysis Dashboard"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">COMMERCIAL</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">ANGULAR</span>
-                <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">GRAPH VIZ</span>
-                <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">TYPESCRIPT</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Network Analysis Dashboard</h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Enterprise cluster network visualization powered by ForceAtlas2 graph layouts, dynamic node inspection, and state preservation.</p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex justify-end items-center border-t border-white/5 mt-4">
-            <a href="https://github.com/Arjunrajan250" target="_blank"
-              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">Source Code <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
-          </div>
-        </div>
-
-        <!-- Project 2: Traffic Analytics Hub -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="data">
-          <div>
-            <div class="aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/img_5ea0394726.jpg" alt="Traffic Analytics Hub"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-indigo-950/80 text-indigo-300 border-indigo-500/40">COMMERCIAL</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">DATA VIZ</span>
-                <span class="badge-pill bg-slate-900 text-slate-300 border-white/10">TYPESCRIPT</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Traffic Analytics Hub</h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">High-throughput real-time telemetry monitoring system built with custom dynamic visualizations and live WebSockets.</p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex justify-end items-center border-t border-white/5 mt-4">
-            <a href="https://github.com/Arjunrajan250" target="_blank"
-              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">Source Code <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
-          </div>
-        </div>
-
-        <!-- Project 3: Luxe3D Quantum One Showcase -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="ui">
-          <div>
-            <a href="https://interactive-3d-showcase.vercel.app/" target="_blank"
-              class="block aspect-video w-full overflow-hidden relative bg-slate-900">
-              <img src="assets/images/luxe3d.png" alt="Luxe3D Visualizer"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3">
-                <span class="badge-pill bg-cyan-950/80 text-cyan-300 border-cyan-500/40">LIVE VERCEL</span>
-              </div>
-            </a>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">THREE.JS</span>
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">GLSL</span>
-                <span class="badge-pill bg-violet-950/50 text-violet-300 border-violet-500/30">WEB AUDIO API</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                <a href="https://interactive-3d-showcase.vercel.app/" target="_blank" class="hover:underline">Luxe3D — 3D Product Visualizer</a>
-              </h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Real-time 3D product visualizer built with Three.js. Features interactive material customization, orbital camera controls, and ambient sound effects.</p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-cyan-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Live on Vercel</span>
-            <div class="flex items-center gap-3">
-              <a href="https://interactive-3d-showcase.vercel.app/" target="_blank"
-                class="visit-app-btn group">
-                <span class="visit-pulse-dot"><span></span><span></span></span>
-                <span>Live Demo</span>
-                <span class="material-symbols-outlined text-sm icon-arrow">open_in_new</span>
-              </a>
-              <a href="https://github.com/Arjunrajan250" target="_blank"
-                class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">Repo <span
-                  class="material-symbols-outlined text-sm">code</span></a>
-            </div>
-          </div>
-        </div>
-
-
-
-        <!-- Project 5: SVG Convert Figma Plugin -->
-        <div
-          class="project-card glass-panel-v2 rounded-2xl overflow-hidden group flex flex-col justify-between border-white/10 hover:border-cyan-500/40 shadow-xl transition-all"
-          data-category="plugins">
-          <div>
-            <div class="aspect-video w-full overflow-hidden relative bg-slate-900 flex items-center justify-center">
-              <span
-                class="material-symbols-outlined text-6xl text-indigo-400 opacity-80 group-hover:scale-110 transition-transform">polyline</span>
-            </div>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="badge-pill bg-indigo-950/50 text-indigo-300 border-indigo-500/30">FIGMA API</span>
-                <span class="badge-pill bg-cyan-950/50 text-cyan-300 border-cyan-500/30">IMAGETRACERJS</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">SVG Convert — Figma Plugin</h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-4">Offline-first vectorization plugin built with the Figma Plugin API and ImageTracerJS for client-side SVG conversion and palette extraction.</p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex justify-between items-center border-t border-white/5 mt-4">
-            <span class="font-mono text-[11px] text-slate-400">Status: Released</span>
-            <a href="https://github.com/Arjunrajan250" target="_blank"
-              class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">Source Code <span
-                class="material-symbols-outlined text-sm">open_in_new</span></a>
-          </div>
-        </div>
-
+          <figure class="case-media preview-frame">
+            <div class="preview-bar"><span>Network Analysis / Cluster inspection</span><button class="preview-bar-button" type="button" data-preview data-preview-type="image" data-preview-url="assets/images/img_cbd9d91170.jpg" data-preview-title="Network Analysis Dashboard — interface preview">Expand interface <svg aria-hidden="true"><use href="#icon-external"></use></svg></button></div>
+            <img class="preview-image" src="assets/images/img_cbd9d91170.jpg" alt="Enterprise Network Analysis Dashboard showing a cluster graph and node inspector" width="512" height="512" loading="lazy">
+          </figure>
+        </article>
       </div>
 
+      <div id="project-archive" class="archive" aria-labelledby="archive-title">
+        <div class="archive-heading">
+          <h3 id="archive-title" class="archive-title">Project Archive</h3>
+          <span id="archive-count" class="archive-count">7 entries</span>
+        </div>
+        <div class="archive-columns" aria-hidden="true"><span>No.</span><span>System</span><span>Category</span><span>Implementation</span><span>Access</span></div>
+        <div id="archive-rows">
+          <article class="archive-row" data-project data-category="web" data-search="Sadhnam Indo hyperlocal P2P mutual aid React 19 Supabase Leaflet Web Crypto API real time state sync end to end encrypted messaging geospatial resource pins">
+            <span class="archive-number">08</span>
+            <div class="archive-project"><h4 class="archive-name">Sadhnam Indo</h4><p class="archive-summary">Peer-to-peer community platform with real-time state sync, end-to-end encrypted messaging, and geospatial resource pins.</p></div>
+            <span class="archive-category">Hyperlocal mutual aid</span><span class="archive-stack">REACT 19 / SUPABASE / LEAFLET / WEB CRYPTO</span>
+            <a class="archive-link text-link" href="https://sadhnam-indo.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Sadhnam Indo">Open <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+          </article>
+          <article class="archive-row" data-project data-category="web ui" data-search="Nexa Digitals NexusLoot digital goods marketplace React 19 Vite multi currency engine licenses gaming subscriptions real time conversion instant post checkout credential reveal">
+            <span class="archive-number">09</span>
+            <div class="archive-project"><h4 class="archive-name">Nexa Digitals (NexusLoot)</h4><p class="archive-summary">Digital license and gaming subscription marketplace with real-time multi-currency conversion and instant post-checkout credential reveal.</p></div>
+            <span class="archive-category">Digital goods marketplace</span><span class="archive-stack">REACT 19 / VITE / MULTI-CURRENCY ENGINE</span>
+            <a class="archive-link text-link" href="https://nexusloot.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Nexa Digitals NexusLoot">Open <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+          </article>
+          <article class="archive-row" data-project data-category="ui data" data-search="ARION C4ISR tactical command suite Three.js WebGL Web Speech AI Web Audio API tactical surveillance interactive 3D globe trajectory arcs browser voice recognition">
+            <span class="archive-number">10</span>
+            <div class="archive-project"><h4 class="archive-name">ARION</h4><p class="archive-summary">Tactical surveillance suite with an interactive 3D WebGL globe, trajectory arcs, and browser voice recognition.</p></div>
+            <span class="archive-category">C4ISR command suite</span><span class="archive-stack">THREE.JS WEBGL / WEB SPEECH AI / WEB AUDIO</span>
+            <a class="archive-link text-link" href="https://arion-aju.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open ARION">Open <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+          </article>
+          <article class="archive-row" data-project data-category="web" data-search="VortexDL media extraction utility high throughput Node.js Express yt-dlp stream pipes media transfer no intermediate server disk writes">
+            <span class="archive-number">11</span>
+            <div class="archive-project"><h4 class="archive-name">VortexDL</h4><p class="archive-summary">High-throughput media extraction using Node.js stream pipes to transfer media without intermediate server disk writes.</p></div>
+            <span class="archive-category">Media extraction utility</span><span class="archive-stack">NODE.JS / EXPRESS / YT-DLP STREAM PIPES</span>
+            <a class="archive-link text-link" href="https://938752.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open VortexDL">Open <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+          </article>
+          <article class="archive-row" data-project data-category="data ui" data-search="Traffic Analytics Hub real time telemetry client commercial TypeScript WebSockets custom SVG Canvas charts sensor telemetry">
+            <span class="archive-number">12</span>
+            <div class="archive-project"><h4 class="archive-name">Traffic Analytics Hub</h4><p class="archive-summary">Live traffic analytics console streaming real-time sensor telemetry over WebSockets into responsive custom charts.</p></div>
+            <span class="archive-category">Real-time telemetry client</span><span class="archive-stack">TYPESCRIPT / WEBSOCKETS / SVG + CANVAS CHARTS</span>
+            <span class="archive-link meta-label">Client</span>
+          </article>
+          <article class="archive-row" data-project data-category="ui" data-search="Luxe3D Quantum One 3D product configurator Three.js WebGL GLSL shaders Web Audio API parametric optics lighting synthesized audio feedback">
+            <span class="archive-number">13</span>
+            <div class="archive-project"><h4 class="archive-name">Luxe3D Quantum One</h4><p class="archive-summary">Interactive 3D configurator with parametric optics, custom WebGL GLSL shader lighting, and synthesized audio feedback.</p></div>
+            <span class="archive-category">3D product configurator</span><span class="archive-stack">THREE.JS / WEBGL GLSL / WEB AUDIO</span>
+            <a class="archive-link text-link" href="https://interactive-3d-showcase.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Luxe3D Quantum One">Open <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+          </article>
+          <article class="archive-row" data-project data-category="plugins" data-search="SVG Convert design tooling Figma Plugin Studio Figma Plugin API ImageTracerJS Canvas API image to vector raster bitmap clean SVG paths browser Figma">
+            <span class="archive-number">14</span>
+            <div class="archive-project"><h4 class="archive-name">SVG Convert</h4><p class="archive-summary">Client-side image-to-vector studio converting raster bitmaps into clean SVG paths directly inside the browser and Figma.</p></div>
+            <span class="archive-category">Design tooling</span><span class="archive-stack">FIGMA PLUGIN API / IMAGETRACERJS / CANVAS API</span>
+            <a class="archive-link text-link" href="https://github.com/Arjunrajan250" target="_blank" rel="noopener noreferrer" aria-label="Open Arjun R GitHub profile for SVG Convert">Code <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+          </article>
+        </div>
+      </div>
+      <p id="no-project-results" class="no-results" hidden>No projects match the current filter and search query. <button class="text-link" type="button" data-clear-filters>Reset filters</button></p>
     </section>
 
-    <!-- 3. WHAT I BUILD (4 CORE CAPABILITIES) -->
-    <section id="capabilities" class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-slate-200 dark:border-zinc-800/80">
-      <div class="max-w-3xl lg:max-w-4xl mb-14 space-y-3">
-        <span class="text-xs font-mono uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400 font-semibold">02 / Capabilities</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
-          What I bring to the table.
-        </h2>
-        <p class="font-sans text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-          I bridge the gap between high-level UI design aesthetics and low-level frontend performance engineering.
-        </p>
+    <section id="capabilities" class="shell section" aria-labelledby="capabilities-title">
+      <div class="section-heading">
+        <p class="section-number">02 // Core Engineering</p>
+        <h2 id="capabilities-title" class="section-title">Systems &amp; Architecture</h2>
+        <p class="section-intro">Implementation work spans component architecture, rendering pipelines, streamed data, and client-side security boundaries.</p>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Pillar 1 -->
-        <div class="p-8 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/70 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800/60 flex items-center justify-center text-sky-600 dark:text-sky-400">
-            <span class="material-symbols-outlined text-xl">bolt</span>
-          </div>
-          <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">High-Performance Interfaces</h3>
-          <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Responsive web applications designed to remain fast even with dense state trees, live telemetry streams, and high-event-volume client side updates.
-          </p>
-        </div>
-
-        <!-- Pillar 2 -->
-        <div class="p-8 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/70 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
-            <span class="material-symbols-outlined text-xl">shield</span>
-          </div>
-          <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Cybersecurity &amp; SOC Consoles</h3>
-          <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Operational dashboards for incident triage (SIEM, SOAR, UEBA, NDR), threat tracking, and event correlation with strict enterprise client-side privacy boundaries.
-          </p>
-        </div>
-
-        <!-- Pillar 3 -->
-        <div class="p-8 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/70 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-200 dark:border-cyan-800/60 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
-            <span class="material-symbols-outlined text-xl">monitoring</span>
-          </div>
-          <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Interactive Data Visualization</h3>
-          <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Dynamic Choropleth maps, force-directed graph topologies, 3D WebGL canvas scenes, and telemetry charts that make multidimensional datasets instantly intuitive.
-          </p>
-        </div>
-
-        <!-- Pillar 4 -->
-        <div class="p-8 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/70 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-violet-50 dark:bg-violet-950/50 border border-violet-200 dark:border-violet-800/60 flex items-center justify-center text-violet-600 dark:text-violet-400">
-            <span class="material-symbols-outlined text-xl">widgets</span>
-          </div>
-          <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Scalable Frontend Systems</h3>
-          <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Reusable component libraries, design systems with tailored CSS variables, modular state propagation, and clean, maintainable TypeScript architectures.
-          </p>
-        </div>
-
+      <div class="core-list">
+        <article class="core-row"><span class="core-number">01</span><h3 class="core-title">Rendering &amp; application state</h3><p class="core-description">Standalone Angular components and React view layers with explicit data contracts, lazy-loaded routes, and controlled update paths for dense application state.</p><p class="core-tools">ANGULAR / REACT / TYPESCRIPT / RXJS</p></article>
+        <article class="core-row"><span class="core-number">02</span><h3 class="core-title">High-density telemetry</h3><p class="core-description">Event tables, triage queues, and operational charts designed around scanning speed, consistent alignment, and real-time WebSocket or RxJS updates.</p><p class="core-tools">SIEM / SOAR / UEBA / NDR / WEBSOCKETS</p></article>
+        <article class="core-row"><span class="core-number">03</span><h3 class="core-title">Graphs, maps &amp; canvas</h3><p class="core-description">Force-directed networks, geographic overlays, and WebGL scenes with selection state kept independent from the rendering engine.</p><p class="core-tools">D3 / SIGMA / LEAFLET / THREE.JS / GLSL</p></article>
+        <article class="core-row"><span class="core-number">04</span><h3 class="core-title">Client-side data boundaries</h3><p class="core-description">Strict handling of enterprise data, local-only utilities where practical, and privacy-aware workflows that keep sensitive inputs out of unnecessary network requests.</p><p class="core-tools">ZERO-PII / LOCAL PROCESSING / ACCESS CONTROL</p></article>
       </div>
     </section>
 
-    <!-- 4. EXPERIENCE & EDUCATION -->
-    <section id="experience" class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-slate-200 dark:border-zinc-800/80">
-      <div class="max-w-3xl lg:max-w-4xl mb-14 space-y-3">
-        <span class="text-xs font-mono uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400 font-semibold">03 / Track Record</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
-          Professional Experience
-        </h2>
-        <p class="font-sans text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-          Building mission-critical cybersecurity suites, real-time telemetry dashboards, and modern full-stack systems.
-        </p>
+    <section id="experience" class="shell section" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <p class="section-number">03 // Experience</p>
+        <h2 id="experience-title" class="section-title">Professional Experience</h2>
+        <p class="section-intro">Current work centers on enterprise cybersecurity interfaces, telemetry views, and reusable frontend systems.</p>
       </div>
-
-      <!-- Experience Items -->
-      <div class="space-y-10 border-l border-slate-200 dark:border-zinc-800 pl-6 sm:pl-8 ml-2 sm:ml-4">
-        
-        <!-- Position 1 -->
-        <div class="relative space-y-2">
-          <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-sky-500 ring-4 ring-white dark:ring-zinc-950"></span>
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">
-              Frontend Engineer <span class="text-sky-600 dark:text-sky-400 font-normal">· Innspark Solutions (CISAI)</span>
-            </h3>
-            <span class="font-mono text-xs text-slate-500 dark:text-slate-400">June 2024 — Present</span>
-          </div>
-          <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed pt-1">
-            Developing enterprise cybersecurity platforms (SIEM, SOAR, UEBA, DNS security) and confidential governmental portals.
-          </p>
-          <ul class="list-disc list-inside font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-1.5 pt-2 leading-relaxed">
-            <li>Architect dynamic real-time telemetry dashboards and interactive data visualizations with amCharts, Three.js, Highcharts, and Chart.js.</li>
-            <li>Maintain strict client data security, enterprise privacy boundaries, and confidential compliance protocols across all deliverables.</li>
-            <li>Optimize client-side rendering pipelines, reducing dashboard load times and boosting performance on high-event-volume streams.</li>
-          </ul>
-        </div>
-
-        <!-- Position 2 -->
-        <div class="relative space-y-2">
-          <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-slate-300 dark:bg-zinc-700 ring-4 ring-white dark:ring-zinc-950"></span>
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">
-              MERN Stack Developer Intern <span class="text-slate-600 dark:text-slate-400 font-normal">· Techfriar Technologies</span>
-            </h3>
-            <span class="font-mono text-xs text-slate-500 dark:text-slate-400">July 2023 — Jan 2024</span>
-          </div>
-          <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed pt-1">
-            Engineered full-stack web applications with React.js, Node.js, Express REST APIs, and MongoDB databases.
-          </p>
-          <ul class="list-disc list-inside font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-1.5 pt-2 leading-relaxed">
-            <li>Implemented secure JWT authentication workflows and responsive front-end dashboard interfaces.</li>
-            <li>Collaborated on component-driven UI architecture, code reviews, and API contract integration.</li>
-          </ul>
-        </div>
-
+      <div class="work-list">
+        <article class="work-entry">
+          <time class="work-date" datetime="2024-06">June 2024 — Present</time>
+          <div><h3 class="work-role">Frontend Engineer</h3><p class="work-company">Innspark Solutions (CISAI) / Kerala, India</p></div>
+          <ul class="work-points"><li>Build Angular interfaces for SIEM, SOAR, UEBA, and DNS security workflows.</li><li>Implement telemetry dashboards with amCharts, Highcharts, Three.js, Sigma.js, and Chart.js.</li><li>Maintain client-data boundaries and optimize rendering paths for high-event-volume views.</li></ul>
+        </article>
+        <article class="work-entry">
+          <time class="work-date" datetime="2023-07/2024-01">July 2023 — Jan 2024</time>
+          <div><h3 class="work-role">MERN Stack Developer Intern</h3><p class="work-company">Techfriar Technologies / Kerala, India</p></div>
+          <ul class="work-points"><li>Built React interfaces backed by Node.js, Express REST APIs, and MongoDB.</li><li>Implemented JWT authentication flows and component-driven dashboard views.</li><li>Worked through API integration, peer review, and Git feature-branch delivery.</li></ul>
+        </article>
       </div>
-
-      <!-- Compact Education Strip -->
-      <div class="mt-16 pt-10 border-t border-slate-200 dark:border-zinc-800/80">
-        <h4 class="font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6 font-semibold">Academic Credentials</h4>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 flex items-start justify-between gap-4">
-            <div>
-              <h5 class="font-semibold text-sm text-slate-900 dark:text-white">Bachelor of Computer Applications (BCA)</h5>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Amrita AHEAD (Online) · Software Engineering</p>
-            </div>
-            <span class="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 whitespace-nowrap">2024 — Present</span>
-          </div>
-          <div class="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 flex items-start justify-between gap-4">
-            <div>
-              <h5 class="font-semibold text-sm text-slate-900 dark:text-white">Diploma in Computer Engineering</h5>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Carmel Polytechnic College · Distinction · Campus Placed</p>
-            </div>
-            <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400 whitespace-nowrap">2021 — 2024</span>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- 5. TECHNICAL STACK (SIMPLIFIED & SCANNABLE) -->
-    <section id="stack" class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-slate-200 dark:border-zinc-800/80">
-      <div class="max-w-3xl lg:max-w-4xl mb-14 space-y-3">
-        <span class="text-xs font-mono uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400 font-semibold">04 / Technology Stack</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
-          Tools &amp; technologies I work with.
-        </h2>
-        <p class="font-sans text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-          Curated frameworks, data visualization engines, and development tooling chosen for reliability, rendering speed, and scalability.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
-        
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 space-y-3">
-          <span class="text-[11px] text-sky-600 dark:text-sky-400 font-bold block">FRONTEND CORE</span>
-          <div class="space-y-1.5 text-slate-700 dark:text-slate-300">
-            <div>React 19 / Next.js</div>
-            <div>Angular (Standalone)</div>
-            <div>TypeScript / ES6+</div>
-            <div>HTML5 &amp; Vanilla JS</div>
-            <div>Tailwind CSS</div>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 space-y-3">
-          <span class="text-[11px] text-indigo-600 dark:text-indigo-400 font-bold block">DATA VIZ &amp; 3D</span>
-          <div class="space-y-1.5 text-slate-700 dark:text-slate-300">
-            <div>Three.js (WebGL)</div>
-            <div>amCharts 5</div>
-            <div>Highcharts</div>
-            <div>Sigma.js Graphs</div>
-            <div>Leaflet &amp; GeoJSON</div>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 space-y-3">
-          <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-bold block">BACKEND &amp; STATE</span>
-          <div class="space-y-1.5 text-slate-700 dark:text-slate-300">
-            <div>Node.js &amp; Express</div>
-            <div>RESTful APIs</div>
-            <div>RxJS Streams</div>
-            <div>MongoDB / SQL</div>
-            <div>JWT Authentication</div>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 space-y-3">
-          <span class="text-[11px] text-violet-600 dark:text-violet-400 font-bold block">DEV TOOLS</span>
-          <div class="space-y-1.5 text-slate-700 dark:text-slate-300">
-            <div>Antigravity IDE</div>
-            <div>Vite / Webpack</div>
-            <div>Git &amp; GitHub</div>
-            <div>Figma / Design Tokens</div>
-            <div>CI/CD &amp; Automation</div>
-          </div>
-        </div>
-
+      <div class="education-block">
+        <div class="page-section-heading"><h3 class="meta-label">Academic record</h3><a class="text-link" href="experience.html">Full experience <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div>
+        <div class="education-row"><span class="education-name">Bachelor of Computer Applications</span><span class="education-detail">Amrita AHEAD / Online degree alongside full-time engineering</span><time class="education-date">2024 — Present</time></div>
+        <div class="education-row"><span class="education-name">Diploma in Computer Engineering</span><span class="education-detail">Carmel Polytechnic College / Graduated with distinction</span><time class="education-date">2021 — 2024</time></div>
       </div>
     </section>
 
-    <!-- 6. ABOUT ME (AUTHENTIC & PERSONAL) -->
-    <section id="about" class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-slate-200 dark:border-zinc-800/80">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        
-        <div class="lg:col-span-4 space-y-2">
-          <span class="text-xs font-mono uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400 font-semibold">05 / Ethos</span>
-          <h2 class="font-display text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
-            A little about me.
-          </h2>
-        </div>
+    <section id="stack" class="shell section" aria-labelledby="stack-title">
+      <div class="section-heading">
+        <p class="section-number">04 // Technical Stack</p>
+        <h2 id="stack-title" class="section-title">Tools by system layer</h2>
+        <p class="section-intro">Frameworks and libraries used across interface architecture, visualization, data flow, and delivery.</p>
+      </div>
+      <dl class="stack-index">
+        <div class="stack-row"><dt>Application core</dt><dd>React 19 / Next.js<br>Angular Standalone<br>TypeScript / ES6+<br>HTML / CSS / Vite</dd></div>
+        <div class="stack-row"><dt>Visualization</dt><dd>D3.js / Sigma.js<br>amCharts 5 / Highcharts<br>Leaflet / GeoJSON<br>Three.js / GLSL</dd></div>
+        <div class="stack-row"><dt>Data &amp; services</dt><dd>RxJS / WebSockets<br>Node.js / Express<br>REST / GraphQL<br>MongoDB / SQL</dd></div>
+        <div class="stack-row"><dt>Workflow</dt><dd>Git / GitHub<br>Figma / Design tokens<br>Webpack / CI automation<br>Responsive accessibility</dd></div>
+      </dl>
+    </section>
 
-        <div class="lg:col-span-8 space-y-5 font-sans text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-          <p>
-            I’m Arjun, a frontend engineer from Kerala who enjoys turning complex technical problems and massive datasets into interfaces that people can actually understand and enjoy using.
-          </p>
-          <p>
-            Currently, my day-to-day focuses on engineering mission-critical cybersecurity suites—building high-throughput telemetry consoles, SIEM event visualizers, and operational dashboards that handle real-time threat data with zero compromise on speed or client privacy.
-          </p>
-          <p>
-            I believe that great software is rooted in curiosity, empathy, and thoughtful craftsmanship. I’m continuously learning, exploring new ideas, and always excited to collaborate with ambitious, passionate teams to build digital experiences that make a meaningful difference.
-          </p>
-          
-          <div class="pt-4 flex items-center gap-6 font-mono text-xs text-slate-700 dark:text-slate-300">
-            <a href="https://github.com/Arjunrajan250" target="_blank" rel="noopener noreferrer" class="hover:text-sky-500 transition-colors flex items-center gap-1.5">
-              <span>github.com/Arjunrajan250</span>
-              <span class="material-symbols-outlined text-xs">open_in_new</span>
-            </a>
-            <a href="https://www.linkedin.com/in/arjun-r-b04726285" target="_blank" rel="noopener noreferrer" class="hover:text-sky-500 transition-colors flex items-center gap-1.5">
-              <span>linkedin.com/in/arjun-r</span>
-              <span class="material-symbols-outlined text-xs">open_in_new</span>
-            </a>
+    <section id="about" class="shell section" aria-labelledby="about-title">
+      <div class="background-grid">
+        <p class="section-number">05 // Background</p>
+        <div class="background-copy">
+          <h2 id="about-title" class="section-title" style="margin-bottom:2rem">Background</h2>
+          <p>I’m Arjun, a frontend engineer based in Kerala. My professional work involves security operations interfaces where dense event data, repeatable triage, and clear system state matter more than visual spectacle.</p>
+          <p>Outside enterprise work, I build focused browser tools: public-data explorers, graph visualizers, offline vector utilities, and headless commerce interfaces. These projects let me test rendering approaches and interaction models at a smaller, inspectable scale.</p>
+          <div class="background-links">
+            <a class="text-link" href="https://github.com/Arjunrajan250" target="_blank" rel="noopener noreferrer">GitHub <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+            <a class="text-link" href="https://www.linkedin.com/in/arjun-r-b04726285" target="_blank" rel="noopener noreferrer">LinkedIn <svg aria-hidden="true"><use href="#icon-external"></use></svg></a>
+            <a class="text-link" href="about.html">Working background <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
           </div>
         </div>
-
+        <aside class="principles" aria-label="Engineering working principles">
+          <div class="principle"><span>01 / Measure</span><p>Profile the render path before changing it.</p></div>
+          <div class="principle"><span>02 / Contain</span><p>Keep client data inside explicit boundaries.</p></div>
+          <div class="principle"><span>03 / Clarify</span><p>Prioritize system state over decorative motion.</p></div>
+          <div class="principle"><span>04 / Maintain</span><p>Use typed contracts and reusable view logic.</p></div>
+        </aside>
       </div>
     </section>
 
-    <!-- 7. CALL TO ACTION & CONTACT -->
-    <section id="contact" class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 border-t border-slate-200 dark:border-zinc-800/80">
-      <div class="p-8 sm:p-14 lg:p-16 rounded-3xl border border-slate-200 dark:border-zinc-800 bg-gradient-to-b from-slate-50 to-white dark:from-zinc-900 dark:to-zinc-950 shadow-xl relative overflow-hidden text-center space-y-6">
-        
-        <span class="inline-block text-xs font-mono tracking-[0.2em] uppercase text-sky-600 dark:text-sky-400 font-semibold">Ready to collaborate?</span>
-        
-        <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-slate-950 dark:text-white max-w-2xl mx-auto leading-tight">
-          Have a project or opportunity in mind? Let's talk.
-        </h2>
-
-        <p class="font-sans text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
-          I'm currently open to frontend engineering opportunities, ambitious contract projects, and UI architecture consulting.
-        </p>
-
-        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
-          <a href="mailto:arjunrthedeveloper@gmail.com" class="px-7 py-3.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-sans text-xs font-semibold hover:bg-slate-800 dark:hover:bg-slate-100 transition-all shadow-md flex items-center gap-2">
-            <span class="material-symbols-outlined text-sm">mail</span>
-            <span>arjunrthedeveloper@gmail.com</span>
-          </a>
-          <button onclick="openResumeModal('executive')" class="px-6 py-3.5 rounded-xl border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-slate-800 dark:text-slate-200 font-sans text-xs font-medium hover:border-sky-500 dark:hover:border-sky-400 transition-all shadow-sm flex items-center gap-2 cursor-pointer">
-            <span class="material-symbols-outlined text-sm text-sky-500">description</span>
-            <span>View Full Resume / CV</span>
-          </button>
+    <section id="contact" class="shell section" aria-labelledby="contact-title">
+      <div class="contact-grid">
+        <div>
+          <p class="section-number">06 // Contact &amp; Availability</p>
+          <h2 id="contact-title" class="contact-title">Contact &amp; Availability</h2>
+          <p class="contact-copy">For frontend roles, contract implementation, and UI architecture work involving data-heavy applications. Typical response time is 12–24 business hours.</p>
+          <p class="availability"><span class="signal-dot" aria-hidden="true"></span>Open to selected engineering opportunities</p>
         </div>
-
-        <div class="pt-6 font-mono text-xs text-slate-500 dark:text-slate-400 flex justify-center items-center gap-4">
-          <span>Kerala, India</span>
-          <span>·</span>
-          <span>+91 8921843248</span>
+        <dl class="contact-details">
+          <div class="contact-detail"><dt>Email</dt><dd><a class="text-link" href="mailto:arjunrthedeveloper@gmail.com">arjunrthedeveloper@gmail.com</a></dd></div>
+          <div class="contact-detail"><dt>Phone</dt><dd><a class="text-link" href="tel:+918921843248">+91 8921843248</a></dd></div>
+          <div class="contact-detail"><dt>Location</dt><dd>Alappuzha, Kerala / IST</dd></div>
+          <div class="contact-detail"><dt>Current</dt><dd>Innspark Solutions (CISAI)</dd></div>
+        </dl>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:arjunrthedeveloper@gmail.com">Start a conversation <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+          <button class="button button-secondary" type="button" data-resume="executive">View curriculum vitae</button>
+          <a class="button button-quiet" href="contact.html">Contact form <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
         </div>
-
       </div>
     </section>
-
   </main>
 
-  <!-- Minimalist Footer -->
-  <footer class="border-t border-slate-200 dark:border-zinc-800/80 py-8 text-xs font-mono text-slate-500 dark:text-slate-400">
-    <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
-        © 2025 Arjun R · Frontend Engineer
-      </div>
-      <div class="flex items-center gap-6">
-        <a href="https://github.com/Arjunrajan250" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-white transition-colors">GitHub</a>
-        <a href="https://www.linkedin.com/in/arjun-r-b04726285" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-white transition-colors">LinkedIn</a>
-        <button onclick="openResumeModal('executive')" class="hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 text-inherit font-inherit">CV Modal</button>
-        <a href="mailto:arjunrthedeveloper@gmail.com" class="hover:text-slate-900 dark:hover:text-white transition-colors">Email</a>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© 2026 Arjun R / Frontend Engineer</span>
+      <div class="footer-links">
+        <a class="footer-link" href="https://github.com/Arjunrajan250" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/arjun-r-b04726285" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button class="footer-link" type="button" data-resume="ats">ATS CV</button>
+        <a class="footer-link" href="mailto:arjunrthedeveloper@gmail.com">Email</a>
       </div>
     </div>
   </footer>
-
-  <script src="assets/main.js"></script>
 </body>
-
 </html>

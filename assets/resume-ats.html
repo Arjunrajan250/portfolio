@@ -48,6 +48,26 @@
             margin-top: 6px;
             margin-bottom: 3px;
         }
+        @media screen and (max-width: 640px) {
+            .no-print > div,
+            .no-print > div > div {
+                flex-wrap: wrap;
+            }
+            .no-print > div > div:last-child {
+                width: 100%;
+            }
+            .no-print a,
+            .no-print button {
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+            .resume-sheet {
+                overflow-wrap: anywhere;
+            }
+            .resume-sheet .flex > * {
+                min-width: 0;
+            }
+        }
         @media print {
             @page {
                 size: A4 portrait;
@@ -222,7 +242,7 @@
                         <span class="font-mono text-[7.5pt] text-slate-500 font-medium">Angular &bull; TypeScript &bull; amCharts 5 &bull; Highcharts &bull; RxJS &bull; REST APIs</span>
                     </div>
                     <p class="leading-normal mt-0.5">
-                        Engineered mission-critical cybersecurity consoles for Security Operations Centers (SOC) supporting government-sector security operations. Correlated multi-source log streams, automated SOAR incident response playbooks, and visualized high-frequency DNS security telemetry with strict role-based access control.
+                        Engineered cybersecurity consoles for Security Operations Centers (SOC) supporting government-sector security operations. Correlated multi-source log streams, automated SOAR incident response playbooks, and visualized high-frequency DNS security telemetry with strict role-based access control.
                     </p>
                 </div>
 
@@ -331,7 +351,7 @@ KEY ENGINEERING PROJECTS
 
 Enterprise SIEM, SOAR & DNS Security Console
 Tech: Angular, TypeScript, amCharts 5, Highcharts, RxJS, REST APIs, Tailwind CSS
-• Engineered mission-critical cybersecurity consoles for Security Operations Centers (SOC) supporting government-sector security operations.
+• Engineered cybersecurity consoles for Security Operations Centers (SOC) supporting government-sector security operations.
 • Correlated multi-source log streams, automated SOAR incident response playbooks, and visualized high-frequency DNS security telemetry with strict role-based access control.
 
 UEBA & NDR Network Telemetry Systems
